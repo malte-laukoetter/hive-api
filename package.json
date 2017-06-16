@@ -1,0 +1,24 @@
+{
+  "name": "hive-api",
+  "version": "0.0.1",
+  "description": "a wrapper for the hivemc api",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc && node build/index.js",
+    "test": "tsc && mocha **/*.test.js",
+    "build": "tsc",
+    "docs": "typedoc --out docs --name \"Hive-Api-Node\" --target ES6 --mode file --excludeExternals",
+    "docs-full": "typedoc --out docs --name \"Hive-Api-Node\" --target ES6 --mode file --includeDeclarations"
+  },
+  "author": "Malte Laukoetter",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chai": "^3.5.2",
+    "@types/mocha": "^2.2.41",
+    "chai": "^4.0.0",
+    "mocha": "^3.4.2",
+    "rewire": "^2.5.2",
+    "ts-node": "^3.0.4",
+    "typedoc": "^0.7.1"
+  }
+}
