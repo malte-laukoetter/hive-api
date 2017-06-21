@@ -1,23 +1,6 @@
 import * as fetch from 'node-fetch';
 import {Game} from "./Game";
 import {Methods} from "./Methods";
-import {PlayerGameInfoFactories} from "./Factory";
-
-export class GameTypes {
-    private _list : [GameType] = null;
-
-    constructor() {}
-
-    async update() {
-        this._list = await fetch(Methods.GAMETYPE_LIST())
-                .then(res => res.json())
-                .then(res => Object.entries(res).map(([id, name]) => new GameType(id, name)));
-    }
-
-    get list(): [GameType] {
-        return this._list;
-    }
-}
 
 export class GameType {
     private _id : string = "";
@@ -37,8 +20,12 @@ export class GameType {
         return this._name;
     }
 
+    set name(value: string) {
+        this._name = value;
+    }
+
     get playerGameInfoFactory() {
-        return PlayerGameInfoFactories[this.id];
+        return null;//playerGameInfoFactory(this);
     }
 
     info() : Promise<GameTypeInfo> {
@@ -76,5 +63,58 @@ class GameTypeInfo {
 
     get achievements() : number {
         return this._achievements;
+    }
+}
+
+export class GameTypes {
+    static readonly SG = new GameType("SG");
+    static readonly BP = new GameType("BP");
+    static readonly CAI = new GameType("CAI");
+    static readonly CR = new GameType("CR");
+    static readonly DR = new GameType("DR");
+    static readonly HB = new GameType("HB");
+    static readonly HERO = new GameType("HERO");
+    static readonly HIDE = new GameType("HIDE");
+    static readonly OITC = new GameType("OITC");
+    static readonly SP = new GameType("SP");
+    static readonly TIMV = new GameType("TIMV");
+    static readonly SKY = new GameType("SKY");
+    static readonly LAB = new GameType("LAB");
+    static readonly DRAW = new GameType("DRAW");
+    static readonly SLAP = new GameType("SLAP");
+    static readonly EF = new GameType("EF");
+    static readonly MM = new GameType("MM");
+    static readonly GRAV = new GameType("GRAV");
+    static readonly RR = new GameType("RR");
+    static readonly GNT = new GameType("GNT");
+    static readonly GNTM = new GameType("GNTM");
+    static readonly PMK = new GameType("PMK");
+    static readonly SGN = new GameType("SGN");
+    static readonly BD = new GameType("BD");
+    static readonly SPL = new GameType("SPL");
+    static readonly MIMV = new GameType("MIMV");
+    static readonly BED = new GameType("BED");
+
+    private static _list : [GameType] = [GameTypes.SG, GameTypes.BP, GameTypes.CAI, GameTypes.CR, GameTypes.DR,
+        GameTypes.HB, GameTypes.HERO, GameTypes.HIDE, GameTypes.OITC, GameTypes.SP, GameTypes.TIMV, GameTypes.SKY,
+        GameTypes.LAB, GameTypes.DRAW, GameTypes.SLAP, GameTypes.EF, GameTypes.MM, GameTypes.GRAV, GameTypes.RR,
+        GameTypes.GNT, GameTypes.GNTM, GameTypes.PMK, GameTypes.BD, GameTypes.SGN, GameTypes.SPL, GameTypes.MIMV,
+        GameTypes.BED];
+
+    static async update() {
+        GameTypes._list = await fetch(Methods.GAMETYPE_LIST())
+            .then(res => res.json())
+            .then(res => Object.entries(res).map(([id, name]) => {
+                if(GameTypes[id]){
+                    GameTypes[id].name = name;
+                    return GameTypes[id];
+                }else{
+                    return new GameType(id, name)
+                }
+            }));
+    }
+
+    static get list(): [GameType] {
+        return GameTypes._list;
     }
 }

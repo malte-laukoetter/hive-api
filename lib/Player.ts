@@ -2,6 +2,7 @@ import * as fetch from 'node-fetch';
 import {GameType} from "./GameType";
 import {Methods} from "./Methods";
 import {Factory} from "./Factory";
+import {PlayerGameInfoTimv} from "./PlayerGameInfoTimv";
 
 export class Player {
     private _uuid;
@@ -42,7 +43,7 @@ export class Player {
     gameInfo(gameType : GameType, forceRefresh : boolean = false){
         if(!this._gameInfos[gameType.id] || forceRefresh){
             this._gameInfos[gameType.id] = fetch(Methods.PLAYER_GAME_STATS(this.requestUuid, gameType.id))
-                .then(res => res.json())
+                .then(res => res.json()).then(gameType.playerGameInfoFactory.createFromResponse)
         }
 
         return this._gameInfos[gameType.id];
