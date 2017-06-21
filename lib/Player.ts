@@ -1,6 +1,7 @@
 import * as fetch from 'node-fetch';
 import {GameType} from "./GameType";
 import {Methods} from "./Methods";
+import {Factory} from "./Factory";
 
 export class Player {
     private _uuid;
@@ -25,8 +26,8 @@ export class Player {
         return this._name;
     }
 
-    info(){
-        if(this._info == null){
+    info(forceRefresh : boolean = false){
+        if(this._info == null || forceRefresh){
             this._info = fetch(Methods.PLAYER(this.requestUuid))
                 .then(res => res.json())
                 .then(createPlayerInfoFromResponse);
@@ -38,11 +39,13 @@ export class Player {
         return this._info;
     }
 
-    gameInfo(gameType : GameType){
-        if(!this._gameInfos[gameType.id]){
+    gameInfo(gameType : GameType, forceRefresh : boolean = false){
+        if(!this._gameInfos[gameType.id] || forceRefresh){
             this._gameInfos[gameType.id] = fetch(Methods.PLAYER_GAME_STATS(this.requestUuid, gameType.id))
                 .then(res => res.json())
         }
+
+        return this._gameInfos[gameType.id];
     }
 
     private get requestUuid() {
@@ -135,7 +138,7 @@ class PlayerInfo {
     }
 }
 
-class PlayerInfoFactory {
+class PlayerInfoFactory implements Factory<PlayerInfo>{
     private _uuid;
     private _name;
     private _rank;
@@ -152,9 +155,9 @@ class PlayerInfoFactory {
 
     constructor() {}
 
-    create = () => new PlayerInfo(this._uuid, this._name, this._rank, this._tokens, this._medals, this._credits,
-        this._crates, this._status, this._firstLogin, this._lastLogin, this._lastLogout, this._achievements,
-        this._trophies);
+    create = () : PlayerInfo => new PlayerInfo(this._uuid, this._name, this._rank, this._tokens, this._medals,
+        this._credits, this._crates, this._status, this._firstLogin, this._lastLogin, this._lastLogout,
+        this._achievements, this._trophies);
 
     uuid = (uuid) => {
         this._uuid = uuid;

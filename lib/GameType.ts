@@ -1,27 +1,28 @@
 import * as fetch from 'node-fetch';
 import {Game} from "./Game";
 import {Methods} from "./Methods";
+import {PlayerGameInfoFactories} from "./Factory";
 
 export class GameTypes {
-    private _list = null;
+    private _list : [GameType] = null;
 
     constructor() {}
 
-    list(){
-        if(this._list == null){
-            this._list = fetch(Methods.GAMETYPE_LIST())
+    async update() {
+        this._list = await fetch(Methods.GAMETYPE_LIST())
                 .then(res => res.json())
                 .then(res => Object.entries(res).map(([id, name]) => new GameType(id, name)));
-        }
+    }
 
+    get list(): [GameType] {
         return this._list;
     }
 }
 
 export class GameType {
-    private _id = "";
-    private _name = "";
-    private _info = null;
+    private _id : string = "";
+    private _name : string = "";
+    private _info : Promise<GameTypeInfo> = null;
 
     constructor(id: string, name: string = "") {
         this._id = id;
@@ -36,7 +37,11 @@ export class GameType {
         return this._name;
     }
 
-    info(){
+    get playerGameInfoFactory() {
+        return PlayerGameInfoFactories[this.id];
+    }
+
+    info() : Promise<GameTypeInfo> {
         if(this._info == null){
             this._info = fetch(Methods.GAMETYPE_INFO(this.id))
                 .then(res => res.json())
@@ -46,30 +51,30 @@ export class GameType {
         return this._info;
     }
 
-    latestGames = () => fetch(Methods.GAMETYPE_LATEST(this.id))
+    latestGames = () : [number] => fetch(Methods.GAMETYPE_LATEST(this.id))
         .then(res => res.json())
         .then(res => res.map((gameId) => new Game(this, gameId)))
         .catch(err => []);
 
-    uniquePlayers = () => this.info().then(res => res.uniquePlayers);
+    uniquePlayers = () : Promise<number> => this.info().then(res => res.uniquePlayers);
 
-    achievements = () => this.info().then(res => res.achievements);
+    achievements = () : Promise<number> => this.info().then(res => res.achievements);
 }
 
 class GameTypeInfo {
-    private _uniquePlayers;
-    private _achievements;
+    private _uniquePlayers : number;
+    private _achievements : number;
 
-    constructor(uniquePlayers, achievements) {
+    constructor(uniquePlayers : number, achievements : number) {
         this._uniquePlayers = uniquePlayers;
         this._achievements = achievements;
     }
 
-    get uniquePlayers() {
+    get uniquePlayers() : number {
         return this._uniquePlayers;
     }
 
-    get achievements() {
+    get achievements() : number {
         return this._achievements;
     }
 }

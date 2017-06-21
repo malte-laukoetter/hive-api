@@ -31,7 +31,7 @@ export class Game {
     }
 }
 
-class GameInfo{
+class GameInfo {
     private _gameEvents;
     private _server;
     private _endTime;
