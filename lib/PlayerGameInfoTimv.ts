@@ -1,5 +1,4 @@
-import {PlayerGameInfo} from "./PlayerGameInfo";
-import {FromResponseFactory} from "./Factory";
+import {PlayerGameInfo, PlayerGameInfoFactory} from "./PlayerGameInfo";
 
 export class PlayerGameInfoTimv extends PlayerGameInfo{
     constructor(readonly lastLogin: Date, readonly totalPoints: number, readonly mostPoints: number,
@@ -11,7 +10,7 @@ export class PlayerGameInfoTimv extends PlayerGameInfo{
     }
 }
 
-export class PlayerGameInfoTimvFactory implements FromResponseFactory<PlayerGameInfoTimv> {
+export class PlayerGameInfoTimvFactory implements PlayerGameInfoFactory<PlayerGameInfoTimv> {
     private _lastLogin : Date;
     private _totalPoints : number;
     private _mostPoints : number;
@@ -34,6 +33,23 @@ export class PlayerGameInfoTimvFactory implements FromResponseFactory<PlayerGame
             this._traitorPoints, this._innocentPoints, this._detectivePoints, this._activeDetectiveStick,
             this._detectiveSticks, this._activeFlareUpgrade, this._flareUpgrades, this._detectiveBook,
             this._achievements, this._title);
+    }
+
+    fromResponse(res){
+        return this.lastLogin(res.lastlogin)
+            .totalPoints(res.total_points)
+            .mostPoints(res.most_points)
+            .rolePoints(res.role_points)
+            .traitorPoints(res.t_points)
+            .innocentPoints(res.i_points)
+            .detectivePoints(res.d_points)
+            .activeDetectiveStick(res.active_detectivestick)
+            .detectiveSticks(res.detectivesticks)
+            .activeFlareUpgrade(res.active_flareupgrade)
+            .flareUpgrades(res.flareupgrade)
+            .detectiveBook(res.detectivebook)
+            .achievements(res.achievements)
+            .title(res.title);
     }
 
     lastLogin(lastLogin){
@@ -105,22 +121,5 @@ export class PlayerGameInfoTimvFactory implements FromResponseFactory<PlayerGame
     title(title){
         this._title = title;
         return this;
-    }
-
-    fromResponse(res){
-        return this.lastLogin(res.lastlogin)
-            .totalPoints(res.total_points)
-            .mostPoints(res.most_points)
-            .rolePoints(res.role_points)
-            .traitorPoints(res.t_points)
-            .innocentPoints(res.i_points)
-            .detectivePoints(res.d_points)
-            .activeDetectiveStick(res.active_detectivestick)
-            .detectiveSticks(res.detectivesticks)
-            .activeFlareUpgrade(res.active_flareupgrade)
-            .flareUpgrades(res.flareupgrade)
-            .detectiveBook(res.detectivebook)
-            .achievements(res.achievements)
-            .title(res.title);
     }
 }

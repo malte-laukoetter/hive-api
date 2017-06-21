@@ -3,15 +3,29 @@ export class PlayerGameInfo {
     constructor() {}
 }
 
-export class PlayerGameInfoFactory implements FromResponseFactory<PlayerGameInfo> {
-    constructor() {}
-
-    create(): PlayerGameInfo {
-        return new PlayerGameInfo();
-    }
-
-    fromResponse(res: any): FromResponseFactory<PlayerGameInfo> {
-        return this;
+export class PlayerGameInfoRaw extends PlayerGameInfo {
+    constructor(readonly data) {
+        super();
     }
 }
 
+export interface PlayerGameInfoFactory<T> extends FromResponseFactory<T> {}
+
+export class PlayerGameInfoRawFactory implements PlayerGameInfoFactory<PlayerGameInfoRaw> {
+    private _data;
+
+    constructor() {}
+
+    create(): PlayerGameInfoRaw {
+        return new PlayerGameInfoRaw(this._data);
+    }
+
+    fromResponse(res: any): FromResponseFactory<PlayerGameInfoRaw> {
+        return this.data(res);
+    }
+
+    data(data){
+        this._data = data;
+        return this;
+    }
+}

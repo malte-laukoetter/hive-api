@@ -43,7 +43,8 @@ export class Player {
     gameInfo(gameType : GameType, forceRefresh : boolean = false){
         if(!this._gameInfos[gameType.id] || forceRefresh){
             this._gameInfos[gameType.id] = fetch(Methods.PLAYER_GAME_STATS(this.requestUuid, gameType.id))
-                .then(res => res.json()).then(gameType.playerGameInfoFactory.createFromResponse)
+                .then(res => res.json())
+                .then((res) => new gameType.playerGameInfoFactory().fromResponse(res).create())
         }
 
         return this._gameInfos[gameType.id];

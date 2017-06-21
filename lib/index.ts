@@ -1,10 +1,13 @@
-import {GameTypes} from "./main";
+import {GameTypes, Player} from "./main";
 
 
 export async function main(){
-    await GameTypes.update();
+   // await GameTypes.update();
 
-    console.log(GameTypes.list.map(type => type.id));
+    new Player("Malte662").gameInfo(GameTypes.GNTM).then(console.log);
+    new Player("Malte662").gameInfo(GameTypes.TIMV).then(console.log);
+
+    //console.log(GameTypes.list.map(type => type.id));
 }
 
 

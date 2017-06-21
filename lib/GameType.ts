@@ -1,6 +1,7 @@
 import * as fetch from 'node-fetch';
 import {Game} from "./Game";
 import {Methods} from "./Methods";
+import {playerGameInfoFactoryForGametype} from "./Factory";
 
 export class GameType {
     private _id : string = "";
@@ -25,7 +26,7 @@ export class GameType {
     }
 
     get playerGameInfoFactory() {
-        return null;//playerGameInfoFactory(this);
+        return playerGameInfoFactoryForGametype(this);
     }
 
     info() : Promise<GameTypeInfo> {
@@ -67,33 +68,33 @@ class GameTypeInfo {
 }
 
 export class GameTypes {
-    static readonly SG = new GameType("SG");
-    static readonly BP = new GameType("BP");
-    static readonly CAI = new GameType("CAI");
-    static readonly CR = new GameType("CR");
-    static readonly DR = new GameType("DR");
-    static readonly HB = new GameType("HB");
+    static readonly SG   = new GameType("SG");
+    static readonly BP   = new GameType("BP");
+    static readonly CAI  = new GameType("CAI");
+    static readonly CR   = new GameType("CR");
+    static readonly DR   = new GameType("DR");
+    static readonly HB   = new GameType("HB");
     static readonly HERO = new GameType("HERO");
     static readonly HIDE = new GameType("HIDE");
     static readonly OITC = new GameType("OITC");
-    static readonly SP = new GameType("SP");
+    static readonly SP   = new GameType("SP");
     static readonly TIMV = new GameType("TIMV");
-    static readonly SKY = new GameType("SKY");
-    static readonly LAB = new GameType("LAB");
+    static readonly SKY  = new GameType("SKY");
+    static readonly LAB  = new GameType("LAB");
     static readonly DRAW = new GameType("DRAW");
     static readonly SLAP = new GameType("SLAP");
-    static readonly EF = new GameType("EF");
-    static readonly MM = new GameType("MM");
+    static readonly EF   = new GameType("EF");
+    static readonly MM   = new GameType("MM");
     static readonly GRAV = new GameType("GRAV");
-    static readonly RR = new GameType("RR");
-    static readonly GNT = new GameType("GNT");
+    static readonly RR   = new GameType("RR");
+    static readonly GNT  = new GameType("GNT");
     static readonly GNTM = new GameType("GNTM");
-    static readonly PMK = new GameType("PMK");
-    static readonly SGN = new GameType("SGN");
-    static readonly BD = new GameType("BD");
-    static readonly SPL = new GameType("SPL");
+    static readonly PMK  = new GameType("PMK");
+    static readonly SGN  = new GameType("SGN");
+    static readonly BD   = new GameType("BD");
+    static readonly SPL  = new GameType("SPL");
     static readonly MIMV = new GameType("MIMV");
-    static readonly BED = new GameType("BED");
+    static readonly BED  = new GameType("BED");
 
     private static _list : [GameType] = [GameTypes.SG, GameTypes.BP, GameTypes.CAI, GameTypes.CR, GameTypes.DR,
         GameTypes.HB, GameTypes.HERO, GameTypes.HIDE, GameTypes.OITC, GameTypes.SP, GameTypes.TIMV, GameTypes.SKY,
