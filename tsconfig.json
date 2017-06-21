@@ -5,6 +5,7 @@
 		"sourceMap": true,
 		"lib": ["ES2017", "dom"],
 		"allowJs": false,
+		"rootDir": "lib",
 		"outDir": "build"
 	},
 	"exclude": [

@@ -1,0 +1,79 @@
+{
+	"SG": [
+		"gameid",
+		"gameevents",
+		"server",
+		"winner",
+		"players",
+		"dmplayers",
+		"endtime",
+		"starttime",
+		"map",
+		"version"
+	],
+	"SGN": [
+		"gameid",
+		"gameevents",
+		"server",
+		"winner",
+		"players",
+		"dmplayers",
+		"endtime",
+		"starttime",
+		"version",
+		"map",
+		"shortname"
+	],
+	"MIMV": [
+		"gameid",
+		"gameevents",
+		"server",
+		"winner",
+		"players",
+		"endtime",
+		"starttime",
+		"map",
+		"version"
+	],
+	"DR": [
+		"gameid",
+		"gameevents",
+		"winners",
+		"server",
+		"endtime",
+		"starttime",
+		"runners",
+		"map",
+		"version",
+		"winningrole",
+		"deaths",
+		"shortname"
+	],
+	"TIMV": [
+		"gameid",
+		"gameevents",
+		"server",
+		"winner",
+		"players",
+		"endtime",
+		"starttime",
+		"map",
+		"version",
+		"shortname"
+	],
+	"SKY": [
+		"gameid",
+		"gameevents",
+		"server",
+		"winner",
+		"teams",
+		"players",
+		"winner2",
+		"teamplayers",
+		"endtime",
+		"starttime",
+		"map",
+		"version",
+		"shortname"
+	]
+}

@@ -4,7 +4,7 @@
   "description": "a wrapper for the hivemc api",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node build/index.js",
+    "start": "tsc && node index.js",
     "test": "tsc && mocha **/*.test.js",
     "build": "tsc",
     "docs": "typedoc --out docs --name \"Hive-Api-Node\" --target ES6 --mode file --excludeExternals",
@@ -20,5 +20,8 @@
     "rewire": "^2.5.2",
     "ts-node": "^3.0.4",
     "typedoc": "^0.7.1"
+  },
+  "dependencies": {
+    "node-fetch": "^1.7.1"
   }
 }
