@@ -1,6 +1,6 @@
-import {PlayerGameInfoTimvFactory} from "./PlayerGameInfoTimv";
+import {PlayerGameInfoTimvFactory} from "./PlayerGameInfo/PlayerGameInfoTimv";
 import {GameType, GameTypes} from "./GameType";
-import {PlayerGameInfoRawFactory} from "./PlayerGameInfo";
+import {PlayerGameInfoRawFactory} from "./PlayerGameInfo/PlayerGameInfo";
 
 export interface Factory<T> {
     create() : T;

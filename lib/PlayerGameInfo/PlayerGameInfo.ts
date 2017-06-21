@@ -1,4 +1,4 @@
-import {FromResponseFactory} from "./Factory";
+import {FromResponseFactory} from "../Factory";
 export class PlayerGameInfo {
     constructor() {}
 }

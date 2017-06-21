@@ -2,7 +2,7 @@ import * as fetch from 'node-fetch';
 import {GameType} from "./GameType";
 import {Methods} from "./Methods";
 import {Factory} from "./Factory";
-import {PlayerGameInfoTimv} from "./PlayerGameInfoTimv";
+import {PlayerGameInfoTimv} from "./PlayerGameInfo/PlayerGameInfoTimv";
 
 export class Player {
     private _uuid;
