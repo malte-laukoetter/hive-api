@@ -1,4 +1,5 @@
 import {FromResponseFactory} from "../Factory";
+
 export class PlayerGameInfo {
     constructor() {}
 }

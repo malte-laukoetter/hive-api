@@ -1,7 +1,7 @@
 import * as fetch from 'node-fetch';
 import {Game} from "./Game";
 import {Methods} from "./Methods";
-import {playerGameInfoFactoryForGametype} from "./Factory";
+import {gameInfoFactoryForGametype, playerGameInfoFactoryForGametype} from "./Factory";
 
 export class GameType {
     private _id : string = "";
@@ -29,6 +29,10 @@ export class GameType {
         return playerGameInfoFactoryForGametype(this);
     }
 
+    get gameInfoFactory() {
+        return gameInfoFactoryForGametype(this);
+    }
+
     info() : Promise<GameTypeInfo> {
         if(this._info == null){
             this._info = fetch(Methods.GAMETYPE_INFO(this.id))
@@ -39,7 +43,7 @@ export class GameType {
         return this._info;
     }
 
-    latestGames = () : [number] => fetch(Methods.GAMETYPE_LATEST(this.id))
+    latestGames = () : Promise<[Game]> => fetch(Methods.GAMETYPE_LATEST(this.id))
         .then(res => res.json())
         .then(res => res.map((gameId) => new Game(this, gameId)))
         .catch(err => []);
