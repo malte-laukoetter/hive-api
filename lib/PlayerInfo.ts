@@ -1,5 +1,8 @@
 import {FromResponseFactory} from "./Factory";
 
+/**
+ * contains the global information about a [[Player]] like it's rank and medals
+ */
 export class PlayerInfo {
     constructor(readonly uuid : string, readonly name : string, readonly rank, readonly tokens : number,
                 readonly medals : number, readonly credits : number, readonly crates : number, readonly status,
@@ -7,6 +10,9 @@ export class PlayerInfo {
                 readonly achievements, readonly trophies) {}
 }
 
+/**
+ * factory to create a [[PlayerInfo]] instance
+ */
 export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo>{
     private _uuid : string;
     private _name : string;
@@ -44,12 +50,12 @@ export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo>{
             .trophies(res.trophies)
     }
 
-    uuid(uuid) {
+    uuid(uuid : string) {
         this._uuid = uuid;
         return this;
     }
 
-    name(name) {
+    name(name : string) {
         this._name = name;
         return this;
     }
@@ -59,22 +65,22 @@ export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo>{
         return this;
     }
 
-    tokens(tokens) {
+    tokens(tokens : number) {
         this._tokens = tokens;
         return this;
     }
 
-    medals(medals) {
+    medals(medals : number) {
         this._medals = medals;
         return this;
     }
 
-    credits(credits) {
+    credits(credits : number) {
         this._credits = credits;
         return this;
     }
 
-    crates(crates) {
+    crates(crates : number) {
         this._crates = crates;
         return this;
     }
@@ -84,17 +90,17 @@ export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo>{
         return this;
     }
 
-    firstLogin(firstLogin) {
+    firstLogin(firstLogin : Date) {
         this._firstLogin = firstLogin;
         return this;
     }
 
-    lastLogin(lastLogin) {
+    lastLogin(lastLogin : Date) {
         this._lastLogin = lastLogin;
         return this;
     }
 
-    lastLogout(lastLogout) {
+    lastLogout(lastLogout : Date) {
         this._lastLogout = lastLogout;
         return this;
     }

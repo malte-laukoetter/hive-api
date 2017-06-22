@@ -3,32 +3,58 @@ import {Game} from "./Game";
 import {Methods} from "./Methods";
 import {gameInfoFactoryForGametype, playerGameInfoFactoryForGametype} from "./Factory";
 
+/**
+ * a type of game available on the hive
+ */
 export class GameType {
     private _id : string = "";
     private _name : string = "";
     private _info : Promise<GameTypeInfo> = null;
 
+    /**
+     * creates a new [[GameType]]
+     * @param id the id of the type used by the api
+     * @param name the human readable name
+     */
     constructor(id: string, name: string = "") {
         this._id = id;
         this._name = name;
     }
 
+    /**
+     * the id used by the id to identify this [[GameType]]
+     */
     get id(): string {
         return this._id;
     }
 
+    /**
+     * the human readable name of the [[GameType]]
+     */
     get name(): string {
         return this._name;
     }
 
+    /**
+     * sets the name
+     * @param value
+     */
     set name(value: string) {
         this._name = value;
     }
 
+    /**
+     * gets the [[Factory]] to create a [[PlayerGameInfo]] instance of this GameType
+     * @return see [[playerGameInfoFactoryForGametype]]
+     */
     get playerGameInfoFactory() {
         return playerGameInfoFactoryForGametype(this);
     }
 
+    /**
+     * gets the [[Factory]] to create a [[GameInfo]] instance of this GameType
+     * @return see [[gameInfoFactoryForGametype]]
+     */
     get gameInfoFactory() {
         return gameInfoFactoryForGametype(this);
     }
