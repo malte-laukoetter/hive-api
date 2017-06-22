@@ -1,13 +1,12 @@
 import * as fetch from 'node-fetch';
 import {GameType} from "./GameType";
 import {Methods} from "./Methods";
-import {Factory} from "./Factory";
-import {PlayerGameInfoTimv} from "./PlayerGameInfo/PlayerGameInfoTimv";
+import {FromResponseFactory} from "./Factory";
 
 export class Player {
-    private _uuid;
-    private _name;
-    private _info : PlayerInfo = null;
+    private _uuid : string;
+    private _name : string;
+    private _info : Promise<PlayerInfo> = null;
     private _gameInfos = {};
 
     constructor(uuidOrName) {
@@ -31,10 +30,13 @@ export class Player {
         if(this._info == null || forceRefresh){
             this._info = fetch(Methods.PLAYER(this.requestUuid))
                 .then(res => res.json())
-                .then(createPlayerInfoFromResponse);
+                .then(res => new PlayerInfoFactory().fromResponse(res).create())
+                .then(res => {
+                    this._uuid = res.uuid;
+                    this._name = res.name;
 
-            this._uuid = this._info.uuid;
-            this._name = this._info.name;
+                    return res;
+                });
         }
 
         return this._info;
@@ -50,108 +52,30 @@ export class Player {
         return this._gameInfos[gameType.id];
     }
 
-    private get requestUuid() {
+    private get requestUuid() : string {
         return this.uuid?this.uuid:this.name;
     }
 }
 
 class PlayerInfo {
-    private _uuid;
-    private _name;
-    private _rank;
-    private _tokens;
-    private _medals;
-    private _credits;
-    private _crates;
-    private _status;
-    private _firstLogin;
-    private _lastLogin;
-    private _lastLogout;
-    private _achievements;
-    private _trophies;
-
-    constructor(uuid, name, rank, tokens, medals, credits, crates, status, firstLogin, lastLogin, lastLogout,
-                achievements, trophies) {
-        this._uuid = uuid;
-        this._name = name;
-        this._rank = rank;
-        this._tokens = tokens;
-        this._medals = medals;
-        this._credits = credits;
-        this._crates = crates;
-        this._status = status;
-        this._firstLogin = firstLogin;
-        this._lastLogin = lastLogin;
-        this._lastLogout = lastLogout;
-        this._achievements = achievements;
-        this._trophies = trophies;
-    }
-
-    get uuid() {
-        return this._uuid;
-    }
-
-    get name() {
-        return this._name;
-    }
-
-    get rank() {
-        return this._rank;
-    }
-
-    get tokens() {
-        return this._tokens;
-    }
-
-    get medals() {
-        return this._medals;
-    }
-
-    get credits() {
-        return this._credits;
-    }
-
-    get crates() {
-        return this._crates;
-    }
-
-    get status() {
-        return this._status;
-    }
-
-    get firstLogin() {
-        return this._firstLogin;
-    }
-
-    get lastLogin() {
-        return this._lastLogin;
-    }
-
-    get lastLogout() {
-        return this._lastLogout;
-    }
-
-    get achievements() {
-        return this._achievements;
-    }
-
-    get trophies() {
-        return this._trophies;
-    }
+    constructor(readonly uuid : string, readonly name : string, readonly rank, readonly tokens : number,
+                readonly medals : number, readonly credits : number, readonly crates : number, readonly status,
+                readonly firstLogin : Date, readonly lastLogin : Date, readonly lastLogout : Date,
+                readonly achievements, readonly trophies) {}
 }
 
-class PlayerInfoFactory implements Factory<PlayerInfo>{
-    private _uuid;
-    private _name;
+class PlayerInfoFactory implements FromResponseFactory<PlayerInfo>{
+    private _uuid : string;
+    private _name : string;
     private _rank;
-    private _tokens;
-    private _medals;
-    private _credits;
-    private _crates;
+    private _tokens : number;
+    private _medals : number;
+    private _credits : number;
+    private _crates : number;
     private _status;
-    private _firstLogin;
-    private _lastLogin;
-    private _lastLogout;
+    private _firstLogin : Date;
+    private _lastLogin : Date;
+    private _lastLogout : Date;
     private _achievements;
     private _trophies;
 
@@ -161,86 +85,84 @@ class PlayerInfoFactory implements Factory<PlayerInfo>{
         this._credits, this._crates, this._status, this._firstLogin, this._lastLogin, this._lastLogout,
         this._achievements, this._trophies);
 
-    uuid = (uuid) => {
+    fromResponse(res: any): FromResponseFactory<PlayerInfo> {
+        return this.name(res.username)
+            .rank(res.rankName)
+            .tokens(res.tokens)
+            .credits(res.credits)
+            .medals(res.medals)
+            .crates(res.crates)
+            .uuid(res.UUID)
+            .status(res.status)
+            .firstLogin(new Date(res.firstLogin*1000))
+            .lastLogin(new Date(res.lastLogin*1000))
+            .lastLogout(new Date(res.lastLogout*1000))
+            .achievements(res.achievements)
+            .trophies(res.trophies)
+    }
+
+    uuid(uuid) {
         this._uuid = uuid;
         return this;
-    };
+    }
 
-    name = (name) => {
+    name(name) {
         this._name = name;
         return this;
-    };
+    }
 
-    rank = (rank) => {
+    rank(rank) {
         this._rank = rank;
         return this;
-    };
+    }
 
-    tokens = (tokens) => {
+    tokens(tokens) {
         this._tokens = tokens;
         return this;
-    };
+    }
 
-    medals = (medals) => {
+    medals(medals) {
         this._medals = medals;
         return this;
-    };
+    }
 
-    credits = (credits) => {
+    credits(credits) {
         this._credits = credits;
         return this;
-    };
+    }
 
-    crates = (crates) => {
+    crates(crates) {
         this._crates = crates;
         return this;
-    };
+    }
 
-    status = (status) => {
+    status(status) {
         this._status = status;
         return this;
-    };
+    }
 
-    firstLogin = (firstLogin) => {
+    firstLogin(firstLogin) {
         this._firstLogin = firstLogin;
         return this;
-    };
+    }
 
-    lastLogin = (lastLogin) => {
+    lastLogin(lastLogin) {
         this._lastLogin = lastLogin;
         return this;
-    };
+    }
 
-    lastLogout = (lastLogout) => {
+    lastLogout(lastLogout) {
         this._lastLogout = lastLogout;
         return this;
-    };
+    }
 
-    achievements = (achievements) => {
+    achievements(achievements) {
         this._achievements = achievements;
         return this;
-    };
+    }
 
-    trophies = (trophies) => {
+    trophies(trophies) {
         this._trophies = trophies;
         return this;
-    };
+    }
 }
-
-const createPlayerInfoFromResponse : (any) => PlayerInfo = (res) => {
-    return new PlayerInfoFactory()
-        .name(res.username)
-        .rank(res.rankName)
-        .tokens(res.tokens)
-        .credits(res.credits)
-        .medals(res.medals)
-        .crates(res.crates)
-        .uuid(res.UUID)
-        .status(res.status)
-        .firstLogin(res.firstLogin)
-        .lastLogin(res.lastLogin)
-        .lastLogout(res.lastLogout)
-        .achievements(res.achievements)
-        .trophies(res.trophies)
-        .create();
-};
