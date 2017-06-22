@@ -1,16 +1,21 @@
 import {FromResponseFactory} from "../Factory";
 
+/**
+ * Information about a Game (not GameType / Mode)
+ */
 export class GameInfo {
     constructor(readonly gameEvents, readonly server, readonly endTime, readonly startTime, readonly map) {}
 }
 
+/**
+ * a factory to create a [[GameInfo]] instance
+ */
 export abstract class GameInfoFactory<T extends GameInfo> implements FromResponseFactory<T> {
     protected _gameEvents;
     protected _server;
     protected _endTime;
     protected _startTime;
     protected _map;
-
 
     abstract create(): T;
 
@@ -48,7 +53,10 @@ export abstract class GameInfoFactory<T extends GameInfo> implements FromRespons
     }
 }
 
-export class DefaultGameInfoFactory extends GameInfoFactory<GameInfo> {
+/**
+ * a factory to create a [[GameInfo]] instance with just the basic data
+ */
+export class BasicGameInfoFactory extends GameInfoFactory<GameInfo> {
     create(): GameInfo{
         return new GameInfo(this._gameEvents, this._server, this._endTime, this._startTime, this._map);
     }
