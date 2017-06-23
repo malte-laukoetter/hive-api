@@ -90,4 +90,9 @@ export class Methods {
      * url for a list of the global achievements
      */
     static GLOBAL_ACHIEVEMENT_LIST = () => `${Methods.BASE_URL()}/server/achievements`;
+
+    /**
+     * url for a list of the trophies
+     */
+    static TROPHIE_LIST = () => `${Methods.BASE_URL()}/server/trophies`;
 }
