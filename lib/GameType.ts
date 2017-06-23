@@ -7,8 +7,6 @@ import {gameInfoFactoryForGametype, playerGameInfoFactoryForGametype} from "./Fa
  * a type of game available on the hive
  */
 export class GameType {
-    private _id : string = "";
-    private _name : string = "";
     private _info : Promise<GameTypeInfo> = null;
 
     /**
@@ -16,32 +14,7 @@ export class GameType {
      * @param id the id of the type used by the api
      * @param name the human readable name
      */
-    constructor(id: string, name: string = "") {
-        this._id = id;
-        this._name = name;
-    }
-
-    /**
-     * the id used by the id to identify this [[GameType]]
-     */
-    get id(): string {
-        return this._id;
-    }
-
-    /**
-     * the human readable name of the [[GameType]]
-     */
-    get name(): string {
-        return this._name;
-    }
-
-    /**
-     * sets the name
-     * @param value
-     */
-    set name(value: string) {
-        this._name = value;
-    }
+    constructor(readonly id: string, name: string = "") {}
 
     /**
      * gets the [[Factory]] to create a [[PlayerGameInfo]] instance of this GameType
@@ -80,21 +53,7 @@ export class GameType {
 }
 
 class GameTypeInfo {
-    private _uniquePlayers : number;
-    private _achievements : number;
-
-    constructor(uniquePlayers : number, achievements : number) {
-        this._uniquePlayers = uniquePlayers;
-        this._achievements = achievements;
-    }
-
-    get uniquePlayers() : number {
-        return this._uniquePlayers;
-    }
-
-    get achievements() : number {
-        return this._achievements;
-    }
+    constructor(readonly uniquePlayers : number, readonly achievements : number) {}
 }
 
 export class GameTypes {

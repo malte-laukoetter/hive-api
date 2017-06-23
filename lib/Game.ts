@@ -3,22 +3,9 @@ import {GameType} from "./GameType";
 import {Methods} from "./Methods";
 
 export class Game {
-    private _id;
-    private _type : GameType;
     private _info = null;
 
-    constructor(type, id) {
-        this._type = type;
-        this._id = id;
-    }
-
-    get id() {
-        return this._id;
-    }
-
-    get type() {
-        return this._type;
-    }
+    constructor(readonly type : GameType, readonly id : number) {}
 
     info(){
         if(this._info == null){
