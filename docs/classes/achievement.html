@@ -64,11 +64,26 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>base class for all achievements</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
 						<span class="target">Achievement</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="serverachievement.html" class="tsd-signature-type">ServerAchievement</a>
+							</li>
+							<li>
+								<a href="gameachievement.html" class="tsd-signature-type">GameAchievement</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -82,6 +97,12 @@
 								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="achievement.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="achievement.html#info" class="tsd-kind-icon">info</a></li>
+							</ul>
+						</section>
 					</div>
 				</section>
 			</section>
@@ -91,13 +112,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Achievement<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, progress<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, unlockedAt<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Date</span>, type<span class="tsd-signature-symbol">?: </span><a href="../enums/achievementtypes.html" class="tsd-signature-type">AchievementTypes</a>, game<span class="tsd-signature-symbol">?: </span><a href="gametype.html" class="tsd-signature-type">GameType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="achievement.html" class="tsd-signature-type">Achievement</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Achievement<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, progress<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, unlockedAt<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="achievement.html" class="tsd-signature-type">Achievement</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in Achievement.ts:18</li>
+									<li>Defined in Achievement.ts:25</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -111,14 +132,42 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> unlockedAt: <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> type: <a href="../enums/achievementtypes.html" class="tsd-signature-type">AchievementTypes</a><span class="tsd-signature-symbol"> =&nbsp;AchievementTypes.SERVER</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> game: <a href="gametype.html" class="tsd-signature-type">GameType</a><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
-								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="achievement.html" class="tsd-signature-type">Achievement</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="info" class="tsd-anchor"></a>
+					<h3>info</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">info<span class="tsd-signature-symbol">(</span>forceRefresh<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="achievementinfo.html" class="tsd-signature-type">AchievementInfo</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in Achievement.ts:33</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>gets the general information about the achievement</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>forceRefresh: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>should the cache be ignored</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="achievementinfo.html" class="tsd-signature-type">AchievementInfo</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -141,6 +190,9 @@
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
 								<a href="achievement.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="achievement.html#info" class="tsd-kind-icon">info</a>
 							</li>
 						</ul>
 					</li>

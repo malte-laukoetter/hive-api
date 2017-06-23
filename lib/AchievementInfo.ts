@@ -1,9 +1,17 @@
 import {FromResponseFactory} from "./Factory";
+
+/**
+ * the type of the reward of an achievement, currently only NONE should be in use but if there is another one later the
+ * code should just set it to UNKNOWN till it is added so please report it if you see an UNKNOWN :)
+ */
 export enum RewardTypes {
     NONE,
     UNKNOWN
 }
 
+/**
+ * creates the [[RewardTypes RewardType]] the string represents
+ */
 export function rewardTypeFromString(str: string) : RewardTypes {
     switch (str.toUpperCase()){
         case "NONE":
@@ -13,12 +21,18 @@ export function rewardTypeFromString(str: string) : RewardTypes {
     }
 }
 
+/**
+ * general information about an achievement
+ */
 export class AchievementInfo {
     constructor(readonly id: string, readonly name: string, readonly description: string, readonly stages: number = 1,
                 readonly secret: boolean = false, readonly custom: boolean = false, readonly disabled: boolean = false,
                 readonly rewardType = RewardTypes.NONE, readonly rewardArguments: string = ""){}
 }
 
+/**
+ * [[Factory]] to create a new [[AchievementInfo]]
+ */
 export class AchievementInfoFactory implements FromResponseFactory<AchievementInfo>{
     private _id: string = "";
     private _name: string = "";

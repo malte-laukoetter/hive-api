@@ -33,7 +33,11 @@ export class GameType {
         return gameInfoFactoryForGametype(this);
     }
 
-    info(forceRefresh: boolean = false) : Promise<GameTypeInfo> {
+    /**
+     * gets the information about the GameType
+     * @param forceRefresh ignore the cache
+     */
+    private info(forceRefresh: boolean = false) : Promise<GameTypeInfo> {
         if(this._info == null || forceRefresh){
             this._info = fetch(Methods.GAMETYPE_INFO(this.id))
                 .then(res => res.json())
@@ -46,22 +50,41 @@ export class GameType {
         return this._info;
     }
 
+    /**
+     * gets the latest 10 games
+     */
     latestGames = () : Promise<Game[]> => fetch(Methods.GAMETYPE_LATEST(this.id))
         .then(res => res.json())
         .then(res => res.map((gameId) => new Game(this, gameId)))
         .catch(err => []);
 
+    /**
+     * gets the amount of unique players that have played the game
+     * @param forceRefresh ignore the cache
+     */
     uniquePlayers = (forceRefresh: boolean = false) : Promise<number> =>
         this.info(forceRefresh).then(res => res.uniquePlayers);
 
+    /**
+     * gets the achievements that are available
+     * @param forceRefresh ignore the cache
+     */
     achievements = (forceRefresh: boolean = false) : Promise<[AchievementInfo]> =>
         this.info(forceRefresh).then(res => res.achievements);
 }
 
+/**
+ * the information about a [[GameType]]
+ */
 class GameTypeInfo {
     constructor(readonly uniquePlayers : number, readonly achievements : [AchievementInfo]) {}
 }
 
+/**
+ * A completely static class that contains all the [[GameType]]s available on the hive.
+ * It has a initial list of the GameTypes available at creation of the file and can be updated from the api through
+ * calling of the [[GameTypes#update]] method.
+ */
 export class GameTypes {
     static readonly SG   = new GameType("SG");
     static readonly BP   = new GameType("BP");
@@ -97,6 +120,10 @@ export class GameTypes {
         GameTypes.GNT, GameTypes.GNTM, GameTypes.PMK, GameTypes.BD, GameTypes.SGN, GameTypes.SPL, GameTypes.MIMV,
         GameTypes.BED];
 
+    /**
+     * updates the list of [[GameType]]s and also the names of the entries that are still in the list
+     * @return resolves after the update is finished and contains no data
+     */
     static async update() {
         GameTypes._list = await fetch(Methods.GAMETYPE_LIST())
             .then(res => res.json())
@@ -110,6 +137,9 @@ export class GameTypes {
             }));
     }
 
+    /**
+     * a list of all available [[GameType]]s
+     */
     static get list(): GameType[] {
         return GameTypes._list;
     }

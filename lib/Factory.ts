@@ -39,7 +39,7 @@ export interface FromResponseFactory<T> extends Factory<T>{
  * all other games just return a [[RawPlayerGameInfoFactory]]
  *
  * @param type the GameType to get the Factory for
- * @return {any} the class for the [[PlayerGameInfoFactory]] of the [[GameType]]
+ * @return the class for the [[PlayerGameInfoFactory]] of the [[GameType]]
  */
 export function playerGameInfoFactoryForGametype(type: GameType) {
     if(type.id == GameTypes.TIMV.id){
@@ -62,7 +62,7 @@ export function playerGameInfoFactoryForGametype(type: GameType) {
  * all other games just return a [[BasicGameInfoFactory]]
  *
  * @param type the GameType to get the Factory for
- * @return {any} the class for the [[GameInfoFactory]] of the [[GameType]]
+ * @return the class for the [[GameInfoFactory]] of the [[GameType]]
  */
 export function gameInfoFactoryForGametype(type: GameType) {
     if(type.id === GameTypes.SG.id) {

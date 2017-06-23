@@ -2,6 +2,7 @@ import * as fetch from 'node-fetch';
 import {GameType} from "./GameType";
 import {Methods} from "./Methods";
 import {PlayerInfo, PlayerInfoFactory} from "./PlayerInfo";
+import {PlayerGameInfo} from "./PlayerGameInfo/PlayerGameInfo";
 
 /**
  * represents a Player that the api can interact with
@@ -48,9 +49,9 @@ export class Player {
      * this also updates the name an uuid to the data provided by the api
      *
      * @param forceRefresh true if the cache should be ignored
-     * @return {Promise<PlayerInfo>} a promise that resolves to the information
+     * @return a promise that resolves to the information
      */
-    info(forceRefresh : boolean = false){
+    info(forceRefresh : boolean = false): Promise<PlayerInfo>{
         if(this._info == null || forceRefresh){
             this._info = fetch(Methods.PLAYER(this.requestUuid))
                 .then(res => res.json())
@@ -78,7 +79,7 @@ export class Player {
      * @param forceRefresh should it be requested from the api even if it is cached
      * @return a promise that resolves to the respective [[PlayerGameInfo]]
      */
-    gameInfo(gameType : GameType, forceRefresh : boolean = false) {
+    gameInfo(gameType : GameType, forceRefresh : boolean = false): Promise<PlayerGameInfo> {
         if(!this._gameInfos[gameType.id] || forceRefresh){
             this._gameInfos[gameType.id] = fetch(Methods.PLAYER_GAME_STATS(this.requestUuid, gameType.id))
                 .then(res => res.json())

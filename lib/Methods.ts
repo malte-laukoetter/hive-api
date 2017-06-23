@@ -17,33 +17,33 @@ export class Methods {
      * url for the information about a gametype
      * @param gameType
      */
-    static GAMETYPE_INFO = (gameType) => `${Methods.BASE_URL()}/game/${gameType}`;
+    static GAMETYPE_INFO = (gameType: string) => `${Methods.BASE_URL()}/game/${gameType}`;
 
     /**
      * url for the latest games of the gametype
      * @param gameType
      */
-    static GAMETYPE_LATEST = (gameType) => `${Methods.BASE_URL()}/game/${gameType}/data`;
+    static GAMETYPE_LATEST = (gameType: string) => `${Methods.BASE_URL()}/game/${gameType}/data`;
 
     /**
      * url for the list of maps for the gametype
      * @param gameType
      */
-    static MAP_LIST = (gameType) => `${Methods.BASE_URL()}/game/${gameType}/maps`;
+    static MAP_LIST = (gameType: string) => `${Methods.BASE_URL()}/game/${gameType}/maps`;
 
     /**
      * url for the information about a map of the gametype
      * @param gameType
      * @param map
      */
-    static MAP_INFO = (gameType, map) => `${Methods.BASE_URL()}/game/${gameType}/maps/${map}`;
+    static MAP_INFO = (gameType: string, map: string) => `${Methods.BASE_URL()}/game/${gameType}/maps/${map}`;
 
     /**
      * url for information about a game
      * @param gameType the gametype of the game
      * @param gameId the id of the game
      */
-    static GAME_INFO = (gameType, gameId) => `${Methods.BASE_URL()}/game/${gameType}/data/${gameId}`;
+    static GAME_INFO = (gameType: string, gameId: number) => `${Methods.BASE_URL()}/game/${gameType}/data/${gameId}`;
 
     /**
      * url for the information about a player within a game
@@ -51,7 +51,8 @@ export class Methods {
      * @param gameId the id of the game
      * @param uuid the uuid or name of the player
      */
-    static GAME_INFO_PLAYER = (gameType, gameId, uuid) => `${Methods.BASE_URL()}/game/${gameType}/data/${gameId}/${uuid}`;
+    static GAME_INFO_PLAYER = (gameType: string, gameId: number, uuid: string) =>
+        `${Methods.BASE_URL()}/game/${gameType}/data/${gameId}/${uuid}`;
 
     /**
      * url for the leaderboard of a gametype
@@ -59,21 +60,21 @@ export class Methods {
      * @param start
      * @param end
      */
-    static GAME_LEADERBOARD = (gameType, start=0, end=20) =>
+    static GAME_LEADERBOARD = (gameType: string, start: number=0, end: number=20) =>
         `${Methods.BASE_URL}/game/${gameType}/leaderboard/${start}/${end}`;
 
     /**
      * url for information about a player
      * @param uuid the uuid or name of the player
      */
-    static PLAYER = (uuid) => `${Methods.BASE_URL()}/player/${uuid}`;
+    static PLAYER = (uuid: string) => `${Methods.BASE_URL()}/player/${uuid}`;
 
     /**
      * url for information of a player for a gametype
      * @param uuid the uuid or name of the player
      * @param gameType
      */
-    static PLAYER_GAME_STATS = (uuid, gameType) => `${Methods.BASE_URL()}/player/${uuid}/${gameType}`;
+    static PLAYER_GAME_STATS = (uuid: string, gameType: string) => `${Methods.BASE_URL()}/player/${uuid}/${gameType}`;
 
     /**
      * url for the current playercount of the hive
