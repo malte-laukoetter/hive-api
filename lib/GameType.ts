@@ -2,19 +2,20 @@ import * as fetch from 'node-fetch';
 import {Game} from "./Game";
 import {Methods} from "./Methods";
 import {gameInfoFactoryForGametype, playerGameInfoFactoryForGametype} from "./Factory";
+import {AchievementInfo, AchievementInfoFactory} from "./AchievementInfo";
 
 /**
  * a type of game available on the hive
  */
 export class GameType {
-    private _info : Promise<GameTypeInfo> = null;
+    private _info: Promise<GameTypeInfo> = null;
 
     /**
      * creates a new [[GameType]]
      * @param id the id of the type used by the api
      * @param name the human readable name
      */
-    constructor(readonly id: string, name: string = "") {}
+    constructor(readonly id: string, public name: string = "") {}
 
     /**
      * gets the [[Factory]] to create a [[PlayerGameInfo]] instance of this GameType
@@ -32,11 +33,14 @@ export class GameType {
         return gameInfoFactoryForGametype(this);
     }
 
-    info() : Promise<GameTypeInfo> {
-        if(this._info == null){
+    info(forceRefresh: boolean = false) : Promise<GameTypeInfo> {
+        if(this._info == null || forceRefresh){
             this._info = fetch(Methods.GAMETYPE_INFO(this.id))
                 .then(res => res.json())
-                .then(res => new GameTypeInfo(res.uniqueplayers, res.achievements));
+                .then(res => new GameTypeInfo(
+                    res.uniqueplayers,
+                    res.achievements.map(a => new AchievementInfoFactory().fromResponse(a).create())
+                ));
         }
 
         return this._info;
@@ -47,13 +51,15 @@ export class GameType {
         .then(res => res.map((gameId) => new Game(this, gameId)))
         .catch(err => []);
 
-    uniquePlayers = () : Promise<number> => this.info().then(res => res.uniquePlayers);
+    uniquePlayers = (forceRefresh: boolean = false) : Promise<number> =>
+        this.info(forceRefresh).then(res => res.uniquePlayers);
 
-    achievements = () : Promise<number> => this.info().then(res => res.achievements);
+    achievements = (forceRefresh: boolean = false) : Promise<[AchievementInfo]> =>
+        this.info(forceRefresh).then(res => res.achievements);
 }
 
 class GameTypeInfo {
-    constructor(readonly uniquePlayers : number, readonly achievements : number) {}
+    constructor(readonly uniquePlayers : number, readonly achievements : [AchievementInfo]) {}
 }
 
 export class GameTypes {

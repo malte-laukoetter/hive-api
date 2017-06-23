@@ -1,31 +1,32 @@
 import {FromResponseFactory} from "./Factory";
+import {Achievement, AchievementFactory, AchievementTypes} from "./Achievement";
 
 /**
  * contains the global information about a [[Player]] like it's rank and medals
  */
 export class PlayerInfo {
-    constructor(readonly uuid : string, readonly name : string, readonly rank, readonly tokens : number,
-                readonly medals : number, readonly credits : number, readonly crates : number, readonly status,
-                readonly firstLogin : Date, readonly lastLogin : Date, readonly lastLogout : Date,
-                readonly achievements, readonly trophies) {}
+    constructor(readonly uuid: string, readonly name: string, readonly rank, readonly tokens: number,
+                readonly medals: number, readonly credits: number, readonly crates: number, readonly status,
+                readonly firstLogin: Date, readonly lastLogin: Date, readonly lastLogout: Date,
+                readonly achievements: Achievement[], readonly trophies) {}
 }
 
 /**
  * factory to create a [[PlayerInfo]] instance
  */
 export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo>{
-    private _uuid : string;
-    private _name : string;
+    private _uuid : string = "";
+    private _name : string = "";
     private _rank;
-    private _tokens : number;
-    private _medals : number;
-    private _credits : number;
-    private _crates : number;
+    private _tokens : number = 0;
+    private _medals : number = 0;
+    private _credits : number = 0;
+    private _crates : number = 0;
     private _status;
     private _firstLogin : Date;
     private _lastLogin : Date;
     private _lastLogout : Date;
-    private _achievements;
+    private _achievements : Achievement[] = [];
     private _trophies;
 
     constructor() {}
@@ -46,7 +47,13 @@ export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo>{
             .firstLogin(new Date(res.firstLogin*1000))
             .lastLogin(new Date(res.lastLogin*1000))
             .lastLogout(new Date(res.lastLogout*1000))
-            .achievements(res.achievements)
+            .achievements(Object.entries(res.achievements).map(([id, data]) =>
+                new AchievementFactory()
+                    .id(id)
+                    .type(AchievementTypes.SERVER)
+                    .fromResponse(data)
+                    .create()
+            ))
             .trophies(res.trophies)
     }
 
