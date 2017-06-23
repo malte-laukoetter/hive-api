@@ -1,6 +1,6 @@
 import {GameTypes, Player, Server} from "./main";
 import {PlayerInfo} from "./PlayerInfo";
-import {Achievement} from "./Achievement";
+import {Achievement, TheSwarmAchievement} from "./Achievement";
 
 
 export async function main(){
@@ -9,16 +9,16 @@ export async function main(){
     //Server.achievements().then(console.log);
     //console.log(GameTypes.HIDE.name)
 
-    let player = new Player("mr_khlq8");
-    player.info().then(console.log)
-    /*let players = [];
+    let player = new Player("mangy001");
+    //player.info().then(console.log)
+    let players = [];
     let games = {};
 
     while(player){
         players.push(player);
         let info: PlayerInfo = await player.info();
 
-        let swarm: Achievement = info.achievements.filter(a => a.id == "THESWARM")[0];
+        let swarm: TheSwarmAchievement = info.achievements.filter(a => a.id == "THESWARM")[0] as TheSwarmAchievement;
 
         if(swarm.theSwarmGame){
             if(!games[swarm.theSwarmGame.id]) games[swarm.theSwarmGame.id] = 0;
@@ -29,7 +29,7 @@ export async function main(){
         player = swarm.theSwarmFrom;
     }
 
-    console.log(games);*/
+    console.log(games);
 
     //new Player("Malte662").info().then((info) => info.achievements[1].theSwarmFrom.info()).then(console.log)
 
