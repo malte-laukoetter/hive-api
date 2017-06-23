@@ -4,7 +4,7 @@ export class PlayerGameInfo {
     constructor() {}
 }
 
-export class PlayerGameInfoRaw extends PlayerGameInfo {
+export class RawPlayerGameInfo extends PlayerGameInfo {
     constructor(readonly data) {
         super();
     }
@@ -12,16 +12,16 @@ export class PlayerGameInfoRaw extends PlayerGameInfo {
 
 export interface PlayerGameInfoFactory<T> extends FromResponseFactory<T> {}
 
-export class PlayerGameInfoRawFactory implements PlayerGameInfoFactory<PlayerGameInfoRaw> {
+export class RawPlayerGameInfoFactory implements PlayerGameInfoFactory<RawPlayerGameInfo> {
     private _data;
 
     constructor() {}
 
-    create(): PlayerGameInfoRaw {
-        return new PlayerGameInfoRaw(this._data);
+    create(): RawPlayerGameInfo {
+        return new RawPlayerGameInfo(this._data);
     }
 
-    fromResponse(res: any): FromResponseFactory<PlayerGameInfoRaw> {
+    fromResponse(res: any): FromResponseFactory<RawPlayerGameInfo> {
         return this.data(res);
     }
 

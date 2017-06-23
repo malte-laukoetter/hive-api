@@ -1,6 +1,6 @@
 import {PlayerGameInfo, PlayerGameInfoFactory} from "./PlayerGameInfo";
 
-export class PlayerGameInfoTimv extends PlayerGameInfo{
+export class TimvPlayerGameInfo extends PlayerGameInfo{
     constructor(readonly lastLogin: Date, readonly totalPoints: number, readonly mostPoints: number,
                 readonly rolePoints: number, readonly traitorPoints: number,
                 readonly innocentPoints: number, readonly detectivePoints: number,
@@ -10,7 +10,7 @@ export class PlayerGameInfoTimv extends PlayerGameInfo{
     }
 }
 
-export class PlayerGameInfoTimvFactory implements PlayerGameInfoFactory<PlayerGameInfoTimv> {
+export class TimvPlayerGameInfoFactory implements PlayerGameInfoFactory<TimvPlayerGameInfo> {
     private _lastLogin : Date;
     private _totalPoints : number;
     private _mostPoints : number;
@@ -28,8 +28,8 @@ export class PlayerGameInfoTimvFactory implements PlayerGameInfoFactory<PlayerGa
 
     constructor() {}
 
-    create(): PlayerGameInfoTimv {
-        return new PlayerGameInfoTimv(this._lastLogin, this._totalPoints, this._mostPoints, this._rolePoints,
+    create(): TimvPlayerGameInfo {
+        return new TimvPlayerGameInfo(this._lastLogin, this._totalPoints, this._mostPoints, this._rolePoints,
             this._traitorPoints, this._innocentPoints, this._detectivePoints, this._activeDetectiveStick,
             this._detectiveSticks, this._activeFlareUpgrade, this._flareUpgrades, this._detectiveBook,
             this._achievements, this._title);

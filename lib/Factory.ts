@@ -1,6 +1,6 @@
-import {PlayerGameInfoTimvFactory} from "./PlayerGameInfo/PlayerGameInfoTimv";
+import {TimvPlayerGameInfoFactory} from "./PlayerGameInfo/TimvPlayerGameInfo";
 import {GameType, GameTypes} from "./GameType";
-import {PlayerGameInfoRawFactory} from "./PlayerGameInfo/PlayerGameInfo";
+import {RawPlayerGameInfoFactory} from "./PlayerGameInfo/PlayerGameInfo";
 import {SgGameInfoFactory} from "./GameInfo/SgGameInfo";
 import {SgnGameInfoFactory} from "./GameInfo/SgnGameInfo";
 import {MimvGameInfoFactory} from "./GameInfo/MimvGameInfo";
@@ -34,18 +34,18 @@ export interface FromResponseFactory<T> extends Factory<T>{
 /**
  * gets the [[PlayerGameInfoFactory]] for the given [[GameType]]
  * currently the following games have Factories that parse the data:
- *  * TIMV - [[PlayerGameInfoTimvFactory]]
+ *  * TIMV - [[TimvPlayerGameInfoFactory]]
  *
- * all other games just return a [[PlayerGameInfoRawFactory]]
+ * all other games just return a [[RawPlayerGameInfoFactory]]
  *
  * @param type the GameType to get the Factory for
  * @return {any} the class for the [[PlayerGameInfoFactory]] of the [[GameType]]
  */
 export function playerGameInfoFactoryForGametype(type: GameType) {
     if(type.id == GameTypes.TIMV.id){
-        return PlayerGameInfoTimvFactory;
+        return TimvPlayerGameInfoFactory;
     }else{
-        return PlayerGameInfoRawFactory;
+        return RawPlayerGameInfoFactory;
     }
 }
 

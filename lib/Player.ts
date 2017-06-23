@@ -70,9 +70,9 @@ export class Player {
      * requests information about a player in a certain [[GameType]] and returns a respective [[PlayerGameInfo]]
      *
      * currently [[PlayerGameInfo]] instances
-     * * TIMV - [[PlayerGameInfoTimv]]
+     * * TIMV - [[TimvPlayerGameInfo]]
      *
-     * every other game just uses [[PlayerGameInfoRaw]] with the raw data of the response
+     * every other game just uses [[RawPlayerGameInfo]] with the raw data of the response
      *
      * @param gameType the game to request the data about
      * @param forceRefresh should it be requested from the api even if it is cached

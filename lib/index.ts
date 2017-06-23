@@ -1,10 +1,14 @@
-import {GameTypes, Player} from "./main";
+import {GameTypes, Player, Server} from "./main";
 
 
 export async function main(){
-   // await GameTypes.update();
+//    await GameTypes.update();
 
-    console.log((await new Player("Malte662").info()).firstLogin.toLocaleString());
+    Server.achievements().then(console.log);
+
+//    new Player("Malte662").info().then((info) => info.crates).then(console.log)
+
+  //  console.log((await new Player("Malte662").info()).firstLogin.toLocaleString());
   //  new Player("Malte662").gameInfo(GameTypes.TIMV).then(console.log);
 
   /*  GameTypes.list.forEach(async (gametype)=>{

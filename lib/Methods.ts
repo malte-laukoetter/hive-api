@@ -88,5 +88,5 @@ export class Methods {
     /**
      * url for a list of the global achievements
      */
-    static GLOBAL_ACHIEVEMENT_LIST = () => `${Methods.BASE_URL()}/server/achivements`;
+    static GLOBAL_ACHIEVEMENT_LIST = () => `${Methods.BASE_URL()}/server/achievements`;
 }
