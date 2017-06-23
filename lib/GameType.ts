@@ -46,7 +46,7 @@ export class GameType {
         return this._info;
     }
 
-    latestGames = () : Promise<[Game]> => fetch(Methods.GAMETYPE_LATEST(this.id))
+    latestGames = () : Promise<Game[]> => fetch(Methods.GAMETYPE_LATEST(this.id))
         .then(res => res.json())
         .then(res => res.map((gameId) => new Game(this, gameId)))
         .catch(err => []);
@@ -91,7 +91,7 @@ export class GameTypes {
     static readonly MIMV = new GameType("MIMV");
     static readonly BED  = new GameType("BED");
 
-    private static _list : [GameType] = [GameTypes.SG, GameTypes.BP, GameTypes.CAI, GameTypes.CR, GameTypes.DR,
+    private static _list : GameType[] = [GameTypes.SG, GameTypes.BP, GameTypes.CAI, GameTypes.CR, GameTypes.DR,
         GameTypes.HB, GameTypes.HERO, GameTypes.HIDE, GameTypes.OITC, GameTypes.SP, GameTypes.TIMV, GameTypes.SKY,
         GameTypes.LAB, GameTypes.DRAW, GameTypes.SLAP, GameTypes.EF, GameTypes.MM, GameTypes.GRAV, GameTypes.RR,
         GameTypes.GNT, GameTypes.GNTM, GameTypes.PMK, GameTypes.BD, GameTypes.SGN, GameTypes.SPL, GameTypes.MIMV,
@@ -110,7 +110,7 @@ export class GameTypes {
             }));
     }
 
-    static get list(): [GameType] {
+    static get list(): GameType[] {
         return GameTypes._list;
     }
 }
