@@ -5,9 +5,12 @@
 		"sourceMap": true,
 		"lib": ["ES2017", "dom"],
 		"allowJs": false,
-		"rootDir": "lib",
 		"outDir": "build"
 	},
+	"include": [
+		"lib",
+		"test"
+	],
 	"exclude": [
 		"node_modules",
 		"build",

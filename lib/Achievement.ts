@@ -149,20 +149,14 @@ export class AchievementFactory implements FromResponseFactory<Achievement>{
  * the TheSwarm achievement uses some crazy gameIds so we need this to change them to out [[GameType]]s
  * @param name the value of the game field fo the TheSwarm achievement
  */
-function theSwarmGameToGameType(name: string): GameType{
+export function theSwarmGameToGameType(name: string): GameType{
     switch(name.toLowerCase()){
         case "hideandseek":
             return GameTypes.HIDE;
         case "survivalgames":
             return GameTypes.SG;
-        case "oitc":
-            return GameTypes.OITC;
-        case "cai":
-            return GameTypes.CAI;
         case "deathrun":
             return GameTypes.DR;
-        case "timv":
-            return GameTypes.TIMV;
         case "sgheroes":
             return GameTypes.HERO;
         case "theherobrine":
@@ -170,6 +164,14 @@ function theSwarmGameToGameType(name: string): GameType{
         case "cranked":
             return GameTypes.CR;
         default:
+            // test by the name and id
+            let matchingTypes = GameTypes.list
+                .filter((type) => type.id === name.toUpperCase() || type.name.toLowerCase() === name.toLowerCase());
+
+            if(matchingTypes.length > 0){
+                return matchingTypes[0];
+            }
+
             throw `Unknown SwarmGameId: ${name}`
     }
 }
