@@ -6,7 +6,7 @@
 		"lib": ["ES2017", "dom"],
 		"allowJs": false,
 		"outDir": "build",
-		"isolatedModules": true
+		"declaration": true
 	},
 	"include": [
 		"lib",

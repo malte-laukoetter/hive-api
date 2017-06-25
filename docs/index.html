@@ -63,7 +63,56 @@
 		<div class="col-8 col-content">
 			<div class="tsd-panel tsd-typography">
 				<h1 id="hive-api-node">Hive-Api-Node</h1>
-				<p>a node.js wrapper for the api of <a href="https://hivemc.com">https://hivemc.com</a></p>
+				<blockquote>
+					<p>A node.js wrapper for the api of <a href="https://hivemc.com">https://hivemc.com</a>, written in TypeScript and using Promises</p>
+				</blockquote>
+				<h2 id="install">Install</h2>
+				<pre><code><span class="hljs-meta">$</span><span class="bash"> npm install --save hive-api</span>
+</code></pre><h2 id="documentation">Documentation</h2>
+				<p><a href="http://hive-api.lergin.de">http://hive-api.lergin.de</a></p>
+				<p>Note: some classes do not expose there properties in the documentation in the right way and only show them in the constructor</p>
+				<h2 id="usage">Usage</h2>
+				<h3 id="javascript">JavaScript</h3>
+				<pre><code class="lang-js"><span class="hljs-keyword">const</span> hive = <span class="hljs-built_in">require</span>(<span class="hljs-string">'hive-api'</span>);
+
+<span class="hljs-keyword">let</span> player = <span class="hljs-keyword">new</span> hive.Player(<span class="hljs-string">"Malte662"</span>);
+
+player.info().then(<span class="hljs-function"><span class="hljs-params">info</span> =&gt;</span> {
+     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Tokens: <span class="hljs-subst">${info.tokens}</span>`</span>)
+});
+</code></pre>
+				<h3 id="typescript">TypeScript</h3>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Player} <span class="hljs-keyword">from</span> <span class="hljs-string">"hive-api"</span>;
+
+<span class="hljs-keyword">let</span> player: Player = <span class="hljs-keyword">new</span> Player(<span class="hljs-string">"Malte662"</span>);
+
+player.info().then(<span class="hljs-function">(<span class="hljs-params">info: PlayerInfo</span>) =&gt;</span> {
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Tokens: <span class="hljs-subst">${info.tokens}</span>`</span>)
+});
+</code></pre>
+				<h2 id="examples">Examples</h2>
+				<h4 id="print-the-unique-players-of-each-game">Print the unique players of each game</h4>
+				<pre><code class="lang-typescript"><span class="hljs-keyword">await</span> GameTypes.update(); <span class="hljs-comment">// update the list of GameTypes</span>
+
+GameTypes.list.forEach(<span class="hljs-function">(<span class="hljs-params"><span class="hljs-keyword">type</span>: GameType</span>) =&gt;</span> {
+    <span class="hljs-keyword">type</span>.uniquePlayers().then(<span class="hljs-function">(<span class="hljs-params">players</span>) =&gt;</span> {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${type.name}</span>: <span class="hljs-subst">${players}</span> players`</span>);
+    });
+});
+</code></pre>
+				<h4 id="get-the-global-achievements-of-the-winner-of-the-latest-survival-games-game">Get the global achievements of the winner of the latest survival games game</h4>
+				<pre><code class="lang-typescript">GameTypes.SG.latestGames()
+    .then(<span class="hljs-function"><span class="hljs-params">games</span> =&gt;</span> games[<span class="hljs-number">0</span>])
+    .then(<span class="hljs-function">(<span class="hljs-params">game: Game</span>) =&gt;</span> game.info())
+    .then(<span class="hljs-keyword">async</span> (gameInfo: SgGameInfo) =&gt; {
+        <span class="hljs-keyword">let</span> winnerInfo: PlayerInfo = <span class="hljs-keyword">await</span> gameInfo.winner.info();
+
+        winnerInfo.achievements.forEach(<span class="hljs-function">(<span class="hljs-params">achievement: ServerAchievement</span>) =&gt;</span>{
+            achievement.info().then(<span class="hljs-function">(<span class="hljs-params">info: AchievementInfo</span>) =&gt;</span> info.name)
+                .then(<span class="hljs-built_in">console</span>.log)
+        });
+    }).catch(<span class="hljs-built_in">console</span>.error);
+</code></pre>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">

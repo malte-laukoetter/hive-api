@@ -1,6 +1,6 @@
 # Hive-Api-Node
 
-A node.js wrapper for the api of https://hivemc.com, written in TypeScript and using Promises
+> A node.js wrapper for the api of https://hivemc.com, written in TypeScript and using Promises
 
 
 ## Install
@@ -12,6 +12,9 @@ $ npm install --save hive-api
 ## Documentation
 
 http://hive-api.lergin.de
+
+Note: some classes do not expose there properties in the documentation in the right way and only show them in the constructor
+
 
 ## Usage
 
