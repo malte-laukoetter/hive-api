@@ -1,22 +1,36 @@
 # Hive-Api-Node
 
-A node.js wrapper for the api of https://hivemc.com
+A node.js wrapper for the api of https://hivemc.com, written in TypeScript and using Promises
 
 
-Content
+## Install
 
-* Introduction
-* Examples
-* Stuff
+```
+$ npm install --save hive-api
+```
 
-##Introduction
+## Documentation
 
-This wrapper is mostly based on Promises 
+http://hive-api.lergin.de
 
-## Examples
+## Usage
 
-#### Print the tokens of a player to the console
+### JavaScript
+
+```js
+const hive = require('hive-api');
+
+let player = new hive.Player("Malte662");
+
+player.info().then(info => {
+	 console.log(`Tokens: ${info.tokens}`)
+});
+```
+
+### TypeScript
 ```typescript
+import {Player} from "hive-api";
+
 let player: Player = new Player("Malte662");
 
 player.info().then((info: PlayerInfo) => {
@@ -24,6 +38,8 @@ player.info().then((info: PlayerInfo) => {
 });
 ```
 
+
+## Examples
 
 #### Print the unique players of each game
 
@@ -38,8 +54,8 @@ GameTypes.list.forEach((type: GameType) => {
 ```
 
 
-##### Get the global achievements of the winner of the latest SG game
- ```typescript
+#### Get the global achievements of the winner of the latest survival games game
+```typescript
 GameTypes.SG.latestGames()
 	.then(games => games[0])
 	.then((game: Game) => game.info())
@@ -51,4 +67,4 @@ GameTypes.SG.latestGames()
 				.then(console.log)
 		});
 	}).catch(console.error);
- ```
+```
