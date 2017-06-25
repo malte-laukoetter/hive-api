@@ -8,7 +8,7 @@
     "start": "node index.js",
     "test": "tsc && mocha **/*.test.js",
     "build": "tsc",
-    "docs": "typedoc --out docs --name \"Hive-Api-Node\" --target ES6 --mode file --excludeExternals",
+    "docs": "typedoc --out docs --name \"Hive-Api-Node\" --target ES6 --mode file --excludeExternals -gaID UA-60277501-9 -gaSite auto -theme typedoctheme",
     "docs-full": "typedoc --out docs --name \"Hive-Api-Node\" --target ES6 --mode file --includeDeclarations"
   },
   "author": "Malte Laukoetter",
