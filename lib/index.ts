@@ -1,6 +1,4 @@
-import {Game, GameTypes, Player, PlayerInfo, Server, SgGameInfo, Achievement, TheSwarmAchievement} from "./main";
-import {AchievementInfo} from "./AchievementInfo";
-import {ServerAchievement} from "./Achievement";
+import {Game, GameTypes, Player, PlayerInfo, Server, SgGameInfo, Achievement, TheSwarmAchievement, DrGameInfo} from "./main";
 
 
 export async function main(){
@@ -22,16 +20,11 @@ export async function main(){
 
     //console.log(GameTypes.list.map(type => type.id));
 
-    GameTypes.SG.latestGames()
+    GameTypes.DR.latestGames()
         .then(games => games[0])
         .then((game: Game) => game.info())
-        .then(async (gameInfo: SgGameInfo) => {
-            let winnerInfo: PlayerInfo = await gameInfo.winner.info();
-
-            winnerInfo.achievements.forEach((achievement: ServerAchievement) =>{
-                achievement.info().then((info: AchievementInfo) => info.name)
-                    .then(console.log)
-            });
+        .then(async (gameInfo: DrGameInfo) => {
+            console.log(gameInfo.winners)
         }).catch(console.error);
 }
 

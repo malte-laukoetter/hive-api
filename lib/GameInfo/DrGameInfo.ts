@@ -1,46 +1,63 @@
-import {GameInfo, GameInfoFactory} from "../main";
+import {GameInfo, GameInfoFactory, Player} from "../main";
+
+export enum DrTeam {
+    RUNNER,
+    DEATH
+}
+
+export function drTeamFromText(text: string): DrTeam{
+    switch(text.toLowerCase()){
+        case "runner":
+            return DrTeam.RUNNER;
+        case "death":
+            return DrTeam.DEATH;
+    }
+
+    throw new Error(`Unknown DrTeam ${text}`);
+}
 
 export class DrGameInfo extends GameInfo {
-    constructor(gameEvents, server, endTime, startTime, map, readonly runners, readonly winners, readonly winningRole,
-                readonly deaths) {
+    constructor(gameEvents, server, endTime, startTime, map, readonly runners: Player[], readonly winners: Player[],
+                readonly winningTeam: DrTeam, readonly deaths: Player[]) {
         super(gameEvents, server, endTime, startTime, map);
     }
 }
+
 export class DrGameInfoFactory extends GameInfoFactory<DrGameInfo> {
-    protected _runners;
-    protected _winners;
-    protected _winningRole;
-    protected _deaths;
+    protected _runners: Player[];
+    protected _winners: Player[];
+    protected _winningTeam: DrTeam;
+    protected _deaths: Player[];
 
     create(): DrGameInfo{
         return new DrGameInfo(this._gameEvents, this._server, this._endTime, this._startTime, this._map, this._runners,
-            this._winners, this._winningRole, this._deaths);
+            this._winners, this._winningTeam, this._deaths);
     }
 
     fromResponse(res: any): DrGameInfoFactory {
         return (super.fromResponse(res) as DrGameInfoFactory)
-            .runners(res.runners)
-            .winners(res.winners)
-            .winningRole(res.winningRole)
-            .deaths(res.deaths);
+            .runners(res.runners.map(player => new Player(player)))
+            .winners(res.winners.map(player => new Player(player)))
+            .winningTeam(drTeamFromText(res.winningRole))
+            .deaths(res.deaths.map(player => new Player(player)));
     }
 
-    runners(runners){
+    runners(runners: Player[]){
         this._runners = runners;
         return this;
     }
 
-    winners(winners){
+    winners(winners: Player[]){
         this._winners = winners;
         return this;
     }
 
-    winningRole(winningRole){
-        this._winningRole = winningRole;
+    winningTeam(winningTeam: DrTeam){
+        this._winningTeam = winningTeam;
         return this;
     }
 
-    deaths(deaths){
+    deaths(deaths: Player[]){
         this._deaths = deaths;
         return this;
     }

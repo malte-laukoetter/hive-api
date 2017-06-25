@@ -1,7 +1,7 @@
 import {GameInfo, GameInfoFactory, Player} from "../main";
 
 export class SingleWinnerGameInfo extends GameInfo {
-    constructor(gameEvents, server, endTime, startTime, map, readonly players, readonly winner) {
+    constructor(gameEvents, server, endTime, startTime, map, readonly players: Player[], readonly winner: Player) {
         super(gameEvents, server, endTime, startTime, map);
     }
 }
@@ -14,7 +14,7 @@ export abstract class SingleWinnerGameInfoFactory<T extends SingleWinnerGameInfo
 
     fromResponse(res: any): SingleWinnerGameInfoFactory<T> {
         return (super.fromResponse(res) as SingleWinnerGameInfoFactory<T>)
-            .players(res.players.map(uuid => new Player(uuid)))
+            .players(res.players.map(player => new Player(player)))
             .winner(new Player(res.winner));
     }
 

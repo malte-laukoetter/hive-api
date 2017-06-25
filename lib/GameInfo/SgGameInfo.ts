@@ -16,10 +16,10 @@ export class SgGameInfoFactory extends SingleWinnerGameInfoFactory<SgGameInfo> {
 
     fromResponse(res: any): SgGameInfoFactory {
         return (super.fromResponse(res) as SgGameInfoFactory)
-            .deathMatchPlayers(res.dmplayers.map(uuid => new Player(uuid)));
+            .deathMatchPlayers(res.dmplayers.map(player => new Player(player)));
     }
 
-    deathMatchPlayers(deathMatchPlayers){
+    deathMatchPlayers(deathMatchPlayers: Player[]){
         this._deathMatchPlayers = deathMatchPlayers;
         return this;
     }

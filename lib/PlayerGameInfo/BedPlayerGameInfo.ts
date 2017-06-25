@@ -1,10 +1,10 @@
-import {PlayerGameInfo, PlayerGameInfoFactory} from "../main";
+import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, AchievementFactory, AchievementTypes} from "../main";
 
 export class BedPlayerGameInfo extends PlayerGameInfo{
     constructor(readonly firstLogin: Date, readonly lastLogin: Date, readonly totalPoints: number,
                 readonly victories: number, readonly gamesPlayed: number, readonly kills: number,
                 readonly deaths: number, readonly bedsDestroyed: number, readonly teamsEliminated,
-                readonly achievements) {
+                readonly achievements: Achievement[]) {
         super();
     }
 }
@@ -19,7 +19,7 @@ export class BedPlayerGameInfoFactory implements PlayerGameInfoFactory<BedPlayer
     private _deaths : number;
     private _bedsDestroyed : number;
     private _teamsEliminated : number;
-    private _achievements;
+    private _achievements: Achievement[];
 
     constructor() {}
 
@@ -39,7 +39,13 @@ export class BedPlayerGameInfoFactory implements PlayerGameInfoFactory<BedPlayer
             .teamsEliminated(res.teams_eliminated)
             .firstLogin(new Date(res.firstLogin * 1000))
             .lastLogin(new Date(res.lastlogin*1000))
-            .achievements(res.achievements);
+            .achievements(res.achievements.map(achievement =>
+                new AchievementFactory()
+                    .type(AchievementTypes.GAME)
+                    .game(GameTypes.TIMV)
+                    .fromResponse(achievement)
+                    .create()
+            ));
     }
 
     firstLogin(firstLogin : Date){

@@ -4,7 +4,7 @@ import {FromResponseFactory} from "../main";
  * Information about a Game (not GameType / Mode)
  */
 export class GameInfo {
-    constructor(readonly gameEvents, readonly server, readonly endTime, readonly startTime, readonly map) {}
+    constructor(readonly gameEvents, readonly server: string, readonly endTime: Date, readonly startTime: Date, readonly map) {}
 }
 
 /**
@@ -12,9 +12,9 @@ export class GameInfo {
  */
 export abstract class GameInfoFactory<T extends GameInfo> implements FromResponseFactory<T> {
     protected _gameEvents;
-    protected _server;
-    protected _endTime;
-    protected _startTime;
+    protected _server: string;
+    protected _endTime: Date;
+    protected _startTime: Date;
     protected _map;
 
     abstract create(): T;
@@ -22,8 +22,8 @@ export abstract class GameInfoFactory<T extends GameInfo> implements FromRespons
     fromResponse(res: any): GameInfoFactory<T> {
         return this.gameEvents(res.gameevents)
             .server(res.server)
-            .endTime(res.endtime)
-            .startTime(res.starttime)
+            .endTime(new Date(res.endtime*1000))
+            .startTime(new Date(res.starttime*1000))
             .map(res.map);
     }
 
@@ -32,18 +32,18 @@ export abstract class GameInfoFactory<T extends GameInfo> implements FromRespons
         return this;
     }
 
-    server(server){
+    server(server: string){
         this._server = server;
         return this;
     }
 
-    endTime(endTime){
-        this._endTime = new Date(endTime * 1000);
+    endTime(endTime: Date){
+        this._endTime = endTime;
         return this;
     }
 
-    startTime(startTime){
-        this._startTime = new Date(startTime * 1000);
+    startTime(startTime: Date){
+        this._startTime = startTime;
         return this;
     }
 

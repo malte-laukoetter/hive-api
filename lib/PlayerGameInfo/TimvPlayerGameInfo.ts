@@ -1,11 +1,11 @@
-import {PlayerGameInfo, PlayerGameInfoFactory} from "../main";
+import {PlayerGameInfo, PlayerGameInfoFactory, Achievement, AchievementFactory, AchievementTypes, GameTypes} from "../main";
 
 export class TimvPlayerGameInfo extends PlayerGameInfo{
     constructor(readonly lastLogin: Date, readonly totalPoints: number, readonly mostPoints: number,
                 readonly rolePoints: number, readonly traitorPoints: number,
                 readonly innocentPoints: number, readonly detectivePoints: number,
                 readonly activeDetectiveStick, detectiveSticks, readonly activeFlareUpgrade, readonly flareUpgrades,
-                readonly detectiveBook: boolean, readonly achievements, readonly title) {
+                readonly detectiveBook: boolean, readonly achievements: Achievement[], readonly title) {
         super();
     }
 }
@@ -23,7 +23,7 @@ export class TimvPlayerGameInfoFactory implements PlayerGameInfoFactory<TimvPlay
     private _activeFlareUpgrade;
     private _flareUpgrades;
     private _detectiveBook : boolean;
-    private _achievements;
+    private _achievements: Achievement[];
     private _title;
 
     constructor() {}
@@ -48,7 +48,13 @@ export class TimvPlayerGameInfoFactory implements PlayerGameInfoFactory<TimvPlay
             .activeFlareUpgrade(res.active_flareupgrade)
             .flareUpgrades(res.flareupgrade)
             .detectiveBook(res.detectivebook)
-            .achievements(res.achievements)
+            .achievements(res.achievements.map(achievement =>
+                new AchievementFactory()
+                    .type(AchievementTypes.GAME)
+                    .game(GameTypes.TIMV)
+                    .fromResponse(achievement)
+                    .create()
+            ))
             .title(res.title);
     }
 

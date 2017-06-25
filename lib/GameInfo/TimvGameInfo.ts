@@ -1,17 +1,33 @@
-import {GameInfo, GameInfoFactory} from "../main";
+import {GameInfo, GameInfoFactory, Player} from "../main";
+
+export enum TimvTeam {
+    INNOCENT,
+    TRAITOR
+}
+
+export function timvTeamFromText(text: string): TimvTeam{
+    switch(text.toLowerCase()){
+        case "innocent":
+            return TimvTeam.INNOCENT;
+        case "traitor":
+            return TimvTeam.TRAITOR;
+    }
+
+    throw new Error(`Unknown TimvTeam ${text}`);
+}
 
 export class TimvGameInfo extends GameInfo {
-    constructor(gameEvents, server, endTime, startTime, map, readonly winningTeam, readonly innocent,
-                readonly detective, readonly traitor) {
+    constructor(gameEvents, server, endTime, startTime, map, readonly winningTeam: TimvTeam,
+                readonly innocent: Player[], readonly detective: Player[], readonly traitor: Player[]) {
         super(gameEvents, server, endTime, startTime, map);
     }
 }
 
 export class TimvGameInfoFactory extends GameInfoFactory<TimvGameInfo> {
-    protected _winningTeam;
-    protected _innocent;
-    protected _detective;
-    protected _traitor;
+    protected _winningTeam: TimvTeam;
+    protected _innocent: Player[];
+    protected _detective: Player[];
+    protected _traitor: Player[];
 
     create(): TimvGameInfo{
         return new TimvGameInfo(this._gameEvents, this._server, this._endTime, this._startTime, this._map, this._winningTeam,
@@ -20,28 +36,28 @@ export class TimvGameInfoFactory extends GameInfoFactory<TimvGameInfo> {
 
     fromResponse(res: any): TimvGameInfoFactory {
         return (super.fromResponse(res) as TimvGameInfoFactory)
-            .winningTeam(res.winner)
-            .innocent(res.players.INNOCENT)
-            .detective(res.players.DETECTIVE)
-            .traitor(res.players.TRAITOR);
+            .winningTeam(timvTeamFromText(res.winner))
+            .innocent(res.players.INNOCENT.map(player => new Player(player)))
+            .detective(res.players.DETECTIVE.map(player => new Player(player)))
+            .traitor(res.players.TRAITOR.map(player => new Player(player)));
     }
 
-    winningTeam(winningTeam){
+    winningTeam(winningTeam: TimvTeam){
         this._winningTeam = winningTeam;
         return this;
     }
 
-    innocent(innocent){
+    innocent(innocent: Player[]){
         this._innocent = innocent;
         return this;
     }
 
-    detective(detective){
+    detective(detective: Player[]){
         this._detective = detective;
         return this;
     }
 
-    traitor(traitor){
+    traitor(traitor: Player[]){
         this._traitor = traitor;
         return this;
     }

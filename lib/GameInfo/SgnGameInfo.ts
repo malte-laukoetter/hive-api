@@ -2,7 +2,7 @@ import {Player, SingleWinnerGameInfo, SingleWinnerGameInfoFactory} from "../main
 
 export class SgnGameInfo extends SingleWinnerGameInfo {
     constructor(gameEvents, server, endTime, startTime, map, players, winner,
-                readonly deathMatchPlayers) {
+                readonly deathMatchPlayers: Player[]) {
         super(gameEvents, server, endTime, startTime, map, players, winner);
     }
 }
@@ -17,7 +17,7 @@ export class SgnGameInfoFactory extends SingleWinnerGameInfoFactory<SgnGameInfo>
 
     fromResponse(res: any): SgnGameInfoFactory {
         return (super.fromResponse(res) as SgnGameInfoFactory)
-            .deathMatchPlayers(res.dmplayers.map(uuid => new Player(uuid)));
+            .deathMatchPlayers(res.dmplayers.map(player => new Player(player)));
     }
 
     deathMatchPlayers(deathMatchPlayers: Player[]){
