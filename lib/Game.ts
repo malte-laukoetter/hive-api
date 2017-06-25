@@ -1,7 +1,5 @@
-import * as fetch from 'node-fetch';
-import {GameType} from "./GameType";
-import {Methods} from "./Methods";
-import {GameInfo} from "./GameInfo/GameInfo";
+import fetch from 'node-fetch';
+import {GameType, Methods, GameInfo} from "./main";
 
 /**
  * a game that was played on the hive (gamelog)

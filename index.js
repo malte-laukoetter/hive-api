@@ -1,3 +1,3 @@
-let index = require('./build/index.js');
+const hive = require("./build/lib/index");
 
-index.main();
+hive.main()

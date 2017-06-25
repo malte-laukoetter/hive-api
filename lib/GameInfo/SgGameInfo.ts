@@ -1,13 +1,13 @@
-import {SingleWinnerGameInfo, SingleWinnerGameInfoFactory} from "./SingleWinnerGameInfo";
+import {SingleWinnerGameInfo, SingleWinnerGameInfoFactory, Player} from "../main";
 
 export class SgGameInfo extends SingleWinnerGameInfo {
-    constructor(gameEvents, server, endTime, startTime, map, players, winner, readonly deathMatchPlayers) {
+    constructor(gameEvents, server, endTime, startTime, map, players: Player[], winner: Player, readonly deathMatchPlayers: Player[]) {
         super(gameEvents, server, endTime, startTime, map, players, winner);
     }
 }
 
 export class SgGameInfoFactory extends SingleWinnerGameInfoFactory<SgGameInfo> {
-    protected _deathMatchPlayers;
+    protected _deathMatchPlayers: Player[];
 
     create(): SgGameInfo{
         return new SgGameInfo(this._gameEvents, this._server, this._endTime, this._startTime, this._map, this._players,
@@ -16,7 +16,7 @@ export class SgGameInfoFactory extends SingleWinnerGameInfoFactory<SgGameInfo> {
 
     fromResponse(res: any): SgGameInfoFactory {
         return (super.fromResponse(res) as SgGameInfoFactory)
-            .deathMatchPlayers(res.dmplayers);
+            .deathMatchPlayers(res.dmplayers.map(uuid => new Player(uuid)));
     }
 
     deathMatchPlayers(deathMatchPlayers){

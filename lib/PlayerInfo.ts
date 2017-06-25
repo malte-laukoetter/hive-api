@@ -1,5 +1,4 @@
-import {FromResponseFactory} from "./Factory";
-import {Achievement, AchievementFactory, AchievementTypes} from "./Achievement";
+import {FromResponseFactory, Achievement, AchievementFactory, AchievementTypes} from "./main";
 
 /**
  * contains the global information about a [[Player]] like it's rank and medals

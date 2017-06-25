@@ -1,8 +1,6 @@
-import * as fetch from 'node-fetch';
-import {Game} from "./Game";
-import {Methods} from "./Methods";
-import {gameInfoFactoryForGametype, playerGameInfoFactoryForGametype} from "./Factory";
-import {AchievementInfo, AchievementInfoFactory} from "./AchievementInfo";
+import fetch from 'node-fetch';
+import {Game, Methods, gameInfoFactoryForGametype, playerGameInfoFactoryForGametype, AchievementInfo,
+    AchievementInfoFactory} from "./main";
 
 /**
  * a type of game available on the hive
@@ -21,7 +19,7 @@ export class GameType {
      * gets the [[Factory]] to create a [[PlayerGameInfo]] instance of this GameType
      * @return see [[playerGameInfoFactoryForGametype]]
      */
-    get playerGameInfoFactory() {
+    get playerGameInfoFactory():any {
         return playerGameInfoFactoryForGametype(this);
     }
 
@@ -29,7 +27,7 @@ export class GameType {
      * gets the [[Factory]] to create a [[GameInfo]] instance of this GameType
      * @return see [[gameInfoFactoryForGametype]]
      */
-    get gameInfoFactory() {
+    get gameInfoFactory():any {
         return gameInfoFactoryForGametype(this);
     }
 

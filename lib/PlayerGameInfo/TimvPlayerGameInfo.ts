@@ -1,4 +1,4 @@
-import {PlayerGameInfo, PlayerGameInfoFactory} from "./PlayerGameInfo";
+import {PlayerGameInfo, PlayerGameInfoFactory} from "../main";
 
 export class TimvPlayerGameInfo extends PlayerGameInfo{
     constructor(readonly lastLogin: Date, readonly totalPoints: number, readonly mostPoints: number,

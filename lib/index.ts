@@ -1,13 +1,13 @@
-import {GameTypes, Player, Server} from "./main";
-import {PlayerInfo} from "./PlayerInfo";
-import {Achievement, TheSwarmAchievement} from "./Achievement";
+import {Game, GameTypes, Player, PlayerInfo, Server, SgGameInfo, Achievement, TheSwarmAchievement} from "./main";
+import {AchievementInfo} from "./AchievementInfo";
+import {ServerAchievement} from "./Achievement";
 
 
 export async function main(){
-    await GameTypes.update();
+    //await GameTypes.update();
 
     //Server.achievements().then(console.log);
-    GameTypes.MM.achievements().then(console.log)
+   // GameTypes.MM.achievements().then(console.log)
 
     //new Player("Malte662").info().then((info) => info.achievements[1].theSwarmFrom.info()).then(console.log)
 
@@ -21,6 +21,18 @@ export async function main(){
   //  GameTypes.GRAV.info().then(console.log);
 
     //console.log(GameTypes.list.map(type => type.id));
+
+    GameTypes.SG.latestGames()
+        .then(games => games[0])
+        .then((game: Game) => game.info())
+        .then(async (gameInfo: SgGameInfo) => {
+            let winnerInfo: PlayerInfo = await gameInfo.winner.info();
+
+            winnerInfo.achievements.forEach((achievement: ServerAchievement) =>{
+                achievement.info().then((info: AchievementInfo) => info.name)
+                    .then(console.log)
+            });
+        }).catch(console.error);
 }
 
 

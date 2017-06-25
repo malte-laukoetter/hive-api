@@ -1,6 +1,5 @@
-import * as fetch from 'node-fetch';
-import {AchievementInfo, AchievementInfoFactory} from "./AchievementInfo";
-import {Methods} from "./Methods";
+import fetch from 'node-fetch';
+import {AchievementInfo, AchievementInfoFactory, Methods} from "./main";
 
 /**
  * contains static methods to get the general data about the server

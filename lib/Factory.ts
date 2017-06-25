@@ -1,13 +1,6 @@
-import {TimvPlayerGameInfoFactory} from "./PlayerGameInfo/TimvPlayerGameInfo";
-import {GameType, GameTypes} from "./GameType";
-import {RawPlayerGameInfoFactory} from "./PlayerGameInfo/PlayerGameInfo";
-import {SgGameInfoFactory} from "./GameInfo/SgGameInfo";
-import {SgnGameInfoFactory} from "./GameInfo/SgnGameInfo";
-import {MimvGameInfoFactory} from "./GameInfo/MimvGameInfo";
-import {SkyGameInfoFactory} from "./GameInfo/SkyGameInfo";
-import {TimvGameInfoFactory} from "./GameInfo/TimvGameInfo";
-import {DrGameInfoFactory} from "./GameInfo/DrGameInfo";
-import {BasicGameInfoFactory} from "./GameInfo/GameInfo";
+import {GameType, GameTypes, RawPlayerGameInfoFactory, TimvPlayerGameInfoFactory, SgGameInfoFactory, SgnGameInfoFactory,
+    MimvGameInfoFactory, SkyGameInfoFactory, TimvGameInfoFactory, DrGameInfoFactory, BasicGameInfoFactory}
+    from "./main";
 
 /**
  * an interface for all Factories that creates a instance of T
@@ -30,7 +23,6 @@ export interface FromResponseFactory<T> extends Factory<T>{
      */
     fromResponse(res : any): FromResponseFactory<T>;
 }
-
 /**
  * gets the [[PlayerGameInfoFactory]] for the given [[GameType]]
  * currently the following games have Factories that parse the data:

@@ -1,4 +1,4 @@
-import {FromResponseFactory} from "./Factory";
+import {FromResponseFactory} from "./main";
 
 /**
  * the type of the reward of an achievement, currently only NONE should be in use but if there is another one later the

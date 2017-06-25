@@ -5,7 +5,8 @@
 		"sourceMap": true,
 		"lib": ["ES2017", "dom"],
 		"allowJs": false,
-		"outDir": "build"
+		"outDir": "build",
+		"isolatedModules": true
 	},
 	"include": [
 		"lib",

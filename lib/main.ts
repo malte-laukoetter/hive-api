@@ -4,14 +4,14 @@
 
 export * from "./GameInfo/GameInfo";
 
+export * from "./GameInfo/SingleWinnerGameInfo";
+
 export * from "./GameInfo/DrGameInfo";
 export * from "./GameInfo/MimvGameInfo";
 export * from "./GameInfo/SgGameInfo";
 export * from "./GameInfo/SgnGameInfo";
-export * from "./GameInfo/SingleWinnerGameInfo";
 export * from "./GameInfo/SkyGameInfo";
 export * from "./GameInfo/TimvGameInfo";
-
 
 /*
  * Player Game Infos

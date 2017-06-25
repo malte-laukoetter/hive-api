@@ -1,5 +1,4 @@
-import {SingleWinnerGameInfo, SingleWinnerGameInfoFactory} from "./SingleWinnerGameInfo";
-import {GameInfo, GameInfoFactory} from "./GameInfo";
+import {GameInfo, GameInfoFactory, SingleWinnerGameInfo, SingleWinnerGameInfoFactory} from "../main";
 
 export class SkySoloGameInfo extends SingleWinnerGameInfo {}
 

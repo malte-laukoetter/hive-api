@@ -1,8 +1,4 @@
-import {GameType, GameTypes} from "./GameType";
-import {Server} from "./Server";
-import {FromResponseFactory} from "./Factory";
-import {Player} from "./Player";
-import {AchievementInfo} from "./AchievementInfo";
+import {GameType, GameTypes, Server, FromResponseFactory, Player, AchievementInfo} from "./main";
 
 /**
  * the two types of Achievements available: Server wide achievements like the swarm and the achievements specific to a
@@ -28,9 +24,13 @@ export abstract class Achievement {
     /**
      * gets the general information about the achievement
      *
+     * must be overwritten by the implementation
+     *
      * @param forceRefresh should the cache be ignored
      */
-    abstract info(forceRefresh: boolean): AchievementInfo;
+    info(forceRefresh: boolean = false): Promise<AchievementInfo>{
+        return null;
+    };
 }
 
 /**
@@ -38,7 +38,7 @@ export abstract class Achievement {
  */
 export class ServerAchievement extends Achievement {
     info(forceRefresh: boolean = false): any {
-        return Server.achievements(forceRefresh).then(list => list.filter(achievement => achievement.id == this.id))[0];;
+        return Server.achievements(forceRefresh).then(list => list.filter(achievement => achievement.id == this.id)[0]);
     }
 }
 
@@ -59,7 +59,7 @@ export class GameAchievement extends Achievement {
 /**
  * special class for the Achievement TheSwarm as is has some special data
  */
-export class TheSwarmAchievement extends ServerAchievement{
+export class TheSwarmAchievement extends ServerAchievement {
     constructor(id: string, progress: number, unlockedAt: Date, readonly theSwarmFrom: Player = null,
                 readonly theSwarmGame: GameType = null) {
         super(id, progress, unlockedAt);
@@ -73,7 +73,7 @@ export class AchievementFactory implements FromResponseFactory<Achievement>{
     private _id: string;
     private _progress: number;
     private _unlockedAt: Date = null;
-    private _type: AchievementTypes = AchievementTypes.SERVER;
+    private _type: AchievementTypes = null;
     private _game: GameType = null;
     private _theSwarmFrom: Player = null;
     private _theSwarmGame: GameType = null;
@@ -90,6 +90,8 @@ export class AchievementFactory implements FromResponseFactory<Achievement>{
             case AchievementTypes.GAME:
                 return new GameAchievement(this._id, this._progress, this._unlockedAt, this._game);
         }
+
+        throw new Error("a type must be set");
     }
 
     fromResponse(res: any): FromResponseFactory<Achievement> {

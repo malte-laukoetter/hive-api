@@ -1,8 +1,5 @@
-import * as fetch from 'node-fetch';
-import {GameType} from "./GameType";
-import {Methods} from "./Methods";
-import {PlayerInfo, PlayerInfoFactory} from "./PlayerInfo";
-import {PlayerGameInfo} from "./PlayerGameInfo/PlayerGameInfo";
+import fetch from 'node-fetch';
+import {GameType, Methods, PlayerInfo, PlayerInfoFactory, PlayerGameInfo} from "./main";
 
 /**
  * represents a Player that the api can interact with

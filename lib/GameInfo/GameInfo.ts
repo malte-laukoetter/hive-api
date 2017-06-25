@@ -1,4 +1,4 @@
-import {FromResponseFactory} from "../Factory";
+import {FromResponseFactory} from "../main";
 
 /**
  * Information about a Game (not GameType / Mode)

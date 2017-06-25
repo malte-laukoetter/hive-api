@@ -1,4 +1,4 @@
-import {GameInfo, GameInfoFactory} from "./GameInfo";
+import {GameInfo, GameInfoFactory} from "../main";
 
 export class TimvGameInfo extends GameInfo {
     constructor(gameEvents, server, endTime, startTime, map, readonly winningTeam, readonly innocent,
