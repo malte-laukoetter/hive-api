@@ -1,10 +1,7 @@
 import { expect } from "chai";
 import "mocha";
-import {GameTypes} from "../lib/GameType";
-import {
-    AchievementFactory, AchievementTypes, GameAchievement, ServerAchievement, TheSwarmAchievement,
-    theSwarmGameToGameType
-} from "../lib/Achievement";
+import {AchievementFactory, AchievementTypes, GameAchievement, ServerAchievement, TheSwarmAchievement,
+    theSwarmGameToGameType, GameTypes} from "../lib/main";
 
 describe("AchievementFactory", () => {
     describe("#create()", () => {

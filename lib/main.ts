@@ -21,6 +21,7 @@ export * from "./PlayerGameInfo/PlayerGameInfo"
 
 export * from "./PlayerGameInfo/BedPlayerGameInfo"
 export * from "./PlayerGameInfo/TimvPlayerGameInfo"
+export * from "./PlayerGameInfo/SgPlayerGameInfo"
 
 
 /*

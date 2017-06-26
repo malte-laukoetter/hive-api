@@ -1,18 +1,17 @@
 import {PlayerGameInfo, PlayerGameInfoFactory, Achievement, AchievementFactory, AchievementTypes, GameTypes} from "../main";
 
 export class TimvPlayerGameInfo extends PlayerGameInfo{
-    constructor(readonly lastLogin: Date, readonly totalPoints: number, readonly mostPoints: number,
+    constructor(points: number, readonly lastLogin: Date, readonly mostPoints: number,
                 readonly rolePoints: number, readonly traitorPoints: number,
                 readonly innocentPoints: number, readonly detectivePoints: number,
-                readonly activeDetectiveStick, detectiveSticks, readonly activeFlareUpgrade, readonly flareUpgrades,
+                readonly activeDetectiveStick, readonly detectiveSticks, readonly activeFlareUpgrade, readonly flareUpgrades,
                 readonly detectiveBook: boolean, readonly achievements: Achievement[], readonly title) {
-        super();
+        super(points);
     }
 }
 
-export class TimvPlayerGameInfoFactory implements PlayerGameInfoFactory<TimvPlayerGameInfo> {
+export class TimvPlayerGameInfoFactory extends PlayerGameInfoFactory<TimvPlayerGameInfo> {
     private _lastLogin : Date;
-    private _totalPoints : number;
     private _mostPoints : number;
     private _rolePoints : number;
     private _traitorPoints : number;
@@ -26,10 +25,8 @@ export class TimvPlayerGameInfoFactory implements PlayerGameInfoFactory<TimvPlay
     private _achievements: Achievement[];
     private _title;
 
-    constructor() {}
-
     create(): TimvPlayerGameInfo {
-        return new TimvPlayerGameInfo(this._lastLogin, this._totalPoints, this._mostPoints, this._rolePoints,
+        return new TimvPlayerGameInfo(this._points, this._lastLogin, this._mostPoints, this._rolePoints,
             this._traitorPoints, this._innocentPoints, this._detectivePoints, this._activeDetectiveStick,
             this._detectiveSticks, this._activeFlareUpgrade, this._flareUpgrades, this._detectiveBook,
             this._achievements, this._title);
@@ -37,7 +34,7 @@ export class TimvPlayerGameInfoFactory implements PlayerGameInfoFactory<TimvPlay
 
     fromResponse(res){
         return this.lastLogin(res.lastlogin)
-            .totalPoints(res.total_points)
+            .points(res.total_points)
             .mostPoints(res.most_points)
             .rolePoints(res.role_points)
             .traitorPoints(res.t_points)
@@ -61,11 +58,6 @@ export class TimvPlayerGameInfoFactory implements PlayerGameInfoFactory<TimvPlay
     lastLogin(lastLogin){
         this._lastLogin = new Date(lastLogin * 1000);
 
-        return this;
-    }
-
-    totalPoints(totalPoints){
-        this._totalPoints = totalPoints;
         return this;
     }
 

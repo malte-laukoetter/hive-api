@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 import 'mocha';
-import {PlayerInfo, PlayerInfoFactory} from "../lib/PlayerInfo";
-import {ServerAchievement} from "../lib/Achievement";
+import {PlayerInfo, PlayerInfoFactory, ServerAchievement} from "../lib/main";
 
 describe("PlayerInfoFactory", () => {
     describe("#fromResponse()", () => {
