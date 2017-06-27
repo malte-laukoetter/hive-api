@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PlayerGameInfoFactory | Hive-Api-Node</title>
+	<title>GameMap | Hive-Api-Node</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,113 +54,100 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="playergameinfofactory.html">PlayerGameInfoFactory</a>
+					<a href="gamemap.html">GameMap</a>
 				</li>
 			</ul>
-			<h1>Interface PlayerGameInfoFactory&lt;T&gt;</h1>
+			<h1>Class GameMap</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>T</h4>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="fromresponsefactory.html" class="tsd-signature-type">FromResponseFactory</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">PlayerGameInfoFactory</span>
-							</li>
-						</ul>
+						<span class="target">GameMap</span>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implemented by</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../classes/bedplayergameinfofactory.html" class="tsd-signature-type">BedPlayerGameInfoFactory</a></li>
-					<li><a href="../classes/rawplayergameinfofactory.html" class="tsd-signature-type">RawPlayerGameInfoFactory</a></li>
-					<li><a href="../classes/timvplayergameinfofactory.html" class="tsd-signature-type">TimvPlayerGameInfoFactory</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-inherited">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="gamemap.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="playergameinfofactory.html#create" class="tsd-kind-icon">create</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-interface tsd-is-inherited"><a href="playergameinfofactory.html#fromresponse" class="tsd-kind-icon">from<wbr>Response</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gamemap.html#info" class="tsd-kind-icon">info</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<a name="create" class="tsd-anchor"></a>
-					<h3>create</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Game<wbr>Map<span class="tsd-signature-symbol">(</span>gameType<span class="tsd-signature-symbol">: </span><a href="gametype.html" class="tsd-signature-type">GameType</a>, worldName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, mapName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, author<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gamemap.html" class="tsd-signature-type">GameMap</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Inherited from <a href="factory.html">Factory</a>.<a href="factory.html#create">create</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/e70b559/lib/Factory.ts#L12">lib/Factory.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4819914/lib/GameMap.ts#L3">lib/GameMap.ts:3</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>creates the instance of T</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-					<a name="fromresponse" class="tsd-anchor"></a>
-					<h3>from<wbr>Response</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Response<span class="tsd-signature-symbol">(</span>res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="fromresponsefactory.html" class="tsd-signature-type">FromResponseFactory</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="fromresponsefactory.html">FromResponseFactory</a>.<a href="fromresponsefactory.html#fromresponse">fromResponse</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/e70b559/lib/Factory.ts#L24">lib/Factory.ts:24</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>should fill the factory with the data of the given response</p>
-								</div>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>res: <span class="tsd-signature-type">any</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>an object with the data</p>
-									</div>
+									<h5>gameType: <a href="gametype.html" class="tsd-signature-type">GameType</a></h5>
+								</li>
+								<li>
+									<h5>worldName: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>mapName: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>author: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="fromresponsefactory.html" class="tsd-signature-type">FromResponseFactory</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="gamemap.html" class="tsd-signature-type">GameMap</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="info" class="tsd-anchor"></a>
+					<h3>info</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">info<span class="tsd-signature-symbol">(</span>forceRefresh<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="gamemapinfo.html" class="tsd-signature-type">GameMapInfo</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4819914/lib/GameMap.ts#L7">lib/GameMap.ts:7</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> forceRefresh: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="gamemapinfo.html" class="tsd-signature-type">GameMapInfo</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -178,14 +165,14 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-has-type-parameter">
-						<a href="playergameinfofactory.html" class="tsd-kind-icon">Player<wbr>Game<wbr>Info<wbr>Factory</a>
+					<li class="current tsd-kind-class">
+						<a href="gamemap.html" class="tsd-kind-icon">Game<wbr>Map</a>
 						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="playergameinfofactory.html#create" class="tsd-kind-icon">create</a>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="gamemap.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-interface tsd-is-inherited">
-								<a href="playergameinfofactory.html#fromresponse" class="tsd-kind-icon">from<wbr>Response</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="gamemap.html#info" class="tsd-kind-icon">info</a>
 							</li>
 						</ul>
 					</li>

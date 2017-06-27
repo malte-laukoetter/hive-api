@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Achievement | Hive-Api-Node</title>
+	<title>PlayerGameInfoFactory | Hive-Api-Node</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,121 +54,153 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="achievement.html">Achievement</a>
+					<a href="playergameinfofactory.html">PlayerGameInfoFactory</a>
 				</li>
 			</ul>
-			<h1>Class Achievement</h1>
+			<h1>Class PlayerGameInfoFactory&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>base class for all achievements</p>
-					</div>
-				</div>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>T</h4>
+					</li>
+				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Achievement</span>
+						<span class="target">PlayerGameInfoFactory</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<a href="serverachievement.html" class="tsd-signature-type">ServerAchievement</a>
+								<a href="rawplayergameinfofactory.html" class="tsd-signature-type">RawPlayerGameInfoFactory</a>
 							</li>
 							<li>
-								<a href="gameachievement.html" class="tsd-signature-type">GameAchievement</a>
+								<a href="bedplayergameinfofactory.html" class="tsd-signature-type">BedPlayerGameInfoFactory</a>
+							</li>
+							<li>
+								<a href="timvplayergameinfofactory.html" class="tsd-signature-type">TimvPlayerGameInfoFactory</a>
+							</li>
+							<li>
+								<a href="sgplayergameinfofactory.html" class="tsd-signature-type">SgPlayerGameInfoFactory</a>
+							</li>
+							<li>
+								<a href="bpplayergameinfofactory.html" class="tsd-signature-type">BpPlayerGameInfoFactory</a>
 							</li>
 						</ul>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/fromresponsefactory.html" class="tsd-signature-type">FromResponseFactory</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
+						<section class="tsd-index-section tsd-is-private-protected">
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="achievement.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><a href="playergameinfofactory.html#_points" class="tsd-kind-icon">_points</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="achievement.html#info" class="tsd-kind-icon">info</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="playergameinfofactory.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="playergameinfofactory.html#fromresponse" class="tsd-kind-icon">from<wbr>Response</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="playergameinfofactory.html#points" class="tsd-kind-icon">points</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Achievement<span class="tsd-signature-symbol">(</span>id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, progress<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, unlockedAt<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="achievement.html" class="tsd-signature-type">Achievement</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4819914/lib/Achievement.ts#L21">lib/Achievement.ts:21</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>id: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>progress: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> unlockedAt: <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="achievement.html" class="tsd-signature-type">Achievement</a></h4>
-						</li>
-					</ul>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+					<a name="_points" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _points</h3>
+					<div class="tsd-signature tsd-kind-icon">_points<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4819914/lib/PlayerGameInfo/PlayerGameInfo.ts#L14">lib/PlayerGameInfo/PlayerGameInfo.ts:14</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="info" class="tsd-anchor"></a>
-					<h3>info</h3>
+					<a name="create" class="tsd-anchor"></a>
+					<h3>create</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">info<span class="tsd-signature-symbol">(</span>forceRefresh<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="achievementinfo.html" class="tsd-signature-type">AchievementInfo</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/fromresponsefactory.html">FromResponseFactory</a>.<a href="../interfaces/fromresponsefactory.html#create">create</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4819914/lib/PlayerGameInfo/PlayerGameInfo.ts#L21">lib/PlayerGameInfo/PlayerGameInfo.ts:21</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="fromresponse" class="tsd-anchor"></a>
+					<h3>from<wbr>Response</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Response<span class="tsd-signature-symbol">(</span>res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/fromresponsefactory.html" class="tsd-signature-type">FromResponseFactory</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/fromresponsefactory.html">FromResponseFactory</a>.<a href="../interfaces/fromresponsefactory.html#fromresponse">fromResponse</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4819914/lib/PlayerGameInfo/PlayerGameInfo.ts#L25">lib/PlayerGameInfo/PlayerGameInfo.ts:25</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>res: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/fromresponsefactory.html" class="tsd-signature-type">FromResponseFactory</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="points" class="tsd-anchor"></a>
+					<h3>points</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">points<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4819914/lib/Achievement.ts#L31">lib/Achievement.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4819914/lib/PlayerGameInfo/PlayerGameInfo.ts#L16">lib/PlayerGameInfo/PlayerGameInfo.ts:16</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>gets the general information about the achievement</p>
-								</div>
-								<p>must be overwritten by the implementation</p>
-							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> forceRefresh: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>should the cache be ignored</p>
-									</div>
+									<h5>points: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="achievementinfo.html" class="tsd-signature-type">AchievementInfo</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -186,14 +218,20 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="achievement.html" class="tsd-kind-icon">Achievement</a>
+					<li class="current tsd-kind-class tsd-has-type-parameter">
+						<a href="playergameinfofactory.html" class="tsd-kind-icon">Player<wbr>Game<wbr>Info<wbr>Factory</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="achievement.html#constructor" class="tsd-kind-icon">constructor</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-protected">
+								<a href="playergameinfofactory.html#_points" class="tsd-kind-icon">_points</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="achievement.html#info" class="tsd-kind-icon">info</a>
+								<a href="playergameinfofactory.html#create" class="tsd-kind-icon">create</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="playergameinfofactory.html#fromresponse" class="tsd-kind-icon">from<wbr>Response</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="playergameinfofactory.html#points" class="tsd-kind-icon">points</a>
 							</li>
 						</ul>
 					</li>
