@@ -26,7 +26,7 @@ const hive = require('hive-api');
 let player = new hive.Player("Malte662");
 
 player.info().then(info => {
-	 console.log(`Tokens: ${info.tokens}`)
+    console.log(`Tokens: ${info.tokens}`)
 });
 ```
 
@@ -68,16 +68,16 @@ GameTypes.list.forEach((type: GameType) => {
 import {GameTypes, Game, SgGameInfo, PlayerInfo, ServerAchievement, AchievementInfo} from "hive-api";
 
 GameTypes.SG.latestGames()
-	.then(games => games[0])
-	.then((game: Game) => game.info())
-	.then(async (gameInfo: SgGameInfo) => {
-		let winnerInfo: PlayerInfo = await gameInfo.winner.info();
+    .then(games => games[0])
+    .then((game: Game) => game.info())
+    .then(async (gameInfo: SgGameInfo) => {
+        let winnerInfo: PlayerInfo = await gameInfo.winner.info();
 
-		winnerInfo.achievements.forEach((achievement: ServerAchievement) =>{
-			achievement.info().then((info: AchievementInfo) => info.name)
-				.then(console.log)
-		});
-	}).catch(console.error);
+        winnerInfo.achievements.forEach((achievement: ServerAchievement) =>{
+            achievement.info().then((info: AchievementInfo) => info.name)
+            .then(console.log)
+        });
+    }).catch(console.error);
 ```
 
 
