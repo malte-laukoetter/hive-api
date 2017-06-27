@@ -1,5 +1,5 @@
 import {fetch, Game, Methods, gameInfoFactoryForGametype, playerGameInfoFactoryForGametype, AchievementInfo,
-    AchievementInfoFactory} from "./main";
+    AchievementInfoFactory, GameMap} from "./main";
 
 /**
  * a type of game available on the hive
@@ -64,6 +64,16 @@ export class GameType {
      */
     achievements = (forceRefresh: boolean = false) : Promise<[AchievementInfo]> =>
         this.info(forceRefresh).then(res => res.achievements);
+
+    /**
+     * gets the maps
+     * @param forceRefresh ignore the cache
+     */
+    maps(forceRefresh: boolean = false): Promise<GameMap[]>{
+        return fetch(Methods.MAP_LIST(this.id), forceRefresh).then(res => res.map(map =>
+            new GameMap(this, res.worldname, res.mapname, res.mapauthor)
+        ))
+    }
 }
 
 /**

@@ -11,7 +11,6 @@ export async function fetch(request, ignoreCache:boolean = false){
     if(ignoreCache || !cache.has(request)){
         let promise = new Promise((resolve, reject) => {
             outstandingRequests.set(request, [resolve, reject]);
-            console.log(outstandingRequests)
         });
 
         cache.set(request, promise);

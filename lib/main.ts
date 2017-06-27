@@ -48,6 +48,8 @@ export * from "./Factory"
 export * from "./Game";
 export * from "./GameType";
 
+export * from "./GameMap";
+
 
 /*
  * Methods
