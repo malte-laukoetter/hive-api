@@ -27,7 +27,7 @@ setInterval(()=>{
     if(!iter.done){
         let [request, [resolve, reject]] = iter.value;
 
-        original_fetch(request).then(resolve).catch(reject);
+        original_fetch(request).then(res => res.json()).then(resolve).catch(reject);
 
         outstandingRequests.delete(request);
     }

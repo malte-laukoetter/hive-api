@@ -10,7 +10,6 @@ export class Server{
      */
     static achievements(forceRefresh: boolean = false): Promise<AchievementInfo[]>{
         return fetch(Methods.GLOBAL_ACHIEVEMENT_LIST(), forceRefresh)
-            .then(res => res.json())
             .then(res => res.map(achievement => new AchievementInfoFactory().fromResponse(achievement).create()))
     }
 }

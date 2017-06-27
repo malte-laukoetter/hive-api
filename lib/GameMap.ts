@@ -5,7 +5,7 @@ export class GameMap {
                 readonly author: string){}
 
     info(forceRefresh: boolean = false): Promise<GameMapInfo>{
-        return fetch(Methods.MAP_INFO(this.gameType.id, this.worldName)).then(res =>
+        return fetch(Methods.MAP_INFO(this.gameType.id, this.worldName), forceRefresh).then(res =>
             new GameMapInfo(res.popularityDay, res.popularityWeek, res.popularityMonth)
         )
     }

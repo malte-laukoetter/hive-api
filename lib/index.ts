@@ -10,13 +10,19 @@ export async function main(){
     //new Player("Malte662").info().then((info) => info.achievements[1].theSwarmFrom.info()).then(console.log)
 
     let player = new Player("Malte662");
-
+/*
     let points = await Promise.all(
         GameTypes.list.map(async type => await player.gameInfo(type).then(info => info.points))
     ).then(points => points.reduce((a,b)=> (a)+b));
 
     console.log(points)
+*/
 
+    GameTypes.SKY.maps().then(maps => maps.map(console.log))//.then(console.log)
+
+/*    Promise.all(GameTypes.list.map(type => type.maps().then(maps => maps.map(map => map.worldName)))).then(arr => {
+        ([].concat.apply([], arr)).forEach(console.log)
+    })*/
   //  console.log((await new Player("Malte662").info()).firstLogin.toLocaleString());
     //new Player("Malte662").gameInfo(GameTypes.TIMV).then(console.log);
     //new Player("Malte662").gameInfo(GameTypes.SKY).then(console.log);

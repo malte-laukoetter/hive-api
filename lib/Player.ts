@@ -47,7 +47,6 @@ export class Player {
      */
     info(forceRefresh : boolean = false): Promise<PlayerInfo>{
         return fetch(Methods.PLAYER(this.requestUuid), forceRefresh)
-            .then(res => res.json())
             .then(res => new PlayerInfoFactory().fromResponse(res).create())
             .then(res => {
                 this._uuid = res.uuid;
@@ -71,7 +70,6 @@ export class Player {
      */
     gameInfo(gameType : GameType, forceRefresh : boolean = false): Promise<PlayerGameInfo> {
         return fetch(Methods.PLAYER_GAME_STATS(this.requestUuid, gameType.id), forceRefresh)
-            .then(res => res.json())
             .then((res) => new gameType.playerGameInfoFactory().fromResponse(res).create());
     }
 

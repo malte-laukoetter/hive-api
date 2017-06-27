@@ -5,8 +5,6 @@ import {fetch, Game, Methods, gameInfoFactoryForGametype, playerGameInfoFactoryF
  * a type of game available on the hive
  */
 export class GameType {
-    private _info: Promise<GameTypeInfo> = null;
-
     /**
      * creates a new [[GameType]]
      * @param id the id of the type used by the api
@@ -36,7 +34,6 @@ export class GameType {
      */
     private info(forceRefresh: boolean = false) : Promise<GameTypeInfo> {
         return fetch(Methods.GAMETYPE_INFO(this.id), forceRefresh)
-            .then(res => res.json())
             .then(res => new GameTypeInfo(
                 res.uniqueplayers,
                 res.achievements.map(a => new AchievementInfoFactory().fromResponse(a).create())
@@ -47,7 +44,6 @@ export class GameType {
      * gets the latest 10 games
      */
     latestGames = () : Promise<Game[]> => fetch(Methods.GAMETYPE_LATEST(this.id), true)
-        .then(res => res.json())
         .then(res => res.map((gameId) => new Game(this, gameId)))
         .catch(err => []);
 
@@ -70,9 +66,9 @@ export class GameType {
      * @param forceRefresh ignore the cache
      */
     maps(forceRefresh: boolean = false): Promise<GameMap[]>{
-        return fetch(Methods.MAP_LIST(this.id), forceRefresh).then(res => res.map(map =>
-            new GameMap(this, res.worldname, res.mapname, res.mapauthor)
-        ))
+        return fetch(Methods.MAP_LIST(this.id), forceRefresh).then(res => Object.values(res).map(map =>
+            new GameMap(this, map.worldname, map.mapname, map.mapauthor)
+        ));
     }
 }
 
@@ -129,7 +125,6 @@ export class GameTypes {
      */
     static async update() {
         GameTypes._list = await fetch(Methods.GAMETYPE_LIST())
-            .then(res => res.json())
             .then(res => Object.entries(res).map(([id, name]) => {
                 if(GameTypes[id]){
                     GameTypes[id].name = name;
