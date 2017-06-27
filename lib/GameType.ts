@@ -30,10 +30,10 @@ export class GameType {
 
     /**
      * gets the information about the GameType
-     * @param forceRefresh ignore the cache
+     * @param maxCacheAge maximum age of the cache
      */
-    private info(forceRefresh: boolean = false) : Promise<GameTypeInfo> {
-        return fetch(Methods.GAMETYPE_INFO(this.id), forceRefresh)
+    private info(maxCacheAge: number = 60*60*1000) : Promise<GameTypeInfo> {
+        return fetch(Methods.GAMETYPE_INFO(this.id), maxCacheAge)
             .then(res => new GameTypeInfo(
                 res.uniqueplayers,
                 res.achievements.map(a => new AchievementInfoFactory().fromResponse(a).create())
@@ -43,30 +43,30 @@ export class GameType {
     /**
      * gets the latest 10 games
      */
-    latestGames = () : Promise<Game[]> => fetch(Methods.GAMETYPE_LATEST(this.id), true)
+    latestGames = (maxCacheAge: number = 10*1000) : Promise<Game[]> => fetch(Methods.GAMETYPE_LATEST(this.id), maxCacheAge)
         .then(res => res.map((gameId) => new Game(this, gameId)))
         .catch(err => []);
 
     /**
      * gets the amount of unique players that have played the game
-     * @param forceRefresh ignore the cache
+     * @param maxCacheAge maximum age of the cache
      */
-    uniquePlayers = (forceRefresh: boolean = false) : Promise<number> =>
-        this.info(forceRefresh).then(res => res.uniquePlayers);
+    uniquePlayers = (maxCacheAge: number = 60*60*1000) : Promise<number> =>
+        this.info(maxCacheAge).then(res => res.uniquePlayers);
 
     /**
      * gets the achievements that are available
-     * @param forceRefresh ignore the cache
+     * @param maxCacheAge maximum age of the cache
      */
-    achievements = (forceRefresh: boolean = false) : Promise<[AchievementInfo]> =>
-        this.info(forceRefresh).then(res => res.achievements);
+    achievements = (maxCacheAge: number = 24*60*60*1000) : Promise<[AchievementInfo]> =>
+        this.info(maxCacheAge).then(res => res.achievements);
 
     /**
      * gets the maps
-     * @param forceRefresh ignore the cache
+     * @param maxCacheAge maximum age of the cache
      */
-    maps(forceRefresh: boolean = false): Promise<GameMap[]>{
-        return fetch(Methods.MAP_LIST(this.id), forceRefresh).then(res => Object.values(res).map(map =>
+    maps(maxCacheAge: number = 24*60*60*1000): Promise<GameMap[]>{
+        return fetch(Methods.MAP_LIST(this.id), maxCacheAge).then(res => Object.values(res).map(map =>
             new GameMap(this, map.worldname, map.mapname, map.mapauthor)
         ));
     }
@@ -124,7 +124,7 @@ export class GameTypes {
      * @return resolves after the update is finished and contains no data
      */
     static async update() {
-        GameTypes._list = await fetch(Methods.GAMETYPE_LIST())
+        GameTypes._list = await fetch(Methods.GAMETYPE_LIST(), 0)
             .then(res => Object.entries(res).map(([id, name]) => {
                 if(GameTypes[id]){
                     GameTypes[id].name = name;

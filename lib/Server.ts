@@ -6,10 +6,10 @@ import {fetch, AchievementInfo, AchievementInfoFactory, Methods} from "./main";
 export class Server{
     /**
      * gets the list of serverwide achievements
-     * @param forceRefresh ignore the cache
+     * @param maxCacheAge maximum age of the cache
      */
-    static achievements(forceRefresh: boolean = false): Promise<AchievementInfo[]>{
-        return fetch(Methods.GLOBAL_ACHIEVEMENT_LIST(), forceRefresh)
+    static achievements(maxCacheAge: number = 24*60*60*1000): Promise<AchievementInfo[]>{
+        return fetch(Methods.GLOBAL_ACHIEVEMENT_LIST(), maxCacheAge)
             .then(res => res.map(achievement => new AchievementInfoFactory().fromResponse(achievement).create()))
     }
 }

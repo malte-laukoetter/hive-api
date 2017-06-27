@@ -42,11 +42,11 @@ export class Player {
      *
      * this also updates the name an uuid to the data provided by the api
      *
-     * @param forceRefresh true if the cache should be ignored
+     * @param maxCacheAge maximum cache age
      * @return a promise that resolves to the information
      */
-    info(forceRefresh : boolean = false): Promise<PlayerInfo>{
-        return fetch(Methods.PLAYER(this.requestUuid), forceRefresh)
+    info(maxCacheAge: number = 10*60*1000): Promise<PlayerInfo>{
+        return fetch(Methods.PLAYER(this.requestUuid), maxCacheAge)
             .then(res => new PlayerInfoFactory().fromResponse(res).create())
             .then(res => {
                 this._uuid = res.uuid;
@@ -65,11 +65,11 @@ export class Player {
      * every other game just uses [[RawPlayerGameInfo]] with the raw data of the response
      *
      * @param gameType the game to request the data about
-     * @param forceRefresh should it be requested from the api even if it is cached
+     * @param maxCacheAge maximum age of the cache
      * @return a promise that resolves to the respective [[PlayerGameInfo]]
      */
-    gameInfo(gameType : GameType, forceRefresh : boolean = false): Promise<PlayerGameInfo> {
-        return fetch(Methods.PLAYER_GAME_STATS(this.requestUuid, gameType.id), forceRefresh)
+    gameInfo(gameType : GameType, maxCacheAge: number = 10*60*1000): Promise<PlayerGameInfo> {
+        return fetch(Methods.PLAYER_GAME_STATS(this.requestUuid, gameType.id), maxCacheAge)
             .then((res) => new gameType.playerGameInfoFactory().fromResponse(res).create());
     }
 

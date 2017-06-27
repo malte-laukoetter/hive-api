@@ -9,8 +9,8 @@ export class Game {
     /**
      * gets the real information about the game
      */
-    info(forceRefresh: boolean): Promise<GameInfo>{
-        return fetch(Methods.GAME_INFO(this.type.id, this.id), forceRefresh)
+    info(maxCacheAge: number = 24*60*60*1000): Promise<GameInfo>{
+        return fetch(Methods.GAME_INFO(this.type.id, this.id), maxCacheAge)
             .then(res => new this.type.gameInfoFactory().fromResponse(res).create());
     }
 }

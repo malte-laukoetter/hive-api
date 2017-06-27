@@ -26,9 +26,9 @@ export abstract class Achievement {
      *
      * must be overwritten by the implementation
      *
-     * @param forceRefresh should the cache be ignored
+     * @param maxCacheAge maximum cache age
      */
-    info(forceRefresh: boolean = false): Promise<AchievementInfo>{
+    info(maxCacheAge: number = 24*60*60*1000): Promise<AchievementInfo>{
         return null;
     };
 }
@@ -37,8 +37,8 @@ export abstract class Achievement {
  * an serverwide [[Achievement]] like the playtime achievements
  */
 export class ServerAchievement extends Achievement {
-    info(forceRefresh: boolean = false): any {
-        return Server.achievements(forceRefresh).then(list => list.filter(achievement => achievement.id == this.id)[0]);
+    info(maxCacheAge: number = 24*60*60*1000): any {
+        return Server.achievements(maxCacheAge).then(list => list.filter(achievement => achievement.id == this.id)[0]);
     }
 }
 
@@ -50,8 +50,8 @@ export class GameAchievement extends Achievement {
         super(id, progress, unlockedAt);
     }
 
-    info(forceRefresh: boolean = false): any {
-        return this.game.achievements(forceRefresh)
+    info(maxCacheAge: number = 24*60*60*1000): any {
+        return this.game.achievements(maxCacheAge)
             .then(list => list.filter(achievement => achievement.id == this.id))[0];
     }
 }
