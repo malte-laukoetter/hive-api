@@ -6,7 +6,7 @@ export class PlayerGameInfo {
 
 export class RawPlayerGameInfo extends PlayerGameInfo {
     constructor(readonly data) {
-        super(data["total_points"] || 0);
+        super(data["total_points"] || data["points"] || 0);
     }
 }
 

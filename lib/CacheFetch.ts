@@ -45,15 +45,3 @@ export async function fetch(request, maxCacheAge:number = 60*60*1000){
         return await cache.get(request)[0];
     }
 }
-
-setInterval(()=>{
-    let iter = outstandingRequests.entries().next();
-
-    if(!iter.done){
-        let [request, [resolve, reject]] = iter.value;
-
-        original_fetch(request).then(res => res.json()).then(resolve).catch(reject);
-
-        outstandingRequests.delete(request);
-    }
-}, minTimeBetweenRequests);
