@@ -11,7 +11,7 @@ export class RawPlayerGameInfo extends PlayerGameInfo {
 }
 
 export abstract class PlayerGameInfoFactory<T> implements FromResponseFactory<T> {
-    protected _points: number;
+    protected _points: number = 0;
 
     points(points: number){
         this._points = points;

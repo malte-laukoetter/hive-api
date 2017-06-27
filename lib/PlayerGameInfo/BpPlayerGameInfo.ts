@@ -36,6 +36,10 @@ export class BpPlayerGameInfoFactory extends PlayerGameInfoFactory<BpPlayerGameI
     }
 
     fromResponse(res){
+        if(res.code == 404){
+            return this;
+        }
+
         return this.points(res.total_points)
             .victories(res.victories)
             .gamesPlayed(res.games_played)

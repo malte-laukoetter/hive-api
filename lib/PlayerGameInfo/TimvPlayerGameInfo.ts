@@ -33,6 +33,10 @@ export class TimvPlayerGameInfoFactory extends PlayerGameInfoFactory<TimvPlayerG
     }
 
     fromResponse(res){
+        if(res.code == 404){
+            return this;
+        }
+
         return this.lastLogin(res.lastlogin)
             .points(res.total_points)
             .mostPoints(res.most_points)
