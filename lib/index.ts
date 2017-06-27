@@ -1,5 +1,4 @@
-import {SgPlayerGameInfo, SgPlayerGameInfoFactory, Game, GameTypes, Player, PlayerInfo, Server, SgGameInfo, Achievement, TheSwarmAchievement, DrGameInfo} from "./main";
-import {BedPlayerGameInfo} from "./PlayerGameInfo/BedPlayerGameInfo";
+import {BedPlayerGameInfo, SgPlayerGameInfo, SgPlayerGameInfoFactory, Game, GameTypes, Player, PlayerInfo, Server, SgGameInfo, Achievement, TheSwarmAchievement, DrGameInfo} from "./main";
 
 
 export async function main(){

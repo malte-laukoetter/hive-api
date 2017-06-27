@@ -1,5 +1,6 @@
 import {GameType, GameTypes, RawPlayerGameInfoFactory, TimvPlayerGameInfoFactory, SgGameInfoFactory, SgnGameInfoFactory,
-    MimvGameInfoFactory, SkyGameInfoFactory, TimvGameInfoFactory, DrGameInfoFactory, BasicGameInfoFactory}
+    MimvGameInfoFactory, SkyGameInfoFactory, TimvGameInfoFactory, DrGameInfoFactory, BasicGameInfoFactory,
+    BedPlayerGameInfoFactory, BpPlayerGameInfoFactory, SgPlayerGameInfoFactory}
     from "./main";
 
 /**
@@ -27,6 +28,9 @@ export interface FromResponseFactory<T> extends Factory<T>{
  * gets the [[PlayerGameInfoFactory]] for the given [[GameType]]
  * currently the following games have Factories that parse the data:
  *  * TIMV - [[TimvPlayerGameInfoFactory]]
+ *  * BED - [[BedPlayerGameInfoFactory]]
+ *  * SG - [[SgPlayerGameInfoFactory]]
+ *  * BP - [[BpPlayerGameInfoFactory]]
  *
  * all other games just return a [[RawPlayerGameInfoFactory]]
  *
@@ -34,10 +38,17 @@ export interface FromResponseFactory<T> extends Factory<T>{
  * @return the class for the [[PlayerGameInfoFactory]] of the [[GameType]]
  */
 export function playerGameInfoFactoryForGametype(type: GameType) {
-    if(type.id == GameTypes.TIMV.id){
-        return TimvPlayerGameInfoFactory;
-    }else{
-        return RawPlayerGameInfoFactory;
+    switch(type.id){
+        case GameTypes.TIMV.id:
+            return TimvPlayerGameInfoFactory;
+        case GameTypes.BED.id:
+            return BedPlayerGameInfoFactory;
+        case GameTypes.SG.id:
+            return SgPlayerGameInfoFactory;
+        case GameTypes.BP.id:
+            return BpPlayerGameInfoFactory;
+        default:
+            return RawPlayerGameInfoFactory;
     }
 }
 
@@ -57,19 +68,20 @@ export function playerGameInfoFactoryForGametype(type: GameType) {
  * @return the class for the [[GameInfoFactory]] of the [[GameType]]
  */
 export function gameInfoFactoryForGametype(type: GameType) {
-    if(type.id === GameTypes.SG.id) {
-        return SgGameInfoFactory;
-    }else if(type.id === GameTypes.SGN.id){
-        return SgnGameInfoFactory;
-    }else if(type.id === GameTypes.MIMV.id){
-        return MimvGameInfoFactory;
-    }else if(type.id === GameTypes.DR.id){
-        return DrGameInfoFactory;
-    }else if(type.id === GameTypes.TIMV.id){
-        return TimvGameInfoFactory;
-    }else if(type.id === GameTypes.SKY.id){
-        return SkyGameInfoFactory;
-    }else{
-        return BasicGameInfoFactory;
+    switch(type.id){
+        case GameTypes.SG.id:
+            return SgGameInfoFactory;
+        case GameTypes.SGN.id:
+            return SgnGameInfoFactory;
+        case GameTypes.MIMV.id:
+            return MimvGameInfoFactory;
+        case GameTypes.DR.id:
+            return DrGameInfoFactory;
+        case GameTypes.TIMV.id:
+            return TimvGameInfoFactory;
+        case GameTypes.SKY.id:
+            return SkyGameInfoFactory;
+        default:
+            return BasicGameInfoFactory;
     }
 }
