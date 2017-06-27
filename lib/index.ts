@@ -1,23 +1,25 @@
 import {SgPlayerGameInfo, SgPlayerGameInfoFactory, Game, GameTypes, Player, PlayerInfo, Server, SgGameInfo, Achievement, TheSwarmAchievement, DrGameInfo} from "./main";
-import {getMethods} from "../test/utils";
 
 
 export async function main(){
     await GameTypes.update();
 
-  /*  console.log(Object.getOwnPropertyNames(
-        new SgPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, 0, 0, 0, true, true, [], null, [], [], false, new Date(), [], [])
-    ));
-*/
-    console.log(getMethods(new SgPlayerGameInfoFactory()));
-
     //Server.achievements().then(console.log);
-   // GameTypes.MM.achievements().then(console.log)
+    //GameTypes.MM.achievements().then(console.log)
 
     //new Player("Malte662").info().then((info) => info.achievements[1].theSwarmFrom.info()).then(console.log)
 
+    let player = new Player("Malte662");
+
+    let points = await Promise.all(
+        GameTypes.list.map(async type => await player.gameInfo(type).then(info => info.points))
+    ).then(points => points.reduce((a,b)=> (a)+b));
+
+    console.log(points)
+
   //  console.log((await new Player("Malte662").info()).firstLogin.toLocaleString());
-  //  new Player("Malte662").gameInfo(GameTypes.TIMV).then(console.log);
+    //new Player("Malte662").gameInfo(GameTypes.TIMV).then(console.log);
+    //new Player("Malte662").gameInfo(GameTypes.SKY).then(console.log);
 
    // GameTypes.list.map((gametype)=> `${gametype.id}: ${gametype.name}`).map(console.log)
   //  GameTypes.SKY.latestGames().then(games => games.forEach((game)=>game.info().then(console.log)))

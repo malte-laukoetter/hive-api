@@ -1,4 +1,4 @@
-import {FromResponseFactory} from "../main";
+import {FromResponseFactory, GameType, AchievementFactory, AchievementTypes, Achievement} from "../main";
 
 export class PlayerGameInfo {
     constructor(readonly points: number) {}
@@ -6,7 +6,7 @@ export class PlayerGameInfo {
 
 export class RawPlayerGameInfo extends PlayerGameInfo {
     constructor(readonly data) {
-        super(0);
+        super(data["total_points"] || 0);
     }
 }
 
@@ -42,4 +42,17 @@ export class RawPlayerGameInfoFactory extends PlayerGameInfoFactory<RawPlayerGam
         this._data = data;
         return this;
     }
+}
+
+export function createAchievementsFromAchievementResponse(type: GameType, data): Achievement[]{
+    return Object.entries(data)
+        .filter(([id, data]) => id !== "version")
+        .map(([id, data]) =>
+            new AchievementFactory()
+                .type(AchievementTypes.GAME)
+                .game(type)
+                .id(id)
+                .fromResponse(data)
+                .create()
+        )
 }

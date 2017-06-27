@@ -15,8 +15,8 @@ describe("Game Info Factories", () => {
         tests.forEach(([cls, factory]) => {
             it(`same for ${cls.constructor.name} and ${factory.constructor.name}`, () => {
                 expect(getMethods(factory).sort()).to.include.members(Object.getOwnPropertyNames(cls).sort());
-            })
-        })
+            });
+        });
     });
 
     describe("instance has everything", () => {
@@ -25,7 +25,7 @@ describe("Game Info Factories", () => {
                 expect(Object.getOwnPropertyNames(cls).concat(["create", "fromResponse"]).sort()).to.include.members(
                     getMethods(factory).sort()
                 );
-            })
-        })
-    })
+            });
+        });
+    });
 });

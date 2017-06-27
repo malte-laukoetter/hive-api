@@ -1,5 +1,4 @@
-import fetch from 'node-fetch';
-import {GameType, Methods, PlayerInfo, PlayerInfoFactory, PlayerGameInfo} from "./main";
+import {fetch, GameType, Methods, PlayerInfo, PlayerInfoFactory, PlayerGameInfo} from "./main";
 
 /**
  * represents a Player that the api can interact with
@@ -7,8 +6,6 @@ import {GameType, Methods, PlayerInfo, PlayerInfoFactory, PlayerGameInfo} from "
 export class Player {
     private _uuid : string;
     private _name : string;
-    private _info : Promise<PlayerInfo> = null;
-    private _gameInfos = {};
 
     /**
      * creates the player according to the given string
@@ -49,19 +46,15 @@ export class Player {
      * @return a promise that resolves to the information
      */
     info(forceRefresh : boolean = false): Promise<PlayerInfo>{
-        if(this._info == null || forceRefresh){
-            this._info = fetch(Methods.PLAYER(this.requestUuid))
-                .then(res => res.json())
-                .then(res => new PlayerInfoFactory().fromResponse(res).create())
-                .then(res => {
-                    this._uuid = res.uuid;
-                    this._name = res.name;
+        return fetch(Methods.PLAYER(this.requestUuid), forceRefresh)
+            .then(res => res.json())
+            .then(res => new PlayerInfoFactory().fromResponse(res).create())
+            .then(res => {
+                this._uuid = res.uuid;
+                this._name = res.name;
 
-                    return res;
-                });
-        }
-
-        return this._info;
+                return res;
+            });
     }
 
     /**
@@ -77,13 +70,9 @@ export class Player {
      * @return a promise that resolves to the respective [[PlayerGameInfo]]
      */
     gameInfo(gameType : GameType, forceRefresh : boolean = false): Promise<PlayerGameInfo> {
-        if(!this._gameInfos[gameType.id] || forceRefresh){
-            this._gameInfos[gameType.id] = fetch(Methods.PLAYER_GAME_STATS(this.requestUuid, gameType.id))
-                .then(res => res.json())
-                .then((res) => new gameType.playerGameInfoFactory().fromResponse(res).create())
-        }
-
-        return this._gameInfos[gameType.id];
+        return fetch(Methods.PLAYER_GAME_STATS(this.requestUuid, gameType.id), forceRefresh)
+            .then(res => res.json())
+            .then((res) => new gameType.playerGameInfoFactory().fromResponse(res).create());
     }
 
     /**

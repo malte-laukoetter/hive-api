@@ -1,4 +1,4 @@
-import {PlayerGameInfo, PlayerGameInfoFactory, Achievement, AchievementFactory, AchievementTypes, GameTypes} from "../main";
+import {PlayerGameInfo, PlayerGameInfoFactory, Achievement, createAchievementsFromAchievementResponse, GameTypes} from "../main";
 
 export class TimvPlayerGameInfo extends PlayerGameInfo{
     constructor(points: number, readonly lastLogin: Date, readonly mostPoints: number,
@@ -45,13 +45,7 @@ export class TimvPlayerGameInfoFactory extends PlayerGameInfoFactory<TimvPlayerG
             .activeFlareUpgrade(res.active_flareupgrade)
             .flareUpgrades(res.flareupgrade)
             .detectiveBook(res.detectivebook)
-            .achievements(res.achievements.map(achievement =>
-                new AchievementFactory()
-                    .type(AchievementTypes.GAME)
-                    .game(GameTypes.TIMV)
-                    .fromResponse(achievement)
-                    .create()
-            ))
+            .achievements(createAchievementsFromAchievementResponse(GameTypes.TIMV, res.achievements))
             .title(res.title);
     }
 

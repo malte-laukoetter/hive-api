@@ -1,4 +1,4 @@
-import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, AchievementFactory, AchievementTypes} from "../main";
+import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAchievementsFromAchievementResponse} from "../main";
 
 export class BedPlayerGameInfo extends PlayerGameInfo{
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly victories: number,
@@ -35,13 +35,7 @@ export class BedPlayerGameInfoFactory extends PlayerGameInfoFactory<BedPlayerGam
             .teamsEliminated(res.teams_eliminated)
             .firstLogin(new Date(res.firstLogin * 1000))
             .lastLogin(new Date(res.lastlogin*1000))
-            .achievements(res.achievements.map(achievement =>
-                new AchievementFactory()
-                    .type(AchievementTypes.GAME)
-                    .game(GameTypes.BED)
-                    .fromResponse(achievement)
-                    .create()
-            ));
+            .achievements(createAchievementsFromAchievementResponse(GameTypes.BED, res.achievements));
     }
 
     firstLogin(firstLogin : Date){

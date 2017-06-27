@@ -1,5 +1,4 @@
-import fetch from 'node-fetch';
-import {Game, Methods, gameInfoFactoryForGametype, playerGameInfoFactoryForGametype, AchievementInfo,
+import {fetch, Game, Methods, gameInfoFactoryForGametype, playerGameInfoFactoryForGametype, AchievementInfo,
     AchievementInfoFactory} from "./main";
 
 /**
@@ -36,22 +35,18 @@ export class GameType {
      * @param forceRefresh ignore the cache
      */
     private info(forceRefresh: boolean = false) : Promise<GameTypeInfo> {
-        if(this._info == null || forceRefresh){
-            this._info = fetch(Methods.GAMETYPE_INFO(this.id))
-                .then(res => res.json())
-                .then(res => new GameTypeInfo(
-                    res.uniqueplayers,
-                    res.achievements.map(a => new AchievementInfoFactory().fromResponse(a).create())
-                ));
-        }
-
-        return this._info;
+        return fetch(Methods.GAMETYPE_INFO(this.id), forceRefresh)
+            .then(res => res.json())
+            .then(res => new GameTypeInfo(
+                res.uniqueplayers,
+                res.achievements.map(a => new AchievementInfoFactory().fromResponse(a).create())
+            ));
     }
 
     /**
      * gets the latest 10 games
      */
-    latestGames = () : Promise<Game[]> => fetch(Methods.GAMETYPE_LATEST(this.id))
+    latestGames = () : Promise<Game[]> => fetch(Methods.GAMETYPE_LATEST(this.id), true)
         .then(res => res.json())
         .then(res => res.map((gameId) => new Game(this, gameId)))
         .catch(err => []);

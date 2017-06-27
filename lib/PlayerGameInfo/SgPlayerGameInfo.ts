@@ -1,4 +1,4 @@
-import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, AchievementFactory, AchievementTypes,
+import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAchievementsFromAchievementResponse,
     Game} from "../main";
 
 export class SgPlayerGameInfo extends PlayerGameInfo{
@@ -49,13 +49,7 @@ export class SgPlayerGameInfoFactory extends PlayerGameInfoFactory<SgPlayerGameI
             .deaths(res.deaths)
             .firstLogin(new Date(res.firstLogin * 1000))
             .lastLogin(new Date(res.lastlogin*1000))
-            .achievements(res.achievements.map(achievement =>
-                new AchievementFactory()
-                    .type(AchievementTypes.GAME)
-                    .game(GameTypes.SG)
-                    .fromResponse(achievement)
-                    .create()
-            ))
+            .achievements(createAchievementsFromAchievementResponse(GameTypes.SG, res.achievements))
             .cratesOpened(res.cratesopened)
             .deathmatches(res.deathmatches)
             .timeAlive(res.timealive)

@@ -1,4 +1,4 @@
-import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, AchievementFactory, AchievementTypes} from "../main";
+import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAchievementsFromAchievementResponse} from "../main";
 
 export class BpPlayerGameInfo extends PlayerGameInfo {
     constructor(points: number, readonly firstLogin: Date, readonly victories: number,
@@ -40,13 +40,7 @@ export class BpPlayerGameInfoFactory extends PlayerGameInfoFactory<BpPlayerGameI
             .victories(res.victories)
             .gamesPlayed(res.games_played)
             .firstLogin(new Date(res.firstLogin * 1000))
-            .achievements(res.achievements.map(achievement =>
-                new AchievementFactory()
-                    .type(AchievementTypes.GAME)
-                    .game(GameTypes.BP)
-                    .fromResponse(achievement)
-                    .create()
-            ))
+            .achievements(createAchievementsFromAchievementResponse(GameTypes.BP, res.achievements))
             .selectedBling(res.selected_bling)
             .selectedDeathSound(res.selected_death_sound)
             .selectedTrail(res.selected_trail)

@@ -2,6 +2,8 @@
  * Game Infos
  */
 
+export * from "./CacheFetch";
+
 export * from "./GameInfo/GameInfo";
 
 export * from "./GameInfo/SingleWinnerGameInfo";
