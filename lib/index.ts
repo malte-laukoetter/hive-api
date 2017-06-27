@@ -1,4 +1,5 @@
 import {SgPlayerGameInfo, SgPlayerGameInfoFactory, Game, GameTypes, Player, PlayerInfo, Server, SgGameInfo, Achievement, TheSwarmAchievement, DrGameInfo} from "./main";
+import {BedPlayerGameInfo} from "./PlayerGameInfo/BedPlayerGameInfo";
 
 
 export async function main(){
@@ -9,7 +10,13 @@ export async function main(){
 
     //new Player("Malte662").info().then((info) => info.achievements[1].theSwarmFrom.info()).then(console.log)
 
-    let player = new Player("Malte662");
+    let player: Player = new Player("Malte662");
+
+    let playerBedInfo: BedPlayerGameInfo = (await player.gameInfo(GameTypes.BED)) as BedPlayerGameInfo;
+
+    console.log(playerBedInfo.bedsDestroyed);
+
+
 /*
     let points = await Promise.all(
         GameTypes.list.map(async type => await player.gameInfo(type).then(info => info.points))
@@ -18,7 +25,6 @@ export async function main(){
     console.log(points)
 */
 
-    GameTypes.SKY.maps().then(maps => maps.map(console.log))//.then(console.log)
 
 /*    Promise.all(GameTypes.list.map(type => type.maps().then(maps => maps.map(map => map.worldName)))).then(arr => {
         ([].concat.apply([], arr)).forEach(console.log)

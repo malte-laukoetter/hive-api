@@ -6,7 +6,7 @@
 ## Install
 
 ```
-$ npm install --save hive-api
+$ npm install hive-api
 ```
 
 ## Documentation
@@ -44,9 +44,14 @@ player.info().then((info: PlayerInfo) => {
 
 ## Examples
 
-#### Print the unique players of each game
+Some examples are using async / await and therefor need to be wrapped into a async function. See: [async_function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+
+
+### Print the unique players of each game
 
 ```typescript
+import {GameTypes, GameType} from "hive-api";
+
 await GameTypes.update(); // update the list of GameTypes
 
 GameTypes.list.forEach((type: GameType) => {
@@ -57,8 +62,11 @@ GameTypes.list.forEach((type: GameType) => {
 ```
 
 
-#### Get the global achievements of the winner of the latest survival games game
+### Get the global achievements of the winner of the latest survival games game
+
 ```typescript
+import {GameTypes, Game, SgGameInfo, PlayerInfo, ServerAchievement, AchievementInfo} from "hive-api";
+
 GameTypes.SG.latestGames()
 	.then(games => games[0])
 	.then((game: Game) => game.info())
@@ -70,4 +78,28 @@ GameTypes.SG.latestGames()
 				.then(console.log)
 		});
 	}).catch(console.error);
+```
+
+
+### List the names of the skywars maps
+
+```typescript
+import {GameTypes, GameMap} from "hive-api";
+
+GameTypes.SKY.maps()
+    .then((maps: GameMap[]) => maps.map((map: GameMap) => map.worldName))
+    .then(console.log)
+```
+
+
+### Get the amount of Beds destroyed by Malte662 in Bedwars
+
+```typescript
+import {Player, BedPlayerGameInfo, GameTypes} from "hive-api"
+
+let player: Player = new Player("Malte662");
+
+let playerBedInfo: BedPlayerGameInfo = (await player.gameInfo(GameTypes.BED)) as BedPlayerGameInfo;
+
+console.log(playerBedInfo.bedsDestroyed);
 ```
