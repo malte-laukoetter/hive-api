@@ -45,6 +45,8 @@ export class RawPlayerGameInfoFactory extends PlayerGameInfoFactory<RawPlayerGam
 }
 
 export function createAchievementsFromAchievementResponse(type: GameType, data): Achievement[]{
+    if(!data) return [];
+
     return Object.entries(data)
         .filter(([id, data]) => id !== "version")
         .map(([id, data]) =>
