@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import 'mocha';
-import {PlayerInfo, PlayerInfoFactory, ServerAchievement} from "../lib/main";
+import {PlayerInfo, PlayerInfoFactory, ServerAchievement, Rank} from "../lib/main";
 
 describe("PlayerInfoFactory", () => {
     describe("#fromResponse()", () => {
@@ -8,7 +8,7 @@ describe("PlayerInfoFactory", () => {
 
         it("the created PlayerInfo should have the same data as the response", () => {
             expect(new PlayerInfoFactory().fromResponse(response).create()).to.eql(
-                new PlayerInfo("ebdf264aabda45708f61f2d7a2bb4758", "Malte662", "Regular Hive Member", 61782, 22, 0, 1,{"description":"Currently hibernating in","game":"the Land of Nods!"},new Date(1385846011000), new Date(1385846011000), new Date(1498250997000), [new ServerAchievement("PLAY168", 1, new Date(1491750600000))], [{"game":"Global","achievement":"JOIN1"},{"game":"BED","achievement":"MASTER"}])
+                new PlayerInfo("ebdf264aabda45708f61f2d7a2bb4758", "Malte662", Rank.REGULAR, 61782, 22, 0, 1,{"description":"Currently hibernating in","game":"the Land of Nods!"},new Date(1385846011000), new Date(1385846011000), new Date(1498250997000), [new ServerAchievement("PLAY168", 1, new Date(1491750600000))], [{"game":"Global","achievement":"JOIN1"},{"game":"BED","achievement":"MASTER"}])
             );
         })
     })

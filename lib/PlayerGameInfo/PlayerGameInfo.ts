@@ -1,4 +1,5 @@
 import {FromResponseFactory, GameType, AchievementFactory, AchievementTypes, Achievement} from "../main";
+import {isNullOrUndefined} from "util";
 
 export class PlayerGameInfo {
     constructor(readonly points: number) {}
@@ -45,7 +46,7 @@ export class RawPlayerGameInfoFactory extends PlayerGameInfoFactory<RawPlayerGam
 }
 
 export function createAchievementsFromAchievementResponse(type: GameType, data): Achievement[]{
-    if(!data) return [];
+    if(isNullOrUndefined(data)) return [];
 
     return Object.entries(data)
         .filter(([id, data]) => id !== "version")

@@ -11,9 +11,8 @@ export async function main(){
 
     let player: Player = new Player("Malte662");
 
-    let playerBedInfo: BedPlayerGameInfo = (await player.gameInfo(GameTypes.BED)) as BedPlayerGameInfo;
-
-    console.log(playerBedInfo.bedsDestroyed);
+ //   let playerBedInfo: SgPlayerGameInfo = (await player.gameInfo(GameTypes.SG)) as SgPlayerGameInfo;
+    player.info().then(info => info.rank).then(console.log);
 
 
 /*

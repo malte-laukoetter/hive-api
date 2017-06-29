@@ -1,13 +1,53 @@
 import {FromResponseFactory, Achievement, AchievementFactory, AchievementTypes} from "./main";
 
+export enum Rank{
+    REGULAR,
+    GOLD,
+    DIAMOND,
+    EMERALD,
+    VIP,
+    MODERATOR,
+    SENIOR_MODERATOR,
+    DEVELOPER,
+    OWNER
+}
+
+export function rankFromString(str: string): Rank{
+    switch(str){
+        case "Regular Hive Member":
+            return Rank.REGULAR;
+        case "Gold Hive Member":
+            return Rank.GOLD;
+        case "Diamond Hive Member":
+            return Rank.DIAMOND;
+        case "Lifetime Emerald Hive Member":
+            return Rank.EMERALD;
+        case "VIP Player":
+            return Rank.VIP;
+        case "Hive Moderator":
+            return Rank.MODERATOR;
+        case "Senior Hive Moderator":
+            return Rank.SENIOR_MODERATOR;
+        case "Hive Developer":
+            return Rank.DEVELOPER;
+        case "Hive Founder and Owner":
+            return Rank.OWNER;
+    }
+
+    console.error(`Unknown Rank: ${str}`);
+
+    return Rank.REGULAR
+}
+
 /**
  * contains the global information about a [[Player]] like it's rank and medals
  */
 export class PlayerInfo {
-    constructor(readonly uuid: string, readonly name: string, readonly rank, readonly tokens: number,
+    constructor(readonly uuid: string, readonly name: string, readonly rank: Rank, readonly tokens: number,
                 readonly medals: number, readonly credits: number, readonly crates: number, readonly status,
                 readonly firstLogin: Date, readonly lastLogin: Date, readonly lastLogout: Date,
-                readonly achievements: Achievement[], readonly trophies) {}
+                readonly achievements: Achievement[], readonly trophies) {
+    }
 }
 
 /**
@@ -16,7 +56,7 @@ export class PlayerInfo {
 export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo>{
     private _uuid : string = "";
     private _name : string = "";
-    private _rank;
+    private _rank: Rank = Rank.REGULAR;
     private _tokens : number = 0;
     private _medals : number = 0;
     private _credits : number = 0;
@@ -36,7 +76,7 @@ export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo>{
 
     fromResponse(res: any): FromResponseFactory<PlayerInfo> {
         return this.name(res.username)
-            .rank(res.rankName)
+            .rank(rankFromString(res.rankName))
             .tokens(res.tokens)
             .credits(res.credits)
             .medals(res.medals)
@@ -66,7 +106,7 @@ export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo>{
         return this;
     }
 
-    rank(rank) {
+    rank(rank: Rank) {
         this._rank = rank;
         return this;
     }
