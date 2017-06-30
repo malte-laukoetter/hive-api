@@ -3,19 +3,20 @@ import 'mocha';
 import {BpPlayerGameInfo, BpPlayerGameInfoFactory, SgPlayerGameInfo, SgPlayerGameInfoFactory, TimvPlayerGameInfo,
     TimvPlayerGameInfoFactory, BedPlayerGameInfo, BedPlayerGameInfoFactory, HeroPlayerGameInfo,
     HeroPlayerGameInfoFactory, RrPlayerGameInfo, RrPlayerGameInfoFactory, SpPlayerGameInfo, SpPlayerGameInfoFactory,
-    DrPlayerGameInfo, DrPlayerGameInfoFactory
+    DrPlayerGameInfo, DrPlayerGameInfoFactory, SkyPlayerGameInfo, SkyPlayerGameInfoFactory
 } from "../lib/main";
 import {getMethods} from "./utils";
 
 describe("Game Info Factories", () => {
     let tests = new Set([
-        [new SgPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, 0, 0, 0, true, true, [], null, [], [], false, new Date(), [], []), new SgPlayerGameInfoFactory()],
-        [new BedPlayerGameInfo(0, new Date(), new Date(), 0,0,0,0,0,0,[]), new BedPlayerGameInfoFactory()],
-        [new TimvPlayerGameInfo(0, new Date(), 0,0,0,0,0,null,[],null,[],false, [], ""), new TimvPlayerGameInfoFactory()],
-        [new BpPlayerGameInfo(0, new Date(), 0,0, null, null, null,null, 0,0,[],[],[], false, "", []), new BpPlayerGameInfoFactory()],
+        [new SgPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, 0, 0, 0, true, true, [], 0, [], [], false, new Date(), [], []), new SgPlayerGameInfoFactory()],
+        [new BedPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, 0, []), new BedPlayerGameInfoFactory()],
+        [new TimvPlayerGameInfo(0, new Date(), 0, 0, 0, 0, 0, 0, [], 0, [], false, [], ""), new TimvPlayerGameInfoFactory()],
+        [new BpPlayerGameInfo(0, new Date(), 0, 0, 0, 0, 0, 0, 0, 0, [], [], [], false, "", []), new BpPlayerGameInfoFactory()],
         [new RrPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, "", []), new RrPlayerGameInfoFactory()],
         [new SpPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, 0, false, false, false, "", []), new SpPlayerGameInfoFactory()],
         [new DrPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, 0, 0, 0, "", 0, 0, 0, 0, 0, 0, 0, false, false, [], []), new DrPlayerGameInfoFactory()],
+        [new SkyPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, 0, [], "", []), new SkyPlayerGameInfoFactory()],
         [new HeroPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, []), new HeroPlayerGameInfoFactory()]
     ]);
 
