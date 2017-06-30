@@ -4,7 +4,7 @@ import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAch
 export class HeroPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly victories: number,
                 readonly gamesPlayed: number, readonly kills: number, readonly deaths: number,
-                readonly oneVsOneWins: number, readonly deathmatches: number, readonly tntUsed: number,
+                readonly oneVsOnesWins: number, readonly deathmatches: number, readonly tntUsed: number,
                 readonly foodConsumed: number, readonly cratesOpened, readonly achievements: Achievement[]) {
         super(points);
     }
@@ -18,7 +18,7 @@ export class HeroPlayerGameInfoFactory extends PlayerGameInfoFactory<HeroPlayerG
     private _gamesPlayed : number;
     private _kills : number;
     private _deaths : number;
-    private _oneVsOneWins : number;
+    private _oneVsOnesWins : number;
     private _deathmatches : number;
     private _tntUsed : number;
     private _foodConsumed : number;
@@ -27,7 +27,7 @@ export class HeroPlayerGameInfoFactory extends PlayerGameInfoFactory<HeroPlayerG
 
     create(): HeroPlayerGameInfo {
         return new HeroPlayerGameInfo(this._points, this._firstLogin, this._lastLogin, this._victories,
-            this._gamesPlayed, this._kills, this._deaths, this._oneVsOneWins, this._deathmatches, this._tntUsed,
+            this._gamesPlayed, this._kills, this._deaths, this._oneVsOnesWins, this._deathmatches, this._tntUsed,
             this._foodConsumed, this._cratesOpened, this._achievements);
     }
 
@@ -39,13 +39,13 @@ export class HeroPlayerGameInfoFactory extends PlayerGameInfoFactory<HeroPlayerG
         return this.points(res.total_points)
             .victories(res.victories)
             .gamesPlayed(res.games_played)
-            .firstLogin(new Date(res.firstLogin * 1000))
+            .firstLogin(new Date(res.firstlogin * 1000))
             .lastLogin(new Date(res.lastlogin * 1000))
             .achievements(createAchievementsFromAchievementResponse(GameTypes.HERO, res.achievements))
             .deathmatches(res.deathmatches)
             .deaths(res.deaths)
             .foodConsumed(res.food_consumed)
-            .kills(res.kills).oneVsOneWins(res.one_vs_one_wins)
+            .kills(res.kills).oneVsOnesWins(res.one_vs_ones_wins)
             .tntUsed(res.tnt_used)
             .cratesOpened(res.crates_opened);
     }
@@ -95,8 +95,8 @@ export class HeroPlayerGameInfoFactory extends PlayerGameInfoFactory<HeroPlayerG
         return this;
     }
 
-    oneVsOneWins(oneVsOneWins : number){
-        this._oneVsOneWins = oneVsOneWins;
+    oneVsOnesWins(oneVsOnesWins : number){
+        this._oneVsOnesWins = oneVsOnesWins;
         return this;
     }
 

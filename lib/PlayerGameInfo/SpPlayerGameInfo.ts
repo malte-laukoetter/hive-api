@@ -38,10 +38,10 @@ export class SpPlayerGameInfoFactory extends PlayerGameInfoFactory<SpPlayerGameI
             return this;
         }
 
-        return this.points(res.total_points)
+        return this.points(res.points)
             .victories(res.victories)
-            .gamesPlayed(res.games_played)
-            .firstLogin(new Date(res.firstLogin * 1000))
+            .gamesPlayed(res.gamesplayed)
+            .firstLogin(new Date(res.firstlogin * 1000))
             .lastLogin(new Date(res.lastlogin * 1000))
             .achievements(createAchievementsFromAchievementResponse(GameTypes.SP, res.achievements))
             .title(res.title)

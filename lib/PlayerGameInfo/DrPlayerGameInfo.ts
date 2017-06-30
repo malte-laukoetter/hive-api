@@ -57,7 +57,7 @@ export class DrPlayerGameInfoFactory extends PlayerGameInfoFactory<DrPlayerGameI
             .deathGamesPlayed(res.deathgamesplayed)
             .deathWins(res.deathwins)
             .deaths(res.deaths)
-            .firstLogin(new Date(res.firstLogin * 1000))
+            .firstLogin(new Date(res.firstlogin * 1000))
             .gamesPlayed(res.games_played)
             .kills(res.kills)
             .lastLogin(new Date(res.lastlogin * 1000))

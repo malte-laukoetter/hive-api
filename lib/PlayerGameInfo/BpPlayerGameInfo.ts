@@ -53,7 +53,7 @@ export class BpPlayerGameInfoFactory extends PlayerGameInfoFactory<BpPlayerGameI
             .selectedVictorySound(res.selected_victory_sound)
             .title(res.title)
             .totalPlacing(res.total_placing)
-            .totalElimination(res.total_eleminations)
+            .totalElimination(res.total_eliminations)
             .unlockedBling(res.unlocked_bling)
             .unlockedTrails(res.unlocked_trails)
             .unlockedDeathSounds(res.unlocked_death_sounds)

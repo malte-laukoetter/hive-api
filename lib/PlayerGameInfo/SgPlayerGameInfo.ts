@@ -49,7 +49,7 @@ export class SgPlayerGameInfoFactory extends PlayerGameInfoFactory<SgPlayerGameI
 
         return this.points(res.total_points)
             .victories(res.victories)
-            .gamesPlayed(res.games_played)
+            .gamesPlayed(res.gamesplayed)
             .kills(res.kills)
             .deaths(res.deaths)
             .firstLogin(new Date(res.firstLogin * 1000))
