@@ -1,4 +1,5 @@
 import {FromResponseFactory, Achievement, AchievementFactory, AchievementTypes} from "./main";
+import {isNullOrUndefined} from "util";
 
 export enum Rank{
     REGULAR = "Regular Hive Member",
@@ -75,7 +76,7 @@ export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo>{
         this._achievements, this._trophies);
 
     fromResponse(res: any): FromResponseFactory<PlayerInfo> {
-        return this.name(res.username)
+        this.name(res.username)
             .rank(rankFromString(res.rankName))
             .tokens(res.tokens)
             .credits(res.credits)
@@ -86,14 +87,23 @@ export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo>{
             .firstLogin(new Date(res.firstLogin*1000))
             .lastLogin(new Date(res.lastLogin*1000))
             .lastLogout(new Date(res.lastLogout*1000))
-            .achievements(Object.entries(res.achievements).map(([id, data]) =>
-                new AchievementFactory()
-                    .id(id)
-                    .type(AchievementTypes.SERVER)
-                    .fromResponse(data)
-                    .create()
-            ))
-            .trophies(res.trophies)
+            .trophies(res.trophies);
+
+
+        if(!isNullOrUndefined(res.achievements)){
+            this.achievements(Object.entries(res.achievements)
+                .filter(([id, data]) => id !== "version")
+                .map(([id, data]) =>
+                    new AchievementFactory()
+                        .type(AchievementTypes.SERVER)
+                        .id(id)
+                        .fromResponse(data)
+                        .create()
+                ))
+        }
+
+        return this;
+
     }
 
     uuid(uuid : string) {
