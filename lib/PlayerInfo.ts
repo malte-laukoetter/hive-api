@@ -1,36 +1,36 @@
 import {FromResponseFactory, Achievement, AchievementFactory, AchievementTypes} from "./main";
 
 export enum Rank{
-    REGULAR,
-    GOLD,
-    DIAMOND,
-    EMERALD,
-    VIP,
-    MODERATOR,
-    SENIOR_MODERATOR,
-    DEVELOPER,
-    OWNER
+    REGULAR = "Regular Hive Member",
+    GOLD = "Gold Hive Member",
+    DIAMOND = "Diamond Hive Member",
+    EMERALD = "Lifetime Emerald Hive Member",
+    VIP = "VIP Player",
+    MODERATOR = "Hive Moderator",
+    SENIOR_MODERATOR = "Senior Hive Moderator",
+    DEVELOPER = "Hive Developer",
+    OWNER = "Hive Founder and Owner"
 }
 
 export function rankFromString(str: string): Rank{
     switch(str){
-        case "Regular Hive Member":
+        case Rank.REGULAR.toString():
             return Rank.REGULAR;
-        case "Gold Hive Member":
+        case Rank.GOLD.toString():
             return Rank.GOLD;
-        case "Diamond Hive Member":
+        case Rank.DIAMOND.toString():
             return Rank.DIAMOND;
-        case "Lifetime Emerald Hive Member":
+        case Rank.EMERALD.toString():
             return Rank.EMERALD;
-        case "VIP Player":
+        case Rank.VIP.toString():
             return Rank.VIP;
-        case "Hive Moderator":
+        case Rank.MODERATOR.toString():
             return Rank.MODERATOR;
-        case "Senior Hive Moderator":
+        case Rank.SENIOR_MODERATOR.toString():
             return Rank.SENIOR_MODERATOR;
-        case "Hive Developer":
+        case Rank.DEVELOPER.toString():
             return Rank.DEVELOPER;
-        case "Hive Founder and Owner":
+        case Rank.OWNER.toString():
             return Rank.OWNER;
     }
 

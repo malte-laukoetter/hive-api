@@ -1,8 +1,8 @@
 import {GameInfo, GameInfoFactory, Player} from "../main";
 
 export enum DrTeam {
-    RUNNER,
-    DEATH
+    RUNNER = "runner",
+    DEATH = "death"
 }
 
 export function drTeamFromText(text: string): DrTeam{

@@ -1,8 +1,8 @@
 import {GameInfo, GameInfoFactory, Player} from "../main";
 
 export enum MimvTeam {
-    CITIZEN,
-    MURDERER
+    CITIZEN = "citizen",
+    MURDERER = "murderer"
 }
 
 export function mimvTeamFromText(text: string): MimvTeam{

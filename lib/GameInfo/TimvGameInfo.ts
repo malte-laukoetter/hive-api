@@ -1,8 +1,8 @@
 import {GameInfo, GameInfoFactory, Player} from "../main";
 
 export enum TimvTeam {
-    INNOCENT,
-    TRAITOR
+    INNOCENT = "innocent",
+    TRAITOR = "traitor"
 }
 
 export function timvTeamFromText(text: string): TimvTeam{

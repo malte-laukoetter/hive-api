@@ -8,11 +8,11 @@ export enum AchievementTypes {
     /**
      * will resolve to a [[ServerAchievement]]
      */
-    SERVER,
+    SERVER = "server",
     /**
      * will resolve to a [[GameAchievement]]
      */
-    GAME
+    GAME = "game"
 }
 
 /**
