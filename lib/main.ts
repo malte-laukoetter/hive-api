@@ -27,6 +27,7 @@ export * from "./PlayerGameInfo/SgPlayerGameInfo"
 export * from "./PlayerGameInfo/BpPlayerGameInfo"
 export * from "./PlayerGameInfo/HeroPlayerGameInfo"
 export * from "./PlayerGameInfo/RrPlayerGameInfo"
+export * from "./PlayerGameInfo/SpPlayerGameInfo"
 
 
 /*
