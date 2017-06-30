@@ -11,6 +11,14 @@ export class RawPlayerGameInfo extends PlayerGameInfo {
     }
 }
 
+export abstract class PlayerGameInfoAchievements{
+    achievements: Achievement[];
+}
+
+export interface PlayerGameInfoFactoryAchievements{
+    achievements(achievements: Achievement[]): this;
+}
+
 export abstract class PlayerGameInfoFactory<T> implements FromResponseFactory<T> {
     protected _points: number = 0;
 

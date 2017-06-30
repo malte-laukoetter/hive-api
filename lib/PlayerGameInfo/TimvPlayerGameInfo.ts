@@ -1,6 +1,7 @@
-import {PlayerGameInfo, PlayerGameInfoFactory, Achievement, createAchievementsFromAchievementResponse, GameTypes} from "../main";
+import {PlayerGameInfo, PlayerGameInfoFactory, Achievement, createAchievementsFromAchievementResponse, GameTypes,
+    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements} from "../main";
 
-export class TimvPlayerGameInfo extends PlayerGameInfo{
+export class TimvPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly lastLogin: Date, readonly mostPoints: number,
                 readonly rolePoints: number, readonly traitorPoints: number,
                 readonly innocentPoints: number, readonly detectivePoints: number,
@@ -10,7 +11,8 @@ export class TimvPlayerGameInfo extends PlayerGameInfo{
     }
 }
 
-export class TimvPlayerGameInfoFactory extends PlayerGameInfoFactory<TimvPlayerGameInfo> {
+export class TimvPlayerGameInfoFactory extends PlayerGameInfoFactory<TimvPlayerGameInfo>
+    implements PlayerGameInfoFactoryAchievements{
     private _lastLogin : Date;
     private _mostPoints : number;
     private _rolePoints : number;

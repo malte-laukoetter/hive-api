@@ -1,6 +1,7 @@
-import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAchievementsFromAchievementResponse} from "../main";
+import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAchievementsFromAchievementResponse,
+    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements} from "../main";
 
-export class BedPlayerGameInfo extends PlayerGameInfo{
+export class BedPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly victories: number,
                 readonly gamesPlayed: number, readonly kills: number, readonly deaths: number,
                 readonly bedsDestroyed: number, readonly teamsEliminated, readonly achievements: Achievement[]) {
@@ -8,7 +9,8 @@ export class BedPlayerGameInfo extends PlayerGameInfo{
     }
 }
 
-export class BedPlayerGameInfoFactory extends PlayerGameInfoFactory<BedPlayerGameInfo> {
+export class BedPlayerGameInfoFactory extends PlayerGameInfoFactory<BedPlayerGameInfo>
+    implements PlayerGameInfoFactoryAchievements{
     private _firstLogin : Date;
     private _lastLogin : Date;
     private _victories : number;
