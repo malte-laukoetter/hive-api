@@ -97,8 +97,8 @@ export class GameTypes {
     static readonly SP   = new GameType("SP"); // done
     static readonly TIMV = new GameType("TIMV"); // done
     static readonly SKY  = new GameType("SKY"); // done
-    static readonly LAB  = new GameType("LAB"); // todo
-    static readonly DRAW = new GameType("DRAW"); // todo
+    static readonly LAB  = new GameType("LAB"); // done
+    static readonly DRAW = new GameType("DRAW"); // done
     static readonly SLAP = new GameType("SLAP"); // no achievements
     static readonly EF   = new GameType("EF"); // no achievements
     static readonly MM   = new GameType("MM"); // no achievements
@@ -109,7 +109,7 @@ export class GameTypes {
     static readonly PMK  = new GameType("PMK"); // no achievements
     static readonly SGN  = new GameType("SGN"); // no achievements
     static readonly BD   = new GameType("BD"); // no achievements
-    static readonly SPL  = new GameType("SPL"); // todo
+    static readonly SPL  = new GameType("SPL"); // done
     static readonly MIMV = new GameType("MIMV"); // done
     static readonly BED  = new GameType("BED"); // done
 

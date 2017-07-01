@@ -6,7 +6,8 @@ import {GameTypes, GameType, playerGameInfoFactoryForGametype, BpPlayerGameInfo,
     SpPlayerGameInfo, SpPlayerGameInfoFactory, DrPlayerGameInfo, DrPlayerGameInfoFactory, SkyPlayerGameInfo,
     SkyPlayerGameInfoFactory, MimvPlayerGameInfo, MimvPlayerGameInfoFactory, HbPlayerGameInfo, HbPlayerGameInfoFactory,
     CaiPlayerGameInfo, CaiPlayerGameInfoFactory, CrPlayerGameInfo, CrPlayerGameInfoFactory, HidePlayerGameInfo,
-    HidePlayerGameInfoFactory, OitcPlayerGameInfo, OitcPlayerGameInfoFactory
+    HidePlayerGameInfoFactory, OitcPlayerGameInfo, OitcPlayerGameInfoFactory, LabPlayerGameInfo,
+    LabPlayerGameInfoFactory, DrawPlayerGameInfo, DrawPlayerGameInfoFactory, SplPlayerGameInfo, SplPlayerGameInfoFactory
 } from "../lib/main";
 import {getMethods} from "./utils";
 
@@ -26,6 +27,9 @@ describe("Player Game Info Factories", () => {
         [GameTypes.CR, new CrPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, 0, 0, 0, "", []), new CrPlayerGameInfoFactory()],
         [GameTypes.HIDE, new HidePlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", []), new HidePlayerGameInfoFactory()],
         [GameTypes.OITC, new OitcPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, false, false, false, false, "", []), new OitcPlayerGameInfoFactory()],
+        [GameTypes.LAB, new LabPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, "", []), new LabPlayerGameInfoFactory()],
+        [GameTypes.DRAW, new DrawPlayerGameInfo(0, new Date(), 0, 0, 0, 0, 0, "", []), new DrawPlayerGameInfoFactory()],
+        [GameTypes.SPL, new SplPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, 0, 0, "", []), new SplPlayerGameInfoFactory()],
         [GameTypes.HERO, new HeroPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, []), new HeroPlayerGameInfoFactory()]
     ]);
 
