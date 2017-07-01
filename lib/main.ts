@@ -33,6 +33,7 @@ export * from "./PlayerGameInfo/SkyPlayerGameInfo"
 export * from "./PlayerGameInfo/MimvPlayerGameInfo"
 export * from "./PlayerGameInfo/HbPlayerGameInfo"
 export * from "./PlayerGameInfo/CaiPlayerGameInfo"
+export * from "./PlayerGameInfo/CrPlayerGameInfo"
 
 
 /*

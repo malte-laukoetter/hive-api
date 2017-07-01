@@ -32,7 +32,7 @@ export class HbPlayerGameInfoFactory extends PlayerGameInfoFactory<HbPlayerGameI
 
         return this.points(res.points)
             .firstLogin(new Date(res.firstlogin * 1000))
-            .achievements(createAchievementsFromAchievementResponse(GameTypes.SP, res.achievements))
+            .achievements(createAchievementsFromAchievementResponse(GameTypes.HB, res.achievements))
             .title(res.title)
             .captures(res.captures)
             .kills(res.kills)

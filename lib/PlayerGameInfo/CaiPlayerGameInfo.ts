@@ -36,10 +36,10 @@ export class CaiPlayerGameInfoFactory extends PlayerGameInfoFactory<CaiPlayerGam
             return this;
         }
 
-        return this.points(res.points)
+        return this.points(res.total_points)
             .firstLogin(new Date(res.firstlogin * 1000))
             .lastLogin(new Date(res.lastlogin * 1000))
-            .achievements(createAchievementsFromAchievementResponse(GameTypes.SP, res.achievements))
+            .achievements(createAchievementsFromAchievementResponse(GameTypes.CAI, res.achievements))
             .title(res.title)
             .captures(res.captures)
             .captured(res.captured)

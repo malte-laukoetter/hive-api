@@ -85,33 +85,33 @@ class GameTypeInfo {
  * calling of the [[GameTypes#update]] method.
  */
 export class GameTypes {
-    static readonly SG   = new GameType("SG");
-    static readonly BP   = new GameType("BP");
-    static readonly CAI  = new GameType("CAI");
-    static readonly CR   = new GameType("CR");
-    static readonly DR   = new GameType("DR");
-    static readonly HB   = new GameType("HB");
-    static readonly HERO = new GameType("HERO");
-    static readonly HIDE = new GameType("HIDE");
-    static readonly OITC = new GameType("OITC");
-    static readonly SP   = new GameType("SP");
-    static readonly TIMV = new GameType("TIMV");
-    static readonly SKY  = new GameType("SKY");
-    static readonly LAB  = new GameType("LAB");
-    static readonly DRAW = new GameType("DRAW");
-    static readonly SLAP = new GameType("SLAP");
-    static readonly EF   = new GameType("EF");
-    static readonly MM   = new GameType("MM");
-    static readonly GRAV = new GameType("GRAV");
-    static readonly RR   = new GameType("RR");
-    static readonly GNT  = new GameType("GNT");
-    static readonly GNTM = new GameType("GNTM");
-    static readonly PMK  = new GameType("PMK");
-    static readonly SGN  = new GameType("SGN");
-    static readonly BD   = new GameType("BD");
-    static readonly SPL  = new GameType("SPL");
-    static readonly MIMV = new GameType("MIMV");
-    static readonly BED  = new GameType("BED");
+    static readonly SG   = new GameType("SG"); // done
+    static readonly BP   = new GameType("BP"); // done
+    static readonly CAI  = new GameType("CAI"); // done
+    static readonly CR   = new GameType("CR"); // todo
+    static readonly DR   = new GameType("DR"); // done
+    static readonly HB   = new GameType("HB"); // done
+    static readonly HERO = new GameType("HERO"); // done
+    static readonly HIDE = new GameType("HIDE"); // todo
+    static readonly OITC = new GameType("OITC"); // todo
+    static readonly SP   = new GameType("SP"); // done
+    static readonly TIMV = new GameType("TIMV"); // done
+    static readonly SKY  = new GameType("SKY"); // done
+    static readonly LAB  = new GameType("LAB"); // todo
+    static readonly DRAW = new GameType("DRAW"); // todo
+    static readonly SLAP = new GameType("SLAP"); // no achievements
+    static readonly EF   = new GameType("EF"); // no achievements
+    static readonly MM   = new GameType("MM"); // no achievements
+    static readonly GRAV = new GameType("GRAV"); // no achievements
+    static readonly RR   = new GameType("RR"); // done
+    static readonly GNT  = new GameType("GNT"); // no achievements
+    static readonly GNTM = new GameType("GNTM"); // no achievements
+    static readonly PMK  = new GameType("PMK"); // no achievements
+    static readonly SGN  = new GameType("SGN"); // no achievements
+    static readonly BD   = new GameType("BD"); // no achievements
+    static readonly SPL  = new GameType("SPL"); // todo
+    static readonly MIMV = new GameType("MIMV"); // done
+    static readonly BED  = new GameType("BED"); // done
 
     private static _list : GameType[] = [GameTypes.SG, GameTypes.BP, GameTypes.CAI, GameTypes.CR, GameTypes.DR,
         GameTypes.HB, GameTypes.HERO, GameTypes.HIDE, GameTypes.OITC, GameTypes.SP, GameTypes.TIMV, GameTypes.SKY,
