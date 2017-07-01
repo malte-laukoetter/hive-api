@@ -1,5 +1,5 @@
 import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAchievementsFromAchievementResponse,
-    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, Game} from "../main";
+    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, Game, createDateFromResponse} from "../main";
 
 export class SkyPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly victories: number,
@@ -38,8 +38,8 @@ export class SkyPlayerGameInfoFactory extends PlayerGameInfoFactory<SkyPlayerGam
         return this.points(res.total_points)
             .victories(res.victories)
             .gamesPlayed(res.gamesplayed)
-            .firstLogin(new Date(res.firstLogin * 1000))
-            .lastLogin(new Date(res.lastlogin * 1000))
+            .firstLogin(createDateFromResponse(res.firstLogin))
+            .lastLogin(createDateFromResponse(res.lastlogin))
             .achievements(createAchievementsFromAchievementResponse(GameTypes.SKY, res.achievements))
             .title(res.title)
             .deaths(res.deaths)

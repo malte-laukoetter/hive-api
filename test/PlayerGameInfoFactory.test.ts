@@ -5,7 +5,8 @@ import {GameTypes, GameType, playerGameInfoFactoryForGametype, BpPlayerGameInfo,
     BedPlayerGameInfoFactory, HeroPlayerGameInfo, HeroPlayerGameInfoFactory, RrPlayerGameInfo, RrPlayerGameInfoFactory,
     SpPlayerGameInfo, SpPlayerGameInfoFactory, DrPlayerGameInfo, DrPlayerGameInfoFactory, SkyPlayerGameInfo,
     SkyPlayerGameInfoFactory, MimvPlayerGameInfo, MimvPlayerGameInfoFactory, HbPlayerGameInfo, HbPlayerGameInfoFactory,
-    CaiPlayerGameInfo, CaiPlayerGameInfoFactory, CrPlayerGameInfo, CrPlayerGameInfoFactory
+    CaiPlayerGameInfo, CaiPlayerGameInfoFactory, CrPlayerGameInfo, CrPlayerGameInfoFactory, HidePlayerGameInfo,
+    HidePlayerGameInfoFactory, OitcPlayerGameInfo, OitcPlayerGameInfoFactory
 } from "../lib/main";
 import {getMethods} from "./utils";
 
@@ -23,6 +24,8 @@ describe("Player Game Info Factories", () => {
         [GameTypes.HB, new HbPlayerGameInfo(0, new Date(), 0, 0, 0, 0, 0, "", []), new HbPlayerGameInfoFactory()],
         [GameTypes.CAI, new CaiPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, 0, 0, 0, "", []), new CaiPlayerGameInfoFactory()],
         [GameTypes.CR, new CrPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, 0, 0, 0, "", []), new CrPlayerGameInfoFactory()],
+        [GameTypes.HIDE, new HidePlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, "", []), new HidePlayerGameInfoFactory()],
+        [GameTypes.OITC, new OitcPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, false, false, false, false, "", []), new OitcPlayerGameInfoFactory()],
         [GameTypes.HERO, new HeroPlayerGameInfo(0, new Date(), new Date(), 0, 0, 0, 0, 0, 0, 0, 0, 0, []), new HeroPlayerGameInfoFactory()]
     ]);
 

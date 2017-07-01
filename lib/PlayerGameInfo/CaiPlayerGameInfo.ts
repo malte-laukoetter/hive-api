@@ -1,5 +1,5 @@
 import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAchievementsFromAchievementResponse,
-    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements} from "../main";
+    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, createDateFromResponse} from "../main";
 
 export class CaiPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly captured: number,
@@ -37,8 +37,8 @@ export class CaiPlayerGameInfoFactory extends PlayerGameInfoFactory<CaiPlayerGam
         }
 
         return this.points(res.total_points)
-            .firstLogin(new Date(res.firstlogin * 1000))
-            .lastLogin(new Date(res.lastlogin * 1000))
+            .firstLogin(createDateFromResponse(res.firstlogin))
+            .lastLogin(createDateFromResponse(res.lastlogin))
             .achievements(createAchievementsFromAchievementResponse(GameTypes.CAI, res.achievements))
             .title(res.title)
             .captures(res.captures)

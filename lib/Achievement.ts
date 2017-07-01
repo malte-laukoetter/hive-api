@@ -1,4 +1,6 @@
-import {GameType, GameTypes, Server, FromResponseFactory, Player, AchievementInfo} from "./main";
+import {
+    GameType, GameTypes, Server, FromResponseFactory, Player, AchievementInfo, createDateFromResponse
+} from "./main";
 
 /**
  * the two types of Achievements available: Server wide achievements like the swarm and the achievements specific to a
@@ -96,7 +98,7 @@ export class AchievementFactory implements FromResponseFactory<Achievement>{
 
     fromResponse(res: any): FromResponseFactory<Achievement> {
         this.progress(res.progress)
-            .unlockedAt(new Date(res.unlockedAt*1000));
+            .unlockedAt(createDateFromResponse(res.unlockedAt));
 
         // add the person from whom the swarm data came, ignore Initial as it's the value of the owners that had it
         // initially as they never really gained it

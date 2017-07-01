@@ -67,3 +67,11 @@ export function createAchievementsFromAchievementResponse(type: GameType, data):
                 .create()
         )
 }
+
+export function createDateFromResponse(num: number): Date{
+    if(num > 10000000000){
+        return new Date(num)
+    }else{
+        return new Date(num * 1000)
+    }
+}

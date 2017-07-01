@@ -1,5 +1,5 @@
 import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAchievementsFromAchievementResponse,
-    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, Game} from "../main";
+    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, Game, createDateFromResponse} from "../main";
 
 export class DrPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly victories: number,
@@ -57,10 +57,10 @@ export class DrPlayerGameInfoFactory extends PlayerGameInfoFactory<DrPlayerGameI
             .deathGamesPlayed(res.deathgamesplayed)
             .deathWins(res.deathwins)
             .deaths(res.deaths)
-            .firstLogin(new Date(res.firstlogin * 1000))
+            .firstLogin(createDateFromResponse(res.firstlogin))
             .gamesPlayed(res.games_played)
             .kills(res.kills)
-            .lastLogin(new Date(res.lastlogin * 1000))
+            .lastLogin(createDateFromResponse(res.lastlogin))
             .mapRecords(res.maprecords)
             .multiKills(res.multikills)
             .points(res.total_points)

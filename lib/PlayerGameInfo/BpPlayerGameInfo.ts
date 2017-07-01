@@ -1,5 +1,5 @@
 import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAchievementsFromAchievementResponse,
-    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements} from "../main";
+    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, createDateFromResponse} from "../main";
 
 export class BpPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly firstLogin: Date, readonly victories: number,
@@ -45,7 +45,7 @@ export class BpPlayerGameInfoFactory extends PlayerGameInfoFactory<BpPlayerGameI
         return this.points(res.total_points)
             .victories(res.victories)
             .gamesPlayed(res.games_played)
-            .firstLogin(new Date(res.firstLogin * 1000))
+            .firstLogin(createDateFromResponse(res.firstLogin))
             .achievements(createAchievementsFromAchievementResponse(GameTypes.BP, res.achievements))
             .selectedBling(res.selected_bling)
             .selectedDeathSound(res.selected_death_sound)

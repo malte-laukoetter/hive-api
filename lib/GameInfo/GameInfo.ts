@@ -1,4 +1,4 @@
-import {FromResponseFactory} from "../main";
+import {FromResponseFactory, createDateFromResponse} from "../main";
 
 /**
  * Information about a Game (not GameType / Mode)
@@ -22,8 +22,8 @@ export abstract class GameInfoFactory<T extends GameInfo> implements FromRespons
     fromResponse(res: any): GameInfoFactory<T> {
         return this.gameEvents(res.gameevents)
             .server(res.server)
-            .endTime(new Date(res.endtime*1000))
-            .startTime(new Date(res.starttime*1000))
+            .endTime(createDateFromResponse(res.endtime))
+            .startTime(createDateFromResponse(res.starttime))
             .map(res.map);
     }
 

@@ -1,4 +1,4 @@
-import {FromResponseFactory, Achievement, AchievementFactory, AchievementTypes} from "./main";
+import {FromResponseFactory, Achievement, AchievementFactory, AchievementTypes, createDateFromResponse} from "./main";
 import {isNullOrUndefined} from "util";
 
 export enum Rank{
@@ -84,9 +84,9 @@ export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo>{
             .crates(res.crates)
             .uuid(res.UUID)
             .status(res.status)
-            .firstLogin(new Date(res.firstLogin*1000))
-            .lastLogin(new Date(res.lastLogin*1000))
-            .lastLogout(new Date(res.lastLogout*1000))
+            .firstLogin(createDateFromResponse(res.firstLogin))
+            .lastLogin(createDateFromResponse(res.lastLogin))
+            .lastLogout(createDateFromResponse(res.lastLogout))
             .trophies(res.trophies);
 
 

@@ -1,5 +1,5 @@
 import {PlayerGameInfo, PlayerGameInfoFactory, Achievement, createAchievementsFromAchievementResponse, GameTypes,
-    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements} from "../main";
+    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, createDateFromResponse} from "../main";
 
 export class TimvPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly lastLogin: Date, readonly mostPoints: number,
@@ -39,7 +39,7 @@ export class TimvPlayerGameInfoFactory extends PlayerGameInfoFactory<TimvPlayerG
             return this;
         }
 
-        return this.lastLogin(res.lastlogin)
+        return this.lastLogin(createDateFromResponse(res.lastlogin))
             .points(res.total_points)
             .mostPoints(res.most_points)
             .rolePoints(res.role_points)
@@ -55,13 +55,12 @@ export class TimvPlayerGameInfoFactory extends PlayerGameInfoFactory<TimvPlayerG
             .title(res.title);
     }
 
-    lastLogin(lastLogin){
-        this._lastLogin = new Date(lastLogin * 1000);
-
+    lastLogin(lastLogin: Date){
+        this._lastLogin = lastLogin;
         return this;
     }
 
-    mostPoints(mostPoints){
+    mostPoints(mostPoints: number){
         this._mostPoints = mostPoints;
         return this;
     }

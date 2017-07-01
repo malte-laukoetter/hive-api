@@ -1,34 +1,36 @@
 import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAchievementsFromAchievementResponse,
     PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, createDateFromResponse} from "../main";
 
-export class CrPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
+export class OitcPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly gamesPlayed: number,
-                readonly victories: number, readonly deaths: number, readonly kills: number,
-                readonly rccatCount: number, readonly rccatKills: number, readonly airstrikeCount: number,
-                readonly airstrikeKills: number, readonly title: string, readonly achievements: Achievement[]) {
+                readonly victories: number, readonly kills: number, readonly deaths: number,
+                readonly arrowsFired: number, readonly cupidUnlock: boolean, readonly rainbowUnlock: boolean,
+                readonly musicUnlock: boolean, readonly herobrineUnlock: boolean, readonly title: string,
+                readonly achievements: Achievement[]) {
         super(points);
     }
 }
 
-export class CrPlayerGameInfoFactory extends PlayerGameInfoFactory<CrPlayerGameInfo>
+export class OitcPlayerGameInfoFactory extends PlayerGameInfoFactory<OitcPlayerGameInfo>
     implements PlayerGameInfoFactoryAchievements{
     private _firstLogin : Date;
     private _lastLogin : Date;
     private _gamesPlayed: number;
     private _victories: number;
-    private _title : string;
+    private _title: string;
     private _achievements: Achievement[];
     private _kills: number;
     private _deaths: number;
-    private _rccatCount: number;
-    private _rccatKills: number;
-    private _airstrikeCount: number;
-    private _airstrikeKills: number;
+    private _arrowsFired: number;
+    private _cupidUnlock: boolean;
+    private _rainbowUnlock: boolean;
+    private _musicUnlock: boolean;
+    private _herobrineUnlock: boolean;
 
-    create(): CrPlayerGameInfo {
-        return new CrPlayerGameInfo(this._points, this._firstLogin, this._lastLogin, this._gamesPlayed,
-            this._victories, this._deaths, this._kills, this._rccatCount, this._rccatKills, this._airstrikeCount,
-            this._airstrikeKills, this._title, this._achievements);
+    create(): OitcPlayerGameInfo {
+        return new OitcPlayerGameInfo(this._points, this._firstLogin, this._lastLogin, this._gamesPlayed,
+            this._victories, this._kills, this._deaths, this._arrowsFired, this._cupidUnlock, this._rainbowUnlock,
+            this._musicUnlock, this._herobrineUnlock, this._title, this._achievements);
     }
 
     fromResponse(res){
@@ -39,16 +41,17 @@ export class CrPlayerGameInfoFactory extends PlayerGameInfoFactory<CrPlayerGameI
         return this.points(res.total_points)
             .firstLogin(createDateFromResponse(res.firstlogin))
             .lastLogin(createDateFromResponse(res.lastlogin))
-            .achievements(createAchievementsFromAchievementResponse(GameTypes.CR, res.achievements))
+            .achievements(createAchievementsFromAchievementResponse(GameTypes.OITC, res.achievements))
             .title(res.title)
             .gamesPlayed(res.gamesplayed)
             .victories(res.victories)
             .kills(res.kills)
             .deaths(res.deaths)
-            .rccatCount(res.rccat_count)
-            .rccatKills(res.rccat_kills)
-            .airstrikeCount(res.airstrike_count)
-            .airstrikeKills(res.airstrike_kills);
+            .arrowsFired(res.arrowsfired)
+            .cupidUnlock(res.cupidunlock)
+            .rainbowUnlock(res.rainbowunlock)
+            .musicUnlock(res.musicunlock)
+            .herobrineUnlock(res.herobrineunlock);
     }
 
     firstLogin(firstLogin : Date){
@@ -81,6 +84,11 @@ export class CrPlayerGameInfoFactory extends PlayerGameInfoFactory<CrPlayerGameI
         return this;
     }
 
+    arrowsFired(arrowsFired: number){
+        this._arrowsFired = arrowsFired;
+        return this;
+    }
+
     deaths(deaths: number){
         this._deaths = deaths;
         return this;
@@ -91,23 +99,23 @@ export class CrPlayerGameInfoFactory extends PlayerGameInfoFactory<CrPlayerGameI
         return this;
     }
 
-    rccatCount(rccatCount: number){
-        this._rccatCount = rccatCount;
+    cupidUnlock(cupidUnlock: boolean){
+        this._cupidUnlock = cupidUnlock;
         return this;
     }
 
-    rccatKills(rccatKills: number){
-        this._rccatKills = rccatKills;
+    herobrineUnlock(herobrineUnlock: boolean){
+        this._herobrineUnlock = herobrineUnlock;
         return this;
     }
 
-    airstrikeCount(airstrikeCount: number){
-        this._airstrikeCount = airstrikeCount;
+    musicUnlock(musicUnlock: boolean){
+        this._musicUnlock = musicUnlock;
         return this;
     }
 
-    airstrikeKills(airstrikeKills: number){
-        this._airstrikeKills = airstrikeKills;
+    rainbowUnlock(rainbowUnlock: boolean){
+        this._rainbowUnlock = rainbowUnlock;
         return this;
     }
 }

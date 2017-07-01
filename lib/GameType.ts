@@ -88,12 +88,12 @@ export class GameTypes {
     static readonly SG   = new GameType("SG"); // done
     static readonly BP   = new GameType("BP"); // done
     static readonly CAI  = new GameType("CAI"); // done
-    static readonly CR   = new GameType("CR"); // todo
+    static readonly CR   = new GameType("CR"); // done
     static readonly DR   = new GameType("DR"); // done
     static readonly HB   = new GameType("HB"); // done
     static readonly HERO = new GameType("HERO"); // done
-    static readonly HIDE = new GameType("HIDE"); // todo
-    static readonly OITC = new GameType("OITC"); // todo
+    static readonly HIDE = new GameType("HIDE"); // done
+    static readonly OITC = new GameType("OITC"); // done
     static readonly SP   = new GameType("SP"); // done
     static readonly TIMV = new GameType("TIMV"); // done
     static readonly SKY  = new GameType("SKY"); // done

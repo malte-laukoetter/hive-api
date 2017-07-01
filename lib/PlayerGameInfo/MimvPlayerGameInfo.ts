@@ -1,5 +1,5 @@
 import {PlayerGameInfo, PlayerGameInfoFactory, Achievement, createAchievementsFromAchievementResponse, GameTypes,
-    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements} from "../main";
+    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, createDateFromResponse} from "../main";
 
 export class MimvPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly lastLogin: Date, readonly firstLogin: Date, readonly gamesPlayed: number,
@@ -34,8 +34,8 @@ export class MimvPlayerGameInfoFactory extends PlayerGameInfoFactory<MimvPlayerG
         }
 
         return this
-            .lastLogin(new Date(res.lastlogin * 1000))
-            .firstLogin(new Date(res.firstLogin * 1000))
+            .lastLogin(createDateFromResponse(res.lastlogin))
+            .firstLogin(createDateFromResponse(res.firstLogin))
             .points(res.total_points)
             .gamesPlayed(res.games_played)
             .victories(res.victories)

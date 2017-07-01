@@ -1,5 +1,5 @@
 import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAchievementsFromAchievementResponse,
-    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements} from "../main";
+    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, createDateFromResponse} from "../main";
 
 export class SpPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly victories: number,
@@ -41,8 +41,8 @@ export class SpPlayerGameInfoFactory extends PlayerGameInfoFactory<SpPlayerGameI
         return this.points(res.points)
             .victories(res.victories)
             .gamesPlayed(res.gamesplayed)
-            .firstLogin(new Date(res.firstlogin * 1000))
-            .lastLogin(new Date(res.lastlogin * 1000))
+            .firstLogin(createDateFromResponse(res.firstlogin))
+            .lastLogin(createDateFromResponse(res.lastlogin))
             .achievements(createAchievementsFromAchievementResponse(GameTypes.SP, res.achievements))
             .title(res.title)
             .eggsFired(res.eggsfired)

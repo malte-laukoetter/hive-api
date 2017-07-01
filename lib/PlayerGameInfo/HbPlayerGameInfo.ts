@@ -1,5 +1,5 @@
 import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAchievementsFromAchievementResponse,
-    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements} from "../main";
+    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, createDateFromResponse} from "../main";
 
 export class HbPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly firstLogin: Date, readonly captures: number, readonly kills: number,
@@ -31,7 +31,7 @@ export class HbPlayerGameInfoFactory extends PlayerGameInfoFactory<HbPlayerGameI
         }
 
         return this.points(res.points)
-            .firstLogin(new Date(res.firstlogin * 1000))
+            .firstLogin(createDateFromResponse(res.firstlogin))
             .achievements(createAchievementsFromAchievementResponse(GameTypes.HB, res.achievements))
             .title(res.title)
             .captures(res.captures)
