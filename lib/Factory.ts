@@ -2,7 +2,7 @@ import {GameType, GameTypes, RawPlayerGameInfoFactory, TimvPlayerGameInfoFactory
     MimvGameInfoFactory, SkyGameInfoFactory, TimvGameInfoFactory, DrGameInfoFactory, BasicGameInfoFactory,
     BedPlayerGameInfoFactory, BpPlayerGameInfoFactory, SgPlayerGameInfoFactory, DrPlayerGameInfoFactory,
     HeroPlayerGameInfoFactory, RrPlayerGameInfoFactory, SpPlayerGameInfoFactory, SkyPlayerGameInfoFactory,
-    MimvPlayerGameInfoFactory
+    MimvPlayerGameInfoFactory, HbPlayerGameInfoFactory
 } from "./main";
 
 /**
@@ -39,6 +39,7 @@ export interface FromResponseFactory<T> extends Factory<T>{
  *  * SP - [[SpPlayerGameInfoFactory]]
  *  * SKY - [[SkyPlayerGameInfoFactory]]
  *  * MIMV - [[MimvPlayerGameInfoFactory]]
+ *  * HB - [[HbPlayerGameInfoFactory]]
  *
  * all other games just return a [[RawPlayerGameInfoFactory]]
  *
@@ -67,6 +68,8 @@ export function playerGameInfoFactoryForGametype(type: GameType) {
             return SkyPlayerGameInfoFactory;
         case GameTypes.MIMV.id:
             return MimvPlayerGameInfoFactory;
+        case GameTypes.HB.id:
+            return HbPlayerGameInfoFactory;
         default:
             return RawPlayerGameInfoFactory;
     }
