@@ -1,0 +1,881 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>HidePlayerGameInfoFactory | Hive-Api-Node</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">Hive-Api-Node</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="hideplayergameinfofactory.html">HidePlayerGameInfoFactory</a>
+				</li>
+			</ul>
+			<h1>Class HidePlayerGameInfoFactory</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<a href="playergameinfofactory.html" class="tsd-signature-type">PlayerGameInfoFactory</a><span class="tsd-signature-symbol">&lt;</span><a href="hideplayergameinfo.html" class="tsd-signature-type">HidePlayerGameInfo</a><span class="tsd-signature-symbol">&gt;</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">HidePlayerGameInfoFactory</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/fromresponsefactory.html" class="tsd-signature-type">FromResponseFactory</a><span class="tsd-signature-symbol">&lt;</span><a href="hideplayergameinfo.html" class="tsd-signature-type">HidePlayerGameInfo</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<li><a href="../interfaces/playergameinfofactoryachievements.html" class="tsd-signature-type">PlayerGameInfoFactoryAchievements</a></li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-private-protected">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="hideplayergameinfofactory.html#_achievements" class="tsd-kind-icon">_achievements</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="hideplayergameinfofactory.html#_blockexperience" class="tsd-kind-icon">_block<wbr>Experience</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="hideplayergameinfofactory.html#_blocks" class="tsd-kind-icon">_blocks</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="hideplayergameinfofactory.html#_bookupgrade" class="tsd-kind-icon">_book<wbr>Upgrade</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="hideplayergameinfofactory.html#_deaths" class="tsd-kind-icon">_deaths</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="hideplayergameinfofactory.html#_firstlogin" class="tsd-kind-icon">_first<wbr>Login</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="hideplayergameinfofactory.html#_gamesplayed" class="tsd-kind-icon">_games<wbr>Played</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="hideplayergameinfofactory.html#_hiderkills" class="tsd-kind-icon">_hider<wbr>Kills</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="hideplayergameinfofactory.html#_lastlogin" class="tsd-kind-icon">_last<wbr>Login</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="hideplayergameinfofactory.html#_points" class="tsd-kind-icon">_points</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="hideplayergameinfofactory.html#_rawblockexperience" class="tsd-kind-icon">_raw<wbr>Block<wbr>Experience</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="hideplayergameinfofactory.html#_seekerkills" class="tsd-kind-icon">_seeker<wbr>Kills</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="hideplayergameinfofactory.html#_timealive" class="tsd-kind-icon">_time<wbr>Alive</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="hideplayergameinfofactory.html#_title" class="tsd-kind-icon">_title</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="hideplayergameinfofactory.html#_victories" class="tsd-kind-icon">_victories</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="hideplayergameinfofactory.html#achievements" class="tsd-kind-icon">achievements</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="hideplayergameinfofactory.html#blockexperience" class="tsd-kind-icon">block<wbr>Experience</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="hideplayergameinfofactory.html#blocks" class="tsd-kind-icon">blocks</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="hideplayergameinfofactory.html#bookupgrade" class="tsd-kind-icon">book<wbr>Upgrade</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="hideplayergameinfofactory.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="hideplayergameinfofactory.html#deaths" class="tsd-kind-icon">deaths</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="hideplayergameinfofactory.html#firstlogin" class="tsd-kind-icon">first<wbr>Login</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="hideplayergameinfofactory.html#fromresponse" class="tsd-kind-icon">from<wbr>Response</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="hideplayergameinfofactory.html#gamesplayed" class="tsd-kind-icon">games<wbr>Played</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="hideplayergameinfofactory.html#hiderkills" class="tsd-kind-icon">hider<wbr>Kills</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="hideplayergameinfofactory.html#lastlogin" class="tsd-kind-icon">last<wbr>Login</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="hideplayergameinfofactory.html#points" class="tsd-kind-icon">points</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="hideplayergameinfofactory.html#rawblockexperience" class="tsd-kind-icon">raw<wbr>Block<wbr>Experience</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="hideplayergameinfofactory.html#seekerkills" class="tsd-kind-icon">seeker<wbr>Kills</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="hideplayergameinfofactory.html#timealive" class="tsd-kind-icon">time<wbr>Alive</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="hideplayergameinfofactory.html#title" class="tsd-kind-icon">title</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="hideplayergameinfofactory.html#victories" class="tsd-kind-icon">victories</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-private-protected">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_achievements" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _achievements</h3>
+					<div class="tsd-signature tsd-kind-icon">_achievements<span class="tsd-signature-symbol">:</span> <a href="achievement.html" class="tsd-signature-type">Achievement</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L21">lib/PlayerGameInfo/HidePlayerGameInfo.ts:21</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_blockexperience" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _block<wbr>Experience</h3>
+					<div class="tsd-signature tsd-kind-icon">_block<wbr>Experience<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L29">lib/PlayerGameInfo/HidePlayerGameInfo.ts:29</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_blocks" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _blocks</h3>
+					<div class="tsd-signature tsd-kind-icon">_blocks<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L26">lib/PlayerGameInfo/HidePlayerGameInfo.ts:26</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_bookupgrade" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _book<wbr>Upgrade</h3>
+					<div class="tsd-signature tsd-kind-icon">_book<wbr>Upgrade<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L27">lib/PlayerGameInfo/HidePlayerGameInfo.ts:27</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_deaths" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _deaths</h3>
+					<div class="tsd-signature tsd-kind-icon">_deaths<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L22">lib/PlayerGameInfo/HidePlayerGameInfo.ts:22</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_firstlogin" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _first<wbr>Login</h3>
+					<div class="tsd-signature tsd-kind-icon">_first<wbr>Login<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L16">lib/PlayerGameInfo/HidePlayerGameInfo.ts:16</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_gamesplayed" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _games<wbr>Played</h3>
+					<div class="tsd-signature tsd-kind-icon">_games<wbr>Played<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L18">lib/PlayerGameInfo/HidePlayerGameInfo.ts:18</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_hiderkills" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _hider<wbr>Kills</h3>
+					<div class="tsd-signature tsd-kind-icon">_hider<wbr>Kills<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L23">lib/PlayerGameInfo/HidePlayerGameInfo.ts:23</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_lastlogin" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _last<wbr>Login</h3>
+					<div class="tsd-signature tsd-kind-icon">_last<wbr>Login<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L17">lib/PlayerGameInfo/HidePlayerGameInfo.ts:17</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+					<a name="_points" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> _points</h3>
+					<div class="tsd-signature tsd-kind-icon">_points<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="playergameinfofactory.html">PlayerGameInfoFactory</a>.<a href="playergameinfofactory.html#_points">_points</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/PlayerGameInfo.ts#L23">lib/PlayerGameInfo/PlayerGameInfo.ts:23</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_rawblockexperience" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _raw<wbr>Block<wbr>Experience</h3>
+					<div class="tsd-signature tsd-kind-icon">_raw<wbr>Block<wbr>Experience<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L28">lib/PlayerGameInfo/HidePlayerGameInfo.ts:28</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_seekerkills" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _seeker<wbr>Kills</h3>
+					<div class="tsd-signature tsd-kind-icon">_seeker<wbr>Kills<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L24">lib/PlayerGameInfo/HidePlayerGameInfo.ts:24</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_timealive" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _time<wbr>Alive</h3>
+					<div class="tsd-signature tsd-kind-icon">_time<wbr>Alive<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L25">lib/PlayerGameInfo/HidePlayerGameInfo.ts:25</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_title" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _title</h3>
+					<div class="tsd-signature tsd-kind-icon">_title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L20">lib/PlayerGameInfo/HidePlayerGameInfo.ts:20</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_victories" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _victories</h3>
+					<div class="tsd-signature tsd-kind-icon">_victories<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L19">lib/PlayerGameInfo/HidePlayerGameInfo.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="achievements" class="tsd-anchor"></a>
+					<h3>achievements</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">achievements<span class="tsd-signature-symbol">(</span>achievements<span class="tsd-signature-symbol">: </span><a href="achievement.html" class="tsd-signature-type">Achievement</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/playergameinfofactoryachievements.html">PlayerGameInfoFactoryAchievements</a>.<a href="../interfaces/playergameinfofactoryachievements.html#achievements">achievements</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L74">lib/PlayerGameInfo/HidePlayerGameInfo.ts:74</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>achievements: <a href="achievement.html" class="tsd-signature-type">Achievement</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="blockexperience" class="tsd-anchor"></a>
+					<h3>block<wbr>Experience</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">block<wbr>Experience<span class="tsd-signature-symbol">(</span>blockExperience<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L129">lib/PlayerGameInfo/HidePlayerGameInfo.ts:129</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>blockExperience: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="blocks" class="tsd-anchor"></a>
+					<h3>blocks</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">blocks<span class="tsd-signature-symbol">(</span>blocks<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L114">lib/PlayerGameInfo/HidePlayerGameInfo.ts:114</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>blocks: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="bookupgrade" class="tsd-anchor"></a>
+					<h3>book<wbr>Upgrade</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">book<wbr>Upgrade<span class="tsd-signature-symbol">(</span>bookUpgrade<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L119">lib/PlayerGameInfo/HidePlayerGameInfo.ts:119</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>bookUpgrade: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="create" class="tsd-anchor"></a>
+					<h3>create</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">create<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="hideplayergameinfo.html" class="tsd-signature-type">HidePlayerGameInfo</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/fromresponsefactory.html">FromResponseFactory</a>.<a href="../interfaces/fromresponsefactory.html#create">create</a></p>
+								<p>Overrides <a href="playergameinfofactory.html">PlayerGameInfoFactory</a>.<a href="playergameinfofactory.html#create">create</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L31">lib/PlayerGameInfo/HidePlayerGameInfo.ts:31</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="hideplayergameinfo.html" class="tsd-signature-type">HidePlayerGameInfo</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="deaths" class="tsd-anchor"></a>
+					<h3>deaths</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">deaths<span class="tsd-signature-symbol">(</span>deaths<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L94">lib/PlayerGameInfo/HidePlayerGameInfo.ts:94</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>deaths: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="firstlogin" class="tsd-anchor"></a>
+					<h3>first<wbr>Login</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">first<wbr>Login<span class="tsd-signature-symbol">(</span>firstLogin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L64">lib/PlayerGameInfo/HidePlayerGameInfo.ts:64</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>firstLogin: <span class="tsd-signature-type">Date</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a name="fromresponse" class="tsd-anchor"></a>
+					<h3>from<wbr>Response</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Response<span class="tsd-signature-symbol">(</span>res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/fromresponsefactory.html">FromResponseFactory</a>.<a href="../interfaces/fromresponsefactory.html#fromresponse">fromResponse</a></p>
+								<p>Overrides <a href="playergameinfofactory.html">PlayerGameInfoFactory</a>.<a href="playergameinfofactory.html#fromresponse">fromResponse</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L37">lib/PlayerGameInfo/HidePlayerGameInfo.ts:37</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>res: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="gamesplayed" class="tsd-anchor"></a>
+					<h3>games<wbr>Played</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">games<wbr>Played<span class="tsd-signature-symbol">(</span>gamesPlayed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L84">lib/PlayerGameInfo/HidePlayerGameInfo.ts:84</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>gamesPlayed: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="hiderkills" class="tsd-anchor"></a>
+					<h3>hider<wbr>Kills</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">hider<wbr>Kills<span class="tsd-signature-symbol">(</span>hiderKills<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L99">lib/PlayerGameInfo/HidePlayerGameInfo.ts:99</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>hiderKills: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="lastlogin" class="tsd-anchor"></a>
+					<h3>last<wbr>Login</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">last<wbr>Login<span class="tsd-signature-symbol">(</span>lastLogin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L69">lib/PlayerGameInfo/HidePlayerGameInfo.ts:69</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>lastLogin: <span class="tsd-signature-type">Date</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="points" class="tsd-anchor"></a>
+					<h3>points</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">points<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from <a href="playergameinfofactory.html">PlayerGameInfoFactory</a>.<a href="playergameinfofactory.html#points">points</a></p>
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/PlayerGameInfo.ts#L25">lib/PlayerGameInfo/PlayerGameInfo.ts:25</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>points: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="rawblockexperience" class="tsd-anchor"></a>
+					<h3>raw<wbr>Block<wbr>Experience</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">raw<wbr>Block<wbr>Experience<span class="tsd-signature-symbol">(</span>rawBlockExperience<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L124">lib/PlayerGameInfo/HidePlayerGameInfo.ts:124</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rawBlockExperience: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="seekerkills" class="tsd-anchor"></a>
+					<h3>seeker<wbr>Kills</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">seeker<wbr>Kills<span class="tsd-signature-symbol">(</span>seekerKills<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L104">lib/PlayerGameInfo/HidePlayerGameInfo.ts:104</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>seekerKills: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="timealive" class="tsd-anchor"></a>
+					<h3>time<wbr>Alive</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">time<wbr>Alive<span class="tsd-signature-symbol">(</span>timeAlive<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L109">lib/PlayerGameInfo/HidePlayerGameInfo.ts:109</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>timeAlive: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="title" class="tsd-anchor"></a>
+					<h3>title</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">(</span>title<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L79">lib/PlayerGameInfo/HidePlayerGameInfo.ts:79</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>title: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="victories" class="tsd-anchor"></a>
+					<h3>victories</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">victories<span class="tsd-signature-symbol">(</span>victories<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d096ec2/lib/PlayerGameInfo/HidePlayerGameInfo.ts#L89">lib/PlayerGameInfo/HidePlayerGameInfo.ts:89</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>victories: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="hideplayergameinfofactory.html" class="tsd-kind-icon">Hide<wbr>Player<wbr>Game<wbr>Info<wbr>Factory</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="hideplayergameinfofactory.html#_achievements" class="tsd-kind-icon">_achievements</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="hideplayergameinfofactory.html#_blockexperience" class="tsd-kind-icon">_block<wbr>Experience</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="hideplayergameinfofactory.html#_blocks" class="tsd-kind-icon">_blocks</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="hideplayergameinfofactory.html#_bookupgrade" class="tsd-kind-icon">_book<wbr>Upgrade</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="hideplayergameinfofactory.html#_deaths" class="tsd-kind-icon">_deaths</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="hideplayergameinfofactory.html#_firstlogin" class="tsd-kind-icon">_first<wbr>Login</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="hideplayergameinfofactory.html#_gamesplayed" class="tsd-kind-icon">_games<wbr>Played</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="hideplayergameinfofactory.html#_hiderkills" class="tsd-kind-icon">_hider<wbr>Kills</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="hideplayergameinfofactory.html#_lastlogin" class="tsd-kind-icon">_last<wbr>Login</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
+								<a href="hideplayergameinfofactory.html#_points" class="tsd-kind-icon">_points</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="hideplayergameinfofactory.html#_rawblockexperience" class="tsd-kind-icon">_raw<wbr>Block<wbr>Experience</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="hideplayergameinfofactory.html#_seekerkills" class="tsd-kind-icon">_seeker<wbr>Kills</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="hideplayergameinfofactory.html#_timealive" class="tsd-kind-icon">_time<wbr>Alive</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="hideplayergameinfofactory.html#_title" class="tsd-kind-icon">_title</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="hideplayergameinfofactory.html#_victories" class="tsd-kind-icon">_victories</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="hideplayergameinfofactory.html#achievements" class="tsd-kind-icon">achievements</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="hideplayergameinfofactory.html#blockexperience" class="tsd-kind-icon">block<wbr>Experience</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="hideplayergameinfofactory.html#blocks" class="tsd-kind-icon">blocks</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="hideplayergameinfofactory.html#bookupgrade" class="tsd-kind-icon">book<wbr>Upgrade</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="hideplayergameinfofactory.html#create" class="tsd-kind-icon">create</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="hideplayergameinfofactory.html#deaths" class="tsd-kind-icon">deaths</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="hideplayergameinfofactory.html#firstlogin" class="tsd-kind-icon">first<wbr>Login</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+								<a href="hideplayergameinfofactory.html#fromresponse" class="tsd-kind-icon">from<wbr>Response</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="hideplayergameinfofactory.html#gamesplayed" class="tsd-kind-icon">games<wbr>Played</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="hideplayergameinfofactory.html#hiderkills" class="tsd-kind-icon">hider<wbr>Kills</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="hideplayergameinfofactory.html#lastlogin" class="tsd-kind-icon">last<wbr>Login</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="hideplayergameinfofactory.html#points" class="tsd-kind-icon">points</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="hideplayergameinfofactory.html#rawblockexperience" class="tsd-kind-icon">raw<wbr>Block<wbr>Experience</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="hideplayergameinfofactory.html#seekerkills" class="tsd-kind-icon">seeker<wbr>Kills</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="hideplayergameinfofactory.html#timealive" class="tsd-kind-icon">time<wbr>Alive</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="hideplayergameinfofactory.html#title" class="tsd-kind-icon">title</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="hideplayergameinfofactory.html#victories" class="tsd-kind-icon">victories</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p><a href="https://lergin.de/imprint">Imprint</a> <a href="https://lergin.de/privacy">Privacy</a> Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+<script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-60277501-9', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>
