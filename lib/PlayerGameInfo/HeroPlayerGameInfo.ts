@@ -45,7 +45,8 @@ export class HeroPlayerGameInfoFactory extends PlayerGameInfoFactory<HeroPlayerG
             .deathmatches(res.deathmatches)
             .deaths(res.deaths)
             .foodConsumed(res.food_consumed)
-            .kills(res.kills).oneVsOnesWins(res.one_vs_ones_wins)
+            .kills(res.kills)
+            .oneVsOnesWins(res.one_vs_ones_wins)
             .tntUsed(res.tnt_used)
             .cratesOpened(res.crates_opened);
     }

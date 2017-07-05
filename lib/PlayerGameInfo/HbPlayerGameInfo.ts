@@ -30,15 +30,20 @@ export class HbPlayerGameInfoFactory extends PlayerGameInfoFactory<HbPlayerGameI
             return this;
         }
 
-        return this.points(res.points)
+        this.points(res.points)
             .firstLogin(createDateFromResponse(res.firstlogin))
             .achievements(createAchievementsFromAchievementResponse(GameTypes.HB, res.achievements))
             .title(res.title)
             .captures(res.captures)
             .kills(res.kills)
             .deaths(res.deaths)
-            .unlockedClasses(res.unlocked_classes.split(",").filter(a => a != ""))
             .activeClass(res.active_class);
+
+        if(res.unlocked_classes){
+            this.unlockedClasses(res.unlocked_classes.split(",").filter(a => a != ""))
+        }
+
+        return this;
     }
 
     firstLogin(firstLogin : Date){

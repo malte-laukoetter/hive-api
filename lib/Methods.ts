@@ -95,4 +95,9 @@ export class Methods {
      * url for a list of the trophies
      */
     static TROPHIE_LIST = () => `${Methods.BASE_URL()}/server/trophies`;
+
+    /**
+     * url for a list of the staff members
+     */
+    static STAFF_LIST = () => `${Methods.BASE_URL()}/staff`;
 }

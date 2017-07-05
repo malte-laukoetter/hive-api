@@ -65,7 +65,7 @@ export class SgPlayerGameInfoFactory extends PlayerGameInfoFactory<SgPlayerGameI
             .arrowTrails(res.arrowtrails)
             .battleCries(res.battlecries)
             .activeDeathcrate(res.active_deathcrate)
-            .firstWinDay(new Date(res.firstwinday*1000))
+            .firstWinDay(createDateFromResponse(res.firstwinday))
             .recentGames(res.recentgames.map(game => new Game(GameTypes.SG, game)))
             .mostPoints(res.most_points);
     }

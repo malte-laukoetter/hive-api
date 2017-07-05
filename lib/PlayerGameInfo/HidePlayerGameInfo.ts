@@ -39,7 +39,7 @@ export class HidePlayerGameInfoFactory extends PlayerGameInfoFactory<HidePlayerG
             return this;
         }
 
-        return this.points(res.total_points)
+        this.points(res.total_points)
             .firstLogin(createDateFromResponse(res.firstlogin))
             .lastLogin(createDateFromResponse(res.lastlogin))
             .achievements(createAchievementsFromAchievementResponse(GameTypes.HIDE, res.achievements))
@@ -49,11 +49,16 @@ export class HidePlayerGameInfoFactory extends PlayerGameInfoFactory<HidePlayerG
             .deaths(res.deaths)
             .hiderKills(res.hiderkills)
             .seekerKills(res.seekerkills)
-            .blocks(res.blocks.split(",").filter(a => a != ""))
             .bookUpgrade(res.bookupgrade)
             .timeAlive(res.timealive)
             .rawBlockExperience(res.rawBlockExperience)
             .blockExperience(res.blockExperience);
+
+        if(res.blocks){
+            this.blocks(res.blocks.split(",").filter(a => a != ""))
+        }
+
+        return this;
     }
 
     firstLogin(firstLogin : Date){
