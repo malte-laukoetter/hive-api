@@ -28,6 +28,7 @@ export interface FromResponseFactory<T> extends Factory<T>{
      */
     fromResponse(res : any): FromResponseFactory<T>;
 }
+
 /**
  * gets the [[PlayerGameInfoFactory]] for the given [[GameType]]
  * currently the following games have Factories that parse the data:
@@ -130,4 +131,11 @@ export function gameInfoFactoryForGametype(type: GameType) {
         default:
             return BasicGameInfoFactory;
     }
+}
+
+/**
+ * creates an array from a string that has the values slitted by a ,
+ */
+export function arrayFromListString(str: string): any[]{
+    return str.split(",").filter(a => a != "");
 }

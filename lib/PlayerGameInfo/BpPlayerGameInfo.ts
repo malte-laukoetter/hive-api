@@ -1,12 +1,37 @@
 import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAchievementsFromAchievementResponse,
-    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, createDateFromResponse} from "../main";
+    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, createDateFromResponse,
+    arrayFromListString} from "../main";
+
+export enum BpBling{
+    DIAMOND_BOOTS = "DIAMOND_BOOTS",
+    GOLD_BOOTS = "GOLD_BOOTS",
+    IRON_BOOTS = "IRON_BOOTS",
+    LEATHER_BOOTS = "LEATHER_BOOTS"
+}
+
+export enum BpDeathSound{
+    CAT_MEOW = "CAT_MEOW",
+    GHAST_DEATH = "GHAST_DEATH",
+    HORSE_DEATH = "HORSE_DEATH",
+    SPLASH = "SPLASH",
+    VILLAGER_YES = "VILLAGER_YES"
+}
+
+export enum BpTrail{
+    FLAME = "FLAME",
+    FLYING_GLYPH = "FLYING_GLYPH",
+    HEART = "HEART",
+    NOTE = "NOTE",
+    VILLAGER_THUNDERCLOUD = "VILLAGER_THUNDERCLOUD"
+}
 
 export class BpPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly firstLogin: Date, readonly victories: number,
-                readonly gamesPlayed: number, readonly selectedBling, readonly selectedDeathSound,
-                readonly selectedTrail, readonly selectedVictorySound, readonly totalElimination: number,
-                readonly totalPlacing: number, readonly unlockedBling, readonly unlockedDeathSounds,
-                readonly unlockedTrails, readonly windDisableNarration: boolean, readonly title: string,
+                readonly gamesPlayed: number, readonly selectedBling: BpBling,
+                readonly selectedDeathSound: BpDeathSound, readonly selectedTrail: BpTrail,
+                readonly selectedVictorySound, readonly totalElimination: number, readonly totalPlacing: number,
+                readonly unlockedBling: BpBling[], readonly unlockedDeathSounds: BpDeathSound[],
+                readonly unlockedTrails: BpTrail[], readonly windDisableNarration: boolean, readonly title: string,
                 readonly achievements: Achievement[]) {
         super(points);
     }
@@ -17,18 +42,18 @@ export class BpPlayerGameInfoFactory extends PlayerGameInfoFactory<BpPlayerGameI
     private _firstLogin : Date;
     private _victories : number;
     private _gamesPlayed : number;
-    private _selectedBling;
-    private _selectedDeathSound;
-    private _selectedTrail;
+    private _selectedBling: BpBling;
+    private _selectedDeathSound: BpDeathSound;
+    private _selectedTrail: BpTrail;
     private _selectedVictorySound;
     private _totalElimination: number;
     private _totalPlacing: number;
-    private _unlockedBling;
-    private _unlockedDeathSounds;
-    private _unlockedTrails;
+    private _unlockedBling: BpBling[] = [];
+    private _unlockedDeathSounds: BpDeathSound[] = [];
+    private _unlockedTrails: BpTrail[] = [];
     private _windDisableNarration: boolean;
     private _title: string;
-    private _achievements: Achievement[];
+    private _achievements: Achievement[] = [];
 
     create(): BpPlayerGameInfo {
         return new BpPlayerGameInfo(this._points, this._firstLogin, this._victories, this._gamesPlayed,
@@ -42,7 +67,7 @@ export class BpPlayerGameInfoFactory extends PlayerGameInfoFactory<BpPlayerGameI
             return this;
         }
 
-        return this.points(res.total_points)
+        this.points(res.total_points)
             .victories(res.victories)
             .gamesPlayed(res.games_played)
             .firstLogin(createDateFromResponse(res.firstLogin))
@@ -54,10 +79,21 @@ export class BpPlayerGameInfoFactory extends PlayerGameInfoFactory<BpPlayerGameI
             .title(res.title)
             .totalPlacing(res.total_placing)
             .totalElimination(res.total_eliminations)
-            .unlockedBling(res.unlocked_bling)
-            .unlockedTrails(res.unlocked_trails)
-            .unlockedDeathSounds(res.unlocked_death_sounds)
             .windDisableNarration(res.wing_disable_narration);
+
+        if(res.unlocked_bling){
+            this.unlockedBling(arrayFromListString(res.unlocked_bling))
+        }
+
+        if(res.unlocked_trails){
+            this.unlockedTrails(arrayFromListString(res.unlocked_trails))
+        }
+
+        if(res.unlocked_death_sounds){
+            this.unlockedDeathSounds(arrayFromListString(res.unlocked_death_sounds))
+        }
+
+        return this;
     }
 
     firstLogin(firstLogin : Date){

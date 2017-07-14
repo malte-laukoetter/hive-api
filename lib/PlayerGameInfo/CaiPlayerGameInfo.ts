@@ -4,8 +4,8 @@ import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAch
 export class CaiPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly captured: number,
                 readonly captures: number, readonly catches: number, readonly caught: number,
-                readonly gamesPlayed: number, readonly victories: number, readonly teamSelector,
-                readonly creeperFirework, readonly title: string, readonly achievements: Achievement[]) {
+                readonly gamesPlayed: number, readonly victories: number, readonly teamSelector: boolean,
+                readonly creeperFirework: boolean, readonly title: string, readonly achievements: Achievement[]) {
         super(points);
     }
 }
@@ -20,8 +20,8 @@ export class CaiPlayerGameInfoFactory extends PlayerGameInfoFactory<CaiPlayerGam
     private _caught: number;
     private _gamesPlayed: number;
     private _victories: number;
-    private _teamSelector;
-    private _creeperFirework;
+    private _teamSelector: boolean;
+    private _creeperFirework: boolean;
     private _title : string;
     private _achievements: Achievement[];
 
@@ -101,12 +101,12 @@ export class CaiPlayerGameInfoFactory extends PlayerGameInfoFactory<CaiPlayerGam
         return this;
     }
 
-    teamSelector(teamSelector){
+    teamSelector(teamSelector: boolean){
         this._teamSelector = teamSelector;
         return this;
     }
 
-    creeperFirework(creeperFirework){
+    creeperFirework(creeperFirework: boolean){
         this._creeperFirework = creeperFirework;
         return this;
     }

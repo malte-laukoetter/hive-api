@@ -1,11 +1,24 @@
 import {PlayerGameInfo, PlayerGameInfoFactory, Achievement, createAchievementsFromAchievementResponse, GameTypes,
-    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, createDateFromResponse} from "../main";
+    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, createDateFromResponse,
+    arrayFromListString} from "../main";
+
+export enum TimvDetectiveStick{
+    BLAZE_ROD = "BLAZE_ROD",
+    STICK = "STICK"
+}
+
+export enum TimvFlare{
+    RANDOM = "RANDOM",
+    CREEPER = "CREEPER",
+    DEFAULT = "DEFAULT"
+}
 
 export class TimvPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly lastLogin: Date, readonly mostPoints: number,
                 readonly rolePoints: number, readonly traitorPoints: number,
                 readonly innocentPoints: number, readonly detectivePoints: number,
-                readonly activeDetectiveStick, readonly detectiveSticks, readonly activeFlareUpgrade, readonly flareUpgrades,
+                readonly activeDetectiveStick: TimvDetectiveStick, readonly detectiveSticks: TimvDetectiveStick[],
+                readonly activeFlareUpgrade: TimvFlare, readonly flareUpgrades: TimvFlare[],
                 readonly detectiveBook: boolean, readonly achievements: Achievement[], readonly title) {
         super(points);
     }
@@ -13,17 +26,17 @@ export class TimvPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfo
 
 export class TimvPlayerGameInfoFactory extends PlayerGameInfoFactory<TimvPlayerGameInfo>
     implements PlayerGameInfoFactoryAchievements{
-    private _lastLogin : Date;
-    private _mostPoints : number;
-    private _rolePoints : number;
-    private _traitorPoints : number;
-    private _innocentPoints : number;
-    private _detectivePoints : number;
-    private _activeDetectiveStick;
-    private _detectiveSticks;
-    private _activeFlareUpgrade;
-    private _flareUpgrades;
-    private _detectiveBook : boolean;
+    private _lastLogin: Date;
+    private _mostPoints: number;
+    private _rolePoints: number;
+    private _traitorPoints: number;
+    private _innocentPoints: number;
+    private _detectivePoints: number;
+    private _activeDetectiveStick: TimvDetectiveStick;
+    private _detectiveSticks: TimvDetectiveStick[] = [TimvDetectiveStick.STICK];
+    private _activeFlareUpgrade: TimvFlare;
+    private _flareUpgrades: TimvFlare[] = [TimvFlare.DEFAULT];
+    private _detectiveBook: boolean;
     private _achievements: Achievement[];
     private _title;
 
@@ -39,7 +52,7 @@ export class TimvPlayerGameInfoFactory extends PlayerGameInfoFactory<TimvPlayerG
             return this;
         }
 
-        return this.lastLogin(createDateFromResponse(res.lastlogin))
+        this.lastLogin(createDateFromResponse(res.lastlogin))
             .points(res.total_points)
             .mostPoints(res.most_points)
             .rolePoints(res.role_points)
@@ -47,12 +60,20 @@ export class TimvPlayerGameInfoFactory extends PlayerGameInfoFactory<TimvPlayerG
             .innocentPoints(res.i_points)
             .detectivePoints(res.d_points)
             .activeDetectiveStick(res.active_detectivestick)
-            .detectiveSticks(res.detectivesticks)
             .activeFlareUpgrade(res.active_flareupgrade)
-            .flareUpgrades(res.flareupgrade)
             .detectiveBook(res.detectivebook)
             .achievements(createAchievementsFromAchievementResponse(GameTypes.TIMV, res.achievements))
             .title(res.title);
+
+        if(res.detectivesticks){
+            this.detectiveSticks(arrayFromListString(res.detectivesticks));
+        }
+
+        if(res.flareupgrade){
+            this.flareUpgrades(arrayFromListString(res.flareupgrade));
+        }
+
+        return this;
     }
 
     lastLogin(lastLogin: Date){
@@ -65,52 +86,60 @@ export class TimvPlayerGameInfoFactory extends PlayerGameInfoFactory<TimvPlayerG
         return this;
     }
 
-    rolePoints(rolePoints){
+    rolePoints(rolePoints: number){
         this._rolePoints = rolePoints;
         return this;
     }
 
-    traitorPoints(traitorPoints){
+    traitorPoints(traitorPoints: number){
         this._traitorPoints = traitorPoints;
         return this;
     }
 
-    innocentPoints(innocentPoints){
+    innocentPoints(innocentPoints: number){
         this._innocentPoints = innocentPoints;
         return this;
     }
 
-    detectivePoints(detectivePoints){
+    detectivePoints(detectivePoints: number){
         this._detectivePoints = detectivePoints;
         return this;
     }
 
-    activeDetectiveStick(activeDetectiveStick){
+    activeDetectiveStick(activeDetectiveStick: TimvDetectiveStick){
         this._activeDetectiveStick = activeDetectiveStick;
         return this;
     }
 
-    detectiveSticks(detectiveSticks){
+    detectiveSticks(detectiveSticks: TimvDetectiveStick[]){
+        if(detectiveSticks.indexOf(TimvDetectiveStick.STICK) === -1){
+            detectiveSticks.push(TimvDetectiveStick.STICK);
+        }
+
         this._detectiveSticks = detectiveSticks;
         return this;
     }
 
-    activeFlareUpgrade(activeFlareUpgrade){
+    activeFlareUpgrade(activeFlareUpgrade: TimvFlare){
         this._activeFlareUpgrade = activeFlareUpgrade;
         return this;
     }
 
-    flareUpgrades(flareUpgrades){
+    flareUpgrades(flareUpgrades: TimvFlare[]){
+        if(flareUpgrades.indexOf(TimvFlare.DEFAULT) === -1){
+            flareUpgrades.push(TimvFlare.DEFAULT);
+        }
+
         this._flareUpgrades = flareUpgrades;
         return this;
     }
 
-    detectiveBook(detectiveBook){
+    detectiveBook(detectiveBook: boolean){
         this._detectiveBook = detectiveBook;
         return this;
     }
 
-    achievements(achievements){
+    achievements(achievements: Achievement[]){
         this._achievements = achievements;
         return this;
     }

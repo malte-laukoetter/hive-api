@@ -1,10 +1,29 @@
 import {PlayerGameInfo, PlayerGameInfoFactory, Achievement, createAchievementsFromAchievementResponse, GameTypes,
     PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, createDateFromResponse} from "../main";
 
+export enum MimvEmoteSelector{
+    WHEEL = "WheelEmoteSelectorMenu",
+    CIRCLE = "CircleEmoteSelectorMenu"
+}
+
+export enum MimvEmote{
+    SMILE = "SMILE",
+    BIG_GRIN = "BIG_GRIN",
+    SURPRISED = "SURPRISED",
+    COOL = "COOL",
+    SCARED = "SCARED",
+    ANGEL = "ANGEL",
+    WINK = "WINK",
+    SAD = "SAD",
+    SOB = "SOB",
+    EMBARRASSED = "EMBARRASSED"
+}
+
 export class MimvPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly lastLogin: Date, readonly firstLogin: Date, readonly gamesPlayed: number,
-                readonly victories: number, readonly kills: number, readonly deaths: number, readonly lastUsedEmote,
-                readonly preferredEmoteSelectorMenu, readonly achievements: Achievement[], readonly title) {
+                readonly victories: number, readonly kills: number, readonly deaths: number,
+                readonly lastUsedEmote: MimvEmote, readonly preferredEmoteSelectorMenu: MimvEmoteSelector,
+                readonly achievements: Achievement[], readonly title) {
         super(points);
     }
 }
@@ -17,8 +36,8 @@ export class MimvPlayerGameInfoFactory extends PlayerGameInfoFactory<MimvPlayerG
     private _victories: number;
     private _kills: number;
     private _deaths: number;
-    private _lastUsedEmote;
-    private _preferredEmoteSelectorMenu;
+    private _lastUsedEmote: MimvEmote;
+    private _preferredEmoteSelectorMenu: MimvEmoteSelector;
     private _achievements: Achievement[];
     private _title;
 
@@ -77,12 +96,12 @@ export class MimvPlayerGameInfoFactory extends PlayerGameInfoFactory<MimvPlayerG
         return this;
     }
 
-    lastUsedEmote(lastUsedEmote){
+    lastUsedEmote(lastUsedEmote: MimvEmote){
         this._lastUsedEmote = lastUsedEmote;
         return this;
     }
 
-    preferredEmoteSelectorMenu(preferredEmoteSelectorMenu){
+    preferredEmoteSelectorMenu(preferredEmoteSelectorMenu: MimvEmoteSelector){
         this._preferredEmoteSelectorMenu = preferredEmoteSelectorMenu;
         return this;
     }

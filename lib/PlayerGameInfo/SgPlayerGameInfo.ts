@@ -1,13 +1,49 @@
 import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAchievementsFromAchievementResponse,
-    Game, PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, createDateFromResponse} from "../main";
+    Game, PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, createDateFromResponse,
+    arrayFromListString} from "../main";
+
+export enum SgArrowTrail{
+    COLOURED_DUST = "COLOURED_DUST",
+    HEART = "HEART",
+    FLAME = "FLAME",
+    SMOKE = "SMOKE",
+    NOTE = "NOTE",
+    VILLAGER_THUNDERCLOUD = "VILLAGER_THUNDERCLOUD"
+}
+
+export enum SgBattleCrie{
+    CAT_PURREOW = "CAT_PURREOW",
+    FIREWORK_LAUNCH = "FIREWORK_LAUNCH",
+    LEVEL_UP = "LEVEL_UP",
+    BURP = "BURP",
+    DONKEY_DEATH = "DONKEY_DEATH",
+    HORSE_DEATH = "HORSE_DEATH",
+    VILLAGER_YES = "VILLAGER_YES",
+    ANVIL_LAND = "ANVIL_LAND",
+    AMBIENCE_THUNDER = "AMBIENCE_THUNDER"
+}
+
+export enum SgVanityColor{
+    WHITE = 0,
+    PINK = 6,
+    CYAN = 9,
+    ORANGE = 1,
+    LIGHT_BLUE = 3,
+    PURPLE = 10,
+    MAGENTA = 2,
+    RED = 14,
+    LIME = 5
+}
 
 export class SgPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly victories: number,
                 readonly mostPoints: number, readonly cratesOpened: number, readonly deathmatches: number,
                 readonly timeAlive: number, readonly gamesPlayed: number, readonly kills: number,
-                readonly deaths: number, readonly unlockDeathcrate, readonly unlockMySword, readonly vanityColors,
-                readonly activeVanityColor, readonly arrowTrails, readonly battleCries, readonly activeDeathcrate,
-                readonly firstWinDay: Date, readonly recentGames: Game[], readonly achievements: Achievement[]) {
+                readonly deaths: number, readonly unlockDeathcrate: boolean, readonly unlockMySword: boolean,
+                readonly vanityColors: SgVanityColor[], readonly activeVanityColor: SgVanityColor,
+                readonly arrowTrails: SgArrowTrail[], readonly battleCries: SgBattleCrie[],
+                readonly activeDeathcrate: boolean, readonly firstWinDay: Date, readonly recentGames: Game[],
+                readonly achievements: Achievement[]) {
         super(points);
     }
 }
@@ -20,18 +56,18 @@ export class SgPlayerGameInfoFactory extends PlayerGameInfoFactory<SgPlayerGameI
     private _gamesPlayed : number;
     private _kills : number;
     private _deaths : number;
-    private _achievements: Achievement[];
+    private _achievements: Achievement[] = [];
     private _mostPoints: number;
     private _cratesOpened: number;
     private _deathmatches: number;
     private _timeAlive: number;
-    private _unlockDeathcrate;
-    private _unlockMySword;
-    private _vanityColors;
-    private _activeVanityColor;
-    private _arrowTrails;
-    private _battleCries;
-    private _activeDeathcrate;
+    private _unlockDeathcrate: boolean;
+    private _unlockMySword: boolean;
+    private _vanityColors: SgVanityColor[] = [];
+    private _activeVanityColor: SgVanityColor;
+    private _arrowTrails: SgArrowTrail[] = [];
+    private _battleCries: SgBattleCrie[] = [];
+    private _activeDeathcrate: boolean;
     private _firstWinDay: Date;
     private _recentGames: Game[];
 
@@ -47,7 +83,7 @@ export class SgPlayerGameInfoFactory extends PlayerGameInfoFactory<SgPlayerGameI
             return this;
         }
 
-        return this.points(res.total_points)
+        this.points(res.total_points)
             .victories(res.victories)
             .gamesPlayed(res.gamesplayed)
             .kills(res.kills)
@@ -60,14 +96,25 @@ export class SgPlayerGameInfoFactory extends PlayerGameInfoFactory<SgPlayerGameI
             .timeAlive(res.timealive)
             .unlockDeathcrate(res.unlock_deathcrate)
             .unlockMySword(res.unlock_mysword)
-            .vanityColors(res.vanitycolors)
             .activeVanityColor(res.active_vanitycolor)
-            .arrowTrails(res.arrowtrails)
-            .battleCries(res.battlecries)
             .activeDeathcrate(res.active_deathcrate)
             .firstWinDay(createDateFromResponse(res.firstwinday))
             .recentGames(res.recentgames.map(game => new Game(GameTypes.SG, game)))
             .mostPoints(res.most_points);
+
+        if(res.vanitycolors){
+            this.vanityColors(arrayFromListString(res.vanitycolors).map(a => parseInt(a)));
+        }
+
+        if(res.arrowtrails){
+            this.arrowTrails(arrayFromListString(res.arrowtrails))
+        }
+
+        if(res.battlecries){
+            this.battleCries(arrayFromListString(res.battlecries))
+        }
+
+        return this;
     }
 
     firstLogin(firstLogin : Date){

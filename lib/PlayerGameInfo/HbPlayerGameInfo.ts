@@ -1,9 +1,20 @@
 import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAchievementsFromAchievementResponse,
-    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, createDateFromResponse} from "../main";
+    PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, createDateFromResponse,
+    arrayFromListString} from "../main";
+
+export enum HbClass{
+    SORCERER = "SORCERER",
+    PALADIN = "PALADIN",
+    MAGE = "MAGE",
+    PRIEST = "PRIEST",
+    WIZARD = "WIZARD",
+    SCOUT = "SCOUT",
+    ARCHER = "ARCHER"
+}
 
 export class HbPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly firstLogin: Date, readonly captures: number, readonly kills: number,
-                readonly deaths: number, readonly unlockedClasses, readonly activeClass, readonly title: string,
+                readonly deaths: number, readonly unlockedClasses: HbClass[], readonly activeClass: HbClass, readonly title: string,
                 readonly achievements: Achievement[]) {
         super(points);
     }
@@ -15,8 +26,8 @@ export class HbPlayerGameInfoFactory extends PlayerGameInfoFactory<HbPlayerGameI
     private _captures: number;
     private _kills: number;
     private _deaths: number;
-    private _unlockedClasses;
-    private _activeClass;
+    private _unlockedClasses: HbClass[] = [HbClass.PRIEST, HbClass.WIZARD, HbClass.SCOUT, HbClass.ARCHER];
+    private _activeClass: HbClass;
     private _title : string;
     private _achievements: Achievement[];
 
@@ -40,7 +51,7 @@ export class HbPlayerGameInfoFactory extends PlayerGameInfoFactory<HbPlayerGameI
             .activeClass(res.active_class);
 
         if(res.unlocked_classes){
-            this.unlockedClasses(res.unlocked_classes.split(",").filter(a => a != ""))
+            this.unlockedClasses(arrayFromListString(res.unlocked_classes))
         }
 
         return this;
@@ -61,12 +72,28 @@ export class HbPlayerGameInfoFactory extends PlayerGameInfoFactory<HbPlayerGameI
         return this;
     }
 
-    activeClass(activeClass){
+    activeClass(activeClass: HbClass){
         this._activeClass = activeClass;
         return this;
     }
 
-    unlockedClasses(unlockedClasses){
+    unlockedClasses(unlockedClasses: HbClass[]){
+        if(unlockedClasses.indexOf(HbClass.PRIEST) == -1){
+            unlockedClasses.push(HbClass.PRIEST);
+        }
+
+        if(unlockedClasses.indexOf(HbClass.WIZARD) == -1){
+            unlockedClasses.push(HbClass.WIZARD);
+        }
+
+        if(unlockedClasses.indexOf(HbClass.SCOUT) == -1){
+            unlockedClasses.push(HbClass.SCOUT);
+        }
+
+        if(unlockedClasses.indexOf(HbClass.ARCHER) == -1){
+            unlockedClasses.push(HbClass.ARCHER);
+        }
+
         this._unlockedClasses = unlockedClasses;
         return this;
     }

@@ -14,14 +14,14 @@ export async function main(){
 
     //new Player("Malte662").info().then((info) => info.achievements[1].theSwarmFrom.info()).then(console.log)
 
-    //let player: Player = new Player("Malte662");
+    let player: Player = new Player("Lergin_");
 
    // Server.developers().then(a => a.map(p => p.info().then(console.log)));
 
    // Server.chatreport("5968fbb60cf20e9bd5bad6d6").then(console.log);
    // Server.chatreport("W_5968fc3efbf1096e67b1cfa7").then(console.log);
 
-  /*  player.gameInfo(GameTypes.DR).then(console.log)
+/*  player.gameInfo(GameTypes.DR).then(console.log)
     player.gameInfo(GameTypes.BED).then(console.log)
     player.gameInfo(GameTypes.BP).then(console.log)
     player.gameInfo(GameTypes.HERO).then(console.log)
@@ -77,18 +77,6 @@ export async function main(){
         .then(async (gameInfo: DrGameInfo) => {
             console.log(gameInfo.winners)
         }).catch(console.error);*/
-
-    function shuffleArray(array) {
-        for (var i = array.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-        }
-        return array;
-    }
-
-    console.log(shuffleArray(GameTypes.list)[0].id)
 }
 
 

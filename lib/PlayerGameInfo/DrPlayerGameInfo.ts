@@ -1,6 +1,12 @@
 import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAchievementsFromAchievementResponse,
     PlayerGameInfoAchievements, PlayerGameInfoFactoryAchievements, Game, createDateFromResponse} from "../main";
 
+export enum DrVisibility{
+    SHOW_ALL = "SHOW_ALL",
+    RUNNERS_AS_GHOSTS = "RUNNERS_AS_GHOSTS",
+    RUNNERS_INVISIBLE = "RUNNERS_INVISIBLE"
+}
+
 export class DrPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly victories: number,
                 readonly gamesPlayed: number, readonly kills: number, readonly deaths: number,
