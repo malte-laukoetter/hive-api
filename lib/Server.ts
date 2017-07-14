@@ -1,4 +1,4 @@
-import {fetch, AchievementInfo, AchievementInfoFactory, Methods, Player} from "./main";
+import {fetch, AchievementInfo, AchievementInfoFactory, Methods, Player, ChatReport, ChatReportFactory} from "./main";
 
 /**
  * contains static methods to get the general data about the server
@@ -64,5 +64,15 @@ export class Server{
         return fetch(Methods.STAFF_LIST(), maxCacheAge)
             .then(res => res[8])
             .then(res => res.map(a => new Player(a)));
+    }
+
+    /**
+     * gets the [[ChatReport]] of the id, data about these are currently only available for the chatreports without the W_
+     * prefix
+     */
+    static chatreport(chatReportId: string, maxCacheAge: number = 30 * 24 * 60 * 60 * 1000): Promise<ChatReport>{
+        return fetch(Methods.CHAT_REPORT(chatReportId))
+            .then(res => new ChatReportFactory().fromResponse(res).id(chatReportId).create())
+            .catch(() => new ChatReportFactory().id(chatReportId).create());
     }
 }

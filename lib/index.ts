@@ -1,18 +1,45 @@
 import {BedPlayerGameInfo, SgPlayerGameInfo, SgPlayerGameInfoFactory, Game, GameTypes, Player, PlayerInfo, Server, SgGameInfo, Achievement, TheSwarmAchievement, DrGameInfo} from "./main";
+import {
+    PlayerGameInfoAchievements, PlayerGameInfoFactory,
+    PlayerGameInfoFactoryAchievements
+} from "./PlayerGameInfo/PlayerGameInfo";
+import {PlayerInfoFactory, Rank} from "./PlayerInfo";
 
 
 export async function main(){
-    await GameTypes.update();
+    //await GameTypes.update();
 
     //Server.achievements().then(console.log);
     //GameTypes.MM.achievements().then(console.log)
 
     //new Player("Malte662").info().then((info) => info.achievements[1].theSwarmFrom.info()).then(console.log)
 
-    let player: Player = new Player("Malte662");
+    //let player: Player = new Player("Malte662");
+
+   // Server.developers().then(a => a.map(p => p.info().then(console.log)));
+
+   // Server.chatreport("5968fbb60cf20e9bd5bad6d6").then(console.log);
+   // Server.chatreport("W_5968fc3efbf1096e67b1cfa7").then(console.log);
+
+  /*  player.gameInfo(GameTypes.DR).then(console.log)
+    player.gameInfo(GameTypes.BED).then(console.log)
+    player.gameInfo(GameTypes.BP).then(console.log)
+    player.gameInfo(GameTypes.HERO).then(console.log)
+    player.gameInfo(GameTypes.RR).then(console.log)
+    player.gameInfo(GameTypes.SG).then(console.log)
+    player.gameInfo(GameTypes.SP).then(console.log)
+    player.gameInfo(GameTypes.TIMV).then(console.log)
+    player.gameInfo(GameTypes.MIMV).then(console.log)
+    player.gameInfo(GameTypes.HB).then(console.log)
+    player.gameInfo(GameTypes.CAI).then(console.log)
+    player.gameInfo(GameTypes.CR).then(console.log)
+    player.gameInfo(GameTypes.LAB).then(console.log)
+    player.gameInfo(GameTypes.DRAW).then(console.log)
+    player.gameInfo(GameTypes.SPL).then(console.log)
+    player.gameInfo(GameTypes.SKY).then(console.log)*/
 
  //   let playerBedInfo: SgPlayerGameInfo = (await player.gameInfo(GameTypes.SG)) as SgPlayerGameInfo;
-    player.info().then(info => info.rank).then(console.log);
+    //player.info().then(info => info.rank).then(console.log);
 
 
 /*
@@ -24,12 +51,19 @@ export async function main(){
 */
 
 
-/*    Promise.all(GameTypes.list.map(type => type.maps().then(maps => maps.map(map => map.worldName)))).then(arr => {
+  /*  if(new GameTypes.BP.playerGameInfoFactory() instanceof PlayerGameInfoFactoryAchievements){
+
+    }
+*/
+     // GameTypes.list;//.forEach(console.log);
+
+  //  GameTypes.list.filter(type => new type.playerGameInfoFactory().achievements !== undefined).map((res)=> console.log(res))
+/*
+    Promise.all(GameTypes.list.filter(type => type.playerGameInfoFactory instanceof PlayerGameInfoFactoryAchievements).map(console.log)).then(arr => {
         ([].concat.apply([], arr)).forEach(console.log)
     })*/
   //  console.log((await new Player("Malte662").info()).firstLogin.toLocaleString());
     //new Player("Malte662").gameInfo(GameTypes.TIMV).then(console.log);
-    //new Player("Malte662").gameInfo(GameTypes.SKY).then(console.log);
 
    // GameTypes.list.map((gametype)=> `${gametype.id}: ${gametype.name}`).map(console.log)
   //  GameTypes.SKY.latestGames().then(games => games.forEach((game)=>game.info().then(console.log)))
@@ -43,6 +77,18 @@ export async function main(){
         .then(async (gameInfo: DrGameInfo) => {
             console.log(gameInfo.winners)
         }).catch(console.error);*/
+
+    function shuffleArray(array) {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    }
+
+    console.log(shuffleArray(GameTypes.list)[0].id)
 }
 
 

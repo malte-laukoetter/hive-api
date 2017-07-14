@@ -82,3 +82,9 @@ export * from "./PlayerInfo";
  * Server
  */
 export * from "./Server";
+
+
+/*
+ * Chat Reports
+ */
+export * from "./ChatReport";

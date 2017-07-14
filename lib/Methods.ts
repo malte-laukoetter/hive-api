@@ -100,4 +100,9 @@ export class Methods {
      * url for a list of the staff members
      */
     static STAFF_LIST = () => `${Methods.BASE_URL()}/staff`;
+
+    /**
+     * url for a list of the staff members
+     */
+    static CHAT_REPORT = (id) => `${Methods.BASE_URL()}/chatreport/${id}`;
 }
