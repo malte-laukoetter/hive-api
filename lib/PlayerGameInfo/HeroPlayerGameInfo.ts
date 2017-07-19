@@ -6,7 +6,7 @@ export class HeroPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfo
                 readonly gamesPlayed: number, readonly kills: number, readonly deaths: number,
                 readonly oneVsOnesWins: number, readonly deathmatches: number, readonly tntUsed: number,
                 readonly foodConsumed: number, readonly cratesOpened, readonly achievements: Achievement[]) {
-        super(points);
+        super(GameTypes.HERO, points);
     }
 }
 

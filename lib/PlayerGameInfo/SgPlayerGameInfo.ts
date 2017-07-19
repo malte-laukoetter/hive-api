@@ -44,7 +44,7 @@ export class SgPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAc
                 readonly arrowTrails: SgArrowTrail[], readonly battleCries: SgBattleCrie[],
                 readonly activeDeathcrate: boolean, readonly firstWinDay: Date, readonly recentGames: Game[],
                 readonly achievements: Achievement[]) {
-        super(points);
+        super(GameTypes.SG, points);
     }
 }
 

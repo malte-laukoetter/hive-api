@@ -59,43 +59,43 @@ export interface FromResponseFactory<T> extends Factory<T>{
 export function playerGameInfoFactoryForGametype(type: GameType) {
     switch(type.id){
         case GameTypes.TIMV.id:
-            return TimvPlayerGameInfoFactory;
+            return new TimvPlayerGameInfoFactory();
         case GameTypes.BED.id:
-            return BedPlayerGameInfoFactory;
+            return new BedPlayerGameInfoFactory();
         case GameTypes.SG.id:
-            return SgPlayerGameInfoFactory;
+            return new SgPlayerGameInfoFactory();
         case GameTypes.BP.id:
-            return BpPlayerGameInfoFactory;
+            return new BpPlayerGameInfoFactory();
         case GameTypes.DR.id:
-            return DrPlayerGameInfoFactory;
+            return new DrPlayerGameInfoFactory();
         case GameTypes.HERO.id:
-            return HeroPlayerGameInfoFactory;
+            return new HeroPlayerGameInfoFactory();
         case GameTypes.RR.id:
-            return RrPlayerGameInfoFactory;
+            return new RrPlayerGameInfoFactory();
         case GameTypes.SP.id:
-            return SpPlayerGameInfoFactory;
+            return new SpPlayerGameInfoFactory();
         case GameTypes.SKY.id:
-            return SkyPlayerGameInfoFactory;
+            return new SkyPlayerGameInfoFactory();
         case GameTypes.MIMV.id:
-            return MimvPlayerGameInfoFactory;
+            return new MimvPlayerGameInfoFactory();
         case GameTypes.HB.id:
-            return HbPlayerGameInfoFactory;
+            return new HbPlayerGameInfoFactory();
         case GameTypes.CAI.id:
-            return CaiPlayerGameInfoFactory;
+            return new CaiPlayerGameInfoFactory();
         case GameTypes.CR.id:
-            return CrPlayerGameInfoFactory;
+            return new CrPlayerGameInfoFactory();
         case GameTypes.HIDE.id:
-            return HidePlayerGameInfoFactory;
+            return new HidePlayerGameInfoFactory();
         case GameTypes.OITC.id:
-            return OitcPlayerGameInfoFactory;
+            return new OitcPlayerGameInfoFactory();
         case GameTypes.LAB.id:
-            return LabPlayerGameInfoFactory;
+            return new LabPlayerGameInfoFactory();
         case GameTypes.DRAW.id:
-            return DrawPlayerGameInfoFactory;
+            return new DrawPlayerGameInfoFactory();
         case GameTypes.SPL.id:
-            return SplPlayerGameInfoFactory;
+            return new SplPlayerGameInfoFactory();
         default:
-            return RawPlayerGameInfoFactory;
+            return new RawPlayerGameInfoFactory().type(type);
     }
 }
 

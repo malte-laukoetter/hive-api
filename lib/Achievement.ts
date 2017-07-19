@@ -33,6 +33,10 @@ export abstract class Achievement {
     info(maxCacheAge: number = 24*60*60*1000): Promise<AchievementInfo>{
         return null;
     };
+
+    get unlocked(): boolean{
+        return this.unlockedAt.getTime() !== 0;
+    }
 }
 
 /**

@@ -9,7 +9,8 @@
     "test": "tsc && mocha **/*.test.js",
     "build": "tsc",
     "docs": "typedoc --out docs --name \"Hive-Api-Node\" --target ES6 --mode file --excludeExternals -gaID UA-60277501-9 -gaSite auto -theme typedoctheme",
-    "docs-full": "typedoc --out docs --name \"Hive-Api-Node\" --target ES6 --mode file --includeDeclarations"
+    "docs-full": "typedoc --out docs --name \"Hive-Api-Node\" --target ES6 --mode file --includeDeclarations",
+    "webpack-defaults": "webpack-defaults"
   },
   "author": "Malte Laukoetter",
   "license": "MIT",
@@ -20,7 +21,10 @@
     "mocha": "^3.4.2",
     "rewire": "^2.5.2",
     "typedoc": "^0.7.1",
-    "typescript": "^2.4.1"
+    "typescript": "^2.4.1",
+    "uglify-es": "^3.0.24",
+    "webpack": "^3.3.0",
+    "uglify-es-webpack-plugin": "0.0.2"
   },
   "dependencies": {
     "node-fetch": "^1.7.1"

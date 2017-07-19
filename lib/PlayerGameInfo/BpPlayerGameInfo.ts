@@ -33,7 +33,7 @@ export class BpPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAc
                 readonly unlockedBling: BpBling[], readonly unlockedDeathSounds: BpDeathSound[],
                 readonly unlockedTrails: BpTrail[], readonly windDisableNarration: boolean, readonly title: string,
                 readonly achievements: Achievement[]) {
-        super(points);
+        super(GameTypes.BP, points);
     }
 }
 

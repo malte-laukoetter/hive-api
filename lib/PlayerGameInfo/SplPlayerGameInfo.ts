@@ -6,7 +6,7 @@ export class SplPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoA
                 readonly victories: number, readonly deaths: number, readonly kills: number,
                 readonly blocksPainted: number, readonly ultimatesEarned: number, readonly characterStats,
                 readonly title: string, readonly achievements: Achievement[]) {
-        super(points);
+        super(GameTypes.SPL, points);
     }
 }
 

@@ -6,7 +6,7 @@ export class CaiPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoA
                 readonly captures: number, readonly catches: number, readonly caught: number,
                 readonly gamesPlayed: number, readonly victories: number, readonly teamSelector: boolean,
                 readonly creeperFirework: boolean, readonly title: string, readonly achievements: Achievement[]) {
-        super(points);
+        super(GameTypes.CAI, points);
     }
 }
 

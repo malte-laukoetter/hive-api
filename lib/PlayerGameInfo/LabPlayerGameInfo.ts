@@ -5,7 +5,7 @@ export class LabPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoA
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly gamesPlayed: number,
                 readonly victories: number, readonly gameVictories, readonly title: string,
                 readonly achievements: Achievement[]) {
-        super(points);
+        super(GameTypes.LAB, points);
     }
 }
 

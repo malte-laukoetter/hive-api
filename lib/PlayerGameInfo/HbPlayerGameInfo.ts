@@ -16,7 +16,7 @@ export class HbPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAc
     constructor(points: number, readonly firstLogin: Date, readonly captures: number, readonly kills: number,
                 readonly deaths: number, readonly unlockedClasses: HbClass[], readonly activeClass: HbClass, readonly title: string,
                 readonly achievements: Achievement[]) {
-        super(points);
+        super(GameTypes.HB, points);
     }
 }
 

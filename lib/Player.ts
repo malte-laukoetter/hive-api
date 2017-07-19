@@ -70,7 +70,7 @@ export class Player {
      */
     gameInfo(gameType : GameType, maxCacheAge: number = 10*60*1000): Promise<PlayerGameInfo> {
         return fetch(Methods.PLAYER_GAME_STATS(this.requestUuid, gameType.id), maxCacheAge)
-            .then((res) => new gameType.playerGameInfoFactory().fromResponse(res).create());
+            .then((res) => gameType.playerGameInfoFactory.fromResponse(res).create());
     }
 
     /**

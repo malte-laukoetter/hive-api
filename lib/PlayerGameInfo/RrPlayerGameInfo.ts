@@ -5,7 +5,7 @@ export class RrPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAc
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly victories: number,
                 readonly gamesPlayed: number, readonly tablesCleared: number, readonly title: string,
                 readonly achievements: Achievement[]) {
-        super(points);
+        super(GameTypes.RR, points);
     }
 }
 

@@ -7,7 +7,7 @@ export class HidePlayerGameInfo extends PlayerGameInfo implements PlayerGameInfo
                 readonly seekerKills: number, readonly blocks, readonly bookUpgrade, readonly rawBlockExperience,
                 readonly blockExperience, readonly timeAlive: number, readonly title: string,
                 readonly achievements: Achievement[]) {
-        super(points);
+        super(GameTypes.HIDE, points);
     }
 }
 

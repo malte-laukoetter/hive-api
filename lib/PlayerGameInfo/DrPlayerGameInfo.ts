@@ -15,7 +15,7 @@ export class DrPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAc
                 readonly deathGamesPlayed: number, readonly totalCheckpoints: number, readonly trapDeaths,
                 readonly runnerWins: number, readonly deathWins: number, readonly selectedBanner, readonly visibility,
                 readonly recentGames: Game[], readonly achievements: Achievement[]) {
-        super(points);
+        super(GameTypes.DR, points);
     }
 }
 

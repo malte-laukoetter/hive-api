@@ -20,7 +20,7 @@ export class TimvPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfo
                 readonly activeDetectiveStick: TimvDetectiveStick, readonly detectiveSticks: TimvDetectiveStick[],
                 readonly activeFlareUpgrade: TimvFlare, readonly flareUpgrades: TimvFlare[],
                 readonly detectiveBook: boolean, readonly achievements: Achievement[], readonly title) {
-        super(points);
+        super(GameTypes.TIMV, points);
     }
 }
 

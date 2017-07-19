@@ -7,7 +7,7 @@ export class OitcPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfo
                 readonly arrowsFired: number, readonly cupidUnlock: boolean, readonly rainbowUnlock: boolean,
                 readonly musicUnlock: boolean, readonly herobrineUnlock: boolean, readonly title: string,
                 readonly achievements: Achievement[]) {
-        super(points);
+        super(GameTypes.OITC, points);
     }
 }
 

@@ -2,12 +2,12 @@ import {FromResponseFactory, GameType, AchievementFactory, AchievementTypes, Ach
 import {isNullOrUndefined} from "util";
 
 export class PlayerGameInfo {
-    constructor(readonly points: number) {}
+    constructor(readonly type: GameType, readonly points: number) {}
 }
 
 export class RawPlayerGameInfo extends PlayerGameInfo {
-    constructor(readonly data) {
-        super(data["total_points"] || data["points"] || 0);
+    constructor(type: GameType, readonly data) {
+        super(type, data["total_points"] || data["points"] || 0);
     }
 }
 
@@ -38,9 +38,10 @@ export abstract class PlayerGameInfoFactory<T> implements FromResponseFactory<T>
 
 export class RawPlayerGameInfoFactory extends PlayerGameInfoFactory<RawPlayerGameInfo> {
     private _data;
+    private _type: GameType;
 
     create(): RawPlayerGameInfo {
-        return new RawPlayerGameInfo(this._data);
+        return new RawPlayerGameInfo(this._type, this._data);
     }
 
     fromResponse(res: any): FromResponseFactory<RawPlayerGameInfo> {
@@ -49,6 +50,11 @@ export class RawPlayerGameInfoFactory extends PlayerGameInfoFactory<RawPlayerGam
 
     data(data){
         this._data = data;
+        return this;
+    }
+
+    type(type: GameType){
+        this._type = type;
         return this;
     }
 }

@@ -24,7 +24,7 @@ export class MimvPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfo
                 readonly victories: number, readonly kills: number, readonly deaths: number,
                 readonly lastUsedEmote: MimvEmote, readonly preferredEmoteSelectorMenu: MimvEmoteSelector,
                 readonly achievements: Achievement[], readonly title) {
-        super(points);
+        super(GameTypes.MIMV, points);
     }
 }
 

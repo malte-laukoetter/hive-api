@@ -7,7 +7,7 @@ export class SpPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAc
                 readonly deaths: number, readonly timeAlive: number, readonly rainbowEggs: boolean,
                 readonly sheepUnlock: boolean, readonly shovelUpgrade: boolean, readonly title: string,
                 readonly achievements: Achievement[]) {
-        super(points);
+        super(GameTypes.SP, points);
     }
 }
 

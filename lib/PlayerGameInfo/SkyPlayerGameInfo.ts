@@ -6,7 +6,7 @@ export class SkyPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoA
                 readonly gamesPlayed: number, readonly mostPoints: number, readonly kills: number,
                 readonly deaths: number, readonly timeAlive: number, readonly recentGames: Game[],
                 readonly title: string, readonly achievements: Achievement[]) {
-        super(points);
+        super(GameTypes.SKY, points);
     }
 }
 

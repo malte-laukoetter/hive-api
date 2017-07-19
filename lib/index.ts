@@ -16,6 +16,8 @@ export async function main(){
 
     let player: Player = new Player("Lergin_");
 
+    player.info().then(i => i.achievements).then(a => a.filter(b => b.unlocked)).then(console.log)
+
    // Server.developers().then(a => a.map(p => p.info().then(console.log)));
 
    // Server.chatreport("5968fbb60cf20e9bd5bad6d6").then(console.log);

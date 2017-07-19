@@ -5,7 +5,7 @@ export class BedPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoA
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly victories: number,
                 readonly gamesPlayed: number, readonly kills: number, readonly deaths: number,
                 readonly bedsDestroyed: number, readonly teamsEliminated, readonly achievements: Achievement[]) {
-        super(points);
+        super(GameTypes.BED, points);
     }
 }
 

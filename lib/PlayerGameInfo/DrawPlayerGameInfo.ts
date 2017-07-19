@@ -5,7 +5,7 @@ export class DrawPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfo
     constructor(points: number, readonly firstLogin: Date, readonly gamesPlayed: number, readonly victories: number,
                 readonly correctGuesses: number, readonly incorrectGuesses: number, readonly skips: number,
                 readonly title: string, readonly achievements: Achievement[]) {
-        super(points);
+        super(GameTypes.DRAW, points);
     }
 }
 

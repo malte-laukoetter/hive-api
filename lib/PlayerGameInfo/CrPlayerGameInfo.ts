@@ -6,7 +6,7 @@ export class CrPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAc
                 readonly victories: number, readonly deaths: number, readonly kills: number,
                 readonly rccatCount: number, readonly rccatKills: number, readonly airstrikeCount: number,
                 readonly airstrikeKills: number, readonly title: string, readonly achievements: Achievement[]) {
-        super(points);
+        super(GameTypes.CR, points);
     }
 }
 
