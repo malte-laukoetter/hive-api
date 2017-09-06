@@ -61,7 +61,7 @@ export class Methods {
      * @param end
      */
     static GAME_LEADERBOARD = (gameType: string, start: number=0, end: number=20) =>
-        `${Methods.BASE_URL}/game/${gameType}/leaderboard/${start}/${end}`;
+        `${Methods.BASE_URL()}/game/${gameType}/leaderboard/${start}/${end}`;
 
     /**
      * url for information about a player

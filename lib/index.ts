@@ -40,6 +40,15 @@ export async function main(){
     player.gameInfo(GameTypes.SPL).then(console.log)
     player.gameInfo(GameTypes.SKY).then(console.log)*/
 
+    player.gameInfo(GameTypes.SLAP).then(console.log)
+    player.gameInfo(GameTypes.EF).then(console.log)
+    player.gameInfo(GameTypes.MM).then(console.log)
+    player.gameInfo(GameTypes.GRAV).then(console.log)
+    player.gameInfo(GameTypes.GNT).then(console.log)
+    player.gameInfo(GameTypes.GNTM).then(console.log)
+    player.gameInfo(GameTypes.PMK).then(console.log)
+    player.gameInfo(GameTypes.SGN).then(console.log)
+    player.gameInfo(GameTypes.BD).then(console.log)
  //   let playerBedInfo: SgPlayerGameInfo = (await player.gameInfo(GameTypes.SG)) as SgPlayerGameInfo;
     //player.info().then(info => info.rank).then(console.log);
 

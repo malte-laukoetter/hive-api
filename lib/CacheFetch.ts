@@ -34,6 +34,7 @@ setMinTimeBetweenRequests(500);
  */
 export async function fetch(request, maxCacheAge:number = 60*60*1000){
     if(!cache.has(request) || (cache.get(request)[1] as Date).getTime() + maxCacheAge - new Date().getTime() < 0){
+        console.log(request);
         let promise = new Promise((resolve, reject) => {
             outstandingRequests.set(request, [resolve, reject]);
         });

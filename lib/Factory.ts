@@ -4,7 +4,9 @@ import {GameType, GameTypes, RawPlayerGameInfoFactory, TimvPlayerGameInfoFactory
     HeroPlayerGameInfoFactory, RrPlayerGameInfoFactory, SpPlayerGameInfoFactory, SkyPlayerGameInfoFactory,
     MimvPlayerGameInfoFactory, HbPlayerGameInfoFactory, CaiPlayerGameInfoFactory, CrPlayerGameInfoFactory,
     HidePlayerGameInfoFactory, OitcPlayerGameInfoFactory, LabPlayerGameInfoFactory, DrawPlayerGameInfoFactory,
-    SplPlayerGameInfoFactory
+    SplPlayerGameInfoFactory, SlapPlayerGameInfoFactory, EfPlayerGameInfoFactory, MmPlayerGameInfoFactory,
+    GravPlayerGameInfoFactory, GntPlayerGameInfoFactory, GntmPlayerGameInfoFactory, PmkPlayerGameInfoFactory,
+    SgnPlayerGameInfoFactory, BdPlayerGameInfoFactory
 } from "./main";
 
 /**
@@ -50,6 +52,15 @@ export interface FromResponseFactory<T> extends Factory<T>{
  *  * LAB - [[LabPlayerGameInfoFactory]]
  *  * DRAW - [[DrawPlayerGameInfoFactory]]
  *  * SPL - [[SplPlayerGameInfoFactory]]
+ *  * SLAP - [[SlapPlayerGameInfoFactory]]
+ *  * EF - [[EfPlayerGameInfoFactory]]
+ *  * MM - [[MmPlayerGameInfoFactory]]
+ *  * GRAV - [[GravPlayerGameInfoFactory]]
+ *  * GNT - [[GntPlayerGameInfoFactory]]
+ *  * GNTM - [[GntmPlayerGameInfoFactory]]
+ *  * PMK - [[PmkPlayerGameInfoFactory]]
+ *  * SGN - [[SgnPlayerGameInfoFactory]]
+ *  * BD - [[BdPlayerGameInfoFactory]]
  *
  * all other games just return a [[RawPlayerGameInfoFactory]]
  *
@@ -94,6 +105,24 @@ export function playerGameInfoFactoryForGametype(type: GameType) {
             return new DrawPlayerGameInfoFactory();
         case GameTypes.SPL.id:
             return new SplPlayerGameInfoFactory();
+        case GameTypes.SLAP.id:
+            return new SlapPlayerGameInfoFactory();
+        case GameTypes.EF.id:
+            return new EfPlayerGameInfoFactory();
+        case GameTypes.MM.id:
+            return new MmPlayerGameInfoFactory();
+        case GameTypes.GRAV.id:
+            return new GravPlayerGameInfoFactory();
+        case GameTypes.GNT.id:
+            return new GntPlayerGameInfoFactory();
+        case GameTypes.GNTM.id:
+            return new GntmPlayerGameInfoFactory();
+        case GameTypes.PMK.id:
+            return new PmkPlayerGameInfoFactory();
+        case GameTypes.SGN.id:
+            return new SgnPlayerGameInfoFactory();
+        case GameTypes.BD.id:
+            return new BdPlayerGameInfoFactory();
         default:
             return new RawPlayerGameInfoFactory().type(type);
     }

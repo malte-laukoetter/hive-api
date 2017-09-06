@@ -2,7 +2,7 @@
  * counts how in which games the achievement THESWARM was passed on till it reached the given player
  */
 
-import {Player, PlayerInfo, TheSwarmAchievement} from "../lib/main"; //TODO: change to package name
+import {Player, PlayerInfo, TheSwarmAchievement} from "hive-api";
 
 async function swarmGames(name: string) {
     // create the player we want to start with

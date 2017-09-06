@@ -1,28 +1,28 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-let cache = new Map();
+var tslib_1 = require("tslib");
+var cache = new Map();
+
 /**
  * fetches the request with node-fetch and caches the result. Also only allows one request every 200ms and will put all
  * other into a waiting query
  */
-function fetch(request, maxCacheAge = 60 * 60 * 1000) {
-    return __awaiter(this, void 0, void 0, function* () {
-        if (!cache.has(request) || cache.get(request)[1].getTime() + maxCacheAge - new Date().getTime() < 0) {
-            let promise = window.fetch(request).then(res => res.json());
-            cache.set(request, [promise, new Date()]);
-            return yield promise;
-        }
-        else {
-            return yield cache.get(request)[0];
-        }
+function fetch(request, maxCacheAge) {
+    if (maxCacheAge === void 0) { maxCacheAge = 60 * 60 * 1000; }
+    return tslib_1.__awaiter(this, void 0, void 0, function () {
+        var promise;
+        return tslib_1.__generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    if (!(!cache.has(request) || cache.get(request)[1].getTime() + maxCacheAge - new Date().getTime() < 0)) return [3 /*break*/, 2];
+                    promise = window.fetch(request).then(function(res){return res.json()});
+                    cache.set(request, [promise, new Date()]);
+                    return [4 /*yield*/, promise];
+                case 1: return [2 /*return*/, _a.sent()];
+                case 2: return [4 /*yield*/, cache.get(request)[0]];
+                case 3: return [2 /*return*/, _a.sent()];
+            }
+        });
     });
 }
 exports.fetch = fetch;

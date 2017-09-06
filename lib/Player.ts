@@ -37,6 +37,10 @@ export class Player {
         return this._name;
     }
 
+    set name(name) {
+        this._name = name;
+    }
+
     /**
      * requests the [[PlayerInfo global information of the player]] if they aren't cached already
      *

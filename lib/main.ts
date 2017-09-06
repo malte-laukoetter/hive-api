@@ -39,6 +39,15 @@ export * from "./PlayerGameInfo/OitcPlayerGameInfo"
 export * from "./PlayerGameInfo/LabPlayerGameInfo"
 export * from "./PlayerGameInfo/DrawPlayerGameInfo"
 export * from "./PlayerGameInfo/SplPlayerGameInfo"
+export * from "./PlayerGameInfo/SlapPlayerGameInfo"
+export * from "./PlayerGameInfo/EfPlayerGameInfo"
+export * from "./PlayerGameInfo/MmPlayerGameInfo"
+export * from "./PlayerGameInfo/GravPlayerGameInfo"
+export * from "./PlayerGameInfo/GntPlayerGameInfo"
+export * from "./PlayerGameInfo/GntmPlayerGameInfo"
+export * from "./PlayerGameInfo/PmkPlayerGameInfo"
+export * from "./PlayerGameInfo/SgnPlayerGameInfo"
+export * from "./PlayerGameInfo/BdPlayerGameInfo"
 
 
 /*
@@ -88,3 +97,8 @@ export * from "./Server";
  * Chat Reports
  */
 export * from "./ChatReport";
+
+/*
+ * Leaderboard
+ */
+export * from "./Leaderboard";
