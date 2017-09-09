@@ -41,6 +41,20 @@ export class Player {
         this._name = name;
     }
 
+    get profileUrl() {
+        return `https://hivemc.com/player/${this.uuid}`;
+    }
+
+    fetchProfile() {
+        return fetch(this.profileUrl, 60*60*1000, false);
+    }
+
+    getTwitter() {
+        return this.fetchProfile()
+            .then(res => res.match(/(?:span\>\<a target=\"_blank\" href=\"\/\/twitter\.com\/)((\w){1,15})(?=\">@)/))
+            .then(res => res ? res[1] ? res[1] : null : null);
+    }
+
     /**
      * requests the [[PlayerInfo global information of the player]] if they aren't cached already
      *

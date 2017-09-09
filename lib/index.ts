@@ -14,9 +14,15 @@ export async function main(){
 
     //new Player("Malte662").info().then((info) => info.achievements[1].theSwarmFrom.info()).then(console.log)
 
-    let player: Player = new Player("Lergin_");
+    let player: Player = new Player("heyimblake");
+    await player.info();
+    console.log(await player.getTwitter());
 
-    player.info().then(i => i.achievements).then(a => a.filter(b => b.unlocked)).then(console.log)
+    player = new Player("Lergin_");
+    await player.info();
+    console.log(await player.getTwitter());
+
+  //  player.info().then(i => i.achievements).then(a => a.filter(b => b.unlocked)).then(console.log)
 
    // Server.developers().then(a => a.map(p => p.info().then(console.log)));
 
@@ -39,7 +45,7 @@ export async function main(){
     player.gameInfo(GameTypes.DRAW).then(console.log)
     player.gameInfo(GameTypes.SPL).then(console.log)
     player.gameInfo(GameTypes.SKY).then(console.log)*/
-
+/*
     player.gameInfo(GameTypes.SLAP).then(console.log)
     player.gameInfo(GameTypes.EF).then(console.log)
     player.gameInfo(GameTypes.MM).then(console.log)
@@ -48,7 +54,7 @@ export async function main(){
     player.gameInfo(GameTypes.GNTM).then(console.log)
     player.gameInfo(GameTypes.PMK).then(console.log)
     player.gameInfo(GameTypes.SGN).then(console.log)
-    player.gameInfo(GameTypes.BD).then(console.log)
+    player.gameInfo(GameTypes.BD).then(console.log)*/
  //   let playerBedInfo: SgPlayerGameInfo = (await player.gameInfo(GameTypes.SG)) as SgPlayerGameInfo;
     //player.info().then(info => info.rank).then(console.log);
 
