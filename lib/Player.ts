@@ -42,7 +42,7 @@ export class Player {
     }
 
     get profileUrl() {
-        return `https://hivemc.com/player/${this.uuid}`;
+        return `https://hivemc.com/player/${this.requestUuid}`;
     }
 
     fetchProfile() {
