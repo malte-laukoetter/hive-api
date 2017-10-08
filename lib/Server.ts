@@ -14,6 +14,22 @@ export class Server{
     }
 
     /**
+     * gets the amount of unique players
+     * @param maxCacheAge maximum age of the cache
+     */
+    static uniquePlayers(maxCacheAge: number = 60*60*1000): Promise<Number>{
+        return fetch(Methods.UNIQUE_PLAYER_COUNT(), maxCacheAge).then(res => res.count);
+    }
+
+    /**
+     * gets the current amount of players on the server
+     * @param maxCacheAge maximum age of the cache
+     */
+    static currentPlayers(maxCacheAge: number = 60*1000): Promise<Number>{
+        return fetch(Methods.PLAYER_COUNT(), maxCacheAge).then(res => res.count);
+    }
+
+    /**
      * get a list of the team members of the hive
      * @param maxCacheAge maximum age of the cache
      */
