@@ -83,6 +83,20 @@ export class Server{
     }
 
     /**
+     * get a list of the nectar members
+     * @param maxCacheAge maximum age of the cache
+     */
+    static async nectar(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<Player[]> {
+        return fetch(Methods.NECTAR_TEAM(), maxCacheAge, false)
+            .then(res => res.match(/([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})(?=\?overlay=true)/g))
+            .then(uuids => 
+                uuids
+                    .map(uuid => uuid.replace(/-/g, ''))
+                    .map(uuid => new Player(uuid))
+            )
+    }
+
+    /**
      * gets the [[ChatReport]] of the id, data about these are currently only available for the chatreports without the W_
      * prefix
      */

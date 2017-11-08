@@ -1,12 +1,10 @@
 import {BedPlayerGameInfo, SgPlayerGameInfo, SgPlayerGameInfoFactory, Game, GameTypes, Player, PlayerInfo, Server, SgGameInfo, Achievement, TheSwarmAchievement, DrGameInfo} from "./main";
-import {
-    PlayerGameInfoAchievements, PlayerGameInfoFactory,
-    PlayerGameInfoFactoryAchievements
-} from "./PlayerGameInfo/PlayerGameInfo";
-import {PlayerInfoFactory, Rank} from "./PlayerInfo";
 
 
 export async function main(){
+
+    Server.nectar().then(console.log)
+
     //await GameTypes.update();
 
     //Server.achievements().then(console.log);
@@ -14,14 +12,14 @@ export async function main(){
 
     //new Player("Malte662").info().then((info) => info.achievements[1].theSwarmFrom.info()).then(console.log)
 
-    let player: Player = new Player("heyimblake");
+   /* let player: Player = new Player("heyimblake");
     await player.info();
     console.log(await player.getTwitter());
 
     player = new Player("Lergin_");
     await player.info();
     console.log(await player.getTwitter());
-
+*/
   //  player.info().then(i => i.achievements).then(a => a.filter(b => b.unlocked)).then(console.log)
 
    // Server.developers().then(a => a.map(p => p.info().then(console.log)));

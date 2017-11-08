@@ -105,4 +105,9 @@ export class Methods {
      * url for a list of the staff members
      */
     static CHAT_REPORT = (id) => `${Methods.BASE_URL()}/chatreport/${id}`;
+
+    /**
+     * url for a list of the staff members
+     */
+    static NECTAR_TEAM = () => `https://www.teamnectar.net/our-team/`;
 }

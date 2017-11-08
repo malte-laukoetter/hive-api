@@ -28,7 +28,7 @@
     "webpack": "^3.6.0"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "tsc && node index.js",
     "test": "tsc && mocha **/*.test.js",
     "build": "tsc",
     "docs": "typedoc --mode modules --out docs --name \"Hive-Api-Node\" --target ES6 --mode file --excludeExternals -gaID UA-60277501-9 -gaSite auto -theme typedoctheme lib",
