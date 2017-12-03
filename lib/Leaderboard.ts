@@ -50,7 +50,7 @@ export class Leaderboard {
                 let player = new Player(place.UUID);
                 player.name = place.username;
 
-                this.cache.set(place.index, new LeaderboardPlace(player, (place.points || place.total_points), place.index));
+                this.cache.set(place.index, new LeaderboardPlace(player, (place.points || place.total_points), place.index, place));
                 result.set(place.index, this.cache.get(place.index));
             }
         });
@@ -168,7 +168,7 @@ export class Leaderboard {
 }
 
 export class LeaderboardPlace{
-    constructor(readonly player: Player, readonly points: number, readonly place: number){}
+    constructor(readonly player: Player, readonly points: number, readonly place: number, readonly raw: object){}
 
     get humanPlace(){
         return this.place+1;
