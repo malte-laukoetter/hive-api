@@ -180,6 +180,8 @@ export function theSwarmGameToGameType(name: string): GameType{
                 return matchingTypes[0];
             }
 
-            throw `Unknown SwarmGameId: ${name}`
+            console.error(`Unknown SwarmGameId: ${name}`)
+
+            return null;
     }
 }
