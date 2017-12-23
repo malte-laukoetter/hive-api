@@ -1,44 +1,5 @@
-import {FromResponseFactory, Achievement, AchievementFactory, AchievementTypes, createDateFromResponse} from "./main";
+import {FromResponseFactory, Achievement, AchievementFactory, AchievementTypes, createDateFromResponse, Rank, Ranks} from "./main";
 import {isNullOrUndefined} from "util";
-
-export enum Rank{
-    REGULAR = "Regular Hive Member",
-    GOLD = "Gold Hive Member",
-    DIAMOND = "Diamond Hive Member",
-    EMERALD = "Lifetime Emerald Hive Member",
-    VIP = "VIP Player",
-    MODERATOR = "Hive Moderator",
-    SENIOR_MODERATOR = "Senior Hive Moderator",
-    DEVELOPER = "Hive Developer",
-    OWNER = "Hive Founder and Owner"
-}
-
-export function rankFromString(str: string): Rank{
-    switch(str){
-        case Rank.REGULAR.toString():
-            return Rank.REGULAR;
-        case Rank.GOLD.toString():
-            return Rank.GOLD;
-        case Rank.DIAMOND.toString():
-            return Rank.DIAMOND;
-        case Rank.EMERALD.toString():
-            return Rank.EMERALD;
-        case Rank.VIP.toString():
-            return Rank.VIP;
-        case Rank.MODERATOR.toString():
-            return Rank.MODERATOR;
-        case Rank.SENIOR_MODERATOR.toString():
-            return Rank.SENIOR_MODERATOR;
-        case Rank.DEVELOPER.toString():
-            return Rank.DEVELOPER;
-        case Rank.OWNER.toString():
-            return Rank.OWNER;
-    }
-
-    console.error(`Unknown Rank: ${str}`);
-
-    return Rank.REGULAR
-}
 
 /**
  * contains the global information about a [[Player]] like it's rank and medals
@@ -57,7 +18,7 @@ export class PlayerInfo {
 export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo>{
     private _uuid: string = "";
     private _name: string = "";
-    private _rank: Rank = Rank.REGULAR;
+    private _rank: Rank = Ranks.REGULAR;
     private _tokens: number = 0;
     private _medals: number = 0;
     private _credits: number = 0;
@@ -77,7 +38,7 @@ export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo>{
 
     fromResponse(res: any): FromResponseFactory<PlayerInfo> {
         this.name(res.username)
-            .rank(rankFromString(res.rankName))
+            .rank(Ranks.get(res.modernRank.enum))
             .tokens(res.tokens)
             .credits(res.credits)
             .medals(res.medals)

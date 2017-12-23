@@ -102,3 +102,8 @@ export * from "./ChatReport";
  * Leaderboard
  */
 export * from "./Leaderboard";
+
+/*
+ * Rank
+ */
+export * from "./Rank";

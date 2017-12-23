@@ -1,4 +1,4 @@
-import {fetch, AchievementInfo, AchievementInfoFactory, Methods, Player, ChatReport, ChatReportFactory} from "./main";
+import {fetch, AchievementInfo, AchievementInfoFactory, Methods, Player, ChatReport, ChatReportFactory, Ranks} from "./main";
 
 /**
  * contains static methods to get the general data about the server
@@ -32,6 +32,7 @@ export class Server{
     /**
      * get a list of the team members of the hive
      * @param maxCacheAge maximum age of the cache
+     * @deprecated Use {@link Rank#listPlayers} instead
      */
     static teamMembers(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<Player[]>{
         return Promise.all([
@@ -45,55 +46,46 @@ export class Server{
     /**
      * get a list of the moderators of the hive
      * @param maxCacheAge maximum age of the cache
+     * @deprecated Use {@link Rank#listPlayers} instead
      */
     static moderators(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<Player[]>{
-        return fetch(Methods.STAFF_LIST(), maxCacheAge)
-            .then(res => res[5])
-            .then(res => res.map(a => new Player(a)));
+        return Ranks.MODERATOR.listPlayers(maxCacheAge);
     }
 
     /**
      * get a list of the senior moderators of the hive
      * @param maxCacheAge maximum age of the cache
+     * @deprecated Use {@link Rank#listPlayers} instead
      */
     static seniorModerators(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<Player[]>{
-        return fetch(Methods.STAFF_LIST(), maxCacheAge)
-            .then(res => res[6])
-            .then(res => res.map(a => new Player(a)));
+        return Ranks.SRMODERATOR.listPlayers(maxCacheAge);
     }
 
     /**
      * get a list of the developers of the hive
      * @param maxCacheAge maximum age of the cache
+     * @deprecated Use {@link Rank#listPlayers} instead
      */
     static developers(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<Player[]>{
-        return fetch(Methods.STAFF_LIST(), maxCacheAge)
-            .then(res => res[7])
-            .then(res => res.map(a => new Player(a)));
+        return Ranks.DEVELOPER.listPlayers(maxCacheAge);
     }
 
     /**
      * get a list of the owners of the hive
      * @param maxCacheAge maximum age of the cache
+     * @deprecated Use {@link Rank#listPlayers} instead
      */
     static owners(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<Player[]>{
-        return fetch(Methods.STAFF_LIST(), maxCacheAge)
-            .then(res => res[8])
-            .then(res => res.map(a => new Player(a)));
+        return Ranks.OWNER.listPlayers(maxCacheAge);
     }
 
     /**
      * get a list of the nectar members
      * @param maxCacheAge maximum age of the cache
+     * @deprecated Use {@link Rank#listPlayers} instead
      */
-    static async nectar(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<Player[]> {
-        return fetch(Methods.NECTAR_TEAM(), maxCacheAge, false)
-            .then(res => res.match(/([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})(?=\?overlay=true)/g))
-            .then(uuids => 
-                uuids
-                    .map(uuid => uuid.replace(/-/g, ''))
-                    .map(uuid => new Player(uuid))
-            )
+    static nectar(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<Player[]> {
+        return Ranks.OWNER.listPlayers(maxCacheAge)
     }
 
     /**
@@ -101,7 +93,7 @@ export class Server{
      * prefix
      */
     static chatreport(chatReportId: string, maxCacheAge: number = 30 * 24 * 60 * 60 * 1000): Promise<ChatReport>{
-        return fetch(Methods.CHAT_REPORT(chatReportId))
+        return fetch(Methods.CHAT_REPORT(chatReportId), maxCacheAge)
             .then(res => new ChatReportFactory().fromResponse(res).id(chatReportId).create())
             .catch(() => new ChatReportFactory().id(chatReportId).create());
     }
