@@ -102,4 +102,4 @@ console.log(playerBedInfo.bedsDestroyed);
 ```
 
 
-There might be some more informations in the formums of HiveMC: https://forum.hivemc.com/threads/node-js-hive-api-library.279776/ 
+There might be some more informations in the forums of HiveMC: https://forum.hivemc.com/threads/node-js-hive-api-library.279776/ 
