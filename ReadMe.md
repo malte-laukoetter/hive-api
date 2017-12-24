@@ -1,6 +1,6 @@
 # Hive-Api-Node
 
-> A node.js wrapper for the api of https://hivemc.com, written in TypeScript and using Promises
+> A node.js wrapper for the api of https://hivemc.com, written in TypeScript.
 
 
 ## Install
@@ -13,9 +13,6 @@ $ npm install hive-api
 
 http://hive-api.lergin.de
 
-Note: some classes do not expose there properties in the documentation in the right way and only show them in the constructor
-
-
 ## Usage
 
 ### JavaScript
@@ -23,7 +20,7 @@ Note: some classes do not expose there properties in the documentation in the ri
 ```js
 const hive = require('hive-api');
 
-let player = new hive.Player("Malte662");
+let player = new hive.Player("Lergin_");
 
 player.info().then(info => {
     console.log(`Tokens: ${info.tokens}`)
@@ -34,7 +31,7 @@ player.info().then(info => {
 ```typescript
 import {Player} from "hive-api";
 
-let player: Player = new Player("Malte662");
+let player: Player = new Player("Lergin_");
 
 player.info().then((info: PlayerInfo) => {
     console.log(`Tokens: ${info.tokens}`)
@@ -97,9 +94,12 @@ GameTypes.SKY.maps()
 ```typescript
 import {Player, BedPlayerGameInfo, GameTypes} from "hive-api"
 
-let player: Player = new Player("Malte662");
+let player: Player = new Player("Lergin_");
 
 let playerBedInfo: BedPlayerGameInfo = (await player.gameInfo(GameTypes.BED)) as BedPlayerGameInfo;
 
 console.log(playerBedInfo.bedsDestroyed);
 ```
+
+
+There might be some more informations in the formums of HiveMC: https://forum.hivemc.com/threads/node-js-hive-api-library.279776/ 

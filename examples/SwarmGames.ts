@@ -35,4 +35,4 @@ async function swarmGames(name: string) {
 }
 
 // call the function
-swarmGames("Malte662");
+swarmGames("Lergin_");
