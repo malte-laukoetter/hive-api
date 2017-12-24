@@ -53,7 +53,7 @@ export class Ranks {
   static readonly GOLD           = new Rank(10, "GOLD",           "Gold Premium", 1);
   static readonly DIAMOND        = new Rank(20, "DIAMOND",        "Diamond Premium", 2);
   static readonly EMERALD        = new Rank(30, "EMERALD",        "Emerald Premium", 3);
-  static readonly RESERVED       = new Rank(40, "RESERVED",       "Reserved Premium");
+  static readonly ULTIMATE       = new Rank(40, "ULTIMATE",       "Ultimate Premium");
   static readonly VIP            = new Rank(50, "VIP",            "VIP", 4);
   static readonly YOUTUBER       = new Rank(51, "YOUTUBER",       "YouTuber");
   static readonly STREAMER       = new Rank(52, "STREAMER",       "Streamer");
@@ -67,7 +67,7 @@ export class Ranks {
   static readonly OWNER          = new Rank(100, "OWNER",         "Owner", 8);
 
   private static _list: Rank[] = [
-    Ranks.REGULAR, Ranks.GOLD, Ranks.DIAMOND, Ranks.EMERALD, Ranks.RESERVED, Ranks.VIP, Ranks.YOUTUBER, Ranks.STREAMER,
+    Ranks.REGULAR, Ranks.GOLD, Ranks.DIAMOND, Ranks.EMERALD, Ranks.ULTIMATE, Ranks.VIP, Ranks.YOUTUBER, Ranks.STREAMER,
     Ranks.CONTRIBUTOR, Ranks.NECTAR, Ranks.RESERVED_STAFF, Ranks.MODERATOR, Ranks.SRMODERATOR, Ranks.STAFFMANAGER, 
     Ranks.DEVELOPER, Ranks.OWNER
   ]

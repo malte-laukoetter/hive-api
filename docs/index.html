@@ -64,18 +64,17 @@
 			<div class="tsd-panel tsd-typography">
 				<h1 id="hive-api-node">Hive-Api-Node</h1>
 				<blockquote>
-					<p>A node.js wrapper for the api of <a href="https://hivemc.com">https://hivemc.com</a>, written in TypeScript and using Promises</p>
+					<p>A node.js wrapper for the api of <a href="https://hivemc.com">https://hivemc.com</a>, written in TypeScript.</p>
 				</blockquote>
 				<h2 id="install">Install</h2>
 				<pre><code><span class="hljs-meta">$</span><span class="bash"> npm install hive-api</span>
 </code></pre><h2 id="documentation">Documentation</h2>
 				<p><a href="http://hive-api.lergin.de">http://hive-api.lergin.de</a></p>
-				<p>Note: some classes do not expose there properties in the documentation in the right way and only show them in the constructor</p>
 				<h2 id="usage">Usage</h2>
 				<h3 id="javascript">JavaScript</h3>
 				<pre><code class="lang-js"><span class="hljs-keyword">const</span> hive = <span class="hljs-built_in">require</span>(<span class="hljs-string">'hive-api'</span>);
 
-<span class="hljs-keyword">let</span> player = <span class="hljs-keyword">new</span> hive.Player(<span class="hljs-string">"Malte662"</span>);
+<span class="hljs-keyword">let</span> player = <span class="hljs-keyword">new</span> hive.Player(<span class="hljs-string">"Lergin_"</span>);
 
 player.info().then(<span class="hljs-function"><span class="hljs-params">info</span> =&gt;</span> {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Tokens: <span class="hljs-subst">${info.tokens}</span>`</span>)
@@ -84,7 +83,7 @@ player.info().then(<span class="hljs-function"><span class="hljs-params">info</s
 				<h3 id="typescript">TypeScript</h3>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Player} <span class="hljs-keyword">from</span> <span class="hljs-string">"hive-api"</span>;
 
-<span class="hljs-keyword">let</span> player: Player = <span class="hljs-keyword">new</span> Player(<span class="hljs-string">"Malte662"</span>);
+<span class="hljs-keyword">let</span> player: Player = <span class="hljs-keyword">new</span> Player(<span class="hljs-string">"Lergin_"</span>);
 
 player.info().then(<span class="hljs-function">(<span class="hljs-params">info: PlayerInfo</span>) =&gt;</span> {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Tokens: <span class="hljs-subst">${info.tokens}</span>`</span>)
@@ -128,12 +127,13 @@ GameTypes.SKY.maps()
 				<h3 id="get-the-amount-of-beds-destroyed-by-malte662-in-bedwars">Get the amount of Beds destroyed by Malte662 in Bedwars</h3>
 				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Player, BedPlayerGameInfo, GameTypes} <span class="hljs-keyword">from</span> <span class="hljs-string">"hive-api"</span>
 
-<span class="hljs-keyword">let</span> player: Player = <span class="hljs-keyword">new</span> Player(<span class="hljs-string">"Malte662"</span>);
+<span class="hljs-keyword">let</span> player: Player = <span class="hljs-keyword">new</span> Player(<span class="hljs-string">"Lergin_"</span>);
 
 <span class="hljs-keyword">let</span> playerBedInfo: BedPlayerGameInfo = (<span class="hljs-keyword">await</span> player.gameInfo(GameTypes.BED)) <span class="hljs-keyword">as</span> BedPlayerGameInfo;
 
 <span class="hljs-built_in">console</span>.log(playerBedInfo.bedsDestroyed);
 </code></pre>
+				<p>There might be some more informations in the forums of HiveMC: <a href="https://forum.hivemc.com/threads/node-js-hive-api-library.279776/">https://forum.hivemc.com/threads/node-js-hive-api-library.279776/</a> </p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
