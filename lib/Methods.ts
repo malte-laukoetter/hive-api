@@ -109,7 +109,7 @@ export class Methods {
     /**
      * url for a list of the staff members
      */
-    static RANKS = (id) => `${Methods.BASE_URL()}/server/ranks`;
+    static RANKS = () => `${Methods.BASE_URL()}/server/ranks`;
 
     /**
      * url for a list of the staff members

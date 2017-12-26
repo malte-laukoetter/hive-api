@@ -73,7 +73,7 @@ export class Ranks {
   ]
 
   static async update() {
-    return fetch(Methods.RANKS)
+    return fetch(Methods.RANKS())
       .then(res =>
         this._list = Object.entries(res)
           .map(([id, { enum: name, human: humanName }]) => new Rank(
