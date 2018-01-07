@@ -1,8 +1,31 @@
-import {FromResponseFactory, GameType, AchievementFactory, AchievementTypes, Achievement} from "../main";
+import {FromResponseFactory, GameType, AchievementFactory, AchievementTypes, Achievement, GameTitle} from "../main";
 import {isNullOrUndefined} from "util";
 
 export class PlayerGameInfo {
     constructor(readonly type: GameType, readonly points: number) {}
+
+    // returns the current title or nothing
+    async currentTitle(maxCacheAge: number = 24*60*60*1000): Promise<GameTitle>{
+      const titles = await this.type.titles(maxCacheAge);
+
+      if(Object.keys(this).indexOf("title") != -1){
+        const mayContainsTitle = titles.filter(title => title.name === (this as any).title);
+
+        if(mayContainsTitle.length > 0){
+            return mayContainsTitle[0];
+        }else{
+            return new GameTitle(this.type, (this as any).title, -1, (this as any).title, (this as any).title)
+        }
+      }else{
+        const mayContainsTitle = titles.filter(title => title.requiredPoints <= this.points && !title.topRank);
+
+        if (mayContainsTitle.length > 0) {
+            return mayContainsTitle[mayContainsTitle.length - 1];
+        } else {
+            return;
+        }
+      }
+    }
 }
 
 export class RawPlayerGameInfo extends PlayerGameInfo {

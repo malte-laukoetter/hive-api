@@ -23,27 +23,27 @@ export class Methods {
      * url for the latest games of the gametype
      * @param gameType
      */
-    static GAMETYPE_LATEST = (gameType: string) => `${Methods.BASE_URL()}/game/${gameType}/data`;
+    static GAMETYPE_LATEST = (gameType: string) => `${Methods.GAMETYPE_INFO(gameType)}/data`;
 
     /**
      * url for the list of maps for the gametype
      * @param gameType
      */
-    static MAP_LIST = (gameType: string) => `${Methods.BASE_URL()}/game/${gameType}/maps`;
+    static MAP_LIST = (gameType: string) => `${Methods.GAMETYPE_INFO(gameType)}/maps`;
 
     /**
      * url for the information about a map of the gametype
      * @param gameType
      * @param map
      */
-    static MAP_INFO = (gameType: string, map: string) => `${Methods.BASE_URL()}/game/${gameType}/maps/${map}`;
+    static MAP_INFO = (gameType: string, map: string) => `${Methods.MAP_LIST(gameType)}/${map}`;
 
     /**
      * url for information about a game
      * @param gameType the gametype of the game
      * @param gameId the id of the game
      */
-    static GAME_INFO = (gameType: string, gameId: number) => `${Methods.BASE_URL()}/game/${gameType}/data/${gameId}`;
+    static GAME_INFO = (gameType: string, gameId: number) => `${Methods.GAMETYPE_INFO(gameType)}/data/${gameId}`;
 
     /**
      * url for the information about a player within a game
@@ -51,8 +51,8 @@ export class Methods {
      * @param gameId the id of the game
      * @param uuid the uuid or name of the player
      */
-    static GAME_INFO_PLAYER = (gameType: string, gameId: number, uuid: string) =>
-        `${Methods.BASE_URL()}/game/${gameType}/data/${gameId}/${uuid}`;
+    static GAME_INFO_PLAYER = (gameType: string, gameId: number, uuid: string) => 
+        `${Methods.GAME_INFO(gameType, gameId)}/${uuid}`;
 
     /**
      * url for the leaderboard of a gametype
@@ -61,7 +61,12 @@ export class Methods {
      * @param end
      */
     static GAME_LEADERBOARD = (gameType: string, start: number=0, end: number=20) =>
-        `${Methods.BASE_URL()}/game/${gameType}/leaderboard/${start}/${end}`;
+        `${Methods.GAMETYPE_INFO(gameType)}/leaderboard/${start}/${end}`;
+
+    /**
+     * url for a list of the titles a player can get in a gametype
+     */
+    static GAME_TITLES = (gameType: string) => `${Methods.GAMETYPE_INFO(gameType)}/titles`
 
     /**
      * url for information about a player
