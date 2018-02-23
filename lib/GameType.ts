@@ -67,7 +67,7 @@ export class GameType {
      */
     maps(maxCacheAge: number = 24*60*60*1000): Promise<GameMap[]>{
         return fetch(Methods.MAP_LIST(this.id), maxCacheAge).then(res => Object.values(res).map(map =>
-            new GameMap(this, map.worldname, map.mapname, map.mapauthor)
+            new GameMap(this, map.worldname, map.mapname, map.mapauthor, new Date(map.added * 1000))
         ));
     }
 
