@@ -15,7 +15,7 @@ function fetch(request, maxCacheAge) {
             switch (_a.label) {
                 case 0:
                     if (!(!cache.has(request) || cache.get(request)[1].getTime() + maxCacheAge - new Date().getTime() < 0)) return [3 /*break*/, 2];
-                    promise = window.fetch(request).then(function(res){return res.json()});
+                    promise = window.fetch(request).then(function(res){return res.json()}).catch(function(err){return window.fetch(`https://lergin.de/api/cors/${request}`).then(function(res){return res.json()})});
                     cache.set(request, [promise, new Date()]);
                     return [4 /*yield*/, promise];
                 case 1: return [2 /*return*/, _a.sent()];

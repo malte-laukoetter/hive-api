@@ -85,7 +85,7 @@ export class Server{
      * @deprecated Use {@link Rank#listPlayers} instead
      */
     static nectar(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<Player[]> {
-        return Ranks.OWNER.listPlayers(maxCacheAge)
+        return Ranks.NECTAR.listPlayers(maxCacheAge)
     }
 
     /**
