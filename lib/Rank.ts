@@ -76,7 +76,7 @@ export class Ranks {
     return fetch(Methods.RANKS())
       .then(res =>
         this._list = Object.entries(res)
-          .map(([id, { enum: name, human: humanName }]) => new Rank(
+          .map(([id, { enum: name, human: humanName }]: any) => new Rank(
             parseInt(id),
             name,
             humanName,

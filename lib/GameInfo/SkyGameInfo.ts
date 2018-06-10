@@ -33,7 +33,7 @@ export class SkyTeamGameInfoFactory extends GameInfoFactory<SkyTeamGameInfo> {
         return (super.fromResponse(res) as SkyTeamGameInfoFactory)
             .winners([res.winner, res.winner2].map(player => new Player(player)))
             .teamPlayers(Object.entries(res.teamplayers).map(
-                ([color, players]) => new SkyTeam(color, players.map(player => new Player(player)))
+                ([color, players]: any) => new SkyTeam(color, players.map(player => new Player(player)))
             ));
     }
 
