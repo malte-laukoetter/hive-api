@@ -7,13 +7,38 @@ export enum DrVisibility{
     RUNNERS_INVISIBLE = "RUNNERS_INVISIBLE"
 }
 
+export type DrTrapClass =
+      'ArrowTrap' 
+    | 'DisappearingFloorTrap'
+    | 'SnakeReplaceTrap'
+    | 'PistonTrap'
+    | 'KnockBackTrap'
+    | 'InvertBlocksTrap'
+    | 'BlockReplaceTrap'
+    | 'ToggleOpenableTrap'
+    | 'StrongWindsTrap'
+    | 'MineFieldTrap'
+    | 'TNTRainTrap'
+
 export class DrPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
+    /**
+     * @deprecated use [[DrPlayerGameInfo#trapClassKills]] and [[DrPlayerGameInfo#mapKills]] instead
+     */
+    readonly trapKills = []
+
+    /**
+     * @deprecated use [[DrPlayerGameInfo#trapClassDeaths]] and [[DrPlayerGameInfo#mapDeaths]] instead
+     */
+    readonly trapDeaths = []
+
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly victories: number,
                 readonly gamesPlayed: number, readonly kills: number, readonly deaths: number,
-                readonly multiKills, readonly trapKills, readonly mapRecords, readonly availableBanners,
+                readonly multiKills, readonly mapRecords, readonly availableBanners,
                 readonly title: string, readonly trapsActivated: number, readonly runnerGamesPlayed: number,
-                readonly deathGamesPlayed: number, readonly totalCheckpoints: number, readonly trapDeaths,
+                readonly deathGamesPlayed: number, readonly totalCheckpoints: number,
                 readonly runnerWins: number, readonly deathWins: number, readonly selectedBanner, readonly visibility,
+                readonly trapClassKills: Map<DrTrapClass, number>, readonly trapClassDeaths: Map<DrTrapClass, number>,
+                readonly mapKills, readonly mapDeaths,
                 readonly recentGames: Game[], readonly achievements: Achievement[]) {
         super(GameTypes.DR, points);
     }
@@ -30,8 +55,6 @@ export class DrPlayerGameInfoFactory extends PlayerGameInfoFactory<DrPlayerGameI
     private _kills: number;
     private _deaths: number;
     private _multiKills;
-    private _trapKills;
-    private _trapDeaths;
     private _mapRecords;
     private _availableBanners;
     private _trapsActivated: number;
@@ -42,13 +65,18 @@ export class DrPlayerGameInfoFactory extends PlayerGameInfoFactory<DrPlayerGameI
     private _deathWins: number;
     private _selectedBanner;
     private _visibility;
+    private _trapClassKills;
+    private _trapClassDeaths;
+    private _mapKills;
+    private _mapDeaths;
     private _recentGames: Game[];
 
     create(): DrPlayerGameInfo {
         return new DrPlayerGameInfo(this._points, this._firstLogin, this._lastLogin, this._victories,
-            this._gamesPlayed, this._kills, this._deaths, this._multiKills, this._trapKills, this._mapRecords,
+            this._gamesPlayed, this._kills, this._deaths, this._multiKills, this._mapRecords,
             this._availableBanners, this._title, this._trapsActivated, this._runnerGamesPlayed, this._deathGamesPlayed,
-            this._totalCheckpoints, this._trapDeaths, this._runnerWins, this._deathWins, this._selectedBanner, this._visibility,
+            this._totalCheckpoints, this._runnerWins, this._deathWins, this._selectedBanner, this._visibility,
+            this._trapClassKills, this._trapClassDeaths, this._mapKills, this._mapDeaths,
             this._recentGames, this._achievements);
     }
 
@@ -76,11 +104,13 @@ export class DrPlayerGameInfoFactory extends PlayerGameInfoFactory<DrPlayerGameI
             .selectedBanner(res.selectedbanner)
             .title(res.title)
             .totalCheckpoints(res.totalcheckpoints)
-            .trapKills(res.trapkills)
-            .trapDeaths(res.trapdeaths)
             .trapsActivated(res.trapsactivated)
             .victories(res.victories)
-            .visibility(res.visibility);
+            .visibility(res.visibility)
+            .trapClassKills(res.trapclasskills)
+            .trapClassDeaths(res.trapclassdeaths)
+            .mapKills(res.mapkills)
+            .mapDeaths(res.mapdeaths);
     }
 
     firstLogin(firstLogin : Date){
@@ -153,8 +183,10 @@ export class DrPlayerGameInfoFactory extends PlayerGameInfoFactory<DrPlayerGameI
         return this;
     }
 
+    /**
+     * @deprecated use [[DrPlayerGameInfoFactory#trapClassDeaths]] and [[DrPlayerGameInfoFactory#mapDeaths]] instead
+     */
     trapDeaths(trapDeaths){
-        this._trapDeaths = trapDeaths;
         return this;
     }
 
@@ -178,13 +210,35 @@ export class DrPlayerGameInfoFactory extends PlayerGameInfoFactory<DrPlayerGameI
         return this;
     }
 
+    /**
+     * @deprecated use [[DrPlayerGameInfoFactory#trapClassKills]] and [[DrPlayerGameInfoFactory#mapKills]] instead
+     */
     trapKills(trapKills){
-        this._trapKills = trapKills;
         return this;
     }
 
     trapsActivated(trapsActivated: number){
         this._trapsActivated = trapsActivated;
+        return this;
+    }
+
+    trapClassKills(trapClassKills) {
+        this._trapClassKills = trapClassKills;
+        return this;
+    }
+
+    trapClassDeaths(trapClassDeaths) {
+        this._trapClassDeaths = trapClassDeaths;
+        return this;
+    }
+
+    mapKills(mapKills) {
+        this._mapKills = mapKills;
+        return this;
+    }
+
+    mapDeaths(mapDeaths) {
+        this._mapDeaths = mapDeaths;
         return this;
     }
 

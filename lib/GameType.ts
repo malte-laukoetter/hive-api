@@ -134,10 +134,10 @@ export class GameTypes {
         GameTypes._list = await fetch(Methods.GAMETYPE_LIST(), 0)
             .then(res => Object.entries(res).map(([id, name]) => {
                 if(GameTypes[id]){
-                    GameTypes[id].name = name;
+                    GameTypes[id].name = name.toString();
                     return GameTypes[id];
                 }else{
-                    return new GameType(id, name)
+                    return new GameType(id, name.toString())
                 }
             }));
     }
