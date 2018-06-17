@@ -69,12 +69,14 @@
 							<h3>Enumerations</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-enum"><a href="enums/achievementtypes.html" class="tsd-kind-icon">Achievement<wbr>Types</a></li>
+								<li class="tsd-kind-enum"><a href="enums/bannerlayer.html" class="tsd-kind-icon">Banner<wbr>Layer</a></li>
 								<li class="tsd-kind-enum"><a href="enums/bpbling.html" class="tsd-kind-icon">Bp<wbr>Bling</a></li>
 								<li class="tsd-kind-enum"><a href="enums/bpdeathsound.html" class="tsd-kind-icon">Bp<wbr>Death<wbr>Sound</a></li>
 								<li class="tsd-kind-enum"><a href="enums/bptrail.html" class="tsd-kind-icon">Bp<wbr>Trail</a></li>
 								<li class="tsd-kind-enum"><a href="enums/drteam.html" class="tsd-kind-icon">Dr<wbr>Team</a></li>
 								<li class="tsd-kind-enum"><a href="enums/drvisibility.html" class="tsd-kind-icon">Dr<wbr>Visibility</a></li>
 								<li class="tsd-kind-enum"><a href="enums/hbclass.html" class="tsd-kind-icon">Hb<wbr>Class</a></li>
+								<li class="tsd-kind-enum"><a href="enums/mccolor.html" class="tsd-kind-icon">Mc<wbr>Color</a></li>
 								<li class="tsd-kind-enum"><a href="enums/mimvemote.html" class="tsd-kind-icon">Mimv<wbr>Emote</a></li>
 								<li class="tsd-kind-enum"><a href="enums/mimvemoteselector.html" class="tsd-kind-icon">Mimv<wbr>Emote<wbr>Selector</a></li>
 								<li class="tsd-kind-enum"><a href="enums/mimvteam.html" class="tsd-kind-icon">Mimv<wbr>Team</a></li>
@@ -94,6 +96,7 @@
 								<li class="tsd-kind-class"><a href="classes/achievementfactory.html" class="tsd-kind-icon">Achievement<wbr>Factory</a></li>
 								<li class="tsd-kind-class"><a href="classes/achievementinfo.html" class="tsd-kind-icon">Achievement<wbr>Info</a></li>
 								<li class="tsd-kind-class"><a href="classes/achievementinfofactory.html" class="tsd-kind-icon">Achievement<wbr>Info<wbr>Factory</a></li>
+								<li class="tsd-kind-class"><a href="classes/banner.html" class="tsd-kind-icon">Banner</a></li>
 								<li class="tsd-kind-class"><a href="classes/basicgameinfofactory.html" class="tsd-kind-icon">Basic<wbr>Game<wbr>Info<wbr>Factory</a></li>
 								<li class="tsd-kind-class"><a href="classes/bdplayergameinfo.html" class="tsd-kind-icon">Bd<wbr>Player<wbr>Game<wbr>Info</a></li>
 								<li class="tsd-kind-class"><a href="classes/bdplayergameinfofactory.html" class="tsd-kind-icon">Bd<wbr>Player<wbr>Game<wbr>Info<wbr>Factory</a></li>
@@ -211,12 +214,13 @@
 								<li class="tsd-kind-type-alias"><a href="globals.html#drtrapclass" class="tsd-kind-icon">Dr<wbr>Trap<wbr>Class</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section tsd-is-not-exported">
+						<section class="tsd-index-section ">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#cache" class="tsd-kind-icon">cache</a></li>
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#currentinterval" class="tsd-kind-icon">current<wbr>Interval</a></li>
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#mintimebetweenrequests" class="tsd-kind-icon">min<wbr>Time<wbr>Between<wbr>Requests</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#nolongeroptainableachievementids" class="tsd-kind-icon">no<wbr>Longer<wbr>Optainable<wbr>Achievement<wbr>Ids</a></li>
 								<li class="tsd-kind-variable tsd-is-not-exported"><a href="globals.html#outstandingrequests" class="tsd-kind-icon">outstanding<wbr>Requests</a></li>
 							</ul>
 						</section>
@@ -225,6 +229,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function"><a href="globals.html#arrayfromliststring" class="tsd-kind-icon">array<wbr>From<wbr>List<wbr>String</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#createachievementsfromachievementresponse" class="tsd-kind-icon">create<wbr>Achievements<wbr>From<wbr>Achievement<wbr>Response</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#createbannerfromstring" class="tsd-kind-icon">create<wbr>Banner<wbr>From<wbr>String</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#createdatefromresponse" class="tsd-kind-icon">create<wbr>Date<wbr>From<wbr>Response</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#drteamfromtext" class="tsd-kind-icon">dr<wbr>Team<wbr>From<wbr>Text</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#fetch" class="tsd-kind-icon">fetch</a></li>
@@ -249,12 +254,12 @@
 					<div class="tsd-signature tsd-kind-icon">Dr<wbr>Trap<wbr>Class<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"ArrowTrap"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"DisappearingFloorTrap"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"SnakeReplaceTrap"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"PistonTrap"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"KnockBackTrap"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"InvertBlocksTrap"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"BlockReplaceTrap"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"ToggleOpenableTrap"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"StrongWindsTrap"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"MineFieldTrap"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"TNTRainTrap"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/PlayerGameInfo/DrPlayerGameInfo.ts#L10">PlayerGameInfo/DrPlayerGameInfo.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/PlayerGameInfo/DrPlayerGameInfo.ts#L10">PlayerGameInfo/DrPlayerGameInfo.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Variables</h2>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-is-not-exported">
 					<a name="cache" class="tsd-anchor"></a>
@@ -262,7 +267,7 @@
 					<div class="tsd-signature tsd-kind-icon">cache<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Map()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/CacheFetch.ts#L3">CacheFetch.ts:3</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/CacheFetch.ts#L3">CacheFetch.ts:3</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -272,7 +277,7 @@
 					<div class="tsd-signature tsd-kind-icon">current<wbr>Interval<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/CacheFetch.ts#L6">CacheFetch.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/CacheFetch.ts#L6">CacheFetch.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -282,7 +287,17 @@
 					<div class="tsd-signature tsd-kind-icon">min<wbr>Time<wbr>Between<wbr>Requests<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;500</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/CacheFetch.ts#L5">CacheFetch.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/CacheFetch.ts#L5">CacheFetch.ts:5</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="nolongeroptainableachievementids" class="tsd-anchor"></a>
+					<h3>no<wbr>Longer<wbr>Optainable<wbr>Achievement<wbr>Ids</h3>
+					<div class="tsd-signature tsd-kind-icon">no<wbr>Longer<wbr>Optainable<wbr>Achievement<wbr>Ids<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> =&nbsp;[// SKY&quot;DEFENDER&quot;, &quot;SKYLANDER&quot;, &quot;WARRIOR&quot;, &quot;GLADIATOR&quot;, &quot;VETERAN&quot;, &quot;VOYAGER&quot;, &quot;WARLORD&quot;, &quot;WARMONGER&quot;, &quot;KEEPER&quot;, &quot;OVERSEER&quot;, &quot;HERO&quot;, &quot;GUARDIAN&quot;, &quot;PALADIN&quot;, &quot;CHAMPION&quot;, &quot;ZEUS&quot;, &quot;GODLY&quot;,// TIMV&quot;KARMA10000&quot;, &quot;KARMA20000&quot;, // ??? are not in the achievement list// BP&quot;DIVERSITY&quot;, &quot;MICHAEL&quot;,&quot;RAVER&quot;, &quot;FREESTYLER&quot;, &quot;STAR&quot;, &quot;MCHAMMER&quot;, &quot;CARLTON&quot;, &quot;DESTROYER&quot;, &quot;DOMINATOR&quot;, &quot;KING&quot;,// CAI&quot;LEADER500&quot;, &quot;LEADER1000&quot;, // &quot;WIN1000&quot;, &quot;WIN500&quot; -&gt; they would make this routine a lot more complicated so we just ignore them :P// LAB&quot;SCIENTIST&quot;, &quot;WIN&quot;,// HB&quot;NOMATCH&quot;, &quot;HOWMANY&quot;, &quot;DOMUST&quot;, &quot;IKILLED&quot;,// SP&quot;POWERUP15&quot;, &quot;POWERUP20&quot;,&quot;DESTROY100000&quot;, &quot;DESTROY250000&quot;, &quot;DESTROY500000&quot;, &quot;DESTROY1000000&quot;, &quot;DESTROY2500000&quot;,&quot;SHOOT100000&quot;, &quot;SHOOT250000&quot;, &quot;SHOOT500000&quot;, &quot;SHOOT1000000&quot;, &quot;SHOOT2500000&quot;,// OITC&quot;AUTUMN&quot;, &quot;CANDYLAND&quot;, &quot;CHINESETREE&quot;, &quot;CHRISTMAS&quot;, &quot;COLLORAM&quot;, &quot;DAIRY&quot;, &quot;MELTY&quot;, &quot;TEMPUS&quot;, &quot;PORTAL&quot;, &quot;TREE&quot;, &quot;WILDWEST&quot;,&quot;WIN1000&quot;, &quot;WIN500&quot;,// SPL&quot;TO500MORE&quot;, &quot;TO1000MORE&quot;,// HERO&quot;BOOTIES&quot;, &quot;BIRTHDAY&quot;, &quot;SLIMMINGDOWN&quot;, &quot;QUICKY&quot;, &quot;FREERIDE&quot;,&quot;NOWIGETIT&quot;, &quot;MANFIGHT&quot;, &quot;SHOTS&quot;, &quot;NOWIHAVETO&quot;, &quot;IRIDE&quot;, &quot;ATTEMPTCHAMPION&quot;, &quot;NOOTHER&quot;, &quot;DEATHMATCHCHAMPION&quot;,// HIDE&quot;HIDER2000&quot;, &quot;HIDER3000&quot;, &quot;HIDER5000&quot;, &quot;HIDER10000&quot;, &quot;SEEKER100&quot;]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/AchievementInfo.ts#L14">AchievementInfo.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -292,7 +307,7 @@
 					<div class="tsd-signature tsd-kind-icon">outstanding<wbr>Requests<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;new Map()</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/CacheFetch.ts#L4">CacheFetch.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/CacheFetch.ts#L4">CacheFetch.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -309,7 +324,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/Factory.ts#L168">Factory.ts:168</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/Factory.ts#L168">Factory.ts:168</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -337,7 +352,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/PlayerGameInfo/PlayerGameInfo.ts#L85">PlayerGameInfo/PlayerGameInfo.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/PlayerGameInfo/PlayerGameInfo.ts#L85">PlayerGameInfo/PlayerGameInfo.ts:85</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -354,6 +369,29 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="createbannerfromstring" class="tsd-anchor"></a>
+					<h3>create<wbr>Banner<wbr>From<wbr>String</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Banner<wbr>From<wbr>String<span class="tsd-signature-symbol">(</span>str<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/banner.html" class="tsd-signature-type">Banner</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/Banner.ts#L1">Banner.ts:1</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>str: <span class="tsd-signature-type">any</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="classes/banner.html" class="tsd-signature-type">Banner</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="createdatefromresponse" class="tsd-anchor"></a>
 					<h3>create<wbr>Date<wbr>From<wbr>Response</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -363,7 +401,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/PlayerGameInfo/PlayerGameInfo.ts#L100">PlayerGameInfo/PlayerGameInfo.ts:100</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/PlayerGameInfo/PlayerGameInfo.ts#L100">PlayerGameInfo/PlayerGameInfo.ts:100</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -386,7 +424,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/GameInfo/DrGameInfo.ts#L8">GameInfo/DrGameInfo.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/GameInfo/DrGameInfo.ts#L8">GameInfo/DrGameInfo.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -409,7 +447,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/CacheFetch.ts#L35">CacheFetch.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/CacheFetch.ts#L35">CacheFetch.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -444,7 +482,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/Factory.ts#L146">Factory.ts:146</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/Factory.ts#L146">Factory.ts:146</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -486,7 +524,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/index.ts#L5">index.ts:5</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/index.ts#L5">index.ts:5</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -503,7 +541,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/GameInfo/MimvGameInfo.ts#L8">GameInfo/MimvGameInfo.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/GameInfo/MimvGameInfo.ts#L8">GameInfo/MimvGameInfo.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -526,7 +564,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/Factory.ts#L70">Factory.ts:70</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/Factory.ts#L70">Factory.ts:70</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -644,7 +682,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/AchievementInfo.ts#L15">AchievementInfo.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/AchievementInfo.ts#L57">AchievementInfo.ts:57</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -672,7 +710,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/CacheFetch.ts#L11">CacheFetch.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/CacheFetch.ts#L11">CacheFetch.ts:11</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -700,7 +738,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/Achievement.ts#L160">Achievement.ts:160</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/Achievement.ts#L160">Achievement.ts:160</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -731,7 +769,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/52f0048/lib/GameInfo/TimvGameInfo.ts#L8">GameInfo/TimvGameInfo.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/4aa6db7/lib/GameInfo/TimvGameInfo.ts#L8">GameInfo/TimvGameInfo.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -760,6 +798,9 @@
 						<a href="enums/achievementtypes.html" class="tsd-kind-icon">Achievement<wbr>Types</a>
 					</li>
 					<li class=" tsd-kind-enum">
+						<a href="enums/bannerlayer.html" class="tsd-kind-icon">Banner<wbr>Layer</a>
+					</li>
+					<li class=" tsd-kind-enum">
 						<a href="enums/bpbling.html" class="tsd-kind-icon">Bp<wbr>Bling</a>
 					</li>
 					<li class=" tsd-kind-enum">
@@ -776,6 +817,9 @@
 					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/hbclass.html" class="tsd-kind-icon">Hb<wbr>Class</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/mccolor.html" class="tsd-kind-icon">Mc<wbr>Color</a>
 					</li>
 					<li class=" tsd-kind-enum">
 						<a href="enums/mimvemote.html" class="tsd-kind-icon">Mimv<wbr>Emote</a>
@@ -818,6 +862,9 @@
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/achievementinfofactory.html" class="tsd-kind-icon">Achievement<wbr>Info<wbr>Factory</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/banner.html" class="tsd-kind-icon">Banner</a>
 					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/basicgameinfofactory.html" class="tsd-kind-icon">Basic<wbr>Game<wbr>Info<wbr>Factory</a>
@@ -1143,6 +1190,9 @@
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#mintimebetweenrequests" class="tsd-kind-icon">min<wbr>Time<wbr>Between<wbr>Requests</a>
 					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#nolongeroptainableachievementids" class="tsd-kind-icon">no<wbr>Longer<wbr>Optainable<wbr>Achievement<wbr>Ids</a>
+					</li>
 					<li class=" tsd-kind-variable tsd-is-not-exported">
 						<a href="globals.html#outstandingrequests" class="tsd-kind-icon">outstanding<wbr>Requests</a>
 					</li>
@@ -1151,6 +1201,9 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#createachievementsfromachievementresponse" class="tsd-kind-icon">create<wbr>Achievements<wbr>From<wbr>Achievement<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createbannerfromstring" class="tsd-kind-icon">create<wbr>Banner<wbr>From<wbr>String</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#createdatefromresponse" class="tsd-kind-icon">create<wbr>Date<wbr>From<wbr>Response</a>
