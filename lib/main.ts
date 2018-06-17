@@ -108,3 +108,9 @@ export * from "./Leaderboard";
  * Rank
  */
 export * from "./Rank";
+
+
+/*
+ * Banner
+ */
+export * from "./Banner"
