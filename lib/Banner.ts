@@ -39,18 +39,18 @@ export enum McColor {
 }
 
 export enum BannerLayer {
-  FLO = 'flo',
-  BT = 'bt',
-  HH = 'hh',
-  MR = 'mr',
-  MC = 'mc',
+  FLOWER = 'flo',
+  TRIANGLE_BOTTOM = 'bt',
+  HALF_HORIZONTAL = 'hh',
+  RHOMBUS_MIDDLE = 'mr',
+  CIRCLE_MIDDLE = 'mc',
   CREEPER = 'cre',
   SKULL = 'sku',
-  STRIPES = 'ss',
+  STRIPE_SMALL = 'ss',
   GRADIENT = 'gra',
   BRICKS = 'bri',
-  SC = 'sc',
-  BO = 'bo',
-  ts = 'ts',
-  bts = 'bts',
+  STRIPE_MIDDLE = 'sc',
+  BORDER = 'bo',
+  STRIPE_TOP = 'ts',
+  STRIPE_BOTTOM = 'bts',
 }
