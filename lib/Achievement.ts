@@ -1,6 +1,7 @@
 import {
     GameType, GameTypes, Server, FromResponseFactory, Player, AchievementInfo, createDateFromResponse
 } from "./main";
+import { AchievementInfoFactory } from './AchievementInfo';
 
 /**
  * the two types of Achievements available: Server wide achievements like the swarm and the achievements specific to a
@@ -56,9 +57,16 @@ export class GameAchievement extends Achievement {
         super(id, progress, unlockedAt);
     }
 
-    info(maxCacheAge: number = 24*60*60*1000): any {
-        return this.game.achievements(maxCacheAge)
-            .then(list => list.filter(achievement => achievement.id == this.id))[0];
+    async info(maxCacheAge: number = 24*60*60*1000): Promise<AchievementInfo> {
+        const gameAchievements = await this.game.achievements(maxCacheAge)
+
+        const possibleAchievementInfo = gameAchievements.filter(achievement => achievement.id == this.id);
+
+        if (possibleAchievementInfo.length > 0) {
+            return possibleAchievementInfo[0]
+        } else {
+            return new AchievementInfoFactory().id(this.id).create()
+        }
     }
 }
 
