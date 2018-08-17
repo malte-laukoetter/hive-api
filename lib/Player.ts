@@ -98,4 +98,17 @@ export class Player {
     private get requestUuid() : string {
         return this.uuid?this.uuid:this.name;
     }
+
+    /**
+     * returns the current BlockParty server the player is on
+     */
+    async getBPServer() : Promise<string> {
+        if(!this.name){
+            await this.info()
+        }
+
+        const res = await fetch(Methods.BP_SERVER(this.name), 0)
+
+        return res.server === 'NONE' ? null : res.server
+    }
 }
