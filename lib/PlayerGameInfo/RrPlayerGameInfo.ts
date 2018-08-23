@@ -3,7 +3,7 @@ import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAch
 
 export class RrPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly victories: number,
-                readonly gamesPlayed: number, readonly tablesCleared: number, readonly title: string,
+                readonly gamesPlayed: number, readonly tablesCleared: number,
                 readonly achievements: Achievement[]) {
         super(GameTypes.RR, points);
     }
@@ -16,12 +16,11 @@ export class RrPlayerGameInfoFactory extends PlayerGameInfoFactory<RrPlayerGameI
     private _victories : number;
     private _gamesPlayed : number;
     private _tablesCleared : number;
-    private _title : string;
     private _achievements: Achievement[];
 
     create(): RrPlayerGameInfo {
         return new RrPlayerGameInfo(this._points, this._firstLogin, this._lastLogin, this._victories,
-            this._gamesPlayed, this._tablesCleared, this._title, this._achievements);
+            this._gamesPlayed, this._tablesCleared, this._achievements);
     }
 
     fromResponse(res){
@@ -35,8 +34,7 @@ export class RrPlayerGameInfoFactory extends PlayerGameInfoFactory<RrPlayerGameI
             .firstLogin(createDateFromResponse(res.firstlogin))
             .lastLogin(createDateFromResponse(res.lastlogin))
             .achievements(createAchievementsFromAchievementResponse(GameTypes.RR, res.achievements))
-            .tablesCleared(res.tablescleared)
-            .title(res.title);
+            .tablesCleared(res.tablescleared);
     }
 
     firstLogin(firstLogin : Date){
@@ -66,11 +64,6 @@ export class RrPlayerGameInfoFactory extends PlayerGameInfoFactory<RrPlayerGameI
 
     tablesCleared(tablesCleared : number){
         this._tablesCleared = tablesCleared;
-        return this;
-    }
-
-    title(title : string){
-        this._title = title;
         return this;
     }
 }
