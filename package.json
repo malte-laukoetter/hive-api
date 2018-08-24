@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "tsc && node index.js",
-    "test": "tsc && mocha **/*.test.js",
+    "test": "tsc && mocha build/test/**/*.test.js",
     "build": "tsc",
     "docs": "typedoc --mode modules --out docs --name \"Hive-Api-Node\" --target ES6 --mode file --excludeExternals -gaID UA-60277501-9 -gaSite auto -theme typedoctheme lib",
     "docs-full": "typedoc --out docs --name \"Hive-Api-Node\" --target ES6 --mode file --includeDeclarations",

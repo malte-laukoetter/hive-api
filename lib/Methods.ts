@@ -75,6 +75,18 @@ export class Methods {
     static PLAYER = (uuid: string) => `${Methods.BASE_URL()}/player/${uuid}`;
 
     /**
+     * url for the current game a player is on
+     * @param uuid the uuid or name of the player
+     */
+    static PLAYER_STATUS_RAW = (uuid: string) => `${Methods.BASE_URL()}/player/${uuid}/status/raw`;
+
+    /**
+     * url for the current status of a player
+     * @param uuid the uuid or name of the player
+     */
+    static PLAYER_STATUS = (uuid: string) => `${Methods.BASE_URL()}/player/${uuid}/status`;
+
+    /**
      * url for information of a player for a gametype
      * @param uuid the uuid or name of the player
      * @param gameType

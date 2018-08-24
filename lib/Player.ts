@@ -1,4 +1,4 @@
-import {fetch, GameType, Methods, PlayerInfo, PlayerInfoFactory, PlayerGameInfo} from "./main";
+import { fetch, GameType, Methods, PlayerInfo, PlayerInfoFactory, PlayerGameInfo, PlayerStatus} from "./main";
 
 /**
  * represents a Player that the api can interact with
@@ -72,6 +72,12 @@ export class Player {
 
                 return res;
             });
+    }
+
+    async status(maxCacheAge: number = 1*60*1000): Promise<PlayerStatus> {
+        const res = await fetch(Methods.PLAYER_STATUS_RAW(this.requestUuid), maxCacheAge)
+
+        return PlayerStatus.fromResponse(res.status)
     }
 
     /**

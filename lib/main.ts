@@ -86,6 +86,7 @@ export * from "./Methods";
  */
 export * from "./Player";
 export * from "./PlayerInfo";
+export * from "./PlayerStatus";
 
 
 /*
