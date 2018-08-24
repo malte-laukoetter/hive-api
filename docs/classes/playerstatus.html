@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>GameTitle | Hive-Api-Node</title>
+	<title>PlayerStatus | Hive-Api-Node</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="gametitle.html">GameTitle</a>
+					<a href="playerstatus.html">PlayerStatus</a>
 				</li>
 			</ul>
-			<h1>Class GameTitle</h1>
+			<h1>Class PlayerStatus</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +68,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">GameTitle</span>
+						<span class="target">PlayerStatus</span>
 					</li>
 				</ul>
 			</section>
@@ -79,25 +79,23 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="gametitle.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="playerstatus.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="gametitle.html#gametype" class="tsd-kind-icon">game<wbr>Type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="gametitle.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="gametitle.html#mcformatname" class="tsd-kind-icon">mc<wbr>Format<wbr>Name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="gametitle.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="gametitle.html#requiredpoints" class="tsd-kind-icon">required<wbr>Points</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="gametitle.html#toprank" class="tsd-kind-icon">top<wbr>Rank</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="playerstatus.html#gametypemode" class="tsd-kind-icon">game<wbr>Type<wbr>Mode</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="playerstatus.html#status" class="tsd-kind-icon">status</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gametitle.html#next" class="tsd-kind-icon">next</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="gametitle.html#prev" class="tsd-kind-icon">prev</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="playerstatus.html#isingame" class="tsd-kind-icon">is<wbr>InGame</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="playerstatus.html#isinhub" class="tsd-kind-icon">is<wbr>InHub</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="playerstatus.html#isonline" class="tsd-kind-icon">is<wbr>Online</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="playerstatus.html#fromresponse" class="tsd-kind-icon">from<wbr>Response</a></li>
 							</ul>
 						</section>
 					</div>
@@ -109,34 +107,25 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Game<wbr>Title<span class="tsd-signature-symbol">(</span>gameType<span class="tsd-signature-symbol">: </span><a href="gametype.html" class="tsd-signature-type">GameType</a>, id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, requiredPoints<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, mcFormatName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="gametitle.html" class="tsd-signature-type">GameTitle</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Player<wbr>Status<span class="tsd-signature-symbol">(</span>status<span class="tsd-signature-symbol">: </span><a href="../enums/nongametypestatus.html" class="tsd-signature-type">NonGameTypeStatus</a><span class="tsd-signature-symbol"> | </span><a href="gametype.html" class="tsd-signature-type">GameType</a>, gameTypeMode<span class="tsd-signature-symbol">?: </span><a href="../enums/gametypemode.html" class="tsd-signature-type">GameTypeMode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="playerstatus.html" class="tsd-signature-type">PlayerStatus</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/GameTitle.ts#L4">GameTitle.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerStatus.ts#L19">PlayerStatus.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>gameType: <a href="gametype.html" class="tsd-signature-type">GameType</a></h5>
+									<h5>status: <a href="../enums/nongametypestatus.html" class="tsd-signature-type">NonGameTypeStatus</a><span class="tsd-signature-symbol"> | </span><a href="gametype.html" class="tsd-signature-type">GameType</a></h5>
 								</li>
 								<li>
-									<h5>id: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>requiredPoints: <span class="tsd-signature-type">number</span></h5>
-								</li>
-								<li>
-									<h5>mcFormatName: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>name: <span class="tsd-signature-type">string</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> gameTypeMode: <a href="../enums/gametypemode.html" class="tsd-signature-type">GameTypeMode</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="gametitle.html" class="tsd-signature-type">GameTitle</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="playerstatus.html" class="tsd-signature-type">PlayerStatus</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -144,62 +133,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="gametype" class="tsd-anchor"></a>
-					<h3>game<wbr>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">game<wbr>Type<span class="tsd-signature-symbol">:</span> <a href="gametype.html" class="tsd-signature-type">GameType</a></div>
+					<a name="gametypemode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> game<wbr>Type<wbr>Mode</h3>
+					<div class="tsd-signature tsd-kind-icon">game<wbr>Type<wbr>Mode<span class="tsd-signature-symbol">:</span> <a href="../enums/gametypemode.html" class="tsd-signature-type">GameTypeMode</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/GameTitle.ts#L7">GameTitle.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerStatus.ts#L19">PlayerStatus.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="status" class="tsd-anchor"></a>
+					<h3>status</h3>
+					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <a href="../enums/nongametypestatus.html" class="tsd-signature-type">NonGameTypeStatus</a><span class="tsd-signature-symbol"> | </span><a href="gametype.html" class="tsd-signature-type">GameType</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/GameTitle.ts#L8">GameTitle.ts:8</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="mcformatname" class="tsd-anchor"></a>
-					<h3>mc<wbr>Format<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">mc<wbr>Format<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/GameTitle.ts#L10">GameTitle.ts:10</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/GameTitle.ts#L11">GameTitle.ts:11</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="requiredpoints" class="tsd-anchor"></a>
-					<h3>required<wbr>Points</h3>
-					<div class="tsd-signature tsd-kind-icon">required<wbr>Points<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/GameTitle.ts#L9">GameTitle.ts:9</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="toprank" class="tsd-anchor"></a>
-					<h3>top<wbr>Rank</h3>
-					<div class="tsd-signature tsd-kind-icon">top<wbr>Rank<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/GameTitle.ts#L4">GameTitle.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerStatus.ts#L18">PlayerStatus.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -207,58 +156,76 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="next" class="tsd-anchor"></a>
-					<h3>next</h3>
+					<a name="isingame" class="tsd-anchor"></a>
+					<h3>is<wbr>InGame</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">next<span class="tsd-signature-symbol">(</span>maxCacheAge<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="gametitle.html" class="tsd-signature-type">GameTitle</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">is<wbr>InGame<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/GameTitle.ts#L34">GameTitle.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerStatus.ts#L38">PlayerStatus.ts:38</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>returns the next title</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> maxCacheAge: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;24 * 60 * 60 * 1000</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="gametitle.html" class="tsd-signature-type">GameTitle</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="prev" class="tsd-anchor"></a>
-					<h3>prev</h3>
+					<a name="isinhub" class="tsd-anchor"></a>
+					<h3>is<wbr>InHub</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">prev<span class="tsd-signature-symbol">(</span>maxCacheAge<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="gametitle.html" class="tsd-signature-type">GameTitle</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">is<wbr>InHub<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/GameTitle.ts#L21">GameTitle.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerStatus.ts#L30">PlayerStatus.ts:30</a></li>
 								</ul>
 							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>returns the previous title</p>
-								</div>
-							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="isonline" class="tsd-anchor"></a>
+					<h3>is<wbr>Online</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Online<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerStatus.ts#L26">PlayerStatus.ts:26</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="fromresponse" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Response</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Response<span class="tsd-signature-symbol">(</span>res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="playerstatus.html" class="tsd-signature-type">PlayerStatus</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerStatus.ts#L42">PlayerStatus.ts:42</a></li>
+								</ul>
+							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> maxCacheAge: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;24 * 60 * 60 * 1000</span></h5>
+									<h5>res: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="gametitle.html" class="tsd-signature-type">GameTitle</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="playerstatus.html" class="tsd-signature-type">PlayerStatus</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -277,34 +244,28 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="gametitle.html" class="tsd-kind-icon">Game<wbr>Title</a>
+						<a href="playerstatus.html" class="tsd-kind-icon">Player<wbr>Status</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="gametitle.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="playerstatus.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="gametitle.html#gametype" class="tsd-kind-icon">game<wbr>Type</a>
+								<a href="playerstatus.html#gametypemode" class="tsd-kind-icon">game<wbr>Type<wbr>Mode</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="gametitle.html#id" class="tsd-kind-icon">id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="gametitle.html#mcformatname" class="tsd-kind-icon">mc<wbr>Format<wbr>Name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="gametitle.html#name" class="tsd-kind-icon">name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="gametitle.html#requiredpoints" class="tsd-kind-icon">required<wbr>Points</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="gametitle.html#toprank" class="tsd-kind-icon">top<wbr>Rank</a>
+								<a href="playerstatus.html#status" class="tsd-kind-icon">status</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="gametitle.html#next" class="tsd-kind-icon">next</a>
+								<a href="playerstatus.html#isingame" class="tsd-kind-icon">is<wbr>InGame</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="gametitle.html#prev" class="tsd-kind-icon">prev</a>
+								<a href="playerstatus.html#isinhub" class="tsd-kind-icon">is<wbr>InHub</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="playerstatus.html#isonline" class="tsd-kind-icon">is<wbr>Online</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="playerstatus.html#fromresponse" class="tsd-kind-icon">from<wbr>Response</a>
 							</li>
 						</ul>
 					</li>

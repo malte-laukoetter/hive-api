@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RewardTypes | Hive-Api-Node</title>
+	<title>NonGameTypeStatus | Hive-Api-Node</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,24 +54,16 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="rewardtypes.html">RewardTypes</a>
+					<a href="nongametypestatus.html">NonGameTypeStatus</a>
 				</li>
 			</ul>
-			<h1>Enumeration RewardTypes</h1>
+			<h1>Enumeration NonGameTypeStatus</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>the type of the reward of an achievement, currently only NONE should be in use but if there is another one later the
-						code should just set it to UNKNOWN till it is added so please report it if you see an UNKNOWN :)</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -79,10 +71,9 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rewardtypes.html#banner" class="tsd-kind-icon">BANNER</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rewardtypes.html#none" class="tsd-kind-icon">NONE</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rewardtypes.html#token" class="tsd-kind-icon">TOKEN</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="rewardtypes.html#unknown" class="tsd-kind-icon">UNKNOWN</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="nongametypestatus.html#hub" class="tsd-kind-icon">HUB</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="nongametypestatus.html#offline" class="tsd-kind-icon">OFFLINE</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="nongametypestatus.html#premhub" class="tsd-kind-icon">PREMHUB</a></li>
 							</ul>
 						</section>
 					</div>
@@ -91,42 +82,32 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="banner" class="tsd-anchor"></a>
-					<h3>BANNER</h3>
-					<div class="tsd-signature tsd-kind-icon">BANNER<span class="tsd-signature-symbol">:</span> </div>
+					<a name="hub" class="tsd-anchor"></a>
+					<h3>HUB</h3>
+					<div class="tsd-signature tsd-kind-icon">HUB<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;HUB&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/AchievementInfo.ts#L10">AchievementInfo.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerStatus.ts#L4">PlayerStatus.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="none" class="tsd-anchor"></a>
-					<h3>NONE</h3>
-					<div class="tsd-signature tsd-kind-icon">NONE<span class="tsd-signature-symbol">:</span> </div>
+					<a name="offline" class="tsd-anchor"></a>
+					<h3>OFFLINE</h3>
+					<div class="tsd-signature tsd-kind-icon">OFFLINE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;OFFLINE&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/AchievementInfo.ts#L8">AchievementInfo.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerStatus.ts#L6">PlayerStatus.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="token" class="tsd-anchor"></a>
-					<h3>TOKEN</h3>
-					<div class="tsd-signature tsd-kind-icon">TOKEN<span class="tsd-signature-symbol">:</span> </div>
+					<a name="premhub" class="tsd-anchor"></a>
+					<h3>PREMHUB</h3>
+					<div class="tsd-signature tsd-kind-icon">PREMHUB<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> =&nbsp;&quot;PREMHUB&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/AchievementInfo.ts#L9">AchievementInfo.ts:9</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="unknown" class="tsd-anchor"></a>
-					<h3>UNKNOWN</h3>
-					<div class="tsd-signature tsd-kind-icon">UNKNOWN<span class="tsd-signature-symbol">:</span> </div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/AchievementInfo.ts#L11">AchievementInfo.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerStatus.ts#L5">PlayerStatus.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -145,19 +126,16 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum">
-						<a href="rewardtypes.html" class="tsd-kind-icon">Reward<wbr>Types</a>
+						<a href="nongametypestatus.html" class="tsd-kind-icon">Non<wbr>Game<wbr>Type<wbr>Status</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="rewardtypes.html#banner" class="tsd-kind-icon">BANNER</a>
+								<a href="nongametypestatus.html#hub" class="tsd-kind-icon">HUB</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="rewardtypes.html#none" class="tsd-kind-icon">NONE</a>
+								<a href="nongametypestatus.html#offline" class="tsd-kind-icon">OFFLINE</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="rewardtypes.html#token" class="tsd-kind-icon">TOKEN</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="rewardtypes.html#unknown" class="tsd-kind-icon">UNKNOWN</a>
+								<a href="nongametypestatus.html#premhub" class="tsd-kind-icon">PREMHUB</a>
 							</li>
 						</ul>
 					</li>
