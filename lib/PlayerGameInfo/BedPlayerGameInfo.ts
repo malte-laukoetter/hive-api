@@ -4,7 +4,8 @@ import {PlayerGameInfo, PlayerGameInfoFactory, GameTypes, Achievement, createAch
 export class BedPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoAchievements{
     constructor(points: number, readonly firstLogin: Date, readonly lastLogin: Date, readonly victories: number,
                 readonly gamesPlayed: number, readonly kills: number, readonly deaths: number,
-                readonly bedsDestroyed: number, readonly teamsEliminated, readonly achievements: Achievement[]) {
+                readonly bedsDestroyed: number, readonly teamsEliminated, readonly winStreak: number,
+                readonly achievements: Achievement[], readonly title: string) {
         super(GameTypes.BED, points);
     }
 }
@@ -12,6 +13,7 @@ export class BedPlayerGameInfo extends PlayerGameInfo implements PlayerGameInfoA
 export class BedPlayerGameInfoFactory extends PlayerGameInfoFactory<BedPlayerGameInfo>
     implements PlayerGameInfoFactoryAchievements{
     private _firstLogin : Date;
+    private _title : string;
     private _lastLogin : Date;
     private _victories : number;
     private _gamesPlayed : number;
@@ -19,12 +21,13 @@ export class BedPlayerGameInfoFactory extends PlayerGameInfoFactory<BedPlayerGam
     private _deaths : number;
     private _bedsDestroyed : number;
     private _teamsEliminated : number;
+    private _winStreak : number;
     private _achievements: Achievement[];
 
     create(): BedPlayerGameInfo {
         return new BedPlayerGameInfo(this._points, this._firstLogin, this._lastLogin, this._victories,
             this._gamesPlayed, this._kills, this._deaths, this._bedsDestroyed,
-            this._teamsEliminated, this._achievements);
+            this._teamsEliminated, this._winStreak, this._achievements, this._title);
     }
 
     fromResponse(res){
@@ -39,6 +42,8 @@ export class BedPlayerGameInfoFactory extends PlayerGameInfoFactory<BedPlayerGam
             .deaths(res.deaths)
             .bedsDestroyed(res.beds_destroyed)
             .teamsEliminated(res.teams_eliminated)
+            .winStreak(res.win_streak)
+            .title(res.title)
             .firstLogin(createDateFromResponse(res.firstLogin))
             .lastLogin(createDateFromResponse(res.lastlogin))
             .achievements(createAchievementsFromAchievementResponse(GameTypes.BED, res.achievements));
@@ -64,6 +69,11 @@ export class BedPlayerGameInfoFactory extends PlayerGameInfoFactory<BedPlayerGam
         return this;
     }
 
+    title(title : string){
+        this._title = title;
+        return this;
+    }
+
     kills(kills : number){
         this._kills = kills;
         return this;
@@ -81,6 +91,11 @@ export class BedPlayerGameInfoFactory extends PlayerGameInfoFactory<BedPlayerGam
 
     teamsEliminated(teamsEliminated : number){
         this._teamsEliminated = teamsEliminated;
+        return this;
+    }
+
+    winStreak(winStreak : number){
+        this._winStreak = winStreak;
         return this;
     }
 

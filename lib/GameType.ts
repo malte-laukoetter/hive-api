@@ -73,7 +73,7 @@ export class GameType {
 
     titles(maxCacheAge: number = 24*60*60*1000): Promise<GameTitle[]>{
         return fetch(Methods.GAME_TITLES(this.id), maxCacheAge).then(res => Object.values(res).map((title: any) =>
-            new GameTitle(this, title.name, title.required_points, title.human_name, title.plain_name)
+            new GameTitle(this, title.name, title.required_points, title.human_name, title.plain_name, title.name_group ? title.name_group : undefined)
         ));
     }
 }

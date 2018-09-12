@@ -8,7 +8,8 @@ export class GameTitle {
     readonly id: string,
     readonly requiredPoints: number,
     readonly mcFormatName: string,
-    readonly name: string
+    readonly name: string,
+    readonly group?: string
   ){
     if(requiredPoints < 0){
       this.topRank = true;
