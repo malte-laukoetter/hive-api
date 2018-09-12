@@ -105,8 +105,10 @@
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bedplayergameinfo.html#lastlogin" class="tsd-kind-icon">last<wbr>Login</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="bedplayergameinfo.html#points" class="tsd-kind-icon">points</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bedplayergameinfo.html#teamseliminated" class="tsd-kind-icon">teams<wbr>Eliminated</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bedplayergameinfo.html#title" class="tsd-kind-icon">title</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="bedplayergameinfo.html#type" class="tsd-kind-icon">type</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bedplayergameinfo.html#victories" class="tsd-kind-icon">victories</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="bedplayergameinfo.html#winstreak" class="tsd-kind-icon">win<wbr>Streak</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
@@ -124,14 +126,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Bed<wbr>Player<wbr>Game<wbr>Info<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, firstLogin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span>, lastLogin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span>, victories<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, gamesPlayed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, kills<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, deaths<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bedsDestroyed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, teamsEliminated<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, achievements<span class="tsd-signature-symbol">: </span><a href="achievement.html" class="tsd-signature-type">Achievement</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="bedplayergameinfo.html" class="tsd-signature-type">BedPlayerGameInfo</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Bed<wbr>Player<wbr>Game<wbr>Info<span class="tsd-signature-symbol">(</span>points<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, firstLogin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span>, lastLogin<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Date</span>, victories<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, gamesPlayed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, kills<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, deaths<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, bedsDestroyed<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, teamsEliminated<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, winStreak<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, achievements<span class="tsd-signature-symbol">: </span><a href="achievement.html" class="tsd-signature-type">Achievement</a><span class="tsd-signature-symbol">[]</span>, title<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="bedplayergameinfo.html" class="tsd-signature-type">BedPlayerGameInfo</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="playergameinfo.html">PlayerGameInfo</a>.<a href="playergameinfo.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L4">PlayerGameInfo/BedPlayerGameInfo.ts:4</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d9c132b/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L4">PlayerGameInfo/BedPlayerGameInfo.ts:4</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -164,7 +166,13 @@
 									<h5>teamsEliminated: <span class="tsd-signature-type">any</span></h5>
 								</li>
 								<li>
+									<h5>winStreak: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
 									<h5>achievements: <a href="achievement.html" class="tsd-signature-type">Achievement</a><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5>title: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="bedplayergameinfo.html" class="tsd-signature-type">BedPlayerGameInfo</a></h4>
@@ -180,7 +188,7 @@
 					<div class="tsd-signature tsd-kind-icon">achievements<span class="tsd-signature-symbol">:</span> <a href="achievement.html" class="tsd-signature-type">Achievement</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L7">PlayerGameInfo/BedPlayerGameInfo.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d9c132b/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L8">PlayerGameInfo/BedPlayerGameInfo.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -190,7 +198,7 @@
 					<div class="tsd-signature tsd-kind-icon">beds<wbr>Destroyed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L7">PlayerGameInfo/BedPlayerGameInfo.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d9c132b/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L7">PlayerGameInfo/BedPlayerGameInfo.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -200,7 +208,7 @@
 					<div class="tsd-signature tsd-kind-icon">deaths<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L6">PlayerGameInfo/BedPlayerGameInfo.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d9c132b/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L6">PlayerGameInfo/BedPlayerGameInfo.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +218,7 @@
 					<div class="tsd-signature tsd-kind-icon">first<wbr>Login<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L5">PlayerGameInfo/BedPlayerGameInfo.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d9c132b/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L5">PlayerGameInfo/BedPlayerGameInfo.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +228,7 @@
 					<div class="tsd-signature tsd-kind-icon">games<wbr>Played<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L6">PlayerGameInfo/BedPlayerGameInfo.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d9c132b/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L6">PlayerGameInfo/BedPlayerGameInfo.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +238,7 @@
 					<div class="tsd-signature tsd-kind-icon">kills<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L6">PlayerGameInfo/BedPlayerGameInfo.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d9c132b/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L6">PlayerGameInfo/BedPlayerGameInfo.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -240,7 +248,7 @@
 					<div class="tsd-signature tsd-kind-icon">last<wbr>Login<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L5">PlayerGameInfo/BedPlayerGameInfo.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d9c132b/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L5">PlayerGameInfo/BedPlayerGameInfo.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -251,7 +259,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="playergameinfo.html">PlayerGameInfo</a>.<a href="playergameinfo.html#points">points</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerGameInfo/PlayerGameInfo.ts#L5">PlayerGameInfo/PlayerGameInfo.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d9c132b/lib/PlayerGameInfo/PlayerGameInfo.ts#L5">PlayerGameInfo/PlayerGameInfo.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -261,7 +269,17 @@
 					<div class="tsd-signature tsd-kind-icon">teams<wbr>Eliminated<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L7">PlayerGameInfo/BedPlayerGameInfo.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d9c132b/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L7">PlayerGameInfo/BedPlayerGameInfo.ts:7</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="title" class="tsd-anchor"></a>
+					<h3>title</h3>
+					<div class="tsd-signature tsd-kind-icon">title<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d9c132b/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L8">PlayerGameInfo/BedPlayerGameInfo.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -272,7 +290,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="playergameinfo.html">PlayerGameInfo</a>.<a href="playergameinfo.html#type">type</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerGameInfo/PlayerGameInfo.ts#L5">PlayerGameInfo/PlayerGameInfo.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d9c132b/lib/PlayerGameInfo/PlayerGameInfo.ts#L5">PlayerGameInfo/PlayerGameInfo.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -282,7 +300,17 @@
 					<div class="tsd-signature tsd-kind-icon">victories<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L5">PlayerGameInfo/BedPlayerGameInfo.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d9c132b/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L5">PlayerGameInfo/BedPlayerGameInfo.ts:5</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="winstreak" class="tsd-anchor"></a>
+					<h3>win<wbr>Streak</h3>
+					<div class="tsd-signature tsd-kind-icon">win<wbr>Streak<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d9c132b/lib/PlayerGameInfo/BedPlayerGameInfo.ts#L7">PlayerGameInfo/BedPlayerGameInfo.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -300,7 +328,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="playergameinfo.html">PlayerGameInfo</a>.<a href="playergameinfo.html#currenttitle">currentTitle</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/f05ed8f/lib/PlayerGameInfo/PlayerGameInfo.ts#L8">PlayerGameInfo/PlayerGameInfo.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/d9c132b/lib/PlayerGameInfo/PlayerGameInfo.ts#L8">PlayerGameInfo/PlayerGameInfo.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -360,11 +388,17 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="bedplayergameinfo.html#teamseliminated" class="tsd-kind-icon">teams<wbr>Eliminated</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="bedplayergameinfo.html#title" class="tsd-kind-icon">title</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="bedplayergameinfo.html#type" class="tsd-kind-icon">type</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="bedplayergameinfo.html#victories" class="tsd-kind-icon">victories</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="bedplayergameinfo.html#winstreak" class="tsd-kind-icon">win<wbr>Streak</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="bedplayergameinfo.html#currenttitle" class="tsd-kind-icon">current<wbr>Title</a>
