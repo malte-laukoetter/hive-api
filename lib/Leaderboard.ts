@@ -5,18 +5,18 @@ export class Leaderboard {
     static readonly firstPlace: number = 0;
     static readonly lastPlace: number = 1000;
 
-    private static cache: Map<String, Map<number, any>> = new Map();
-    constructor(readonly game: GameType){
-        if(!Leaderboard.cache.has(game.id)){
-            Leaderboard.cache.set(game.id, new Map());
+    private static cache: Map<String, Map<number, LeaderboardPlace>> = new Map();
+    constructor(readonly game: GameType, readonly specialLeaderboard: string = null){
+        if(!Leaderboard.cache.has(`${game.id}${specialLeaderboard}`)){
+            Leaderboard.cache.set(`${game.id}${specialLeaderboard}`, new Map());
         }
     }
 
     private get cache(){
-        return Leaderboard.cache.get(this.game.id);
+        return Leaderboard.cache.get(`${this.game.id}${this.specialLeaderboard}`);
     }
 
-    async load(start: number, end: number){
+    async load(start: number, end: number): Promise<Map<number, LeaderboardPlace>>{
         end--; // only the start positions are 0 indexed... what the hack is this even...
         if(start > Leaderboard.lastPlace || end > Leaderboard.lastPlace || start < Leaderboard.firstPlace || end < Leaderboard.firstPlace)
             throw new Error("Places are out of bound");
@@ -38,7 +38,11 @@ export class Leaderboard {
 
         for(let range of Leaderboard.generateRequestRanges(requestPositions)){
             range.end++; // the range isn't 0 indexed?! wtf!
-            requests.push(fetch(Methods.GAME_LEADERBOARD(this.game.id, range.start, range.end)));
+            if(this.specialLeaderboard){
+                requests.push(fetch(Methods.GAME_LEADERBOARD_SPECIAL(this.game.id, this.specialLeaderboard, range.start, range.end)));
+            }else {
+                requests.push(fetch(Methods.GAME_LEADERBOARD(this.game.id, range.start, range.end)));
+            }
         }
 
         let results = await Promise.all(requests);
@@ -59,7 +63,7 @@ export class Leaderboard {
     }
 
     deleteCache(){
-        Leaderboard.cache.set(this.game.id, new Map());
+        Leaderboard.cache.set(`${this.game.id}${this.specialLeaderboard}`, new Map());
     }
 
     async findPlayer(player: Player){

@@ -1,5 +1,6 @@
 import {fetch, Game, Methods, gameInfoFactoryForGametype, playerGameInfoFactoryForGametype, AchievementInfo,
     AchievementInfoFactory, GameMap, GameTitle} from "./main";
+import { Leaderboard } from './Leaderboard';
 
 /**
  * a type of game available on the hive
@@ -77,6 +78,27 @@ export class GameType {
         ));
     }
 
+    leaderboard(): Leaderboard {
+        return new Leaderboard(this)
+    }
+
+    specialLeaderboard(key): Leaderboard {
+        if(!this.specialLeaderboardKeys().has(key)) throw new Error(`Unknown special leaderboard ${key}`)
+
+        return new Leaderboard(this, key)
+    }
+
+    private _specialLeaderboardKeys: Set<string> = new Set()
+
+    addSpecialLeaderboardKey(key: string) {
+        this._specialLeaderboardKeys.add(key);
+        return this;
+    }
+
+    specialLeaderboardKeys(): Set<string> {
+        return this._specialLeaderboardKeys;
+    }
+
     private _subTypes: Set<GameType> = new Set()
 
     addSubType(type: GameType) {
@@ -109,6 +131,24 @@ export class BedGameType extends GameType {
 
     titles(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<GameTitle[]> {
         return GameTypes.BED.titles(maxCacheAge)
+    }
+
+    leaderboard(): Leaderboard {
+        return new Leaderboard(GameTypes.BED, this.id)
+    }
+
+    specialLeaderboard(key): Leaderboard {
+        if (!this.specialLeaderboardKeys().has(key)) throw new Error(`Unknown special leaderboard ${key}`)        
+        
+        return new Leaderboard(GameTypes.BED, `${this.id}/${key}`)
+    }
+
+    addSpecialLeaderboardKey(key: string): this {
+        throw new Error(`Special Leaderboard Keys need to be added on the Base GameType`);
+    }
+
+    specialLeaderboardKeys(): Set<string> {
+        return GameTypes.BED.specialLeaderboardKeys();
     }
 }
 
@@ -148,7 +188,7 @@ export class GameTypes {
     static readonly BEDD = new BedGameType("BEDD", 'BedWars:Duos', 'TEAM');
     static readonly BEDT = new BedGameType("BEDT", 'BedWars:Teams', '4');
     static readonly BEDX = new BedGameType("BEDX", 'BedWars:DoubleFun', 'TEAM');
-    static readonly BED  = new GameType("BED").addSubType(GameTypes.BEDS).addSubType(GameTypes.BEDD).addSubType(GameTypes.BEDT).addSubType(GameTypes.BEDX);
+    static readonly BED  = new GameType("BED").addSubType(GameTypes.BEDS).addSubType(GameTypes.BEDD).addSubType(GameTypes.BEDT).addSubType(GameTypes.BEDX).addSpecialLeaderboardKey('win_streak');
     static readonly SURV = new GameType("SURV"); // playerGameInfo missing
 
     private static _list : GameType[] = [GameTypes.SG, GameTypes.BP, GameTypes.CAI, GameTypes.CR, GameTypes.DR,

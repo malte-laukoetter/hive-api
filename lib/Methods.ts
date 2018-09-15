@@ -64,6 +64,15 @@ export class Methods {
         `${Methods.GAMETYPE_INFO(gameType)}/leaderboard/${start}/${end}`;
 
     /**
+     * url for the leaderboard of a gametype
+     * @param gameType
+     * @param start
+     * @param end
+     */
+    static GAME_LEADERBOARD_SPECIAL = (gameType: string, special: string, start: number=0, end: number=20) =>
+        `${Methods.GAME_LEADERBOARD(gameType, start, end)}/${special}`;
+
+    /**
      * url for a list of the titles a player can get in a gametype
      */
     static GAME_TITLES = (gameType: string) => `${Methods.GAMETYPE_INFO(gameType)}/titles`
