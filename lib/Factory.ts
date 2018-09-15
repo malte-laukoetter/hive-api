@@ -72,6 +72,10 @@ export function playerGameInfoFactoryForGametype(type: GameType) {
         case GameTypes.TIMV.id:
             return new TimvPlayerGameInfoFactory();
         case GameTypes.BED.id:
+        case GameTypes.BEDS.id:
+        case GameTypes.BEDD.id:
+        case GameTypes.BEDT.id:
+        case GameTypes.BEDX.id:
             return new BedPlayerGameInfoFactory();
         case GameTypes.SG.id:
             return new SgPlayerGameInfoFactory();

@@ -76,6 +76,17 @@ export class GameType {
             new GameTitle(this, title.name, title.required_points, title.human_name, title.plain_name, title.name_group ? title.name_group : undefined)
         ));
     }
+
+    private _subTypes: Set<GameType> = new Set()
+
+    addSubType(type: GameType) {
+        this._subTypes.add(type);
+        return this;
+    }
+
+    subTypes(): Set<GameType> {
+        return this._subTypes
+    }
 }
 
 /**
@@ -83,6 +94,22 @@ export class GameType {
  */
 class GameTypeInfo {
     constructor(readonly uniquePlayers : number, readonly achievements : [AchievementInfo]) {}
+}
+
+export class BedGameType extends GameType {
+    constructor(id: string, name: string, readonly mapId: string) {
+        super(id, name)
+    }
+
+    async maps(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<GameMap[]> {
+        const maps = await GameTypes.BED.maps(maxCacheAge)
+
+        return maps.filter(map => map.worldName.endsWith(this.mapId))
+    }
+
+    titles(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<GameTitle[]> {
+        return GameTypes.BED.titles(maxCacheAge)
+    }
 }
 
 /**
@@ -117,8 +144,12 @@ export class GameTypes {
     static readonly BD   = new GameType("BD");
     static readonly SPL  = new GameType("SPL");
     static readonly MIMV = new GameType("MIMV");
-    static readonly BED  = new GameType("BED");
-    static readonly SURV  = new GameType("SURV"); // playerGameInfo missing
+    static readonly BEDS = new BedGameType("BEDS", 'BedWars:Solo', 'SOLO');
+    static readonly BEDD = new BedGameType("BEDD", 'BedWars:Duos', 'TEAM');
+    static readonly BEDT = new BedGameType("BEDT", 'BedWars:Teams', '4');
+    static readonly BEDX = new BedGameType("BEDX", 'BedWars:DoubleFun', 'TEAM');
+    static readonly BED  = new GameType("BED").addSubType(GameTypes.BEDS).addSubType(GameTypes.BEDD).addSubType(GameTypes.BEDT).addSubType(GameTypes.BEDX);
+    static readonly SURV = new GameType("SURV"); // playerGameInfo missing
 
     private static _list : GameType[] = [GameTypes.SG, GameTypes.BP, GameTypes.CAI, GameTypes.CR, GameTypes.DR,
         GameTypes.HB, GameTypes.HERO, GameTypes.HIDE, GameTypes.OITC, GameTypes.SP, GameTypes.TIMV, GameTypes.SKY,
