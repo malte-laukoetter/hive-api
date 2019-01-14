@@ -54,7 +54,7 @@ export class Leaderboard {
                 let player = new Player(place.UUID);
                 player.name = place.username;
 
-                this.cache.set(place.index, new LeaderboardPlace(player, (place.points || place.total_points), place.index, place));
+                this.cache.set(place.index, new LeaderboardPlace(player, (place.points || place.total_points || place.karma), place.index, place));
                 result.set(place.index, this.cache.get(place.index));
             }
         });
