@@ -1,8 +1,8 @@
 import { FromResponseFactory, createBannerFromString } from "./main";
 
 /**
- * the type of the reward of an achievement, currently only NONE should be in use but if there is another one later the
- * code should just set it to UNKNOWN till it is added so please report it if you see an UNKNOWN :)
+ * the type of the reward of an achievement.
+ * NONE if no reward is awarded and UNKNOWN if the type is not known by this code
  */
 export enum RewardTypes {
     NONE,
