@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PlayerStatus | Hive-Api-Node</title>
+	<title>Methods | Hive-Api-Node</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="playerstatus.html">PlayerStatus</a>
+					<a href="../modules/bedrock.html">Bedrock</a>
+				</li>
+				<li>
+					<a href="bedrock.methods.html">Methods</a>
 				</li>
 			</ul>
-			<h1>Class PlayerStatus</h1>
+			<h1>Class Methods</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +71,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">PlayerStatus</span>
+						<span class="target">Methods</span>
 					</li>
 				</ul>
 			</section>
@@ -77,155 +80,102 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Constructors</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="playerstatus.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="playerstatus.html#gametypemode" class="tsd-kind-icon">game<wbr>Type<wbr>Mode</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="playerstatus.html#status" class="tsd-kind-icon">status</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="playerstatus.html#isingame" class="tsd-kind-icon">is<wbr>InGame</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="playerstatus.html#isinhub" class="tsd-kind-icon">is<wbr>InHub</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="playerstatus.html#isonline" class="tsd-kind-icon">is<wbr>Online</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="playerstatus.html#fromresponse" class="tsd-kind-icon">from<wbr>Response</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="bedrock.methods.html#base_url" class="tsd-kind-icon">BASE_<wbr>URL</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="bedrock.methods.html#monthly_leaderboard" class="tsd-kind-icon">MONTHLY_<wbr>LEADERBOARD</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="bedrock.methods.html#player_monthly" class="tsd-kind-icon">PLAYER_<wbr>MONTHLY</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
-					<a name="constructor" class="tsd-anchor"></a>
-					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Player<wbr>Status<span class="tsd-signature-symbol">(</span>status<span class="tsd-signature-symbol">: </span><a href="../enums/nongametypestatus.html" class="tsd-signature-type">NonGameTypeStatus</a><span class="tsd-signature-symbol"> | </span><a href="gametype.html" class="tsd-signature-type">GameType</a>, gameTypeMode<span class="tsd-signature-symbol">?: </span><a href="../enums/gametypemode.html" class="tsd-signature-type">GameTypeMode</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="playerstatus.html" class="tsd-signature-type">PlayerStatus</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/1591628/lib/PlayerStatus.ts#L19">PlayerStatus.ts:19</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>status: <a href="../enums/nongametypestatus.html" class="tsd-signature-type">NonGameTypeStatus</a><span class="tsd-signature-symbol"> | </span><a href="gametype.html" class="tsd-signature-type">GameType</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> gameTypeMode: <a href="../enums/gametypemode.html" class="tsd-signature-type">GameTypeMode</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="playerstatus.html" class="tsd-signature-type">PlayerStatus</a></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="gametypemode" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> game<wbr>Type<wbr>Mode</h3>
-					<div class="tsd-signature tsd-kind-icon">game<wbr>Type<wbr>Mode<span class="tsd-signature-symbol">:</span> <a href="../enums/gametypemode.html" class="tsd-signature-type">GameTypeMode</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/1591628/lib/PlayerStatus.ts#L19">PlayerStatus.ts:19</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="status" class="tsd-anchor"></a>
-					<h3>status</h3>
-					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <a href="../enums/nongametypestatus.html" class="tsd-signature-type">NonGameTypeStatus</a><span class="tsd-signature-symbol"> | </span><a href="gametype.html" class="tsd-signature-type">GameType</a></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/1591628/lib/PlayerStatus.ts#L18">PlayerStatus.ts:18</a></li>
-						</ul>
-					</aside>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="isingame" class="tsd-anchor"></a>
-					<h3>is<wbr>InGame</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>InGame<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="base_url" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> BASE_<wbr>URL</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">BASE_<wbr>URL<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/1591628/lib/PlayerStatus.ts#L38">PlayerStatus.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/1591628/lib/Bedrock.ts#L62">Bedrock.ts:62</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="isinhub" class="tsd-anchor"></a>
-					<h3>is<wbr>InHub</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>InHub<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/1591628/lib/PlayerStatus.ts#L30">PlayerStatus.ts:30</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="isonline" class="tsd-anchor"></a>
-					<h3>is<wbr>Online</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Online<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/1591628/lib/PlayerStatus.ts#L26">PlayerStatus.ts:26</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
-					<a name="fromresponse" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagStatic">Static</span> from<wbr>Response</h3>
+					<a name="monthly_leaderboard" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> MONTHLY_<wbr>LEADERBOARD</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Response<span class="tsd-signature-symbol">(</span>res<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="playerstatus.html" class="tsd-signature-type">PlayerStatus</a></li>
+						<li class="tsd-signature tsd-kind-icon">MONTHLY_<wbr>LEADERBOARD<span class="tsd-signature-symbol">(</span>game<span class="tsd-signature-symbol">: </span><a href="../enums/bedrock.gametype.html" class="tsd-signature-type">GameType</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+						<li class="tsd-signature tsd-kind-icon">MONTHLY_<wbr>LEADERBOARD<span class="tsd-signature-symbol">(</span>game<span class="tsd-signature-symbol">: </span><a href="../enums/bedrock.gametype.html" class="tsd-signature-type">GameType</a>, year<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, month<span class="tsd-signature-symbol">: </span><a href="../enums/bedrock.month.html" class="tsd-signature-type">Month</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/1591628/lib/PlayerStatus.ts#L42">PlayerStatus.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/1591628/lib/Bedrock.ts#L63">Bedrock.ts:63</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>res: <span class="tsd-signature-type">string</span></h5>
+									<h5>game: <a href="../enums/bedrock.gametype.html" class="tsd-signature-type">GameType</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="playerstatus.html" class="tsd-signature-type">PlayerStatus</a></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/1591628/lib/Bedrock.ts#L64">Bedrock.ts:64</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>game: <a href="../enums/bedrock.gametype.html" class="tsd-signature-type">GameType</a></h5>
+								</li>
+								<li>
+									<h5>year: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>month: <a href="../enums/bedrock.month.html" class="tsd-signature-type">Month</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="player_monthly" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> PLAYER_<wbr>MONTHLY</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">PLAYER_<wbr>MONTHLY<span class="tsd-signature-symbol">(</span>game<span class="tsd-signature-symbol">: </span><a href="../enums/bedrock.gametype.html" class="tsd-signature-type">GameType</a>, player<span class="tsd-signature-symbol">: </span><a href="../modules/bedrock.html#player" class="tsd-signature-type">Player</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Lergin/hive-api/blob/1591628/lib/Bedrock.ts#L73">Bedrock.ts:73</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>game: <a href="../enums/bedrock.gametype.html" class="tsd-signature-type">GameType</a></h5>
+								</li>
+								<li>
+									<h5>player: <a href="../modules/bedrock.html#player" class="tsd-signature-type">Player</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -237,40 +187,64 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/bedrock.html">Bedrock</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/bedrock.gametype.html" class="tsd-kind-icon">Game<wbr>Type</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-module">
+						<a href="../enums/bedrock.month.html" class="tsd-kind-icon">Month</a>
+					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="playerstatus.html" class="tsd-kind-icon">Player<wbr>Status</a>
+					<li class="current tsd-kind-class tsd-parent-kind-module">
+						<a href="bedrock.methods.html" class="tsd-kind-icon">Methods</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="playerstatus.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="playerstatus.html#gametypemode" class="tsd-kind-icon">game<wbr>Type<wbr>Mode</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="playerstatus.html#status" class="tsd-kind-icon">status</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="playerstatus.html#isingame" class="tsd-kind-icon">is<wbr>InGame</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="playerstatus.html#isinhub" class="tsd-kind-icon">is<wbr>InHub</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="playerstatus.html#isonline" class="tsd-kind-icon">is<wbr>Online</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="bedrock.methods.html#base_url" class="tsd-kind-icon">BASE_<wbr>URL</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
-								<a href="playerstatus.html#fromresponse" class="tsd-kind-icon">from<wbr>Response</a>
+								<a href="bedrock.methods.html#monthly_leaderboard" class="tsd-kind-icon">MONTHLY_<wbr>LEADERBOARD</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="bedrock.methods.html#player_monthly" class="tsd-kind-icon">PLAYER_<wbr>MONTHLY</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/bedrock.html#deathrunleaderboardentry" class="tsd-kind-icon">Death<wbr>Run<wbr>Leaderboard<wbr>Entry</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/bedrock.html#leaderboardentry" class="tsd-kind-icon">Leaderboard<wbr>Entry</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/bedrock.html#murdermysteryleaderboardentry" class="tsd-kind-icon">Murder<wbr>Mystery<wbr>Leaderboard<wbr>Entry</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/bedrock.html#name" class="tsd-kind-icon">Name</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/bedrock.html#player" class="tsd-kind-icon">Player</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/bedrock.html#treasurewarsleaderboardentry" class="tsd-kind-icon">Treasure<wbr>Wars<wbr>Leaderboard<wbr>Entry</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="../modules/bedrock.html#uuid-1" class="tsd-kind-icon">Uuid</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/bedrock.html#monthlyleaderboard" class="tsd-kind-icon">monthly<wbr>Leaderboard</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/bedrock.html#playermonthly" class="tsd-kind-icon">player<wbr>Monthly</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

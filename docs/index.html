@@ -67,32 +67,29 @@
 					<p>A node.js wrapper for the api of <a href="https://hivemc.com">https://hivemc.com</a>, written in TypeScript.</p>
 				</blockquote>
 				<h2 id="install">Install</h2>
-				<pre><code><span class="hljs-meta">$</span><span class="bash"> npm install hive-api</span>
-</code></pre><h2 id="documentation">Documentation</h2>
+				<pre><code>$ npm <span class="hljs-keyword">install</span> hive-api</code></pre><h2 id="documentation">Documentation</h2>
 				<p><a href="http://hive-api.lergin.de">http://hive-api.lergin.de</a></p>
 				<h2 id="usage">Usage</h2>
 				<h3 id="javascript">JavaScript</h3>
-				<pre><code class="lang-js"><span class="hljs-keyword">const</span> hive = <span class="hljs-built_in">require</span>(<span class="hljs-string">'hive-api'</span>);
+				<pre><code class="language-js"><span class="hljs-keyword">const</span> hive = <span class="hljs-built_in">require</span>(<span class="hljs-string">'hive-api'</span>);
 
 <span class="hljs-keyword">let</span> player = <span class="hljs-keyword">new</span> hive.Player(<span class="hljs-string">"Lergin_"</span>);
 
 player.info().then(<span class="hljs-function"><span class="hljs-params">info</span> =&gt;</span> {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Tokens: <span class="hljs-subst">${info.tokens}</span>`</span>)
-});
-</code></pre>
+});</code></pre>
 				<h3 id="typescript">TypeScript</h3>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Player} <span class="hljs-keyword">from</span> <span class="hljs-string">"hive-api"</span>;
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {Player} <span class="hljs-keyword">from</span> <span class="hljs-string">"hive-api"</span>;
 
 <span class="hljs-keyword">let</span> player: Player = <span class="hljs-keyword">new</span> Player(<span class="hljs-string">"Lergin_"</span>);
 
 player.info().then(<span class="hljs-function">(<span class="hljs-params">info: PlayerInfo</span>) =&gt;</span> {
     <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Tokens: <span class="hljs-subst">${info.tokens}</span>`</span>)
-});
-</code></pre>
+});</code></pre>
 				<h2 id="examples">Examples</h2>
 				<p>Some examples are using async / await and therefor need to be wrapped into a async function. See: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async_function</a></p>
 				<h3 id="print-the-unique-players-of-each-game">Print the unique players of each game</h3>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {GameTypes, GameType} <span class="hljs-keyword">from</span> <span class="hljs-string">"hive-api"</span>;
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {GameTypes, GameType} <span class="hljs-keyword">from</span> <span class="hljs-string">"hive-api"</span>;
 
 <span class="hljs-keyword">await</span> GameTypes.update(); <span class="hljs-comment">// update the list of GameTypes</span>
 
@@ -100,10 +97,9 @@ GameTypes.list.forEach(<span class="hljs-function">(<span class="hljs-params"><s
     <span class="hljs-keyword">type</span>.uniquePlayers().then(<span class="hljs-function">(<span class="hljs-params">players</span>) =&gt;</span> {
         <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">${type.name}</span>: <span class="hljs-subst">${players}</span> players`</span>);
     });
-});
-</code></pre>
+});</code></pre>
 				<h3 id="get-the-global-achievements-of-the-winner-of-the-latest-survival-games-game">Get the global achievements of the winner of the latest survival games game</h3>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {GameTypes, Game, SgGameInfo, PlayerInfo, ServerAchievement, AchievementInfo} <span class="hljs-keyword">from</span> <span class="hljs-string">"hive-api"</span>;
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {GameTypes, Game, SgGameInfo, PlayerInfo, ServerAchievement, AchievementInfo} <span class="hljs-keyword">from</span> <span class="hljs-string">"hive-api"</span>;
 
 GameTypes.SG.latestGames()
     .then(<span class="hljs-function"><span class="hljs-params">games</span> =&gt;</span> games[<span class="hljs-number">0</span>])
@@ -115,24 +111,21 @@ GameTypes.SG.latestGames()
             achievement.info().then(<span class="hljs-function">(<span class="hljs-params">info: AchievementInfo</span>) =&gt;</span> info.name)
             .then(<span class="hljs-built_in">console</span>.log)
         });
-    }).catch(<span class="hljs-built_in">console</span>.error);
-</code></pre>
+    }).catch(<span class="hljs-built_in">console</span>.error);</code></pre>
 				<h3 id="list-the-names-of-the-skywars-maps">List the names of the skywars maps</h3>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {GameTypes, GameMap} <span class="hljs-keyword">from</span> <span class="hljs-string">"hive-api"</span>;
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {GameTypes, GameMap} <span class="hljs-keyword">from</span> <span class="hljs-string">"hive-api"</span>;
 
 GameTypes.SKY.maps()
     .then(<span class="hljs-function">(<span class="hljs-params">maps: GameMap[]</span>) =&gt;</span> maps.map(<span class="hljs-function">(<span class="hljs-params">map: GameMap</span>) =&gt;</span> map.worldName))
-    .then(<span class="hljs-built_in">console</span>.log)
-</code></pre>
+    .then(<span class="hljs-built_in">console</span>.log)</code></pre>
 				<h3 id="get-the-amount-of-beds-destroyed-by-malte662-in-bedwars">Get the amount of Beds destroyed by Malte662 in Bedwars</h3>
-				<pre><code class="lang-typescript"><span class="hljs-keyword">import</span> {Player, BedPlayerGameInfo, GameTypes} <span class="hljs-keyword">from</span> <span class="hljs-string">"hive-api"</span>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> {Player, BedPlayerGameInfo, GameTypes} <span class="hljs-keyword">from</span> <span class="hljs-string">"hive-api"</span>
 
 <span class="hljs-keyword">let</span> player: Player = <span class="hljs-keyword">new</span> Player(<span class="hljs-string">"Lergin_"</span>);
 
 <span class="hljs-keyword">let</span> playerBedInfo: BedPlayerGameInfo = (<span class="hljs-keyword">await</span> player.gameInfo(GameTypes.BED)) <span class="hljs-keyword">as</span> BedPlayerGameInfo;
 
-<span class="hljs-built_in">console</span>.log(playerBedInfo.bedsDestroyed);
-</code></pre>
+<span class="hljs-built_in">console</span>.log(playerBedInfo.bedsDestroyed);</code></pre>
 				<p>There might be some more informations in the forums of HiveMC: <a href="https://forum.hivemc.com/threads/node-js-hive-api-library.279776/">https://forum.hivemc.com/threads/node-js-hive-api-library.279776/</a> </p>
 			</div>
 		</div>
@@ -141,6 +134,9 @@ GameTypes.SKY.maps()
 				<ul>
 					<li class="globals  ">
 						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/bedrock.html">Bedrock</a>
 					</li>
 				</ul>
 			</nav>
