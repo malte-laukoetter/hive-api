@@ -115,3 +115,8 @@ export * from "./Rank";
  * Banner
  */
 export * from "./Banner"
+
+/**
+ * Bedrock Edition Api
+ */
+export * from "./Bedrock"
