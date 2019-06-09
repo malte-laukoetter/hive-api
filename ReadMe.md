@@ -11,7 +11,7 @@ $ npm install hive-api
 
 ## Documentation
 
-http://hive-api.lergin.de
+https://lergin.github.io/hive-api/
 
 ## Usage
 
