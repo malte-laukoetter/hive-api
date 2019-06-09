@@ -59,7 +59,7 @@ export namespace Bedrock {
   export type Player = Name | Uuid
 
   export class Methods {
-    static BASE_URL = () => `https://api.playhive.com/v0/`
+    static BASE_URL = () => `https://api.playhive.com/v0`
     static MONTHLY_LEADERBOARD(game: GameType): string
     static MONTHLY_LEADERBOARD(game: GameType, year: number, month: Month): string
     static MONTHLY_LEADERBOARD(game: GameType, year?: number, month?: Month) {
