@@ -190,13 +190,13 @@ export class GameTypes {
     static readonly BEDX = new BedGameType("BEDX", 'BedWars:DoubleFun', 'TEAM');
     static readonly BED  = new GameType("BED").addSubType(GameTypes.BEDS).addSubType(GameTypes.BEDD).addSubType(GameTypes.BEDT).addSubType(GameTypes.BEDX).addSpecialLeaderboardKey('win_streak');
     static readonly SURV = new GameType("SURV"); // playerGameInfo missing
-    static readonly ARCADE_SHUFFLE = new GameType("ARCADE_SHUFFLE", "Arcade Shuffle")
+    static readonly SHU = new GameType("SHU", "Arcade Shuffle")
 
     private static _list : GameType[] = [GameTypes.SG, GameTypes.BP, GameTypes.CAI, GameTypes.CR, GameTypes.DR,
         GameTypes.HB, GameTypes.HERO, GameTypes.HIDE, GameTypes.OITC, GameTypes.SP, GameTypes.TIMV, GameTypes.SKY,
         GameTypes.LAB, GameTypes.DRAW, GameTypes.SLAP, GameTypes.EF, GameTypes.MM, GameTypes.GRAV, GameTypes.RR,
         GameTypes.GNT, GameTypes.GNTM, GameTypes.PMK, GameTypes.BD, GameTypes.SGN, GameTypes.SPL, GameTypes.MIMV,
-        GameTypes.BED, GameTypes.SURV, GameTypes.ARCADE_SHUFFLE];
+        GameTypes.BED, GameTypes.SURV, GameTypes.SHU];
 
     /**
      * updates the list of [[GameType]]s and also the names of the entries that are still in the list
@@ -212,7 +212,7 @@ export class GameTypes {
                     return new GameType(id, name.toString())
                 }
             }));
-        GameTypes._list.push(this.ARCADE_SHUFFLE)
+        GameTypes._list.push(this.SHU)
     }
 
     /**
