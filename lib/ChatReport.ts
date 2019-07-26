@@ -45,7 +45,6 @@ export class ChatReportFactory implements FromResponseFactory<ChatReport>{
                     message
                 } = unparsedMessage.match(MESSAGE_PARSE_REGEX).groups
 
-                console.log(new Date(parseInt(year, 10), parseInt(month, 10) - 1, parseInt(day, 10), parseInt(hour, 10), parseInt(minute, 10), parseInt(second, 10)))
                 return new ChatMessage(
                     new Player(name),
                     message,
