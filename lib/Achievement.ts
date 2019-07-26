@@ -179,6 +179,8 @@ export function theSwarmGameToGameType(name: string): GameType{
             return GameTypes.HB;
         case "cranked":
             return GameTypes.CR;
+        case "arcade shuffle":
+            return GameTypes.ARCADE_SHUFFLE;
         default:
             // test by the name and id
             let matchingTypes = GameTypes.list
