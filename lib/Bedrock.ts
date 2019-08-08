@@ -5,6 +5,7 @@ export namespace Bedrock {
     MURDER_MYSTERY = 'murder',
     DEATH_RUN = 'dr',
     TREASURE_WARS = 'wars',
+    SURVIVAL_GAMES = 'sg'
   }
 
   export enum Month {
@@ -54,6 +55,13 @@ export namespace Bedrock {
     murderer_eliminations: number
   }
 
+  export type SurvivalGamesLeaderboardEntry = LeaderboardEntry & {
+    crates: number,
+    deathmatches: number,
+    cows: number,
+    kills: number
+  }
+
   export type Uuid = string
   export type Name = string
   export type Player = Name | Uuid
@@ -79,6 +87,8 @@ export namespace Bedrock {
   export function monthlyLeaderboard(game: GameType.MURDER_MYSTERY, year: number, month: Month, maxCacheAge?: number): Promise<MurderMysteryLeaderboardEntry[]>
   export function monthlyLeaderboard(game: GameType.DEATH_RUN): Promise<DeathRunLeaderboardEntry[]>
   export function monthlyLeaderboard(game: GameType.DEATH_RUN, year: number, month: Month, maxCacheAge?: number): Promise<DeathRunLeaderboardEntry[]>
+  export function monthlyLeaderboard(game: GameType.SURVIVAL_GAMES): Promise<SurvivalGamesLeaderboardEntry[]>
+  export function monthlyLeaderboard(game: GameType.SURVIVAL_GAMES, year: number, month: Month, maxCacheAge?: number): Promise<SurvivalGamesLeaderboardEntry[]>
   export async function monthlyLeaderboard(game: GameType, year: number = 60 * 60 * 1000, month: Month = null, maxCacheAge: number = 60 * 60 * 1000): Promise<LeaderboardEntry[]> {
     return fetch(Methods.MONTHLY_LEADERBOARD(game, year, month), maxCacheAge);
   }
@@ -86,6 +96,7 @@ export namespace Bedrock {
   export function playerMonthly(game: GameType.TREASURE_WARS, player: Player, maxCacheAge?: number): Promise<TreasureWarsLeaderboardEntry>
   export function playerMonthly(game: GameType.MURDER_MYSTERY, player: Player, maxCacheAge?: number): Promise<MurderMysteryLeaderboardEntry>
   export function playerMonthly(game: GameType.DEATH_RUN, player: Player, maxCacheAge?: number): Promise<DeathRunLeaderboardEntry>
+  export function playerMonthly(game: GameType.SURVIVAL_GAMES, player: Player, maxCacheAge?: number): Promise<SurvivalGamesLeaderboardEntry>
   export async function playerMonthly(game: GameType, player: Player, maxCacheAge: number = 60 * 60 * 1000): Promise<LeaderboardEntry> {
     return fetch(Methods.PLAYER_MONTHLY(game, player), maxCacheAge);
   }
