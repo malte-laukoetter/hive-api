@@ -1,7 +1,7 @@
 import { fetch, Methods, Player } from './main';
 
 export class Rank {
-  constructor(readonly id: number, readonly name: string, readonly humanName: string, readonly legacyId: number = -1){}
+  constructor(readonly id: number, readonly name: string, readonly humanName: string, readonly colorCode: string = '', readonly legacyId: number = -1){}
 
   /**
    * lists the players that have the rank
@@ -49,22 +49,22 @@ export class Rank {
 }
 
 export class Ranks {
-  static readonly REGULAR        = new Rank(0, "REGULAR",         "Regular", 0);
-  static readonly GOLD           = new Rank(10, "GOLD",           "Gold Premium", 1);
-  static readonly DIAMOND        = new Rank(20, "DIAMOND",        "Diamond Premium", 2);
-  static readonly EMERALD        = new Rank(30, "EMERALD",        "Emerald Premium", 3);
-  static readonly ULTIMATE       = new Rank(40, "ULTIMATE",       "Ultimate Premium");
-  static readonly VIP            = new Rank(50, "VIP",            "VIP", 4);
-  static readonly YOUTUBER       = new Rank(51, "YOUTUBER",       "YouTuber");
-  static readonly STREAMER       = new Rank(52, "STREAMER",       "Streamer");
-  static readonly CONTRIBUTOR    = new Rank(53, "CONTRIBUTOR",    "Contributor");
-  static readonly NECTAR         = new Rank(54, "NECTAR",         "Team Nectar");
+  static readonly REGULAR        = new Rank(0, "REGULAR",         "Regular", "&9", 0);
+  static readonly GOLD           = new Rank(10, "GOLD",           "Gold Premium", "&6", 1);
+  static readonly DIAMOND        = new Rank(20, "DIAMOND",        "Diamond Premium", "&b", 2);
+  static readonly EMERALD        = new Rank(30, "EMERALD",        "Emerald Premium", "&a", 3);
+  static readonly ULTIMATE       = new Rank(40, "ULTIMATE",       "Ultimate Premium", "&d");
+  static readonly VIP            = new Rank(50, "VIP",            "VIP", "&5", 4);
+  static readonly YOUTUBER       = new Rank(51, "YOUTUBER",       "YouTuber", "&5");
+  static readonly STREAMER       = new Rank(52, "STREAMER",       "Streamer", "&5");
+  static readonly CONTRIBUTOR    = new Rank(53, "CONTRIBUTOR",    "Contributor", "&5");
+  static readonly NECTAR         = new Rank(54, "NECTAR",         "Team Nectar", "&5");
   static readonly RESERVED_STAFF = new Rank(60, "RESERVED_STAFF", "Reserved Staff");
-  static readonly MODERATOR      = new Rank(70, "MODERATOR",      "Moderator", 5);
-  static readonly SRMODERATOR    = new Rank(80, "SRMODERATOR",    "Senior Moderator", 6);
-  static readonly STAFFMANAGER   = new Rank(81, "STAFFMANAGER",   "Staff Manager");
-  static readonly DEVELOPER      = new Rank(90, "DEVELOPER",      "Developer", 7);
-  static readonly OWNER          = new Rank(100, "OWNER",         "Owner", 8);
+  static readonly MODERATOR      = new Rank(70, "MODERATOR",      "Moderator", '&c', 5);
+  static readonly SRMODERATOR    = new Rank(80, "SRMODERATOR",    "Senior Moderator",'&4', 6);
+  static readonly STAFFMANAGER   = new Rank(81, "STAFFMANAGER",   "Staff Manager", "&4");
+  static readonly DEVELOPER      = new Rank(90, "DEVELOPER",      "Developer", '&8', 7);
+  static readonly OWNER          = new Rank(100, "OWNER",         "Owner", '&e', 8);
 
   private static _list: Rank[] = [
     Ranks.REGULAR, Ranks.GOLD, Ranks.DIAMOND, Ranks.EMERALD, Ranks.ULTIMATE, Ranks.VIP, Ranks.YOUTUBER, Ranks.STREAMER,
