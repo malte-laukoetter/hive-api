@@ -158,45 +158,46 @@ export class BedGameType extends GameType {
  * calling of the [[GameTypes#update]] method.
  */
 export class GameTypes {
-    static readonly SG   = new GameType("SG");
-    static readonly BP   = new GameType("BP");
-    static readonly CAI  = new GameType("CAI");
-    static readonly CR   = new GameType("CR");
-    static readonly DR   = new GameType("DR");
-    static readonly HB   = new GameType("HB");
-    static readonly HERO = new GameType("HERO");
-    static readonly HIDE = new GameType("HIDE");
-    static readonly OITC = new GameType("OITC");
-    static readonly SP   = new GameType("SP");
-    static readonly TIMV = new GameType("TIMV");
-    static readonly SKY  = new GameType("SKY");
-    static readonly LAB  = new GameType("LAB");
-    static readonly DRAW = new GameType("DRAW");
-    static readonly SLAP = new GameType("SLAP");
-    static readonly EF   = new GameType("EF");
-    static readonly MM   = new GameType("MM");
-    static readonly GRAV = new GameType("GRAV");
-    static readonly RR   = new GameType("RR");
-    static readonly GNT  = new GameType("GNT");
-    static readonly GNTM = new GameType("GNTM");
-    static readonly PMK  = new GameType("PMK");
-    static readonly SGN  = new GameType("SGN");
-    static readonly BD   = new GameType("BD");
-    static readonly SPL  = new GameType("SPL");
-    static readonly MIMV = new GameType("MIMV");
+    static readonly SG   = new GameType("SG", "Survival Games");
+    static readonly BP   = new GameType("BP", "BlockParty");
+    static readonly CAI  = new GameType("CAI", "Cowboys and Indians");
+    static readonly CR   = new GameType("CR", "Cranked");
+    static readonly DR   = new GameType("DR", "DeathRun");
+    static readonly HB   = new GameType("HB", "The Herobrine");
+    static readonly HERO = new GameType("HERO", "SG:Heroes");
+    static readonly HIDE = new GameType("HIDE", "Hide and Seek");
+    static readonly OITC = new GameType("OITC", "One in the Chamber");
+    static readonly SP   = new GameType("SP", "Splegg");
+    static readonly TIMV = new GameType("TIMV", "Trouble in Mineville");
+    static readonly SKY  = new GameType("SKY", "SkyWars");
+    static readonly LAB  = new GameType("LAB", "The Lab");
+    static readonly DRAW = new GameType("DRAW", "Draw It");
+    static readonly SLAP = new GameType("SLAP", "Slaparoo");
+    static readonly EF   = new GameType("EF", "Electric Floor");
+    static readonly MM   = new GameType("MM", "Music Masters");
+    static readonly GRAV = new GameType("GRAV", "Gravity");
+    static readonly RR   = new GameType("RR", "Restaurant Rush");
+    static readonly GNT  = new GameType("GNT", "SkyGiants");
+    static readonly GNTM = new GameType("GNTM", "SkyGiants: Mini");
+    static readonly PMK  = new GameType("PMK", "Pumpkinfection");
+    static readonly SGN  = new GameType("SGN", "Survival Games 2");
+    static readonly BD   = new GameType("BD", "BatteryDash");
+    static readonly SPL  = new GameType("SPL", "Sploop");
+    static readonly MIMV = new GameType("MIMV", "Murder in Mineville");
     static readonly BEDS = new BedGameType("BEDS", 'BedWars:Solo', 'SOLO');
     static readonly BEDD = new BedGameType("BEDD", 'BedWars:Duos', 'TEAM');
     static readonly BEDT = new BedGameType("BEDT", 'BedWars:Teams', '4');
     static readonly BEDX = new BedGameType("BEDX", 'BedWars:DoubleFun', 'TEAM');
-    static readonly BED  = new GameType("BED").addSubType(GameTypes.BEDS).addSubType(GameTypes.BEDD).addSubType(GameTypes.BEDT).addSubType(GameTypes.BEDX).addSpecialLeaderboardKey('win_streak');
-    static readonly SURV = new GameType("SURV"); // playerGameInfo missing
-    static readonly SHU = new GameType("SHU", "Arcade Shuffle")
+    static readonly BED  = new GameType("BED", "BedWars").addSubType(GameTypes.BEDS).addSubType(GameTypes.BEDD).addSubType(GameTypes.BEDT).addSubType(GameTypes.BEDX).addSpecialLeaderboardKey('win_streak');
+    static readonly SURV = new GameType("SURV", "Survive the Night"); // playerGameInfo missing
+    static readonly EE   = new GameType("EE", "Explosive Eggs") // playerGameInfo missing
+    static readonly SHU = new GameType("SHU", "Arcade Shuffle") // not in api
 
     private static _list : GameType[] = [GameTypes.SG, GameTypes.BP, GameTypes.CAI, GameTypes.CR, GameTypes.DR,
         GameTypes.HB, GameTypes.HERO, GameTypes.HIDE, GameTypes.OITC, GameTypes.SP, GameTypes.TIMV, GameTypes.SKY,
         GameTypes.LAB, GameTypes.DRAW, GameTypes.SLAP, GameTypes.EF, GameTypes.MM, GameTypes.GRAV, GameTypes.RR,
         GameTypes.GNT, GameTypes.GNTM, GameTypes.PMK, GameTypes.BD, GameTypes.SGN, GameTypes.SPL, GameTypes.MIMV,
-        GameTypes.BED, GameTypes.SURV, GameTypes.SHU];
+        GameTypes.BED, GameTypes.SURV, GameTypes.EE, GameTypes.SHU];
 
     /**
      * updates the list of [[GameType]]s and also the names of the entries that are still in the list
