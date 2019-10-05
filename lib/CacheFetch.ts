@@ -1,9 +1,8 @@
-import original_fetch from 'node-fetch';
-
 let cache: Map<string, [Promise<any>, Date]> = new Map();
 let outstandingRequests: Map<string, [()=>any, ()=>any, boolean]> = new Map();
 let minTimeBetweenRequests = 500;
 let currentInterval = null;
+let original_fetch = window && window.fetch ? Promise.resolve(window.fetch) : import(/* webpackIgnore: true */ 'node-fetch')
 
 /**
  * the minimum time between two requests to a webservice in ms
@@ -19,7 +18,9 @@ export function setMinTimeBetweenRequests(time: number){
         if(!iter.done){
             let [request, [resolve, reject, json]] = iter.value;
 
-            original_fetch(request).then(res => json?res.json():res.text()).then(resolve).catch(reject);
+            original_fetch.then(fetch => {
+                fetch.then(res => json?res.json():res.text()).then(resolve).catch(reject);
+            })
 
             outstandingRequests.delete(request);
         }
