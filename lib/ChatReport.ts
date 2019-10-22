@@ -12,7 +12,7 @@ export class ChatReport {
     }
 }
 
-const MESSAGE_PARSE_REGEX = /\[(?<day>\d\d)\/(?<month>\d\d)\/(?<year>\d\d\d\d) (?<hour>\d\d):(?<minute>\d\d):(?<second>\d\d)]  (?<name>[a-zA-Z0-9_]+): (?<message>.*)/
+const MESSAGE_PARSE_REGEX = '\[(?<day>\d\d)\/(?<month>\d\d)\/(?<year>\d\d\d\d) (?<hour>\d\d):(?<minute>\d\d):(?<second>\d\d)]  (?<name>[a-zA-Z0-9_]+): (?<message>.*)'
 
 export class ChatReportFactory implements FromResponseFactory<ChatReport>{
     private _player: Player = null;
@@ -43,7 +43,7 @@ export class ChatReportFactory implements FromResponseFactory<ChatReport>{
                     hour, minute, second,
                     name,
                     message
-                } = unparsedMessage.match(MESSAGE_PARSE_REGEX).groups
+                } = unparsedMessage.match(new RegExp(MESSAGE_PARSE_REGEX)).groups
 
                 return new ChatMessage(
                     new Player(name),
