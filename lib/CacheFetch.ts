@@ -5,8 +5,6 @@ let currentInterval = null;
 
 let original_fetch = this.window && window.fetch ? Promise.resolve(window.fetch) : import(/* webpackIgnore: true */ 'node-fetch')
 
-console.log(original_fetch)
-
 /**
  * the minimum time between two requests to a webservice in ms
  */
