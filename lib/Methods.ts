@@ -141,9 +141,4 @@ export class Methods {
      * url for a list of the staff members
      */
     static BP_SERVER = (uuid: string) => `https://hivemc.com/ajax/getblockpartyserver/${uuid}`;
-
-    /**
-     * url for a list of the staff members
-     */
-    static NECTAR_TEAM = () => `https://www.teamnectar.net/our-team/`;
 }

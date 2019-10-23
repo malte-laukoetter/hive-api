@@ -9,11 +9,6 @@ export class Rank {
    * only works for certain staff ranks and team nectar based on the team nectar website
    */
   listPlayers(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<Player[]>{
-    // we have a (hacky) way for nectar members
-    if(this.id === Ranks.NECTAR.id){
-      return Rank.listNectarPlayers();
-    }
-
     const legacyIdsOnStaffPage = [5,6,7,8];
     
     if (legacyIdsOnStaffPage.indexOf(this.legacyId) == -1) throw new Error(`The rank ${this.name} (${this.id}) is not supported by the listPlayers function`);
@@ -31,20 +26,6 @@ export class Rank {
     return fetch(Methods.STAFF_LIST(), maxCacheAge)
       .then(res => res[legacyId])
       .then(res => res.map(a => new Player(a)));
-  }
-
-  /**
-    * get a list of the nectar members
-    * @param maxCacheAge maximum age of the cache
-    */
-  private static async listNectarPlayers(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<Player[]> {
-    return fetch(Methods.NECTAR_TEAM(), maxCacheAge, false)
-      .then(res => res.match(/([0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12})(?=\?overlay=true)/g))
-      .then(uuids =>
-        uuids
-          .map(uuid => uuid.replace(/-/g, ''))
-          .map(uuid => new Player(uuid))
-      )
   }
 }
 
