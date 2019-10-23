@@ -63,13 +63,14 @@ export class Ranks {
   static readonly MODERATOR      = new Rank(70, "MODERATOR",      "Moderator", '&c', 5);
   static readonly SRMODERATOR    = new Rank(80, "SRMODERATOR",    "Senior Moderator",'&4', 6);
   static readonly STAFFMANAGER   = new Rank(81, "STAFFMANAGER",   "Staff Manager", "&4");
+  static readonly COMMUNITYMANAGER = new Rank(82, "COMMUNITYMANAGER", "Community Manager", "&4")
   static readonly DEVELOPER      = new Rank(90, "DEVELOPER",      "Developer", '&8', 7);
   static readonly OWNER          = new Rank(100, "OWNER",         "Owner", '&e', 8);
 
   private static _list: Rank[] = [
     Ranks.REGULAR, Ranks.GOLD, Ranks.DIAMOND, Ranks.EMERALD, Ranks.ULTIMATE, Ranks.VIP, Ranks.YOUTUBER, Ranks.STREAMER,
     Ranks.CONTRIBUTOR, Ranks.NECTAR, Ranks.RESERVED_STAFF, Ranks.MODERATOR, Ranks.SRMODERATOR, Ranks.STAFFMANAGER, 
-    Ranks.DEVELOPER, Ranks.OWNER
+    Ranks.COMMUNITYMANAGER, Ranks.DEVELOPER, Ranks.OWNER
   ]
 
   static async update() {
