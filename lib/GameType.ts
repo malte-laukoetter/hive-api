@@ -72,10 +72,17 @@ export class GameType {
         ));
     }
 
-    titles(maxCacheAge: number = 24*60*60*1000): Promise<GameTitle[]>{
-        return fetch(Methods.GAME_TITLES(this.id), maxCacheAge).then(res => Object.values(res).map((title: any) =>
+    async titles(maxCacheAge: number = 24*60*60*1000): Promise<GameTitle[]>{
+        const res = await fetch(Methods.GAME_TITLES(this.id), maxCacheAge)
+
+        const titles = Object.values(res).map((title: any) =>
             new GameTitle(this, title.name, title.required_points, title.human_name, title.plain_name, title.name_group ? title.name_group : undefined)
-        ));
+        );
+
+        // BED top rank is not included by api
+        if (this.id === 'BED') {
+            titles.push(new GameTitle(this, 'ZZZZZZ', -1, '&f&l✹Zzzzzz', '✹Zzzzzz', 'Top Rank'))
+        }
     }
 
     leaderboard(): Leaderboard {
