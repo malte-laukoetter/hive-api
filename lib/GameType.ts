@@ -83,6 +83,8 @@ export class GameType {
         if (this.id === 'BED') {
             titles.push(new GameTitle(this, 'ZZZZZZ', -1, '&f&l✹Zzzzzz', '✹Zzzzzz', 'Top Rank'))
         }
+
+        return titles
     }
 
     leaderboard(): Leaderboard {
@@ -159,6 +161,48 @@ export class BedGameType extends GameType {
     }
 }
 
+
+export class SHU extends GameType {
+    constructor() {
+        super('SHU', 'Arcade Shuffle')
+    }
+
+    async titles(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<GameTitle[]> {
+        return [
+            new GameTitle(this, 'PLAYER', 0, '&7Player', 'Player'),
+            new GameTitle(this, 'FOX', 250, '&6Fox', 'Fox'),
+            new GameTitle(this, 'ZELDA', 1_000, '&dZelda', 'Zelda'),
+            new GameTitle(this, 'CLOUD', 2_000, '&bCloud', 'Cloud'),
+            new GameTitle(this, 'TAILS', 5_000, '&eTails', 'Tails'),
+            new GameTitle(this, 'YOSHI', 7_500, '&aYoshi', 'Yoshi'),
+            new GameTitle(this, 'RYU', 10_000, '&cRyu', 'Ryu'),
+            new GameTitle(this, 'SAMUS', 12_500, '&9Samus', 'Samus'),
+            new GameTitle(this, 'RAYMAN', 15_000, '&5Rayman', 'Rayman'),
+
+            new GameTitle(this, 'CRASH', 50_000, '&l&6Crash', 'Crash'),
+            new GameTitle(this, 'KIRBY', 100_000, '&l&dKirby', 'Kirby'),
+            new GameTitle(this, 'DONKEY_KONG', 150_000, '&l&bDonkey Kong', 'Donkey Kong'),
+            new GameTitle(this, 'PIKACHU', 200_000, '&l&ePikachu', 'Pikachu'),
+            new GameTitle(this, 'LUIGI', 250_000, '&l&aLuigi', 'Luigi'),
+            new GameTitle(this, 'KNUCKLES', 300_000, '&l&cKnuckles', 'Knuckles'),
+            new GameTitle(this, 'SUB_ZERO', 400_000, '&l&9Sub-Zero', 'Sub-Zero'),
+            new GameTitle(this, 'SOLID_SNAKE', 500_000, '&l&5Solid Snake', 'Solid Snake'),
+
+            new GameTitle(this, 'SCORPION', 750_000, '&o&l&6Scorpion', 'Scorpion '),
+            new GameTitle(this, 'PEACH', 1_000_000, '&o&l&dPeach', 'Peach'),
+            new GameTitle(this, 'MEGA_MAN', 1_250_000, '&o&l&bMega Man', 'Mega Man'),
+            new GameTitle(this, 'BOWSER', 1_500_000, '&o&l&eBowser', 'Bowser'),
+            new GameTitle(this, 'LINK', 1_750_000, '&o&l&aLink', 'Link'),
+            new GameTitle(this, 'MARIO', 2_000_000, '&o&l&cMario', 'Mario'),
+            new GameTitle(this, 'SONIC', 2_250_000, '&o&l&9Sonic', 'Sonic'),
+            new GameTitle(this, 'SPYRO', 2_500_000, '&o&l&5Spyro', 'Spyro'),
+
+            new GameTitle(this, 'PAC_MAN', -1, '&l&e✪ Pac-Man', '✪ Pac-Man')
+        ]
+    }
+}
+
+
 /**
  * A completely static class that contains all the [[GameType]]s available on the hive.
  * It has a initial list of the GameTypes available at creation of the file and can be updated from the api through
@@ -198,7 +242,7 @@ export class GameTypes {
     static readonly BED  = new GameType("BED", "BedWars").addSubType(GameTypes.BEDS).addSubType(GameTypes.BEDD).addSubType(GameTypes.BEDT).addSubType(GameTypes.BEDX).addSpecialLeaderboardKey('win_streak');
     static readonly SURV = new GameType("SURV", "Survive the Night"); // playerGameInfo missing
     static readonly EE   = new GameType("EE", "Explosive Eggs") // playerGameInfo missing
-    static readonly SHU = new GameType("SHU", "Arcade Shuffle") // not in api
+    static readonly SHU = new SHU() // not in api
 
     private static _list : GameType[] = [GameTypes.SG, GameTypes.BP, GameTypes.CAI, GameTypes.CR, GameTypes.DR,
         GameTypes.HB, GameTypes.HERO, GameTypes.HIDE, GameTypes.OITC, GameTypes.SP, GameTypes.TIMV, GameTypes.SKY,
