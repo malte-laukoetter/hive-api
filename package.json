@@ -14,6 +14,11 @@
     "node-fetch": "^1.7.3",
     "tslib": "^1.9.3"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/lodash": "^4.14.134",
@@ -26,12 +31,16 @@
     "typescript": "^3.5.1",
     "uglify-es": "^3.3.9",
     "uglify-es-webpack-plugin": "^0.10.0",
-    "webpack": "^3.12.0"
+    "webpack": "^3.12.0",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^2.0.0",
+    "husky": "^3.0.9"
   },
   "scripts": {
     "start": "tsc && node index.js",
     "test": "tsc && mocha build/test/**/*.test.js",
     "build": "tsc",
+    "lint": "prettier --write lib/**/*.ts",
     "docs": "typedoc --mode modules --out docs --name \"Hive-Api-Node\" --target ES6 --mode file --excludeExternals -gaID UA-60277501-9 -gaSite auto -theme typedoctheme lib",
     "docs-full": "typedoc --out docs --name \"Hive-Api-Node\" --target ES6 --mode file --includeDeclarations",
     "prepublishOnly": "npm run build && webpack && npm run docs",

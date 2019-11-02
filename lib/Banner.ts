@@ -1,22 +1,26 @@
-export function createBannerFromString(str){
-  const parts = str.split(',');
-  const name = parts[0].split(' ')[0];
+export function createBannerFromString(str) {
+  const parts = str.split(",");
+  const name = parts[0].split(" ")[0];
 
-  const baseColor = parts[0].split(' ')[1];
+  const baseColor = parts[0].split(" ")[1];
 
-  parts.shift()
+  parts.shift();
 
-  let layers: [BannerLayer, McColor][] = []
+  let layers: [BannerLayer, McColor][] = [];
 
   parts.forEach(ele => {
-    layers.push(ele.split(':'))
+    layers.push(ele.split(":"));
   });
 
   return new Banner(name, baseColor, layers);
 }
 
-export class Banner{
-  constructor(readonly name: string, readonly baseColor: McColor, readonly layers: [BannerLayer, McColor][]){}
+export class Banner {
+  constructor(
+    readonly name: string,
+    readonly baseColor: McColor,
+    readonly layers: [BannerLayer, McColor][]
+  ) {}
 }
 
 export enum McColor {
@@ -39,18 +43,18 @@ export enum McColor {
 }
 
 export enum BannerLayer {
-  FLOWER = 'flo',
-  TRIANGLE_BOTTOM = 'bt',
-  HALF_HORIZONTAL = 'hh',
-  RHOMBUS_MIDDLE = 'mr',
-  CIRCLE_MIDDLE = 'mc',
-  CREEPER = 'cre',
-  SKULL = 'sku',
-  STRIPE_SMALL = 'ss',
-  GRADIENT = 'gra',
-  BRICKS = 'bri',
-  STRIPE_MIDDLE = 'sc',
-  BORDER = 'bo',
-  STRIPE_TOP = 'ts',
-  STRIPE_BOTTOM = 'bts',
+  FLOWER = "flo",
+  TRIANGLE_BOTTOM = "bt",
+  HALF_HORIZONTAL = "hh",
+  RHOMBUS_MIDDLE = "mr",
+  CIRCLE_MIDDLE = "mc",
+  CREEPER = "cre",
+  SKULL = "sku",
+  STRIPE_SMALL = "ss",
+  GRADIENT = "gra",
+  BRICKS = "bri",
+  STRIPE_MIDDLE = "sc",
+  BORDER = "bo",
+  STRIPE_TOP = "ts",
+  STRIPE_BOTTOM = "bts"
 }
