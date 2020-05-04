@@ -57,10 +57,10 @@ export class Ranks {
     "&5"
   );
   static readonly NECTAR = new Rank(54, "NECTAR", "Team Nectar", "&5");
-  static readonly RESERVED_STAFF = new Rank(
+  static readonly HELPER = new Rank(
     60,
-    "RESERVED_STAFF",
-    "Reserved Staff"
+    "HELPER",
+    "Helper"
   );
   static readonly MODERATOR = new Rank(70, "MODERATOR", "Moderator", "&c", 5);
   static readonly SRMODERATOR = new Rank(
@@ -96,7 +96,7 @@ export class Ranks {
     Ranks.STREAMER,
     Ranks.CONTRIBUTOR,
     Ranks.NECTAR,
-    Ranks.RESERVED_STAFF,
+    Ranks.HELPER,
     Ranks.MODERATOR,
     Ranks.SRMODERATOR,
     Ranks.STAFFMANAGER,
