@@ -10,11 +10,13 @@ export class Rank {
   ) {}
 
   /**
-   * lists the players that have the rank
-   *
-   * only works for certain staff ranks and team nectar based on the team nectar website
-   */
-  listPlayers(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<Player[]> {
+  * lists the players that have the rank
+  *
+  * only works for certain staff ranks, HELPERs are included with MODERATORs and STAFFMANAGERs and COMMUNITYMANAGERs with SRMODERATORs.
+  */
+  listPlayers(
+    maxCacheAge: number = 24 * 60 * 60 * 1000
+  ): Promise<Player[]> {
     const legacyIdsOnStaffPage = [5, 6, 7, 8];
 
     if (legacyIdsOnStaffPage.indexOf(this.legacyId) == -1)
@@ -22,22 +24,20 @@ export class Rank {
         `The rank ${this.name} (${this.id}) is not supported by the listPlayers function`
       );
 
-    return fetch(Methods.STAFF_LIST(), maxCacheAge)
-      .then(res => res[this.legacyId])
-      .then(res => res.map(a => new Player(a)));
+    return Rank.listStaffPlayers(this.legacyId, maxCacheAge);
   }
 
   /**
-   * get a list of the staff members of the hive
-   * @param maxCacheAge maximum age of the cache
-   */
+  * get a list of the staff members of the hive
+  * @param maxCacheAge maximum age of the cache
+  */
   private static listStaffPlayers(
     legacyId: number,
     maxCacheAge: number = 24 * 60 * 60 * 1000
   ): Promise<Player[]> {
     return fetch(Methods.STAFF_LIST(), maxCacheAge)
-      .then(res => res[legacyId])
-      .then(res => res.map(a => new Player(a)));
+      .then((res) => res[legacyId])
+      .then((res) => res.map((a) => new Player(a)));
   }
 }
 
@@ -62,6 +62,11 @@ export class Ranks {
     "HELPER",
     "Helper"
   );
+
+  /**
+   * @deprecated
+   */
+  static readonly RESERVED_STAFF = Ranks.HELPER;
   static readonly MODERATOR = new Rank(70, "MODERATOR", "Moderator", "&c", 5);
   static readonly SRMODERATOR = new Rank(
     80,
