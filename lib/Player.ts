@@ -87,7 +87,7 @@ export class Player {
 
   async status(maxCacheAge: number = 1 * 60 * 1000): Promise<PlayerStatus> {
     const res = await fetch(
-      Methods.PLAYER_STATUS_RAW(this.requestUuid),
+      Methods.PLAYER_STATUS(this.requestUuid),
       maxCacheAge
     );
 

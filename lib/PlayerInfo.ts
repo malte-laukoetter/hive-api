@@ -5,7 +5,8 @@ import {
   AchievementTypes,
   createDateFromResponse,
   Rank,
-  Ranks
+  Ranks,
+  PlayerStatus,
 } from "./main";
 import { isNullOrUndefined } from "util";
 
@@ -74,7 +75,7 @@ export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo> {
       .medals(res.medals)
       .crates(res.crates)
       .uuid(res.UUID)
-      .status(res.status)
+      .status(PlayerStatus.fromResponse(res.status))
       .firstLogin(createDateFromResponse(res.firstLogin))
       .lastLogin(createDateFromResponse(res.lastLogin))
       .lastLogout(createDateFromResponse(res.lastLogout))

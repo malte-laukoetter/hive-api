@@ -98,6 +98,7 @@ export class Methods {
   /**
    * url for the current game a player is on
    * @param uuid the uuid or name of the player
+   * @deprecated
    */
   static PLAYER_STATUS_RAW = (uuid: string) =>
     `${Methods.BASE_URL()}/player/${uuid}/status/raw`;
@@ -135,8 +136,9 @@ export class Methods {
 
   /**
    * url for a list of the trophies
+   * @deprecated
    */
-  static TROPHIE_LIST = () => `${Methods.BASE_URL()}/server/trophies`;
+  static TROPHIE_LIST = () => { throw new Error("TROPHIE_LIST is no longer supported") };
 
   /**
    * url for a list of the staff members

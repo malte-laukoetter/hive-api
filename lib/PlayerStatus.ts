@@ -6,6 +6,9 @@ export enum NonGameTypeStatus {
   OFFLINE = "OFFLINE"
 }
 
+/**
+ * @deprecated
+ */
 export enum GameTypeMode {
   SOLO,
   DUO,
@@ -14,16 +17,34 @@ export enum GameTypeMode {
 
 const HUBStati = [NonGameTypeStatus.HUB, NonGameTypeStatus.PREMHUB];
 
+type RawPlayerStatus = {description: string, game: string};
+
 export class PlayerStatus {
-  status: NonGameTypeStatus | GameType;
+  status: NonGameTypeStatus | /** @deprecated */ GameType;
+  raw?: RawPlayerStatus;
+  /**
+   * @deprecated
+   */
   gameTypeMode?: GameTypeMode;
 
+  /** @deprecated */
   constructor(
-    status: NonGameTypeStatus | GameType,
+    status: NonGameTypeStatus |  GameType,
     gameTypeMode?: GameTypeMode
+  )
+  constructor(
+    status: NonGameTypeStatus,
+    raw?: RawPlayerStatus
+  )
+  constructor(
+    status: NonGameTypeStatus |  GameType,
+    raw?: GameTypeMode | RawPlayerStatus
   ) {
     this.status = status;
-    this.gameTypeMode = gameTypeMode;
+    if (typeof raw === "object") {
+      this.raw = raw;
+    }
+    //this.gameTypeMode = gameTypeMode;
   }
 
   isOnline(): boolean {
@@ -38,36 +59,30 @@ export class PlayerStatus {
     return HUBStati.includes(this.status);
   }
 
+  /**
+   * @deprecated
+   */
   isInGame(): boolean {
-    return !!NonGameTypeStatus[status];
+    return false;
   }
 
-  static fromResponse(res: string): PlayerStatus {
-    if (NonGameTypeStatus[res]) {
-      return new PlayerStatus(NonGameTypeStatus[res]);
+  /**
+   * @deprecated
+   */
+  static fromResponse(res: string): PlayerStatus
+  static fromResponse(res: RawPlayerStatus): PlayerStatus
+  static fromResponse(res: string | RawPlayerStatus): PlayerStatus {
+    if (typeof res === 'string') {
+      console.warn("Raw player status handling is deprecated")
+      return new PlayerStatus(NonGameTypeStatus.OFFLINE)
     }
 
-    switch (res) {
-      case "BEDT":
-        return new PlayerStatus(GameTypes.BED, GameTypeMode.TEAMS);
-      case "BEDD":
-        return new PlayerStatus(GameTypes.BED, GameTypeMode.DUO);
-      case "BED":
-        return new PlayerStatus(GameTypes.BED, GameTypeMode.SOLO);
-      case "SKYT":
-        return new PlayerStatus(GameTypes.SKY, GameTypeMode.TEAMS);
-      case "SKYD":
-        return new PlayerStatus(GameTypes.SKY, GameTypeMode.DUO);
-      case "SKY":
-        return new PlayerStatus(GameTypes.SKY, GameTypeMode.SOLO);
+    if (res.description === "Currently hibernating in" && res.game === "the Land of Nods!") {
+      return new PlayerStatus(NonGameTypeStatus.OFFLINE, res);
     }
 
-    let possibleGameType = GameTypes.list.find(gameType => gameType.id === res);
+    console.warn("Unknown PlayerStatus: ", res);
 
-    if (!possibleGameType) {
-      throw new Error(`Unkown Player Status ${res}`);
-    }
-
-    return new PlayerStatus(possibleGameType);
+    return new PlayerStatus(NonGameTypeStatus.OFFLINE, res);
   }
 }
