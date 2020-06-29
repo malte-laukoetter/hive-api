@@ -22,7 +22,7 @@ export class PlayerInfo {
     readonly medals: number,
     readonly credits: number,
     readonly crates: number,
-    readonly status,
+    readonly status: PlayerStatus,
     readonly firstLogin: Date,
     readonly lastLogin: Date,
     readonly lastLogout: Date,
@@ -42,7 +42,7 @@ export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo> {
   private _medals: number = 0;
   private _credits: number = 0;
   private _crates: number = 0;
-  private _status;
+  private _status: PlayerStatus;
   private _firstLogin: Date;
   private _lastLogin: Date;
   private _lastLogout: Date;
@@ -133,7 +133,7 @@ export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo> {
     return this;
   }
 
-  status(status) {
+  status(status: PlayerStatus) {
     this._status = status;
     return this;
   }
