@@ -1,6 +1,6 @@
 {
   "name": "hive-api",
-  "version": "1.13.10",
+  "version": "1.14.0",
   "description": "a wrapper for the hivemc api",
   "main": "./build/lib/main.js",
   "types": "./build/lib/main.d.ts",
