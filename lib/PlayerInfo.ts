@@ -22,6 +22,9 @@ export class PlayerInfo {
     readonly medals: number,
     readonly credits: number,
     readonly crates: number,
+    /**
+     * @deprecated
+     */
     readonly status: PlayerStatus,
     readonly firstLogin: Date,
     readonly lastLogin: Date,
@@ -42,6 +45,9 @@ export class PlayerInfoFactory implements FromResponseFactory<PlayerInfo> {
   private _medals: number = 0;
   private _credits: number = 0;
   private _crates: number = 0;
+  /**
+   * @deprecated
+   */
   private _status: PlayerStatus;
   private _firstLogin: Date;
   private _lastLogin: Date;

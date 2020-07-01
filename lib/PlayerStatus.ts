@@ -1,5 +1,8 @@
 import { GameType, GameTypes } from "./GameType";
 
+/**
+ * @deprecated
+ */
 export enum NonGameTypeStatus {
   HUB = "HUB",
   PREMHUB = "PREMHUB",
@@ -17,11 +20,9 @@ export enum GameTypeMode {
 
 const HUBStati = [NonGameTypeStatus.HUB, NonGameTypeStatus.PREMHUB];
 
-type RawPlayerStatus = {description: string, game: string};
-
+/** @deprecated */
 export class PlayerStatus {
   status: NonGameTypeStatus | /** @deprecated */ GameType;
-  raw?: RawPlayerStatus;
   /**
    * @deprecated
    */
@@ -33,24 +34,23 @@ export class PlayerStatus {
     gameTypeMode?: GameTypeMode
   )
   constructor(
-    status: NonGameTypeStatus,
-    raw?: RawPlayerStatus
-  )
-  constructor(
     status: NonGameTypeStatus |  GameType,
-    raw?: GameTypeMode | RawPlayerStatus
+    gameTypeMode?: GameTypeMode
   ) {
     this.status = status;
-    if (typeof raw === "object") {
-      this.raw = raw;
-    }
-    //this.gameTypeMode = gameTypeMode;
+    this.gameTypeMode = gameTypeMode;
   }
 
+    /**
+   * @deprecated
+   */
   isOnline(): boolean {
     return this.status !== NonGameTypeStatus.OFFLINE;
   }
 
+  /**
+   * @deprecated
+   */
   isInHub(): boolean {
     if (this.status instanceof GameType) {
       return false;
@@ -69,20 +69,7 @@ export class PlayerStatus {
   /**
    * @deprecated
    */
-  static fromResponse(res: string): PlayerStatus
-  static fromResponse(res: RawPlayerStatus): PlayerStatus
-  static fromResponse(res: string | RawPlayerStatus): PlayerStatus {
-    if (typeof res === 'string') {
-      console.warn("Raw player status handling is deprecated")
-      return new PlayerStatus(NonGameTypeStatus.OFFLINE)
-    }
-
-    if (res.description === "Currently hibernating in" && res.game === "the Land of Nods!") {
-      return new PlayerStatus(NonGameTypeStatus.OFFLINE, res);
-    }
-
-    console.warn("Unknown PlayerStatus: ", res);
-
-    return new PlayerStatus(NonGameTypeStatus.OFFLINE, res);
+  static fromResponse(res: string): PlayerStatus {
+    return new PlayerStatus(NonGameTypeStatus.OFFLINE)
   }
 }

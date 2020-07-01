@@ -85,6 +85,10 @@ export class Player {
       });
   }
 
+  
+  /**
+   * @deprecated
+   */
   async status(maxCacheAge: number = 1 * 60 * 1000): Promise<PlayerStatus> {
     const res = await fetch(
       Methods.PLAYER_STATUS(this.requestUuid),
