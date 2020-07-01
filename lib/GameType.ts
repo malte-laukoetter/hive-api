@@ -363,3 +363,12 @@ export class GameTypes {
     return GameTypes._list;
   }
 }
+
+/**
+ * GameTypes of gamemodes that no longer exist
+ */
+export const OLD_GAME_TYPES = [
+  GameTypes.CAI,
+  GameTypes.GNT,
+  GameTypes.GNTM
+]
