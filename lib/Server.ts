@@ -48,7 +48,7 @@ export class Server {
   /**
    * get a list of the team members of the hive
    * @param maxCacheAge maximum age of the cache
-   * @deprecated Use [[Rank#listPlayers]] instead
+   * @deprecated
    */
   static teamMembers(
     maxCacheAge: number = 24 * 60 * 60 * 1000
@@ -64,7 +64,7 @@ export class Server {
   /**
    * get a list of the moderators of the hive
    * @param maxCacheAge maximum age of the cache
-   * @deprecated Use [[Rank#listPlayers]] instead
+   * @deprecated
    */
   static moderators(
     maxCacheAge: number = 24 * 60 * 60 * 1000
@@ -75,7 +75,7 @@ export class Server {
   /**
    * get a list of the senior moderators of the hive
    * @param maxCacheAge maximum age of the cache
-   * @deprecated Use [[Rank#listPlayers]] instead
+   * @deprecated
    */
   static seniorModerators(
     maxCacheAge: number = 24 * 60 * 60 * 1000
@@ -86,7 +86,7 @@ export class Server {
   /**
    * get a list of the developers of the hive
    * @param maxCacheAge maximum age of the cache
-   * @deprecated Use [[Rank#listPlayers]] instead
+   * @deprecated
    */
   static developers(
     maxCacheAge: number = 24 * 60 * 60 * 1000
@@ -97,7 +97,7 @@ export class Server {
   /**
    * get a list of the owners of the hive
    * @param maxCacheAge maximum age of the cache
-   * @deprecated Use [[Rank#listPlayers]] instead
+   * @deprecated
    */
   static owners(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<Player[]> {
     return Ranks.OWNER.listPlayers(maxCacheAge);
@@ -106,7 +106,7 @@ export class Server {
   /**
    * get a list of the nectar members
    * @param maxCacheAge maximum age of the cache
-   * @deprecated Use [[Rank#listPlayers]] instead
+   * @deprecated
    */
   static nectar(maxCacheAge: number = 24 * 60 * 60 * 1000): Promise<Player[]> {
     return Ranks.NECTAR.listPlayers(maxCacheAge);

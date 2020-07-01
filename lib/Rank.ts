@@ -12,32 +12,14 @@ export class Rank {
   /**
   * lists the players that have the rank
   *
-  * only works for certain staff ranks, HELPERs are included with MODERATORs and STAFFMANAGERs and COMMUNITYMANAGERs with SRMODERATORs.
+  * @deprecated
   */
   listPlayers(
     maxCacheAge: number = 24 * 60 * 60 * 1000
   ): Promise<Player[]> {
-    const legacyIdsOnStaffPage = [5, 6, 7, 8];
-
-    if (legacyIdsOnStaffPage.indexOf(this.legacyId) == -1)
-      throw new Error(
-        `The rank ${this.name} (${this.id}) is not supported by the listPlayers function`
-      );
-
-    return Rank.listStaffPlayers(this.legacyId, maxCacheAge);
-  }
-
-  /**
-  * get a list of the staff members of the hive
-  * @param maxCacheAge maximum age of the cache
-  */
-  private static listStaffPlayers(
-    legacyId: number,
-    maxCacheAge: number = 24 * 60 * 60 * 1000
-  ): Promise<Player[]> {
-    return fetch(Methods.STAFF_LIST(), maxCacheAge)
-      .then((res) => res[legacyId])
-      .then((res) => res.map((a) => new Player(a)));
+    throw new Error(
+      `No longer supported`
+    );
   }
 }
 
